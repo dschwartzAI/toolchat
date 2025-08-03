@@ -1,4 +1,4 @@
-import { SelectDropDown, SelectDropDownPop } from '@librechat/client';
+import { SelectDropDown, SelectDropDownPop } from '~/components/ui';
 import type { TModelSelectProps } from '~/common';
 import { cn, cardStyle } from '~/utils/';
 

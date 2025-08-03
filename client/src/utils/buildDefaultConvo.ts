@@ -75,10 +75,11 @@ const buildDefaultConvo = ({
   }
 
   // Ensures agent_id is always defined
-  const agentId = convo?.agent_id ?? '';
+  const agentId = convo?.agent_id ?? conversation?.agent_id ?? '';
   const defaultAgentId = lastConversationSetup?.agent_id ?? '';
-  if (isAgentsEndpoint(endpoint) && !defaultAgentId && agentId) {
-    defaultConvo.agent_id = agentId;
+  if (isAgentsEndpoint(endpoint)) {
+    // Prefer: lastConversationSetup > conversation > convo > hardcoded default
+    defaultConvo.agent_id = defaultAgentId || agentId || 'agent_KVXW88WVte1tcyABlAowy';
   }
 
   defaultConvo.tools = lastConversationSetup?.tools ?? lastSelectedTools ?? defaultConvo.tools;

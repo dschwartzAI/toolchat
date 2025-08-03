@@ -1,18 +1,20 @@
 import { useForm } from 'react-hook-form';
 import React, { useContext, useState } from 'react';
 import { Turnstile } from '@marsidev/react-turnstile';
-import { ThemeContext, Spinner, Button } from '@librechat/client';
-import { useNavigate, useOutletContext, useLocation } from 'react-router-dom';
+import { useNavigate, useOutletContext, useLocation, Link } from 'react-router-dom';
 import { useRegisterUserMutation } from 'librechat-data-provider/react-query';
 import type { TRegisterUser, TError } from 'librechat-data-provider';
+import { useLocalize, TranslationKeys, ThemeContext } from '~/hooks';
+import { useAuthContext } from '~/hooks/AuthContext';
 import type { TLoginLayoutContext } from '~/common';
-import { useLocalize, TranslationKeys } from '~/hooks';
+import { Spinner, Button } from '~/components';
 import { ErrorMessage } from './ErrorMessage';
 
 const Registration: React.FC = () => {
   const navigate = useNavigate();
   const localize = useLocalize();
   const { theme } = useContext(ThemeContext);
+  const { login } = useAuthContext();
   const { startupConfig, startupConfigError, isFetching } = useOutletContext<TLoginLayoutContext>();
 
   const {
@@ -40,20 +42,32 @@ const Registration: React.FC = () => {
     onMutate: () => {
       setIsSubmitting(true);
     },
-    onSuccess: () => {
+    onSuccess: (data: any) => {
       setIsSubmitting(false);
-      setCountdown(3);
-      const timer = setInterval(() => {
-        setCountdown((prevCountdown) => {
-          if (prevCountdown <= 1) {
-            clearInterval(timer);
-            navigate('/c/new', { replace: true });
-            return 0;
-          } else {
-            return prevCountdown - 1;
-          }
-        });
-      }, 1000);
+      
+      // Check if auto-login data is provided
+      if (data?.token && data?.user) {
+        // Store token in localStorage for axios interceptor
+        localStorage.setItem('token', data.token);
+        // Auto-login the user
+        login(data.user, data.token);
+        // Navigate to chat immediately
+        navigate('/c/new', { replace: true });
+      } else {
+        // Email verification required - show countdown
+        setCountdown(3);
+        const timer = setInterval(() => {
+          setCountdown((prevCountdown) => {
+            if (prevCountdown <= 1) {
+              clearInterval(timer);
+              navigate('/login', { replace: true });
+              return 0;
+            } else {
+              return prevCountdown - 1;
+            }
+          });
+        }, 1000);
+      }
     },
     onError: (error: unknown) => {
       setIsSubmitting(false);
@@ -212,13 +226,13 @@ const Registration: React.FC = () => {
 
           <p className="my-4 text-center text-sm font-light text-gray-700 dark:text-white">
             {localize('com_auth_already_have_account')}{' '}
-            <a
-              href="/login"
+            <Link
+              to="/login"
               aria-label="Login"
               className="inline-flex p-1 text-sm font-medium text-green-600 transition-colors hover:text-green-700 dark:text-green-400 dark:hover:text-green-300"
             >
               {localize('com_auth_login')}
-            </a>
+            </Link>
           </p>
         </>
       )}

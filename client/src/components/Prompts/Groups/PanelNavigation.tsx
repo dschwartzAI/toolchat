@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Button, ThemeSelector } from '@librechat/client';
+import { Button, ThemeSelector } from '~/components/ui';
 import { useLocalize } from '~/hooks';
 
 function PanelNavigation({

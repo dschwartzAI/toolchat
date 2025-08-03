@@ -1,7 +1,7 @@
 import { useState, useCallback, useMemo, useEffect } from 'react';
 import debounce from 'lodash/debounce';
-import { useRecoilValue } from 'recoil';
 import { TrashIcon, ArchiveRestore, ArrowUp, ArrowDown, ArrowUpDown } from 'lucide-react';
+import type { ConversationListParams, TConversation } from 'librechat-data-provider';
 import {
   Button,
   OGDialog,
@@ -11,21 +11,18 @@ import {
   Label,
   TooltipAnchor,
   Spinner,
-  DataTable,
-  useToastContext,
-  useMediaQuery,
-} from '@librechat/client';
-import type { ConversationListParams, TConversation } from 'librechat-data-provider';
+} from '~/components';
 import {
   useArchiveConvoMutation,
   useConversationsInfiniteQuery,
   useDeleteConversationMutation,
 } from '~/data-provider';
+import { useLocalize, useMediaQuery } from '~/hooks';
 import { MinimalIcon } from '~/components/Endpoints';
+import DataTable from '~/components/ui/DataTable';
 import { NotificationSeverity } from '~/common';
-import { useLocalize } from '~/hooks';
+import { useToastContext } from '~/Providers';
 import { formatDate } from '~/utils';
-import store from '~/store';
 
 const DEFAULT_PARAMS: ConversationListParams = {
   isArchived: true,
@@ -42,7 +39,7 @@ export default function ArchivedChatsTable({
   const localize = useLocalize();
   const isSmallScreen = useMediaQuery('(max-width: 768px)');
   const { showToast } = useToastContext();
-  const isSearchEnabled = useRecoilValue(store.search);
+
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
   const [queryParams, setQueryParams] = useState<ConversationListParams>(DEFAULT_PARAMS);
   const [deleteConversation, setDeleteConversation] = useState<TConversation | null>(null);
@@ -275,7 +272,6 @@ export default function ArchivedChatsTable({
         isFetchingNextPage={isFetchingNextPage}
         isLoading={isLoading}
         showCheckboxes={false}
-        enableSearch={isSearchEnabled}
       />
 
       <OGDialog open={isDeleteOpen} onOpenChange={onOpenChange}>

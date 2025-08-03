@@ -3,10 +3,10 @@ const axios = require('axios');
 const { v4 } = require('uuid');
 const OpenAI = require('openai');
 const FormData = require('form-data');
-const { ProxyAgent } = require('undici');
 const { tool } = require('@langchain/core/tools');
 const { logAxiosError } = require('@librechat/api');
 const { logger } = require('@librechat/data-schemas');
+const { HttpsProxyAgent } = require('https-proxy-agent');
 const { ContentTypes, EImageOutputType } = require('librechat-data-provider');
 const { getStrategyFunctions } = require('~/server/services/Files/strategies');
 const { extractBaseURL } = require('~/utils');
@@ -189,10 +189,7 @@ function createOpenAIImageTools(fields = {}) {
       }
       const clientConfig = { ...closureConfig };
       if (process.env.PROXY) {
-        const proxyAgent = new ProxyAgent(process.env.PROXY);
-        clientConfig.fetchOptions = {
-          dispatcher: proxyAgent,
-        };
+        clientConfig.httpAgent = new HttpsProxyAgent(process.env.PROXY);
       }
 
       /** @type {OpenAI} */
@@ -338,10 +335,7 @@ Error Message: ${error.message}`);
 
       const clientConfig = { ...closureConfig };
       if (process.env.PROXY) {
-        const proxyAgent = new ProxyAgent(process.env.PROXY);
-        clientConfig.fetchOptions = {
-          dispatcher: proxyAgent,
-        };
+        clientConfig.httpAgent = new HttpsProxyAgent(process.env.PROXY);
       }
 
       const formData = new FormData();
@@ -452,19 +446,6 @@ Error Message: ${error.message}`);
           signal: derivedSignal,
           baseURL,
         };
-
-        if (process.env.PROXY) {
-          try {
-            const url = new URL(process.env.PROXY);
-            axiosConfig.proxy = {
-              host: url.hostname.replace(/^\[|\]$/g, ''),
-              port: url.port ? parseInt(url.port, 10) : undefined,
-              protocol: url.protocol.replace(':', ''),
-            };
-          } catch (error) {
-            logger.error('Error parsing proxy URL:', error);
-          }
-        }
 
         if (process.env.IMAGE_GEN_OAI_AZURE_API_VERSION && process.env.IMAGE_GEN_OAI_BASEURL) {
           axiosConfig.params = {

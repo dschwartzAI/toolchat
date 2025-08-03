@@ -1,16 +1,10 @@
-import React, { useState } from 'react';
 import {
   useRevokeAllUserKeysMutation,
   useRevokeUserKeyMutation,
 } from 'librechat-data-provider/react-query';
-import {
-  OGDialogTemplate,
-  Button,
-  Label,
-  OGDialog,
-  OGDialogTrigger,
-  Spinner,
-} from '@librechat/client';
+import React, { useState } from 'react';
+import { Button, Label, OGDialog, OGDialogTrigger, Spinner } from '~/components';
+import OGDialogTemplate from '~/components/ui/OGDialogTemplate';
 import { useLocalize } from '~/hooks';
 
 export const RevokeKeysButton = ({

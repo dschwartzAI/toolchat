@@ -76,6 +76,17 @@ export default function useContentHandler({ setMessages, getMessages }: TUseCont
         response.content.push(initialResponse.content[0]);
       }
 
+      // Extract text from content array for display
+      if (type === ContentTypes.TEXT && response.content) {
+        const textParts = response.content
+          .filter((p) => p?.type === ContentTypes.TEXT)
+          .map((p) => (typeof p.text === 'string' ? p.text : p.text?.value) || '')
+          .join('');
+        if (textParts) {
+          response.text = textParts;
+        }
+      }
+
       setMessages([...messages, response]);
     },
     [queryClient, getMessages, messageMap, setMessages],

@@ -1,33 +1,20 @@
 import React, { useContext, useCallback } from 'react';
 import Cookies from 'js-cookie';
 import { useRecoilState } from 'recoil';
-import { Dropdown, ThemeContext } from '@librechat/client';
+import { ThemeContext, useLocalize } from '~/hooks';
+import { TourButton } from '~/components/Tour';
 import ArchivedChats from './ArchivedChats';
 import ToggleSwitch from '../ToggleSwitch';
-import { useLocalize } from '~/hooks';
+import { Dropdown } from '~/components';
 import store from '~/store';
 
 const toggleSwitchConfigs = [
-  {
-    stateAtom: store.enableUserMsgMarkdown,
-    localizationKey: 'com_nav_user_msg_markdown',
-    switchId: 'enableUserMsgMarkdown',
-    hoverCardText: undefined,
-    key: 'enableUserMsgMarkdown',
-  },
   {
     stateAtom: store.autoScroll,
     localizationKey: 'com_nav_auto_scroll',
     switchId: 'autoScroll',
     hoverCardText: undefined,
     key: 'autoScroll',
-  },
-  {
-    stateAtom: store.hideSidePanel,
-    localizationKey: 'com_nav_hide_panel',
-    switchId: 'hideSidePanel',
-    hoverCardText: undefined,
-    key: 'hideSidePanel',
   },
 ];
 
@@ -105,8 +92,6 @@ export const LangSelector = ({
     { value: 'nl-NL', label: localize('com_nav_lang_dutch') },
     { value: 'id-ID', label: localize('com_nav_lang_indonesia') },
     { value: 'fi-FI', label: localize('com_nav_lang_finnish') },
-    { value: 'bo', label: localize('com_nav_lang_tibetan') },
-    { value: 'uk-UA', label: localize('com_nav_lang_ukrainian') },
   ];
 
   return (
@@ -172,6 +157,9 @@ function General() {
       ))}
       <div className="pb-3">
         <ArchivedChats />
+      </div>
+      <div className="pb-3">
+        <TourButton variant="outline" className="w-full" />
       </div>
     </div>
   );

@@ -1,0 +1,6 @@
+/* Memories - Hidden for business context */
+
+export default function MemoryViewer() {
+  // Return null to hide the memory viewer while keeping functionality
+  return null;
+}

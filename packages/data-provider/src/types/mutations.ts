@@ -368,13 +368,3 @@ export type TLogoutResponse = {
 };
 
 export type LogoutOptions = MutationOptions<TLogoutResponse, undefined>;
-
-export interface AssistantInitialize {
-  message: string;
-  error?: string;
-}
-
-export interface CancelMCPOAuthResponse {
-  success: boolean;
-  message: string;
-}

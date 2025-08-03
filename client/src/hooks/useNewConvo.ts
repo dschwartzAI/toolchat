@@ -8,6 +8,7 @@ import {
   isParamEndpoint,
   LocalStorageKeys,
   isAssistantsEndpoint,
+  isAgentsEndpoint,
 } from 'librechat-data-provider';
 import { useRecoilState, useRecoilValue, useSetRecoilState, useRecoilCallback } from 'recoil';
 import type {
@@ -54,10 +55,10 @@ const useNewConvo = (index = 0) => {
 
   const { mutateAsync } = useDeleteFilesMutation({
     onSuccess: () => {
-      console.log('Files deleted');
+      // Files deleted successfully
     },
     onError: (error) => {
-      console.log('Error deleting files:', error);
+      // Error deleting files
     },
   });
 
@@ -98,6 +99,7 @@ const useNewConvo = (index = 0) => {
           let defaultEndpoint = getDefaultEndpoint({
             convoSetup: activePreset ?? conversation,
             endpointsConfig,
+            startupConfig,
           });
 
           if (!defaultEndpoint) {
@@ -123,11 +125,18 @@ const useNewConvo = (index = 0) => {
           }
 
           if (!currentAssistantId && isAssistantEndpoint) {
+            // Try to get DarkJK specifically or fall back to stored/first assistant
+            const darkJK = assistants.find((asst) => 
+              asst.name?.toLowerCase().includes('darkjk') || 
+              asst.name?.toLowerCase().includes('dark jk')
+            );
             conversation.assistant_id =
+              darkJK?.id ??
               localStorage.getItem(
                 `${LocalStorageKeys.ASST_ID_PREFIX}${index}${defaultEndpoint}`,
               ) ?? assistants[0]?.id;
           }
+
 
           if (
             currentAssistantId &&
@@ -144,6 +153,26 @@ const useNewConvo = (index = 0) => {
 
           if (currentAssistantId && !isAssistantEndpoint) {
             conversation.assistant_id = undefined;
+          }
+
+          // Handle agents endpoint
+          const isAgentEndpoint = isAgentsEndpoint(defaultEndpoint);
+          const currentAgentId = conversation.agent_id ?? '';
+          
+          if (currentAgentId && !isAgentEndpoint) {
+            conversation.agent_id = undefined;
+          }
+          
+          // Use defaultAgent from config if no agent is selected
+          if (isAgentEndpoint && !currentAgentId && startupConfig?.interface?.defaultAgent) {
+            conversation.agent_id = startupConfig.interface.defaultAgent;
+            // Using defaultAgent from config
+          }
+          
+          // Preserve agent_id when switching to agents endpoint
+          if (isAgentEndpoint && activePreset?.agent_id) {
+            conversation.agent_id = activePreset.agent_id;
+            // Preserving agent_id from preset
           }
 
           const models = modelsConfig?.[defaultEndpoint] ?? [];
@@ -175,6 +204,7 @@ const useNewConvo = (index = 0) => {
           });
         } else {
           logger.log('conversation', 'Setting conversation from `useNewConvo`', conversation);
+          // Setting final conversation
           setConversation(conversation);
         }
         setSubmission({} as TSubmission);
@@ -238,7 +268,11 @@ const useNewConvo = (index = 0) => {
         isParamEndpoint(_preset?.endpoint ?? '', _preset?.endpointType ?? '');
       const template =
         paramEndpoint === true && templateConvoId && templateConvoId === Constants.NEW_CONVO
-          ? { endpoint: _template.endpoint }
+          ? { 
+              endpoint: _template.endpoint,
+              ...(isAgentsEndpoint(_template.endpoint) && _template.agent_id ? { agent_id: _template.agent_id } : {}),
+              ...(isAssistantsEndpoint(_template.endpoint) && _template.assistant_id ? { assistant_id: _template.assistant_id } : {})
+            }
           : _template;
 
       const conversation = {
@@ -249,6 +283,8 @@ const useNewConvo = (index = 0) => {
         createdAt: '',
         updatedAt: '',
       };
+      
+      // Creating new conversation
 
       let preset = _preset;
       const defaultModelSpec = getDefaultModelSpec(startupConfig);

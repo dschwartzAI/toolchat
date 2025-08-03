@@ -11,6 +11,8 @@ export default function useAgentsMap({
   const { data: agentsList = null } = useListAgentsQuery(undefined, {
     select: (res) => mapAgents(res.data),
     enabled: isAuthenticated,
+    refetchOnMount: true,
+    staleTime: 0,
   });
 
   const agents = useMemo<TAgentsMap | undefined>(() => {

@@ -1,11 +1,6 @@
 import React from 'react';
-import {
-  CircleHelpIcon,
-  HoverCard,
-  HoverCardTrigger,
-  HoverCardPortal,
-  HoverCardContent,
-} from '@librechat/client';
+import { HoverCard, HoverCardTrigger, HoverCardPortal, HoverCardContent } from '~/components/ui';
+import { CircleHelpIcon } from '~/components/svg';
 import { useLocalize } from '~/hooks';
 
 const HoverCardSettings = ({ side, text }) => {

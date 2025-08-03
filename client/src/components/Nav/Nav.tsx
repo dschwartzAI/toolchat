@@ -1,24 +1,26 @@
 import { useCallback, useEffect, useState, useMemo, memo, lazy, Suspense, useRef } from 'react';
 import { useRecoilValue } from 'recoil';
-import { useMediaQuery } from '@librechat/client';
 import { PermissionTypes, Permissions } from 'librechat-data-provider';
 import type { ConversationListResponse } from 'librechat-data-provider';
 import type { InfiniteQueryObserverResult } from '@tanstack/react-query';
 import {
   useLocalize,
   useHasAccess,
+  useMediaQuery,
   useAuthContext,
   useLocalStorage,
   useNavScrolling,
+  useAgentsMap,
+  useAssistantsMap,
 } from '~/hooks';
 import { useConversationsInfiniteQuery } from '~/data-provider';
 import { Conversations } from '~/components/Conversations';
 import SearchBar from './SearchBar';
 import NewChat from './NewChat';
+import { Logo } from '~/components/ui';
 import { cn } from '~/utils';
 import store from '~/store';
-
-const BookmarkNav = lazy(() => import('./Bookmarks/BookmarkNav'));
+const TagNav = lazy(() => import('./Tags/TagNav'));
 const AccountSettings = lazy(() => import('./AccountSettings'));
 
 const NAV_WIDTH_DESKTOP = '260px';
@@ -32,12 +34,14 @@ const NavMask = memo(
       tabIndex={0}
       className={`nav-mask transition-opacity duration-200 ease-in-out ${navVisible ? 'active opacity-100' : 'opacity-0'}`}
       onClick={toggleNavVisible}
+      onTouchEnd={toggleNavVisible}
       onKeyDown={(e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           toggleNavVisible();
         }
       }}
       aria-label="Toggle navigation"
+      aria-hidden={!navVisible}
     />
   ),
 );
@@ -66,7 +70,19 @@ const Nav = memo(
       permission: Permissions.USE,
     });
 
+    const hasAccessToMultiConvo = useHasAccess({
+      permissionType: PermissionTypes.MULTI_CONVO,
+      permission: Permissions.USE,
+    });
+
     const search = useRecoilValue(store.search);
+    
+    // Fetch agent and assistant data for avatar display
+    const agentMap = useAgentsMap({ isAuthenticated });
+    const assistantMap = useAssistantsMap({ isAuthenticated });
+    
+    // Track if initial data is loaded
+    const [isInitialDataLoaded, setIsInitialDataLoaded] = useState(false);
 
     const { data, fetchNextPage, isFetchingNextPage, isLoading, isFetching, refetch } =
       useConversationsInfiniteQuery(
@@ -140,6 +156,13 @@ const Nav = memo(
     useEffect(() => {
       refetch();
     }, [tags, refetch]);
+    
+    // Set initial data loaded when agent/assistant maps are available
+    useEffect(() => {
+      if (isAuthenticated && (agentMap !== undefined || assistantMap !== undefined)) {
+        setIsInitialDataLoaded(true);
+      }
+    }, [isAuthenticated, agentMap, assistantMap]);
 
     const loadMoreConversations = useCallback(() => {
       if (isFetchingNextPage || !computedHasNextPage) {
@@ -160,7 +183,7 @@ const Nav = memo(
           <>
             <div className="mt-1.5" />
             <Suspense fallback={null}>
-              <BookmarkNav tags={tags} setTags={setTags} isSmallScreen={isSmallScreen} />
+              <TagNav tags={tags} setTags={setTags} isSmallScreen={isSmallScreen} />
             </Suspense>
           </>
         ),
@@ -170,6 +193,7 @@ const Nav = memo(
     const [isSearchLoading, setIsSearchLoading] = useState(
       !!search.query && (search.isTyping || isLoading || isFetching),
     );
+
 
     useEffect(() => {
       if (search.isTyping) {
@@ -206,6 +230,9 @@ const Nav = memo(
                     className="flex h-full flex-col px-2 pb-3.5 md:px-3"
                   >
                     <div className="flex flex-1 flex-col" ref={outerContainerRef}>
+                      <div className="px-2 py-3 flex justify-center">
+                        <Logo size="medium" showText={false} />
+                      </div>
                       <MemoNewChat
                         subHeaders={subHeaders}
                         toggleNav={toggleNavVisible}
@@ -220,6 +247,8 @@ const Nav = memo(
                         loadMoreConversations={loadMoreConversations}
                         isLoading={isFetchingNextPage || showLoading || isLoading}
                         isSearchLoading={isSearchLoading}
+                        agentMap={agentMap}
+                        assistantMap={assistantMap}
                       />
                     </div>
                     <Suspense fallback={null}>

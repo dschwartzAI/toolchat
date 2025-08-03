@@ -1,29 +1,26 @@
 import { useCallback, useState, useMemo, useEffect } from 'react';
-import debounce from 'lodash/debounce';
-import { useRecoilValue } from 'recoil';
 import { Link } from 'react-router-dom';
+import debounce from 'lodash/debounce';
 import { TrashIcon, MessageSquare, ArrowUpDown, ArrowUp, ArrowDown } from 'lucide-react';
 import type { SharedLinkItem, SharedLinksListParams } from 'librechat-data-provider';
 import {
   OGDialog,
-  useToastContext,
-  OGDialogTemplate,
   OGDialogTrigger,
   OGDialogContent,
-  useMediaQuery,
   OGDialogHeader,
   OGDialogTitle,
   TooltipAnchor,
-  DataTable,
-  Spinner,
   Button,
   Label,
-} from '@librechat/client';
+  Spinner,
+} from '~/components';
 import { useDeleteSharedLinkMutation, useSharedLinksQuery } from '~/data-provider';
-import { useLocalize } from '~/hooks';
+import OGDialogTemplate from '~/components/ui/OGDialogTemplate';
+import { useLocalize, useMediaQuery } from '~/hooks';
+import DataTable from '~/components/ui/DataTable';
 import { NotificationSeverity } from '~/common';
+import { useToastContext } from '~/Providers';
 import { formatDate } from '~/utils';
-import store from '~/store';
 
 const PAGE_SIZE = 25;
 
@@ -39,7 +36,6 @@ export default function SharedLinks() {
   const localize = useLocalize();
   const { showToast } = useToastContext();
   const isSmallScreen = useMediaQuery('(max-width: 768px)');
-  const isSearchEnabled = useRecoilValue(store.search);
   const [queryParams, setQueryParams] = useState<SharedLinksListParams>(DEFAULT_PARAMS);
   const [deleteRow, setDeleteRow] = useState<SharedLinkItem | null>(null);
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
@@ -312,7 +308,6 @@ export default function SharedLinks() {
             onFilterChange={debouncedFilterChange}
             filterValue={queryParams.search}
             isLoading={isLoading}
-            enableSearch={isSearchEnabled}
           />
         </OGDialogContent>
       </OGDialog>

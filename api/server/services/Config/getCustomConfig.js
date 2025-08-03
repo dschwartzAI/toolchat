@@ -3,6 +3,7 @@ const { isEnabled, getUserMCPAuthMap } = require('@librechat/api');
 const { CacheKeys, EModelEndpoint } = require('librechat-data-provider');
 const { normalizeEndpointName } = require('~/server/utils');
 const loadCustomConfig = require('./loadCustomConfig');
+const { getCachedTools } = require('./getCachedTools');
 const getLogStores = require('~/cache/getLogStores');
 
 /**
@@ -11,8 +12,8 @@ const getLogStores = require('~/cache/getLogStores');
  * @returns {Promise<TCustomConfig | null>}
  * */
 async function getCustomConfig() {
-  const cache = getLogStores(CacheKeys.STATIC_CONFIG);
-  return (await cache.get(CacheKeys.LIBRECHAT_YAML_CONFIG)) || (await loadCustomConfig());
+  const cache = getLogStores(CacheKeys.CONFIG_STORE);
+  return (await cache.get(CacheKeys.CUSTOM_CONFIG)) || (await loadCustomConfig());
 }
 
 /**
@@ -65,9 +66,13 @@ async function getMCPAuthMap({ userId, tools, findPluginAuthsByKeys }) {
     if (!tools || tools.length === 0) {
       return;
     }
+    const appTools = await getCachedTools({
+      userId,
+    });
     return await getUserMCPAuthMap({
       tools,
       userId,
+      appTools,
       findPluginAuthsByKeys,
     });
   } catch (err) {

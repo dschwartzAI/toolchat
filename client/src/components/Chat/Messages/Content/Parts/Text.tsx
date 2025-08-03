@@ -18,7 +18,7 @@ type ContentType =
   | ReactElement;
 
 const TextPart = memo(({ text, isCreatedByUser, showCursor }: TextPartProps) => {
-  const { messageId } = useMessageContext();
+  const { messageId, message } = useMessageContext();
   const { isSubmitting, latestMessage } = useChatContext();
   const enableUserMsgMarkdown = useRecoilValue(store.enableUserMsgMarkdown);
   const showCursorState = useMemo(() => showCursor && isSubmitting, [showCursor, isSubmitting]);
@@ -29,13 +29,13 @@ const TextPart = memo(({ text, isCreatedByUser, showCursor }: TextPartProps) => 
 
   const content: ContentType = useMemo(() => {
     if (!isCreatedByUser) {
-      return <Markdown content={text} isLatestMessage={isLatestMessage} />;
+      return <Markdown content={text} isLatestMessage={isLatestMessage} endpoint={message?.endpoint} />;
     } else if (enableUserMsgMarkdown) {
       return <MarkdownLite content={text} />;
     } else {
       return <>{text}</>;
     }
-  }, [isCreatedByUser, enableUserMsgMarkdown, text, isLatestMessage]);
+  }, [isCreatedByUser, enableUserMsgMarkdown, text, isLatestMessage, message?.endpoint]);
 
   return (
     <div

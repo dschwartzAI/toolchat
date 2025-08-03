@@ -12,7 +12,7 @@ import {
   AnthropicIcon,
   AzureMinimalIcon,
   CustomMinimalIcon,
-} from '@librechat/client';
+} from '~/components/svg';
 import UnknownIcon from '~/hooks/Endpoint/UnknownIcon';
 import { IconProps } from '~/common';
 import { cn } from '~/utils';

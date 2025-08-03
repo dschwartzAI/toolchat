@@ -1,0 +1,777 @@
+# JK Business Frameworks Collection 5
+This file contains 7 business frameworks from James Kemp's methodology.
+
+================================================================================
+
+## FILE: 29_generator_Framework_Complete.txt
+
+---
+title: generator Framework - Complete Guide & onboarding Framework - Complete Guide
+type: frameworks
+source_files: 1d5153d5ffa7b721  # Limit to 5 for readability
+keywords: method, onboarding, framework, generator, system
+token_count: 2981
+duplicates_removed: 0
+generated: 2025-07-07T12:14:59.794968
+---
+
+# generator Framework - Complete Guide & onboarding Framework - Complete Guide
+
+# generator Framework
+
+## Overview
+
+** This chunk addresses the value of accessing all trainings and recordings within a community membership.
+
+## Complete Framework
+
+. because clear beats, cute James Kemp: name and brand your systems. But don't go over the top. James Kemp: and with pricing is there a clear roi? Have you made it easy to get started? And I've done that by giving you the prescriptions of the pricing? James Kemp: And does your price factor in the cost of inaction? Have you just made it really easy to get started as the primary model? And again. this. I'm laboring this because it's a massive failure point. James Kemp: No one wants to watch 54 videos and intend 10 h of calls a week the better the client, and, the more money they have, the less time they have James Kemp: right, because more offers fail because they are indigestible rather than Lane James Kemp: telling people what's in it., all the things they get is more likely to kill demand than enhance it. Again, it's a common failure point that I see in products and offers that people are talking about all the stuff they get. James Kemp: and in and a desire to overwhelm them with value. James Kemp: And it's lazy, because if you have a clear promise and a plan, people don't need to know all the value you you deliver, they just need to get, be clear about it, so they can say yes and get started. James Kemp: So is to get some examples to bring these things together. Your next task is to construct an offer using a simple Google Doc James Kemp: syndicate folks, 95% of you should have one right now. So the reason we use a Google Doc as far as it's fast to create James Kemp: and to share and to modify. And it's most useful to demonstrate James Kemp: by examples. And I've got a template for you here as well. James Kemp: so this is an example from Jason and Janine. James Kemp: and it talks clearly about the promise James Kemp: and the plan. So the promise is. James Kemp: do you want support for me, and my incredible, incredible community can install a system that can can James Kemp: consistently attracts 5 prospects every month, securing at least one high value client every single month on your terms with the visibility you deserve, and without becoming stuck in the frustration of being the best kept secret. James Kemp: so clearly, clearly, clearly articulates what happens right? It uses numbers. It uses currency to clearly say. James Kemp: this is what's going to happen. This is what you get, and these are things you can point at James Kemp: it clearly, says that it's a 12 month program. but then it comes into over the next 6 weeks. James Kemp: and it talks about the plan will develop your client roadmap so you can. So you are faster. James Kemp: So your laser focused on who you work with. And more importantly, they'll want to work with you right? James Kemp: Then we install your product roadmap James Kemp: very clear. No cuteness. Just the client roadmap, the product roadmap, and then the IP generator system. James Kemp: So it's a great example James Kemp: of being very, very clear about the promise and the plan. and again distilling it down and removing any superfluous bits around the core. Right? Everything else in there is a benefit James Kemp: but the core James Kemp: clearly clearly articulated in the promise as something desirable, and the plan that future paces people to go through. James Kemp: This is what sales offers. James Kemp: If someone is clear that those are the things they want, and they agree with the plan. James Kemp: they are very, very, very likely to want to get started when the price meets the expectation. James Kemp: and again the pricing I've given you, will meet the expectation
+
+> "Support to install a system attracting 5 prospects monthly, securing 1 high-value client monthly, on your terms, without being the best-kept secret."
+ Example plan: 
+> "In the first 6 weeks, we'll install the client roadmap, product roadmap, and IP generator system."
+ Modalities: Coaching (discovering answers), consulting (giving answers), mentorship (showing how). I create for my community, coach on weekly calls, consult on WhatsApp, mentor on Zoom. You can sell modalities individually or bundled into products. ## Access to Training and Classroom Content **Summary:** This chunk addresses the value of accessing all trainings and recordings within a community membership. Video Source:* 100k community.txt **Content:** We've added a valuable benefit: access to all my trainings and templates. Many people want a back catalog of resources. As a community member, you get access to every recording and training. This is a key benefit of joining. ## Offer Specificity and Niche Targeting **Summary:** This chunk emphasizes the importance of offer specificity, avoiding trying to be everything to everyone, and targeting a specific niche. Video Source:* 100k community.txt **Content:** Are you clear about your core offer? Have you defined your content, community, and customization? Have you scoped out your promise, plan, and price with a clear ROI? The weakest offers try to be everything to everyone. A clear promise is essential. Have you laid out a plan with unique mechanisms? People buy new things that solve old problems. ## Outreach Templates and Offer Sharpening **Summary:** This chunk discusses providing outreach templates and the importance of sharpening existing offers for better conversion. Video Source:* 100k community.txt **Content:** I'll be providing templates for outreach, including social posts and emails. We'll cover these in detail next week. For now, focus on your offer. Are you working on a new offer or modifying an existing one? Let's sharpen your offer for better results. ## Niche Selection and Offer Clarity **Summary:** This chunk uses a real-world example to illustrate how to refine a niche and create a compelling offer promise. Video Source:* 100k community.txt **Content:** (Ramzi's example of e-commerce sellers wanting to step out of their business) A niche defines the desire in the marketplace. It's a good hypothesis, but not specific enough. What will the outcome look for them? Time freedom, flexibility. Most people don't want those things because they're terrifying. Pre-package a vision for them. 
+> "Helping e-commerce business owners run their business in one day a week"
+ is more specific. 
+> "I'll help you install the 3 systems that allow you to run your e-commerce business in one day a week"
+
+## How to Apply
+
+out of their business) A niche defines the desire in the marketplace. It's a good hypothesis, but not specific enough.
+
+
+
+---
+
+# onboarding Framework
+
+## Overview
+
+The onboarding framework consists of **Membership Name** - Find, **Trial Details** - Find, **Membership Benefits** - Find, **Monthly Pricing** - Find, **Welcome Message** - Find, **Access Instructions** - Find, **Download Links** - Find, **Support Information** - Find, **Confirmation Message** - Find, **Community Access Details** - Find, **Next Steps** - Find, **Bundle Welcome** - Find, **Individual Product Access** - Find, **Implementation Timeline** - Find, **Downsell Offer Name** - Find, **Offer Description** - Find, **Pricing** - Find, **Setup Instructions** - Find, **Resource Links** - Find, **Support Contact** - Find.
+
+## Complete Framework
+
+#### Page 3: Membership Upsell (Sovereign Membership Trial)
+
+**Location:** Third step in funnel **URL Pattern:** `/9-day-trial-sov-template`
+**Elements to Replace:**
+1. **Membership Name** - Find: "Sovereign Membership" or similar - Replace with: Your membership/community name
+2. **Trial Details** - Find: "9 Day Trial" and trial pricing - Replace with: Your trial period and pricing
+3. **Membership Benefits** - Find: List of membership perks - Replace with: Your membership benefits from chat app
+4. **Monthly Pricing** - Find: Regular monthly price after trial - Replace with: Your ongoing membership price
+#### Page 4: Main Product Delivery
+**Location:** Fourth step in funnel **URL Pattern:** `/social-code-training-template`
+**Elements to Replace:**
+1. **Welcome Message** - Find: Congratulations/welcome text - Replace with: Chat app generated welcome message
+2. **Access Instructions** - Find: Steps to access the product - Replace with: Your specific access instructions
+3. **Download Links** - Find: Template download/access links - Replace with: Your actual product links
+4. **Support Information** - Find: Contact details for help - Replace with: Your support contact information
+#### Page 5: Membership Thank You
+**Location:** Fifth step in funnel **URL Pattern:** `/sov-community-ty-template`
+**Elements to Replace:**
+
+1. **Confirmation Message** - Find: Membership confirmation text - Replace with: Your membership welcome message
+2. **Community Access Details** - Find: Instructions for accessing community - Replace with: Your community platform details (Discord, Facebook, etc.)
+3. **Next Steps** - Find: Onboarding instructions - Replace with: Your member onboarding process
+#### Page 6: Bundle Delivery
+**Location:** Sixth step in funnel **URL Pattern:** `/3k-code-social-code-training-template`
+**Elements to Replace:**
+1. **Bundle Welcome** - Find: Bundle delivery message - Replace with: Chat app generated bundle welcome
+2. **Individual Product Access** - Find: Links to each product in bundle - Replace with: Your actual product access links
+3. **Implementation Timeline** - Find: Suggested order/timeline for using products - Replace with: Your recommended implementation plan
+#### Page 7: Community Downsell/Order Bump
+**Location:** Seventh step in funnel **URL Pattern:** `/the-cash-campaign-template`
+**Elements to Replace:**
+1. **Downsell Offer Name** - Find: "Cash Campaign Templates" or similar - Replace with: Your community/downsell offer name
+2. **Offer Description** - Find: What's included in the downsell - Replace with: Your community benefits or downsell product details
+3. **Pricing** - Find: Downsell price
+
+Replace with: Your community/downsell pricing
+#### Page 8: Implementation Guide
+**Location:** Eighth step in funnel **URL Pattern:** `/install-template`
+**Elements to Replace:**
+1. **Setup Instructions** - Find: Template implementation steps - Replace with: Your specific setup/implementation guide
+2. **Resource Links** - Find: Links to tools or resources - Replace with: Your recommended tools and resources
+3. **Support Contact** - Find: Help/support information - Replace with: Your support details
+### Phase 3: Global Elements
+##
+
+## Components
+
+### **Membership Name** - Find
+
+"Sovereign Membership" or similar - Replace with: Your membership/community name
+
+### **Trial Details** - Find
+
+"9 Day Trial" and trial pricing - Replace with: Your trial period and pricing
+
+### **Membership Benefits** - Find
+
+List of membership perks - Replace with: Your membership benefits from chat app
+
+### **Monthly Pricing** - Find
+
+Regular monthly price after trial - Replace with: Your ongoing membership price
+#### Page 4: Main Product Delivery
+**Location:** Fourth step in funnel **URL Pattern:** `/social-code-training-template`
+**Elements to Replace:**
+
+### **Welcome Message** - Find
+
+Congratulations/welcome text - Replace with: Chat app generated welcome message
+
+### **Access Instructions** - Find
+
+Steps to access the product - Replace with: Your specific access instructions
+
+### **Download Links** - Find
+
+Template download/access links - Replace with: Your actual product links
+
+### **Support Information** - Find
+
+Contact details for help - Replace with: Your support contact information
+#### Page 5: Membership Thank You
+**Location:** Fifth step in funnel **URL Pattern:** `/sov-community-ty-template`
+**Elements to Replace:**
+
+### **Confirmation Message** - Find
+
+Membership confirmation text - Replace with: Your membership welcome message
+
+### **Community Access Details** - Find
+
+Instructions for accessing community - Replace with: Your community platform details (Discord, Facebook, etc.)
+
+### **Next Steps** - Find
+
+Onboarding instructions - Replace with: Your member onboarding process
+#### Page 6: Bundle Delivery
+**Location:** Sixth step in funnel **URL Pattern:** `/3k-code-social-code-training-template`
+**Elements to Replace:**
+
+### **Bundle Welcome** - Find
+
+Bundle delivery message - Replace with: Chat app generated bundle welcome
+
+### **Individual Product Access** - Find
+
+Links to each product in bundle - Replace with: Your actual product access links
+
+### **Implementation Timeline** - Find
+
+Suggested order/timeline for using products - Replace with: Your recommended implementation plan
+#### Page 7: Community Downsell/Order Bump
+**Location:** Seventh step in funnel **URL Pattern:** `/the-cash-campaign-template`
+**Elements to Replace:**
+
+### **Downsell Offer Name** - Find
+
+"Cash Campaign Templates" or similar - Replace with: Your community/downsell offer name
+
+### **Offer Description** - Find
+
+What's included in the downsell - Replace with: Your community benefits or downsell product details
+
+### **Pricing** - Find
+
+Downsell price
+
+### **Setup Instructions** - Find
+
+Template implementation steps - Replace with: Your specific setup/implementation guide
+
+### **Resource Links** - Find
+
+Links to tools or resources - Replace with: Your recommended tools and resources
+
+### **Support Contact** - Find
+
+Help/support information - Replace with: Your support details
+### Phase 3: Global Elements
+##
+
+## How to Apply
+
+Timeline** - Find: Suggested order/timeline for using products - Replace with: Your recommended implementation plan
+#### Page 7: Community Downsell/Order Bump
+**Location:** Seventh step in funnel **URL Pattern:** `/the-cash-campaign-template`
+**Elements to Replace:**
+1. **Downsell Offer Name** - Find: "Cash Campaign Templates" or similar - Replace with: Your community/downsell offer name
+2.
+
+
+
+================================================================================
+
+## FILE: 30_nervous_Framework_Complete.txt
+
+---
+title: nervous Framework - Complete Guide & lovely Framework - Complete Guide
+type: frameworks
+source_files: 1d5153d5ffa7b721  # Limit to 5 for readability
+keywords: method, framework, lovely, nervous, system
+token_count: 3270
+duplicates_removed: 0
+generated: 2025-07-07T12:14:59.795053
+---
+
+# nervous Framework - Complete Guide & lovely Framework - Complete Guide
+
+# nervous Framework
+
+## Overview
+
+of something and I barely even look at it.
+
+## Complete Framework
+
+. I, I talked to a mutual friend yesterday and I was, how's the, the, the mastermind going? And he is, oh yeah, two people joined. One of them, has been following me for two years and the other one for three. And I talked about someone who came to Bali a while ago and who hadn't bought a single thing off me but started following me four years ago. Right? Right. And it's, what can you be consistent at and how do you, how do you produce? We have to produce something to put out into the world, but how do you produce, I think, then dictates how you show up and what strategies you use rather than trying to be an imitation of somebody else., it'd be crazy to try and do daily email me if you haven't written every day for half your life, right. When people weren't reading it or weren't watching I was writing. And so by choosing and discerning what you are consistent at and what you can do for a long time, I think, I think forms the choices you make in terms of the strategy because then you then at the end of that, that's amplifying. Yeah. Yeah. I'll, I'll piggyback on that 'cause I think that's really connected to one of the biggest lessons that I've, I've, been thinking about and, and feeling. And you said something that's interesting and I want to challenge it, but you probably will agree as well, which you said, our philosophies on front end products are different, but my philosophy is this, if I did what you did, I'd make more money if I combine that with what I was doing. Right?, moving people to workshops, running workshops regularly, making office consistently, all that totally works. So, so, so philosophy wise, alignment. However, I would sooner want to punch myself in the face than write daily emails. Hmm. And so this is the key thing that I keep thinking about is, it is that true aspect of, everything works and we have to find the thing that feels, what's that saying? It's the thing that feels play to you but looks work to others. Yeah. So I feel that around video, right? I feel really, really light around content creation when I, if I'm allowed to create whatever I want to create, and it just so happens I want to create really often. But if I held myself to a standard, if I have a content calendar and today is, today is pain 0.371, why sales calls, suck., I would, I would quit this business because it feels the business would be telling me what to do. That sounds horrible. And I think there's this really deep sense of something more going on with models where we can talk about it on a surface level perspective of what works or what seems effective. And so, we'll take this for example. Everyone here should have a focus of having something that someone can consume before they get to your offer or your pitch or your sales conversation. You'll make more money the more of your stuff that people consume, right? That's, that's my core, belief around that. However, it has, the way you do it has to feel light to you. And I think, and I'll be interested to know what you think and have observed with this, James. I think there's this whole conversation around the nervous system that most of us are not having, which is that most of us choose models that, that we are choosing because it is the most effective way, right? This is the best funnel of 2025. The problem is, is that it leaves us feeling disregulated, misaligned, everything feels heavy. We feel we are constantly stuck in first gear, can't get momentum because that isn't how we're wired. That isn't what we are here to do
+
+. The problem is, is that it leaves us feeling disregulated, misaligned, everything feels heavy. We feel we are constantly stuck in first gear, can't get momentum because that isn't how we're wired. That isn't what we are here to do. If you are a more creative type, there are so many business models that will absolutely crush you because it'll be, cool, just fill out your numbers 37 times a day and find out what the bottleneck is in the funnel. Where when people ask me what my numbers are, I'm, I have no idea. I get, I get a message from my VA once a week just giving me the summary of something and I barely even look at it. For me, it's much more intuitive. It's more about feeling, it's more about how much I'm enjoying the business. People will ask me, Hey, what you are doing this wait list thing?, is this more effective than this? And I'm, please don't copy me. 'cause I don't care how many clients I get, I'm just optimizing for fun. Talk to me about what you've observed with this, with your own journey coming into this year and the start of this year around this whole idea of, I'm putting words in your mouth, but nervous system, the thing below the thing where it's not this strategy works or this strategy works tuning into what feels best for you. Yeah. I, I make the most money when I'm have the most constraints and said another way I make the most money when I work the least, right? Because the, the non negotiables of I'm gonna turn up on calls three times a week are in, and everything else is, is is vibe in terms of optional. And so that, that the white space enhances the creativity. The creativity. If it's natural and innate and it's emerging, then it's fun. And the more fun it is, the more it's consumed and the more it's consumed, the more people are attracted to it. And the more people are attracted to it, the more people buy stuff. Yeah. Right. There's a question there. What if it feels light? But Maybe I saw that. I was, we gotta go after this Question. it's, i semantics matter a lot and discernment is, def is defining things for yourself and effective is not what James says or what Dan says. It's what is effective for you and what does the, the, the business should serve you. Right? And if it serves you, then it's effective. If it serves you, it probably serves others. And the internet allows us to find who the others are. And this is the, the inversion of the idea of that I, I think the assumption is effective means it makes money, Right? Whereas making money is a byproduct of value creation. And value creation as a byproduct of values and values are a byproduct of alignment of you being aligned with the thing that you're making and then the then this, then it comes at the end. Mm-hmm. Whereas the inversion that most people have is, I'm doing this because it makes money. And so the tightness is the only effective measure is money. Why do I hate it? Well, the the question answers itself because the only effective measure is money, but no value is being created because you don't value it. I'm just closing my window because the boys are just hopping on the trampoline., I think this is a huge lesson because I believe that the worst version of yourself that you can give anyone else is the one of you that's living under obligation. So I want you to really think about this from a pragmatic standpoint for everyone on this call. You follow James and you go, I'm gonna write a daily email because that's what he tells me to do
+
+## How to Apply
+
+See the complete framework description for detailed application guidelines.
+
+
+
+---
+
+# lovely Framework
+
+## Overview
+
+The lovely is a comprehensive framework for business transformation.
+
+## Complete Framework
+
+you can't go straight from broke to meaning you have to make money right you can't be trying to pay the bills and also trying to impact the world it doesn't work you have to so anyway all that it say things happen in sequence so if we're talking about the foundational things and let's talk about someone's first offer yeah because either they're at 10K a month and they only have one offer and it sucks and it's not scalable or it's not attractive or you're at 50k a month and you've been in the game for a while and you've got 17 offers if someone was to come to you and they're going I want to get to 100K a month in a way that's profitable in a way that scales in a way that I but that clients get results all those things what would be that main offer because it might be we can get into the multiple offers you might have an offer stack or a hybrid offer to get to 100K month but what would be that main offer that you would encourage the average person to build out to lay that Foundation to build a seven figure business so the average person everyone needs momentum but the average person needs momentum the most and the thing that gets the most momentum in an offer is around the refining the promise or refining what gets done what's the outcome of going to be that so if you're if you're selling money which is getting someone to 100K a month Etc you need to say that's our goal and that's what we're going to do M if you're selling time then or you're selling better life then you need to be exquisitly clear about how you articulate what the outcome is on the other side because as soon as you can inject the frame of what's going to happen when that person with that person over the next weeks months maybe year then your offer becomes a lot easier to buy because I think we've both said this recently most people have enough leads if you're at if you're at 10K a month you have enough leads to get to 30k a month you just need a refinement around the promise and what you're doing and in many cases it's refining it down to something making small promises that are much easier to keep rather than making bigger and having promise inflation so I always look around what gets done here in the offer what what are they what are they promising you know and metaphorically in terms of sometimes the literal promise I will get you there we can talk about guarantees but I will get you there and this is where we're going and refining that round so it's much more clear so they they see a bump in conversions because most people have enough leads and if you get the promise right then those leads are more likely to convert and it's much more binary well the promise is interesting because I think people often think that the promise is the deliverables right and Promise vs Guarantee they conflate it with a guarantee which is not the same thing of course so my first coaching offer was 1 hour a week for I don't even think I had a minimum I think it was just 1 hour a week and this is the monthly price and it was if anyone interested it was 600 us a month so it was $150 per hour and that was up from the $13 an hour I was getting paid I was I'm rich right but I had no promise I was just we will meet every week for an hour and I will teach you these things and I didn't even have a lovely system it was more oh you're a real estate agent I'll help you get more listings but again the emphasis was on the deliverables and so the best I would argue you did have a promise and my and my lexicon of promises because you you were promising time and attention in a in a predictable amount you were say I will spend an hour a week with you right right so that's a promise yeah of course it's it's not a promise
+
+these things and I didn't even have a lovely system it was more oh you're a real estate agent I'll help you get more listings but again the emphasis was on the deliverables and so the best I would argue you did have a promise and my and my lexicon of promises because you you were promising time and attention in a in a predictable amount you were say I will spend an hour a week with you right right so that's a promise yeah of course it's it's not a promise to say I'll spend an hour hour a week with you and you're going to be a millionaire by next January but the promise is is largely defined on what they get and that's why one-on-one coaching is easier to sell than group coaching because the promise is more easier to Define I will spend time with you yeah so it's more easier to ATT so so help me understand for a second when Dream Outcome you say promise you talking about dream outcome or you talking about the commitment you're making to someone the commitment you're making to someone okay got you I was more thinking coming up from dream outcome that totally makes sense cuz the best metap for I've heard around that is the you don't sound the play trip you sound the destination and as Elementary as that sounds that help helps you sell $1000 programs and $100,000 Consulting deals right and so when you think about that dream outcome aspect how should people be thinking about it whether it's weight loss whether it's anxiety whether it's money whether it's productivity when people are trying to figure out okay whether it's group or oneto one and we'll get to the details in a second yeah what are some of the key things that you think people should be considering when it comes to a dream outcome let's say they're going to sell a 90day 16 weeks not a yearlong not a multi-year thing not a onh hour Consulting deal but a 3 to four month thing what should they be thinking about when it comes to dream outcomes believability because what an underrated or misunderstood thing in the the high ticket space is a lot of people are trying to convey the authority and the confidence in the person who's delivering it whereas in many cases you need to raise the confidence of the buyer much more than you need to raise the confidence of the seller to deliver the result right so smaller smaller promises are easier to keep and that's theistic I always use with clients of many cases I've seen offers triple in conversion by reducing down the the reduce down the number they go from we'll get you 100 qualified calls a month to we'll get you 10 because that the person on the other side of it the 10 is much more relative to where they are now when they're only getting two right so 100 was the thing that didn't convert because it seems it's in Disneyland where it 10 feel something achievable that's a great example because I get cold DM every day and they're we'll get you20 seems to be the new number do you do the numbers on these if you do sh rate close rate we sell a $5,000 you're helping me get to 500,000 a month for $250 a call or some stupid thing but but this is a great point because the first time I ever realized this I had a client called Brian Mark the fitness guy The Promise amazing human in a SE of helping people get to 10K a month that was the promise of all his contemporaries his promise was you're a personal trainer I will help you make $2 to $5,000 a month as an online fitness coach it worked to the tune of a thousand clients for him paying him I think it was $300 $400 month it was a huge lesson for me because 10K it sounds the more obvious thing whatever the bigger numberers if you can confidently say we're going to get you there then surely the bigger numbers I think it's going to help you make more sales but
+
+## How to Apply
+
+See the complete framework description for detailed application guidelines.
+
+
+
+================================================================================
+
+## FILE: 31_creating_Framework_Complete.txt
+
+---
+title: creating Framework - Complete Guide & only the Framework - Complete Guide
+type: frameworks
+source_files: 1d5153d5ffa7b721  # Limit to 5 for readability
+keywords: creating, method, framework, only the, system
+token_count: 3278
+duplicates_removed: 0
+generated: 2025-07-07T12:14:59.795134
+---
+
+# creating Framework - Complete Guide & only the Framework - Complete Guide
+
+# creating Framework
+
+## Overview
+
+The creating is a comprehensive framework for business transformation.
+
+## Complete Framework
+
+but but it's something that you have to work through right you said earlier Simplicity comes through complexity yeah right oftentimes it we have to go through the complex and the hard to get to the simple and the easy yeah so when you launched right circling back you were coaching on e-commerce you're working with slick Sam ovens you're going through his course you said you did a million and 13 months you obviously didn't stay in that Niche although that business model without going through the linear journey of every six months how did it change and what it looked you've evolved tons there has been so many different twists and turns you've you've had the good and the bad I have I'll never forget being a manly and the business that you had then was so radically different and so not a fit for you at that time compared to the business that why hiki James was crushing and cranking 18 months earlier and so when you think about going from e-commerce to the next Market to the next offer obviously there are metrics I don't so much want to focus on the an offer gets tired a funnel gets tired and so we launch something new but what is that Journey looked and felt for you in it was it a reflection of your personal growth was it that you were growing as a human being and all of a sudden the old business model didn't feel it fit what did that what did the evolution of the business models in the last six to eight years look and feel for you autistic no seriously I say it with a smile on my face but I'm a highly sensitive person and so my journey was mimicking the things I was paying attention to or the mentors of the people persons of esteem or authority that I was looking at at the time yeah and then I was just becoming derivatives of them right I'm a successful mimic which is again a challenging place because I was really good at mimicking because I could make it effective by just tweaking it enough to make it my own and then the feedback loop will be successful you can make a million dollars a year great but I topped out at two because I couldn't mimic my way through the next curve because I didn't want to because I was mimicking someone else's life and business model and even probably personality sometimes that wasn't mine right so I capped out because I I was playing a role that I needed to play and then the internet in terms of the the thing that I thought people saw of me of a brand then trapped me in it well I have to keep pretending I really want to do this because I've got people paying me money to play this character on the internet so hindsight it was just mimicry just really successful mimicry and there's a huge benefit to modeling but memory will always run you into the wall because mimicry gets you so close to the person's personality beliefs and those things that it's always going to challenge what you believe and who you really are it's such a subtle but important difference the idea of modeling versus mimicking yeah I was talking to Dylan who runs all of our content and I was dude the things that we're trying to do right now have already been done we don't have to get Innovative and creative and go we're pioneering something it's dude let's look at garyvee let's look at the people that have been way ahead of where we are and let's at least start modeling what they're doing what I'm not saying is let's take their top 10 thumbnails and go these are owls now right I'm just going how do they shoot what angles what does it look how what is that documenting versus creating process look but mimicking is interesting because I I would say I I have have had both past and prison massive dad issues right yeah so I think a lot of coaching for me was Finding guys that held some mentorship place in my life that I could then hook my horse to their carriage and go I'm gonna follow this person I'm going to become more this person
+
+these are owls now right I'm just going how do they shoot what angles what does it look how what is that documenting versus creating process look but mimicking is interesting because I I would say I I have have had both past and prison massive dad issues right yeah so I think a lot of coaching for me was Finding guys that held some mentorship place in my life that I could then hook my horse to their carriage and go I'm gonna follow this person I'm going to become more this person and that served me really well in some instances where I'm I don't think I ever got the blue blazer in the in the New York apartment Sam but but there was that sense of I would listen to how Sam thought or talked and I would go oh I'm too expressive I need to be more thoughtful I need to be more structured he was he was churning out 13 hour days and then planning tomorrow today and doing all these different things and I would try them and it would be wearing someone else's clothes yeah and and yet there's so much value and modeling and so how do you think about it now having gone through the The Good the Bad and the Ugly because you and I still work with coaches and we learn from people I think these days I need to pay people less to get clean from them there are people I've never paid that I listen to their staff or there's a guy called Zane Lowe love is interviews he's in the music space he's mentoring me and away from afar but how do you think about that idea of modeling and mentorship now as opposed to the mimicking you were doing how what's a healthy version of that look for you now this comes back to the reality of my life and the consequences piece which is I'm a full-time dad and I don't have any time so I have to have constraints I have to design from constraints and when you are when you're mimicking you design From Desire or want to be that person or have the things that you perceive them to have I can no longer do that because I have to have constraints of it so I have to design from a place of I need to design my model based on the reality of what I see around me which is my kids and and the other things that are immediately important so it's been a force change that I have to do those things because time is scarce energy is scarce so I have to choose a model which works for me and there is no compromise on that because there's too many consequences of compromising and I think when you mimic there's much less social there's more social because people always find you out right yeah they always go you're just so and so you're just well the market the market doesn't reward you after a time because you're are you them or you this so you just it's it's not good business sense because you end up being everybody else in competition kills the prophets so I think about models now much more from a way of I have to do this and this way to preserve these things because the consequence consequence of me not doing attitude and I think one of the things I've learned is if you take advice the what or the how from someone with a different why you can end up building a business that becomes more a prison and less and less the how often do we see that oh dude this is what's fascinating is that most of the most popular entrepreneurial figures in our space who give the best the seemingly best business advice have completely different goals from the 99 watching them so when you're watching someone who is trying to get into the upper echelon of any human financially in all of history and you're trying to make 10 000 a month they might have great advice but it's coming from a different place and some of that advice is not for you because you have different goals yeah if you're already a millionaire versus a billionaire I don't think people understand the the complete different Stratosphere that lives in I think the stat is well
+
+## How to Apply
+
+See the complete framework description for detailed application guidelines.
+
+
+
+---
+
+# only the Framework
+
+## Overview
+
+The only the is a comprehensive framework for business transformation.
+
+## Complete Framework
+
+how do you do that how do you do that in a way that's applicable to me and and then living there I ran a workshop the other day and it was I started with all the principles I started with how I think about things and where I come from and some very complicated thanks it wasn't hyper tactical and I'm Unapologetic about that they're I want to teach you the principles so you don't need me right I don't want trauma bonds and codependency with clients right if you want to be I got enough of my own I don't need any more of them so so I come from a place of I I don't want you to need me and that I think in terms of paying attention to people who are doing it that way and then paying attention to how I'm doing it and if those things sync up then I'm generally on the right track what and I think it's the reason why we haven't recorded these conversations I think the primary reason is we know that it would slightly distort and dilute some of the things we say and some of the angles we have yeah because there's a performative element in all human nature yeah I'm trying to I'm struggling to get comfortable in this chair I'm I'm normally raising you directly we tumble ideas around and we we know each other's lives very very well in terms of the bigger picture I you won't even hear when I arrived I'm sitting in there chatting to live in the and the boys and those things and checking out the chickens yeah those relationships are they're Priceless and valuable to me because it's I know you yeah I know the I know the business Dan I your posts on Facebook and watch your videos sometimes yeah on double speed yeah there we go but who's the person yeah what are they doing what's their values what do they believe and we're going to change along the way because stuff happens that you never you never see coming well I think this is the interesting piece around this the space that we play in right online coaching Consulting marketing this Creator economy whatever we want to call it we've seen it drastically evolve right you could have a funnel yeah and that was it maybe you would have a few posts on your Facebook page so someone clicked on your ad you didn't look a ghost but we were taught a model that worked really well which was you run an ad to a stranger they click on a landing page the landing page is a big promise you you enter your details you come through the video there's a rags to riches story there's a problem there's a solution there's an invite to a call one in 20 people book the call and then one in five people close yeah right and that can still work to a degree but one of the things that I'm seeing is the era of the personal brand is is upon us it is we're we're content is now a filtering mechanism to go is this my person because in 2016 if you're a consultant struggling with your clients you were desperate for Solutions and there were very few around right Sam Evans pops up in your feeding goes how to get 42 clients in 69 days or whatever it might be I can't remember his hook and it was it was new it was fresh I didn't do how we're going to get clients automated now there are so many people who say the exact same things as us and we think if we just outspend them in ads if we just out funnel them out follow up then we're going to win but the reality is is that people are looking for depth with us I think now because they realize it's it wasn't business to business business to Consumer it's human to human and now that there is ample competition and there's red ocean right it's about now that that saying I heard Kevin Kelly say recently it's don't be the best be the only the model if you always just be the best right it was just how do you make the biggest claim how do you run the best
+
+going to win but the reality is is that people are looking for depth with us I think now because they realize it's it wasn't business to business business to Consumer it's human to human and now that there is ample competition and there's red ocean right it's about now that that saying I heard Kevin Kelly say recently it's don't be the best be the only the model if you always just be the best right it was just how do you make the biggest claim how do you run the best ads and now it's how do you create a connection that no one else can replicate because it's you connecting with someone else yeah and I was talking to a client yesterday and he he sits up really quiet he said the best decision I've made in the last year of my business was hiring you but I hired you different to every other coach you've ever worked with every other coach I worked with was I had a problem and they had a solution I asked myself before I hired you do I want to become more Dan and because I answered yes I've worked with you and it's been amazing because you're taking more more in the direction of the person I want to become not just the I'm a square Pig and that's a square hole and and so I think that's a really fascinating Nuance to this whole conversation because I think there are a lot of creators and consultants and coaches stuck in the old model that if I can just out Market if I can do a launch or a five-day challenge without creating real deep intimacy with the audience they get stuck they can't outspend the fact that the people just don't trust them the way they used to what do you think people should be thinking about whether it's doing a podcast whether it's writing posts on Facebook how do you think about cultivating that sense of a personal brand now as opposed to you you're one funnel away yeah I think something that I've got clients do recently doing is writing intention documents for themselves to to a piece of self-discovery that gets down to what they really want and what is enough and not being shamed around that an industry where everything's seven figures this and seven figures that people coming back with six-figure goals that they internally shame themselves for that despite that being profoundly impactful on them and and have constraints around it right yeah and then in many cases they've shared those intention documents With Their audience people want to know who you're becoming right they want to know where you're going because the true north only now is the person behind it and we've understood that this filter of the Internet is just as as can apply a filter that people can say and and do anything at the time but unless they're unless you're very clear about who you're becoming and who you're following then that same mimic and sensitivity that that I fell victim to in a successful Financial way is going to come to fruition because they they've followed they've already got experience following people that they didn't want to become doing things that they didn't want to do and they were attracted by The Glitz and now they want to know who are you where do you think you're going and I'm okay with you reserving the right to change your mind as long as these basic principles and these these values are are still consistent yeah because that's all people want they just want consistency with those things yeah they don't want the rug pulled from under them say oh it was all a scam and it was all morally ambiguous and they don't really have those values that's why we that's why we look at when people get caught doing things that are underhanded who have a a high moral standing in society we have that look yeah because if you undermine certain values then you can never be trusted again it's funny because again it comes back to that idea of we give people credibility where they haven't earned it based on status yeah this is funny in crypto right it's people were surprised that crypto rug pulls happen yeah and it's you trusted this person because
+
+## How to Apply
+
+See the complete framework description for detailed application guidelines.
+
+
+
+================================================================================
+
+## FILE: 32_marketing_Framework_Complete.txt
+
+---
+title: marketing Framework - Complete Guide & right Framework - Complete Guide
+type: frameworks
+source_files: 1d5153d5ffa7b721  # Limit to 5 for readability
+keywords: method, right, framework, marketing, system
+token_count: 3320
+duplicates_removed: 0
+generated: 2025-07-07T12:14:59.795217
+---
+
+# marketing Framework - Complete Guide & right Framework - Complete Guide
+
+# marketing Framework
+
+## Overview
+
+The marketing is a comprehensive framework for business transformation.
+
+## Complete Framework
+
+. James Kemp: I'm also James Kemp: very open to how they enjoy that and how they experience it, and what value they get from it, and what value they get to the proximity to me about who I am and the people in that world, and those things James Kemp: which is all to say that James Kemp: that an installer and acquisition offer is focused on a specific result. James Kemp: but it can have it can be bundled with a lot of benefits that are incidental that are only discovered when we get into motion. James Kemp: What value James Kemp: to come to the calls Jonathan signed up to the install offer a few weeks ago. He's been on my every single syndicate call. He didn't go. I'm joining that because I've I can join the syndicate and those things James Kemp: he's received the benefits from that, and he's experiencing them, etc. And he's making up his own mind about what it's to be in here. Right? James Kemp: So then, if we just focus on being really specific on the install offer. James Kemp: and we include the other pieces as an experience, then it will just it will unfold. James Kemp: Does that make sense Caroline Carpenter: It does so focus on the result. Let them enjoy what they're gonna enjoy and James Kemp: If you get very attached to, I'm going to sell them on this, and then I'm going to keep them forever. And oh, my God, I'm gonna make so much money it will do neither Caroline Carpenter: Okay. James Kemp: It will, but it James Kemp: it won't deliver the the full spectrum of benefits to both parties, that is, that is available Caroline Carpenter: Okay. Caroline Carpenter: okay. Now, I'm having the conflict of, is it cool that I put my stake in the ground on? Here's what I'm gonna do, and some women are coming with me. But I think that's okay, because I'm not twisting anyone's arm or James Kemp: It's fine. It's I. I enjoy being focused. I enjoy. When someone's James Kemp: I give someone a Google Doc James Kemp: and they go out and they go fucking. James Kemp: Someone bought this is a mind bending experience that I didn't talk to this person. James Kemp: and they sent me a hundred $50, or or those things James Kemp: And when you give someone the experience that's transformation James Kemp: because you don't shift beliefs, the experience does everything you need to then go. James Kemp: Maybe I can do it this way. Maybe it's possible James Kemp: it it introduces some level of faith. James Kemp: Hey, Lana. Lana North: Hello! How are you going James Kemp: Good. Lana North: Good been bubbling away since we spoke about this the other day, and I really think that I've been working on the the change communication recovery accelerator for people. So what I do for context for people is help. Professional leaders who are running change programs to master their communication team engagement so they can deliver the benefits. What? I am Lana North: wondering the the pain point that I'm agitating around is so for a program director who has to go and report to their steering committee, and things are starting to stall or slow down or turn from green to red. That's the pain point that I think is very real for them. What I'm more wondering about is on the Lana North: any recommendations that you have around the Lana North: sales or marketing process before that Lana North: to get people to put up their hand? Because I'm just starting out. I don't have, I have my Linkedin audience, which is 1,100 people. But I don't have a my email list or things that
+
+. That's the pain point that I think is very real for them. What I'm more wondering about is on the Lana North: any recommendations that you have around the Lana North: sales or marketing process before that Lana North: to get people to put up their hand? Because I'm just starting out. I don't have, I have my Linkedin audience, which is 1,100 people. But I don't have a my email list or things that. What would you recommend to get people to put up their hand so that then I can start to have the conversation James Kemp: Yeah. So the the language you just used there was. James Kemp: They're going to the steering committee, and and the project's about to turn from green to red. James Kemp: So there's lots of different ways to message that you could tell a story of projects you've been involved in, that., we're going from green to red, and what happened. James Kemp: and no one likes being chewed out in the in the meeting and etc, etc. And this is the 3rd project that's gone this way. That's, over time and over budget and and all the rest. So there's stories. But the the old pointing finger never fails, which is when you can point to James Kemp: an uncomfortable experience that someone's just had or is about to have. Then you'll have their attention Lana North: Yeah. James Kemp: Because they will be attempting not to repeat that, or they will be attempting to avoid that in the future. Lana North: Yeah. James Kemp: So all the content that you create is, if your project's about to turn from green to red. James Kemp: we can have a conversation. I can show you how to how to get that back on track in 4 weeks. Lana North: Yeah. James Kemp: Because that's an objective measure that is James Kemp: the the most objective measure that you probably have, that there may be others. James Kemp: But that's an objective measure of the experience Lana North: Yeah, I thought in terms of, when we talk about our goal is this is going from orange, orange, or red back to green or staying staying green when it when you're on the cusp of tipping over James Kemp: Yeah. Yeah. And then, over time, you could say, my clients only have green projects. James Kemp:, in terms of communication. And those things that James Kemp: the no more Reds crew is is us. But James Kemp: it's the objective experience that come that that someone has. And we talked about, on the call Lana North: Hmm. James Kemp: The optics inside corporate matter, more than anything. James Kemp: How is the project perceived? To be going is the most important thing. It's much more important than how it's going. But how? What? What picture can you paint for the people that matter which is the people above? You? James Kemp: thing Lana North: Yeah. James Kemp: So the the more you can paint a picture of positivity. James Kemp: the in terms of the objective measure, which is, a green project versus a red one. James Kemp: The more engaged they'll be with that Lana North: Yeah, yeah, okay, that'll that'll make sense. So Lana North: in in terms of moving to a bit more of a tactical point of view, it's still doing the same posting outreach to network, and all of that thing. So anything anything else that works really well that Lana North: I should be considering to open the doors or shine the light on James Kemp: With an install offer. The outreach can be pre assumed, which is. James Kemp: hey? I've got. I've got I've got space to get one project back on track. Thanks, Rennie. I've got pro
+
+## How to Apply
+
+before that Lana North: to get people to put up their hand? Because I'm just starting out. I don't have, I have my Linkedin audience, which is 1,100 people.
+
+
+
+---
+
+# right Framework
+
+## Overview
+
+** James Kemp emphasizes the simplicity of building a million-dollar online business using a single, well-crafted offer within the knowledge economy.
+
+## Complete Framework
+
+- ```txt ## The Power of One: Building a $1M/Year Business with a Single Offer **Summary:** James Kemp emphasizes the simplicity of building a million-dollar online business using a single, well-crafted offer within the knowledge economy. He outlines the path, highlighting the importance of a tight, specific, and minimal offer-driven model. Video Source:* source: 6m Plan.txt **Content:** The path is simple, though not easy: make a promise, define a process with unique mechanisms, create a plan, present the offer, and validate it with sales. This model allows for dynamic, fast iteration using tools Google Docs. Results happen in the marketplace, not from consuming ideas, so creating and testing offers is key. Validation means getting the offer in front of 10 people and making 3 sales. ## Fast and Stable Growth: Balancing Constraints and Flexibility **Summary:** James Kemp discusses the importance of stability for rapid growth, advocating for a balance between constraints and flexibility. He emphasizes the need for underlying principles and frames to navigate uncertainty and ensure results happen *for* you, not *to* you. Video Source:* source: 6m Plan.txt **Content:** The most powerful systems are both fast and stable. To move fast, you need a mix of constraints and flexibility. While certainty is unattainable, having the right frameworks and principles allows you to capitalize on opportunities and solve underlying problems. The initial setup involves defining who you are, what you do, and your target audience. ## Market Selection and Sociological Branding: Prioritizing Your Energy **Summary:** Kemp explains the importance of market selection, advising to be close to money for greater financial success. He contrasts sociological branding (prioritizing your energy and desires) with psychological branding (catering to market demands). Video Source:* source: 6m Plan.txt **Content:** Your market choice significantly impacts your financial results. Being close to money—its creation, discovery, keeping, and transfer—increases earning potential. However, market selection should align with your desires, skills, and market permission. A sociological business prioritizes your energy and interests, attracting -minded individuals through natural polarization. This contrasts with psychological businesses that chase market demands, often becoming chameleons. ## Building Your Brand: Mechanism, Identity, and Transparency **Summary:** Kemp highlights the importance of a unique mechanism, a clear identity, targeted content, and transparency in building a compelling brand. He advises actively repelling those who aren't your ideal clients and focusing on total, honest communication. Video Source:* source: 6m Plan.txt **Content:** Key elements for a successful brand include a unique mechanism, a defined client identity, content showcasing your past, present, and future, and clear messaging that repels those you don't serve. Transparency is crucial in a low-trust environment. Total, honest communication trumps polished copywriting; authenticity attracts the right people. ## Client Value and Power Laws: Maximizing Revenue and Retention **Summary:** Kemp introduces the concept of power laws in client relationships, emphasizing that not all clients are equal. He advocates for focusing on annualized client value and creating an ecosystem that allows clients to find their natural spending level. Video Source:* source: 6m Plan.txt **Content:** Power laws dictate that a small percentage of clients contribute a large percentage of income. Ignoring this leads to diminishing returns and burnout. Focus on annualized client value and create an ecosystem with revenue buckets. This allows clients to naturally ascend to higher value tiers based on their needs and desires for access and speed. ## Cash Velocity and Revenue Volatility: Smoothing the Path to Growth **Summary:** Kemp stresses the importance of lowering revenue volatility to reduce emotional stress and improve business performance. He recommends reverse engineering from your financial goals and incorporating one-time offers to boost cash flow while building recurring revenue. Video Source:* source: 6m Plan
+
+## Components
+
+### ```txt ## The Power of One
+
+Building a $1M/Year Business with a Single Offer **Summary:** James Kemp emphasizes the simplicity of building a million-dollar online business using a single, well-crafted offer within the knowledge economy. He outlines the path, highlighting the importance of a tight, specific, and minimal offer-driven model. Video Source:* source: 6m Plan.txt **Content:** The path is simple, though not easy: make a promise, define a process with unique mechanisms, create a plan, present the offer, and validate it with sales. This model allows for dynamic, fast iteration using tools Google Docs. Results happen in the marketplace, not from consuming ideas, so creating and testing offers is key. Validation means getting the offer in front of 10 people and making 3 sales. ## Fast and Stable Growth: Balancing Constraints and Flexibility **Summary:** James Kemp discusses the importance of stability for rapid growth, advocating for a balance between constraints and flexibility. He emphasizes the need for underlying principles and frames to navigate uncertainty and ensure results happen *for* you, not *to* you. Video Source:* source: 6m Plan.txt **Content:** The most powerful systems are both fast and stable. To move fast, you need a mix of constraints and flexibility. While certainty is unattainable, having the right frameworks and principles allows you to capitalize on opportunities and solve underlying problems. The initial setup involves defining who you are, what you do, and your target audience. ## Market Selection and Sociological Branding: Prioritizing Your Energy **Summary:** Kemp explains the importance of market selection, advising to be close to money for greater financial success. He contrasts sociological branding (prioritizing your energy and desires) with psychological branding (catering to market demands). Video Source:* source: 6m Plan.txt **Content:** Your market choice significantly impacts your financial results. Being close to money—its creation, discovery, keeping, and transfer—increases earning potential. However, market selection should align with your desires, skills, and market permission. A sociological business prioritizes your energy and interests, attracting -minded individuals through natural polarization. This contrasts with psychological businesses that chase market demands, often becoming chameleons. ## Building Your Brand: Mechanism, Identity, and Transparency **Summary:** Kemp highlights the importance of a unique mechanism, a clear identity, targeted content, and transparency in building a compelling brand. He advises actively repelling those who aren't your ideal clients and focusing on total, honest communication. Video Source:* source: 6m Plan.txt **Content:** Key elements for a successful brand include a unique mechanism, a defined client identity, content showcasing your past, present, and future, and clear messaging that repels those you don't serve. Transparency is crucial in a low-trust environment. Total, honest communication trumps polished copywriting; authenticity attracts the right people. ## Client Value and Power Laws: Maximizing Revenue and Retention **Summary:** Kemp introduces the concept of power laws in client relationships, emphasizing that not all clients are equal. He advocates for focusing on annualized client value and creating an ecosystem that allows clients to find their natural spending level. Video Source:* source: 6m Plan.txt **Content:** Power laws dictate that a small percentage of clients contribute a large percentage of income. Ignoring this leads to diminishing returns and burnout. Focus on annualized client value and create an ecosystem with revenue buckets. This allows clients to naturally ascend to higher value tiers based on their needs and desires for access and speed. ## Cash Velocity and Revenue Volatility: Smoothing the Path to Growth **Summary:** Kemp stresses the importance of lowering revenue volatility to reduce emotional stress and improve business performance. He recommends reverse engineering from your financial goals and incorporating one-time offers to boost cash flow while building recurring revenue. Video Source:* source: 6m Plan
+
+## How to Apply
+
+with unique mechanisms, create a plan, present the offer, and validate it with sales. This model allows for dynamic, fast iteration using tools Google Docs.
+
+
+
+================================================================================
+
+## FILE: 33_powerful_Framework_Complete.txt
+
+---
+title: powerful Framework - Complete Guide & most powerful Framework - Complete Guide
+type: frameworks
+source_files: 1d5153d5ffa7b721  # Limit to 5 for readability
+keywords: method, framework, most powerful, system, powerful
+token_count: 3341
+duplicates_removed: 0
+generated: 2025-07-07T12:14:59.795313
+---
+
+# powerful Framework - Complete Guide & most powerful Framework - Complete Guide
+
+# powerful Framework
+
+## Overview
+
+** James Kemp emphasizes the simplicity of building a million-dollar online business using a single, well-crafted offer within the knowledge economy.
+
+## Complete Framework
+
+- ```txt ## The Power of One: Building a $1M/Year Business with a Single Offer **Summary:** James Kemp emphasizes the simplicity of building a million-dollar online business using a single, well-crafted offer within the knowledge economy. He outlines the path, highlighting the importance of a tight, specific, and minimal offer-driven model. Video Source:* source: 6m Plan.txt **Content:** The path is simple, though not easy: make a promise, define a process with unique mechanisms, create a plan, present the offer, and validate it with sales. This model allows for dynamic, fast iteration using tools Google Docs. Results happen in the marketplace, not from consuming ideas, so creating and testing offers is key. Validation means getting the offer in front of 10 people and making 3 sales. ## Fast and Stable Growth: Balancing Constraints and Flexibility **Summary:** James Kemp discusses the importance of stability for rapid growth, advocating for a balance between constraints and flexibility. He emphasizes the need for underlying principles and frames to navigate uncertainty and ensure results happen *for* you, not *to* you. Video Source:* source: 6m Plan.txt **Content:** The most powerful systems are both fast and stable. To move fast, you need a mix of constraints and flexibility. While certainty is unattainable, having the right frameworks and principles allows you to capitalize on opportunities and solve underlying problems. The initial setup involves defining who you are, what you do, and your target audience. ## Market Selection and Sociological Branding: Prioritizing Your Energy **Summary:** Kemp explains the importance of market selection, advising to be close to money for greater financial success. He contrasts sociological branding (prioritizing your energy and desires) with psychological branding (catering to market demands). Video Source:* source: 6m Plan.txt **Content:** Your market choice significantly impacts your financial results. Being close to money—its creation, discovery, keeping, and transfer—increases earning potential. However, market selection should align with your desires, skills, and market permission. A sociological business prioritizes your energy and interests, attracting -minded individuals through natural polarization. This contrasts with psychological businesses that chase market demands, often becoming chameleons. ## Building Your Brand: Mechanism, Identity, and Transparency **Summary:** Kemp highlights the importance of a unique mechanism, a clear identity, targeted content, and transparency in building a compelling brand. He advises actively repelling those who aren't your ideal clients and focusing on total, honest communication. Video Source:* source: 6m Plan.txt **Content:** Key elements for a successful brand include a unique mechanism, a defined client identity, content showcasing your past, present, and future, and clear messaging that repels those you don't serve. Transparency is crucial in a low-trust environment. Total, honest communication trumps polished copywriting; authenticity attracts the right people. ## Client Value and Power Laws: Maximizing Revenue and Retention **Summary:** Kemp introduces the concept of power laws in client relationships, emphasizing that not all clients are equal. He advocates for focusing on annualized client value and creating an ecosystem that allows clients to find their natural spending level. Video Source:* source: 6m Plan.txt **Content:** Power laws dictate that a small percentage of clients contribute a large percentage of income. Ignoring this leads to diminishing returns and burnout. Focus on annualized client value and create an ecosystem with revenue buckets. This allows clients to naturally ascend to higher value tiers based on their needs and desires for access and speed. ## Cash Velocity and Revenue Volatility: Smoothing the Path to Growth **Summary:** Kemp stresses the importance of lowering revenue volatility to reduce emotional stress and improve business performance. He recommends reverse engineering from your financial goals and incorporating one-time offers to boost cash flow while building recurring revenue. Video Source:* source: 6m Plan
+
+## Components
+
+### ```txt ## The Power of One
+
+Building a $1M/Year Business with a Single Offer **Summary:** James Kemp emphasizes the simplicity of building a million-dollar online business using a single, well-crafted offer within the knowledge economy. He outlines the path, highlighting the importance of a tight, specific, and minimal offer-driven model. Video Source:* source: 6m Plan.txt **Content:** The path is simple, though not easy: make a promise, define a process with unique mechanisms, create a plan, present the offer, and validate it with sales. This model allows for dynamic, fast iteration using tools Google Docs. Results happen in the marketplace, not from consuming ideas, so creating and testing offers is key. Validation means getting the offer in front of 10 people and making 3 sales. ## Fast and Stable Growth: Balancing Constraints and Flexibility **Summary:** James Kemp discusses the importance of stability for rapid growth, advocating for a balance between constraints and flexibility. He emphasizes the need for underlying principles and frames to navigate uncertainty and ensure results happen *for* you, not *to* you. Video Source:* source: 6m Plan.txt **Content:** The most powerful systems are both fast and stable. To move fast, you need a mix of constraints and flexibility. While certainty is unattainable, having the right frameworks and principles allows you to capitalize on opportunities and solve underlying problems. The initial setup involves defining who you are, what you do, and your target audience. ## Market Selection and Sociological Branding: Prioritizing Your Energy **Summary:** Kemp explains the importance of market selection, advising to be close to money for greater financial success. He contrasts sociological branding (prioritizing your energy and desires) with psychological branding (catering to market demands). Video Source:* source: 6m Plan.txt **Content:** Your market choice significantly impacts your financial results. Being close to money—its creation, discovery, keeping, and transfer—increases earning potential. However, market selection should align with your desires, skills, and market permission. A sociological business prioritizes your energy and interests, attracting -minded individuals through natural polarization. This contrasts with psychological businesses that chase market demands, often becoming chameleons. ## Building Your Brand: Mechanism, Identity, and Transparency **Summary:** Kemp highlights the importance of a unique mechanism, a clear identity, targeted content, and transparency in building a compelling brand. He advises actively repelling those who aren't your ideal clients and focusing on total, honest communication. Video Source:* source: 6m Plan.txt **Content:** Key elements for a successful brand include a unique mechanism, a defined client identity, content showcasing your past, present, and future, and clear messaging that repels those you don't serve. Transparency is crucial in a low-trust environment. Total, honest communication trumps polished copywriting; authenticity attracts the right people. ## Client Value and Power Laws: Maximizing Revenue and Retention **Summary:** Kemp introduces the concept of power laws in client relationships, emphasizing that not all clients are equal. He advocates for focusing on annualized client value and creating an ecosystem that allows clients to find their natural spending level. Video Source:* source: 6m Plan.txt **Content:** Power laws dictate that a small percentage of clients contribute a large percentage of income. Ignoring this leads to diminishing returns and burnout. Focus on annualized client value and create an ecosystem with revenue buckets. This allows clients to naturally ascend to higher value tiers based on their needs and desires for access and speed. ## Cash Velocity and Revenue Volatility: Smoothing the Path to Growth **Summary:** Kemp stresses the importance of lowering revenue volatility to reduce emotional stress and improve business performance. He recommends reverse engineering from your financial goals and incorporating one-time offers to boost cash flow while building recurring revenue. Video Source:* source: 6m Plan
+
+## How to Apply
+
+with unique mechanisms, create a plan, present the offer, and validate it with sales. This model allows for dynamic, fast iteration using tools Google Docs.
+
+
+
+---
+
+# most powerful Framework
+
+## Overview
+
+** James Kemp emphasizes the simplicity of building a million-dollar online business using a single, well-crafted offer within the knowledge economy.
+
+## Complete Framework
+
+- ```txt ## The Power of One: Building a $1M/Year Business with a Single Offer **Summary:** James Kemp emphasizes the simplicity of building a million-dollar online business using a single, well-crafted offer within the knowledge economy. He outlines the path, highlighting the importance of a tight, specific, and minimal offer-driven model. Video Source:* source: 6m Plan.txt **Content:** The path is simple, though not easy: make a promise, define a process with unique mechanisms, create a plan, present the offer, and validate it with sales. This model allows for dynamic, fast iteration using tools Google Docs. Results happen in the marketplace, not from consuming ideas, so creating and testing offers is key. Validation means getting the offer in front of 10 people and making 3 sales. ## Fast and Stable Growth: Balancing Constraints and Flexibility **Summary:** James Kemp discusses the importance of stability for rapid growth, advocating for a balance between constraints and flexibility. He emphasizes the need for underlying principles and frames to navigate uncertainty and ensure results happen *for* you, not *to* you. Video Source:* source: 6m Plan.txt **Content:** The most powerful systems are both fast and stable. To move fast, you need a mix of constraints and flexibility. While certainty is unattainable, having the right frameworks and principles allows you to capitalize on opportunities and solve underlying problems. The initial setup involves defining who you are, what you do, and your target audience. ## Market Selection and Sociological Branding: Prioritizing Your Energy **Summary:** Kemp explains the importance of market selection, advising to be close to money for greater financial success. He contrasts sociological branding (prioritizing your energy and desires) with psychological branding (catering to market demands). Video Source:* source: 6m Plan.txt **Content:** Your market choice significantly impacts your financial results. Being close to money—its creation, discovery, keeping, and transfer—increases earning potential. However, market selection should align with your desires, skills, and market permission. A sociological business prioritizes your energy and interests, attracting -minded individuals through natural polarization. This contrasts with psychological businesses that chase market demands, often becoming chameleons. ## Building Your Brand: Mechanism, Identity, and Transparency **Summary:** Kemp highlights the importance of a unique mechanism, a clear identity, targeted content, and transparency in building a compelling brand. He advises actively repelling those who aren't your ideal clients and focusing on total, honest communication. Video Source:* source: 6m Plan.txt **Content:** Key elements for a successful brand include a unique mechanism, a defined client identity, content showcasing your past, present, and future, and clear messaging that repels those you don't serve. Transparency is crucial in a low-trust environment. Total, honest communication trumps polished copywriting; authenticity attracts the right people. ## Client Value and Power Laws: Maximizing Revenue and Retention **Summary:** Kemp introduces the concept of power laws in client relationships, emphasizing that not all clients are equal. He advocates for focusing on annualized client value and creating an ecosystem that allows clients to find their natural spending level. Video Source:* source: 6m Plan.txt **Content:** Power laws dictate that a small percentage of clients contribute a large percentage of income. Ignoring this leads to diminishing returns and burnout. Focus on annualized client value and create an ecosystem with revenue buckets. This allows clients to naturally ascend to higher value tiers based on their needs and desires for access and speed. ## Cash Velocity and Revenue Volatility: Smoothing the Path to Growth **Summary:** Kemp stresses the importance of lowering revenue volatility to reduce emotional stress and improve business performance. He recommends reverse engineering from your financial goals and incorporating one-time offers to boost cash flow while building recurring revenue. Video Source:* source: 6m Plan
+
+## Components
+
+### ```txt ## The Power of One
+
+Building a $1M/Year Business with a Single Offer **Summary:** James Kemp emphasizes the simplicity of building a million-dollar online business using a single, well-crafted offer within the knowledge economy. He outlines the path, highlighting the importance of a tight, specific, and minimal offer-driven model. Video Source:* source: 6m Plan.txt **Content:** The path is simple, though not easy: make a promise, define a process with unique mechanisms, create a plan, present the offer, and validate it with sales. This model allows for dynamic, fast iteration using tools Google Docs. Results happen in the marketplace, not from consuming ideas, so creating and testing offers is key. Validation means getting the offer in front of 10 people and making 3 sales. ## Fast and Stable Growth: Balancing Constraints and Flexibility **Summary:** James Kemp discusses the importance of stability for rapid growth, advocating for a balance between constraints and flexibility. He emphasizes the need for underlying principles and frames to navigate uncertainty and ensure results happen *for* you, not *to* you. Video Source:* source: 6m Plan.txt **Content:** The most powerful systems are both fast and stable. To move fast, you need a mix of constraints and flexibility. While certainty is unattainable, having the right frameworks and principles allows you to capitalize on opportunities and solve underlying problems. The initial setup involves defining who you are, what you do, and your target audience. ## Market Selection and Sociological Branding: Prioritizing Your Energy **Summary:** Kemp explains the importance of market selection, advising to be close to money for greater financial success. He contrasts sociological branding (prioritizing your energy and desires) with psychological branding (catering to market demands). Video Source:* source: 6m Plan.txt **Content:** Your market choice significantly impacts your financial results. Being close to money—its creation, discovery, keeping, and transfer—increases earning potential. However, market selection should align with your desires, skills, and market permission. A sociological business prioritizes your energy and interests, attracting -minded individuals through natural polarization. This contrasts with psychological businesses that chase market demands, often becoming chameleons. ## Building Your Brand: Mechanism, Identity, and Transparency **Summary:** Kemp highlights the importance of a unique mechanism, a clear identity, targeted content, and transparency in building a compelling brand. He advises actively repelling those who aren't your ideal clients and focusing on total, honest communication. Video Source:* source: 6m Plan.txt **Content:** Key elements for a successful brand include a unique mechanism, a defined client identity, content showcasing your past, present, and future, and clear messaging that repels those you don't serve. Transparency is crucial in a low-trust environment. Total, honest communication trumps polished copywriting; authenticity attracts the right people. ## Client Value and Power Laws: Maximizing Revenue and Retention **Summary:** Kemp introduces the concept of power laws in client relationships, emphasizing that not all clients are equal. He advocates for focusing on annualized client value and creating an ecosystem that allows clients to find their natural spending level. Video Source:* source: 6m Plan.txt **Content:** Power laws dictate that a small percentage of clients contribute a large percentage of income. Ignoring this leads to diminishing returns and burnout. Focus on annualized client value and create an ecosystem with revenue buckets. This allows clients to naturally ascend to higher value tiers based on their needs and desires for access and speed. ## Cash Velocity and Revenue Volatility: Smoothing the Path to Growth **Summary:** Kemp stresses the importance of lowering revenue volatility to reduce emotional stress and improve business performance. He recommends reverse engineering from your financial goals and incorporating one-time offers to boost cash flow while building recurring revenue. Video Source:* source: 6m Plan
+
+## How to Apply
+
+with unique mechanisms, create a plan, present the offer, and validate it with sales. This model allows for dynamic, fast iteration using tools Google Docs.
+
+
+
+================================================================================
+
+## FILE: 34_$100_Workshop_Framework_Complete.txt
+
+---
+title: $100 Workshop Framework - Complete Guide & iterative Framework - Complete Guide
+type: frameworks
+source_files: 1d5153d5ffa7b721  # Limit to 5 for readability
+keywords: method, framework, iterative, system, $100 workshop
+token_count: 3383
+duplicates_removed: 0
+generated: 2025-07-07T12:14:59.795426
+---
+
+# $100 Workshop Framework - Complete Guide & iterative Framework - Complete Guide
+
+# $100 Workshop Framework
+
+## Overview
+
+The $100 Workshop framework consists of Entry, Value, Upsell.
+
+## Complete Framework
+
+$100 Workshops
+How To Generate Customers, Cashflow and Clients With $100 Workshops
+Workshops Work:
+The simple definition of a workshop is a live call where something gets done.
+Workshops combine information and insight.
+How something is done - information How it can work for an individual attendee - insight
+Where to create from:
+Solve a single problem, deliver a single result ● Clients first, customers second
+[Workshop Calendar - October 2024 Schedule Placeholder]
+The workshops you create are useful for clients. I will reiterate this regularly...
+How to create it:
+
+Magic pills sell in large numbers ● Reminding is more useful than teaching
+The best workshops are self-contained. They give everyone a result no matter if they decide to become clients or not. While tempting to leave something out this manipulation comes back in the future.
+The best clients understand the value of proximity and insight. They get the information in the workshop and
+Most people feel they will be fine with information. The majority will leave and do nothing with it. Some will leave, try to execute it, see it work for them and want more or will see it's harder than it looks and will come back.
+The duality of good workshops is that the more you create for clients the more sales you make to customers who are best fit clients.
+Said another way, the less sales you try and make the more sales you will make.
+The Two Frames
+This Is Part Of Client Delivery:
+"Welcome to our guests, this workshop is for my clients" Allowing people to understand that this workshop is being held as part of your normal delivery allows them to see and imagine a world they might like to be part of.
+Small Part Of Something Larger:
+
+Whether your workshop is demonstration, model or mechanism based it will only cover a small part of your world. Show how it fits into the big picture.
+Eg workshops are one component of the Sovereign Blueprint they work alone but work better when you have a great Client offer.
+The Power Ladder
+The realities of market dynamics can frustrate or be embraced.
+Not everybody is going to buy your stuff. In fact, very few will.
+The key to leverage is identifying who is likely to firstly, buy, then who will make a custom of buying (customer) and who would find further access to you useful (client)
+The Power Ladder™
+Understanding market dynamics and sophistication allows you to meet the right person with the right offer to generate insight for their specific stage of growth
+What people say and what people do are very different things.
+Many people in your addressable market can intend to work with you in the future. Hanging on this hope will sustain you for a little then depress you when it's not fulfilled.
+
+Many businesses go crazy and broke trying to 'educate' and 'nurture' their market when making an offer presents the simplest shortcut.
+The strongest intent demonstration is the act of purchasing. This gives you a signal to tune into and explore the intent behind that commitment.
+The Sovereign Blueprint
+Built on The Sovereign Principles and deploying the correct modality via the correct channel:
+Coaching - Helping people discover the answer inside them. ● Consulting - Giving someone the answer. ● Mentorship - Showing someone how I would do it ● Creator - Conjuring of original ideas ● Curator - Assembly of the best ideas
+If, then:
+
+
+
+
+If I share good content on social and make it easy and natural to join my email list I will grow my leads daily. If I create great workshops for clients then customers will purchase them and a few will naturally see that it's worth joining The Syndicate. If I make it easy to get started in The Syndicate with pricing economics I will maximize client experience and LTV naturally by unbundling and having dynamic offers. If I build a great client base and establish great relationships, I will naturally find those who value being coached in The Circle.
+
+“The Sovereign Consultant” book offer
+Landing page with email opt-in and credit card checkout
+Would you like this formatted as a downloadable PDF or Google Doc too?
+You said:
+Add these to it as well
+Customer Funnel Continued
+Low Ticket Offer (cont’d):
+Get Clients in 24 Hours Without Getting on the Phone 234 coaches and consultants are using this method to sell $2,000–$25,000 offers without sales calls.
+What you will learn:
+✅ Step-by-step training on the 5 factors an offer must have to convert
+✅ Behind-the-scenes breakdown of a Hybrid Offer that generated $290,000 in 60 days
+✅ The exact template that sold a $15,000/year mastermind without a single call
+✅ The "laws of pricing" and how breaking them will lower offer deal friction
+✅ Bonus: Fill-in-the-blanks template to create your offer in minutes
+Entry Price: $9 Guarantee: 100% Lifetime Guarantee – full refund within 3 days if not satisfied.
+
+Bump Offer:
+“Cash Campaign” Template Bundle
+26 pages of proven copy/paste campaign scripts
+Walkthrough video
+Lifetime access
+Complimentary with first purchase
+Aim for 50% conversion
+Upsell #1:
+"The 3K Code + Social Code Workshop Bundle"
+Inside, you’ll do what most consultants don’t do – work backwards to create your social game plan.
+Bundle Value: $99 Outcome: If you implement both, you'll likely make $2,800 profit in the first month.
+Purely designed to increase AOV
+Keep it tight; don’t include too much
+Aim for 20% conversion
+Membership Offer:
+“I Generate $250K+/mo Solo” — Special Invitation
+Access to internal client-getting and fulfillment strategies: Ads, Templates, Pages, Scripts, Automations & more. Tailored for experts who want to run a lean, profitable online business.
+
+Aim for 5–8% conversion
+Sell via email using deadlines
+Upsell #2 (again):
+The Sovereign System™ Install
+Includes:
+Weekly private Zoom sessions
+Frameworks for crafting hybrid offers
+Swipe files
+Community support
+
+Implementation sprints
+Bonus Office Hours
+Downsell Offer:
+The Hybrid Offer Workshop — $9 Trial
+Full access to the training library and community 5 days for $9, cancel anytime
+Results
+“The immediate result of running a 2.0 funnel is you get leads, customers, and clients daily.”
+Benefits:
+Higher velocity of client acquisition
+
+## Components
+
+### Entry
+
+Price: $9 Guarantee: 100% Lifetime Guarantee – full refund within 3 days if not satisfied.
+
+Bump Offer:
+“Cash Campaign” Template Bundle
+26 pages of proven copy/paste campaign scripts
+Walkthrough video
+Lifetime access
+Complimentary with first purchase
+Aim for 50% conversion
+Upsell #1:
+"The 3K Code + Social Code Workshop Bundle"
+Inside, you’ll do what most consultants don’t do – work backwards to create your social game plan.
+
+### Value
+
+of proximity and insight. They get the information in the workshop and
+Most people feel they will be fine with information.
+
+### Upsell
+
+#1:
+"The 3K Code + Social Code Workshop Bundle"
+Inside, you’ll do what most consultants don’t do – work backwards to create your social game plan.
+Bundle Value: $99 Outcome: If you implement both, you'll likely make $2,800 profit in the first month.
+
+## How to Apply
+
+method to sell $2,000–$25,000 offers without sales calls.
+What you will learn:
+✅ Step-by-step training on the 5 factors an offer must have to convert
+✅ Behind-the-scenes breakdown of a Hybrid Offer that generated $290,000 in 60 days
+✅ The exact template that sold a $15,000/year mastermind without a single call
+✅ The "laws of pricing" and how breaking them will lower offer deal friction
+✅ Bonus: Fill-in-the-blanks template to create your offer in minutes
+Entry Price: $9 Guarantee: 100% Lifetime Guarantee – full refund within 3 days if not satisfied.
+
+
+
+---
+
+# iterative Framework
+
+## Overview
+
+** This chunk advises against judging offer effectiveness solely on immediate sales, emphasizing the importance of long-term value and client engagement.
+
+## Complete Framework
+
+. Gaps in content, offers, or distribution indicate areas for improvement. Use these gaps to identify opportunities to better serve your audience and grow your business. ## The Rhythm: Judging Offer Effectiveness and Long-Term Value **Summary:** This chunk advises against judging offer effectiveness solely on immediate sales, emphasizing the importance of long-term value and client engagement. Video Source:* The Rhythm.txt **Content:** Don't judge offer effectiveness solely on immediate sales. Consider long-term value and client engagement. A seemingly unsuccessful offer can still generate valuable leads and clients over time through workshops, community engagement, and relationship building. ## The Journey: From Door-to-Door Sales to Online Leverage **Summary:** This chunk recounts the early stages of James's business journey, highlighting the transition from door-to-door sales to leveraging the internet for lead generation. Video Source:* The journey.txt **Content:** James's journey began with door-to-door sales, which highlighted the need for leverage. Discovering the potential of online lead generation led to learning SEO, web development, and pay-per-click advertising, demonstrating the power of leveraging technology. ## The Journey: The Value of Mentorship and External Expertise **Summary:** This chunk emphasizes the importance of seeking external expertise and mentorship to accelerate learning and achieve greater results. Video Source:* The journey.txt **Content:** Seeking external expertise and mentorship can significantly accelerate learning and results. A single conversation with someone knowledgeable can unlock new opportunities and insights, challenging the mindset of doing everything yourself. ## The Journey: Adapting to Market Changes and Embracing New Opportunities **Summary:** This chunk describes how a financial crisis forced a business pivot, leading to a new job at a startup and gaining experience in a fast-paced, two-sided marketplace. Video Source:* The journey.txt **Content:** A financial crisis forced a business pivot, leading to a new job at a startup. This experience provided valuable insights into online marketing, product development, and managing a two-sided marketplace, demonstrating the importance of adapting to change. ## The Journey: The Power of Offers in Driving Business **Summary:** This chunk highlights the central role of offers in driving business interactions, emphasizing how crafting compelling offers is crucial for success, regardless of business size. Video Source:* The journey.txt **Content:** Offers are the primary way people interact with businesses. Crafting compelling offers is crucial for success, regardless of business size. This includes how you describe, frame, and price your products and services. ## The Journey: From Employee to Consultant and the Value of Relationships **Summary:** This chunk describes the transition from employee to consultant, emphasizing the strategic advantage of making your former employer your first client. Video Source:* The journey.txt **Content:** Transitioning from employee to consultant can be eased by making your former employer your first client. This provides a stable starting point and leverages existing relationships and knowledge. ## The Journey: The High Margins and Feedback Loop Challenge of Consulting **Summary:** This chunk explores the high margins of consulting but also the challenge of capturing value and creating a feedback loop when clients don't implement advice. Video Source:* The journey.txt **Content:** Consulting offers high margins but presents the challenge of capturing value when clients don't implement advice. This lack of implementation breaks the feedback loop, hindering growth and preventing the accumulation of case studies and testimonials. ## The Journey: Creative Destruction and the Evolution of Ideas **Summary:** This chunk describes the process of creative destruction, taking valuable insights forward while discarding what no longer serves, leading to the development of new products and services. Video Source:* The journey.txt **Content:** Creative destruction involves taking valuable insights forward while discarding what no longer serves. This iterative process allows for continuous improvement and the development of new products and services based on market needs and personal growth. ## The Journey: Productizing Services for Efficiency and Growth **Summary:** This chunk emphasizes the power of productizing services to achieve revenue growth and focus, removing the variables of custom work and streamlining delivery
+
+. Video Source:* The journey.txt **Content:** Creative destruction involves taking valuable insights forward while discarding what no longer serves. This iterative process allows for continuous improvement and the development of new products and services based on market needs and personal growth. ## The Journey: Productizing Services for Efficiency and Growth **Summary:** This chunk emphasizes the power of productizing services to achieve revenue growth and focus, removing the variables of custom work and streamlining delivery. Video Source:* The journey.txt **Content:** Productizing services is key to efficiency and growth. It removes the variables of custom work, streamlines delivery, and allows for scalable growth. This shift from bespoke solutions to standardized offerings simplifies communication and maximizes profitability. ## The Journey: The Importance of LTV and Client Relationships **Summary:** This chunk highlights the importance of customer lifetime value (LTV) and building long-term relationships, recognizing that acquiring a customer is just the first step. Video Source:* The journey.txt **Content:** Customer lifetime value (LTV) and long-term relationships are crucial for sustainable business growth. Acquiring a customer is just the first step; retaining them and maximizing their value over time is where real wealth is built. ## The Journey: From Lead Generation to Authority Architecture **Summary:** This chunk describes the development of "Authority Architecture," a recurring revenue product based on teaching lead generation and high-ticket sales. Video Source:* The journey.txt **Content:** Leveraging expertise in lead generation and high-ticket sales led to the creation of "Authority Architecture," a recurring revenue product. This marked a shift towards building a sustainable business model beyond one-off services. ## The Journey: The Dangers of Boredom and Singular Focus **Summary:** This chunk explores the dangers of boredom and singular focus, emphasizing the importance of novelty, variety, and finding the balance between art and science in business. Video Source:* The journey.txt **Content:** Boredom and singular focus can be detrimental to both business and personal well-being. Maintaining a balance between art and science, incorporating novelty and variety, is crucial for sustained motivation and preventing burnout. ## The Journey: The Daily Client Machine and the Power of Mechanisms **Summary:** This chunk describes the creation of the "Daily Client Machine," a highly effective, mechanistic business model that generated significant revenue but lacked personal fulfillment. Video Source:* The journey.txt **Content:** The "Daily Client Machine" exemplified the power of a well-designed mechanism for generating revenue. While financially successful, it lacked the personal fulfillment that comes from aligning business with personal values and desired lifestyle. ## The Journey: The Importance of Defining Your Ideal Clients **Summary:** This chunk emphasizes the importance of defining your ideal clients and aligning your business with your personal values to create a more fulfilling and sustainable business. Video Source:* The journey.txt **Content:** Defining your ideal clients and aligning your business with your personal values is crucial for long-term fulfillment. Working with clients who share your values creates a more enjoyable and sustainable business environment. ## The Journey: The Power of Deadlines and Commitment **Summary:** This chunk explains how deadlines create a sense of urgency, focus attention, and generate commitment, leading to better client engagement and results. Video Source:* The journey.txt **Content:** Deadlines are powerful tools for focusing attention and generating commitment. They create a sense of urgency and encourage clients to make decisions, leading to better engagement and results. ## The Journey: From Guru to White-Labeling and the Importance of Flexibility **Summary:** This chunk describes the shift away from the "guru" model towards white-labeling and building software, highlighting the importance of flexibility and adapting to changing circumstances. Video Source:* The journey.txt **Content:** The transition from the "guru" model to white-labeling and software development demonstrates the importance of adapting to changing circumstances and finding new avenues for growth. This shift also highlighted the need for flexibility in business models
+
+## How to Apply
+
+breaks the feedback loop, hindering growth and preventing the accumulation of case studies and testimonials. ## The Journey: Creative Destruction and the Evolution of Ideas **Summary:** This chunk describes the process of creative destruction, taking valuable insights forward while discarding what no longer serves, leading to the development of new products and services.
+
+
+
+================================================================================
+
+## FILE: 35_is_Framework_Complete.txt
+
+---
+title: is Framework - Complete Guide & Reproduction Framework - Complete Guide
+type: frameworks
+source_files: 1d5153d5ffa7b721  # Limit to 5 for readability
+keywords: method, framework, reproduction, is, system
+token_count: 3463
+duplicates_removed: 0
+generated: 2025-07-07T12:14:59.795504
+---
+
+# is Framework - Complete Guide & Reproduction Framework - Complete Guide
+
+# is Framework
+
+## Overview
+
+The common approach is to work 'forwards' from marketing to sales to offer.
+
+## Complete Framework
+
+Constructing Your Daily Client Machine
+How To Generate Leads Hourly, Customers Daily and Clients Weekly
+The Sequence - The Order of Events Matters
+To hit $1m, it is critical we attack it in the right order.
+The common approach is to work 'forwards' from marketing to sales to offer.
+This is deeply flawed because of the number of variables at each stage.
+The best way to hit a goal is not to work towards it, it's to work backwards from it.
+Working forwards is chaotic because there are so many potential variables.
+Working backwards is methodical because it reduces the variables to only the ones that move you to the next stage.
+Over a long enough time period, both approaches get you to the goal, but working backwards gets you there faster and with more certainty.
+Broken down we work in this order:
+1. Create and validate $3k Offer by making 3 sales from a simple Google Doc 2. Create and sell Customer Offer that converts 5% of buyers into Clients 3. Automate lead flow and Customer Offer and ascend Customers into Clients weekly
+We go from making $3k to $3k a week to $3k a day.
+We use 3 systems to do this:
+1. The Hybrid Offer™ 2. Customers to Clients™ 3. The Daily Client Machine™
+Each of these systems solve for a specific stage.
+Mastering one before moving to the next one is the pace.
+Skipping steps is not speed, it's skipping steps.
+Mastery in this sequence compounds.
+
+The Blueprint
+
+Template Download Link: https://www.dropbox.com/scl/fi/knh22051st9d9ots3dpll/The-Sovereign-Blueprint-Templates.key? rlkey=dkv284vwt2p8zis9qapyy95to&dl=0
+
+The Sequence
+The common approach is to work ‘forwards’ from marketing to sales to offer.
+This is deeply flawed because of the number of variables at each stage.
+The best way to hit a goal is not to work towards it, it’s to work backwards from it.
+Working forwards is chaotic because there are so many potential variables.
+Working backwards is methodical because it reduces the variables to only the ones that move you to the next stage.
+Over a long enough time period, both approaches get you to the goal, but working backwards gets you there faster and with more certainty.
+At a strategic level, we work in this order:
+1. Create and validate $3k Offer by making 3 sales from a simple Google Doc 2. Create and sell Customer Offer that converts 5% of buyers into Clients 3. Promote Customer Offer and ascend Customers into Clients weekly
+
+Only 4% of your Customers need to convert to Clients to hit your numbers.
+We choose pricing that maximises conversions and economics.
+I have 5 years of data behind this and I’m giving you the shortcut:
+Community offers at $100-$200 per week and a $3k PIF work the widest range of markets.
+Consulting offers at $300-$600 sell to the right people in the right ratios.
+$100 Customer Offers convert 5-15% of buyers into Clients
+This is the path of least resistance.
+You ‘can’ charge higher prices. You ‘can’ use 7, 9’s and angel numbers.
+It’s more likely to divert you from the path than keep you on it.
+Creativity is better deployed into your products and clients.
+You earn the right to experiment after you have followed the simple path.
+The Sequence - The Order of Events Matters
+To hit $1m, it is critical we attack it in the right order.
+The common approach is to work ‘forwards’ from marketing to sales to offer.
+This is deeply flawed because of the number of variables at each stage.
+The best way to hit a goal is not to work towards it, it’s to work backwards from it.
+Working forwards is chaotic because there are so many potential variables.
+Working backwards is methodical because it reduces the variables to only the ones that move you to the next stage.
+Over a long enough time period, both approaches get you to the goal, but working backwards gets you there faster and with more certainty.
+
+. If I generate leads, then therefore I should. James Kemp: This is deeply flawed because of the number of variables at each stage is. there's hundreds of posts, hundreds of ads. You can run hundreds of variables on the front ends James Kemp: that you need to find the one or 2 that works. James Kemp: So if you start with hundreds of variables, and then there's 20 different ways to sell it. Then you need to decipher all those variables, and most people fail James Kemp: because they're being sold to by marketers whose default choice is marketing. James Kemp: and the best way to head a goal is not to work towards it is to work backwards from it James Kemp: because working fords is chaotic because there's so many potential variables, there's hundreds of ways to market and lot of them work. There's hundreds of ways to sell and a lot of them work. James Kemp: But working backwards is methodical because it reduces the variables to only the ones that move you to the next stage. James Kemp: because over a long enough time period and everybody's tried that we all have both approaches, get you to the goal, but working backwards, gets you there faster and with more certainty. James Kemp: So we're going to do 3 things James Kemp: we're going to create and validate a threek offer by making 3 sales from a simple Google Doc. And that's what we're going to focus on today. James Kemp: We're going to create and sell a customer offer that converts 5% of its buyers into clients for you James Kemp: in that offer that we've just defined. James Kemp: Then we're going to automate the lead flow and the customer offer and Nsn. Customers into clients every week. James Kemp: So we go from making 3 K. And validating that to 3 KA week to 3 KA day. James Kemp: So we use 3 systems to do this. The hybrid offer James Kemp: which I'll talk about today, customers to clients and the daily client machine. James Kemp: The sequence is very, very, very, very important. because each of these systems solve for a specific stage. and we've got a master one before moving to the next one. James Kemp: and that's the right pace. James Kemp: Right? You may be at different stages, and everybody here is at different stages of the current offer of the marketing of the flow. James Kemp: But skipping steps is not speed. I constantly go back and reevaluate my offer based on feedback. James Kemp: One of the reasons that we use Google Docs is because it's dynamic, right? You can put it on the sales page. And those things later. Once you have something that converts at 30 to 40, James Kemp: but it's dynamic. I'm tweaking words. I'm tweaking, positioning all the time. James Kemp: so skipping steps is not speed. It sometimes feels it. I can just jump straight to marketing. I need more leads, so I can just jump jump to that. But it's just skipping steps. James Kemp: So mastery and the sequence compounds. The better your hybrid offer. The more clients you convert. the better your customers to client system, the more customers and clients you generate. and the better your daily client machine, the more leads turn into customers who turn into clients and and it compounds in action. James Kemp: Right? So the sequence is really really important. James Kemp: and syndicate folks know that I just bang on about offers all the time, because it's the big fulcrum. It's the big lever James Kemp: the better your offer the easier everything is the better your offer you don't need to do my selling at all. You just do some invitations the better. Offer the faster your marketing works out of the gate
+
+## How to Apply
+
+is to work 'forwards' from marketing to sales to offer.
+This is deeply flawed because of the number of variables at each stage.
+
+
+
+---
+
+# Reproduction Framework
+
+## Overview
+
+This Standard Operating Procedure (SOP) outlines the step-by-step process for reproducing the "DCM 2.
+
+## Complete Framework
+
+# HighLevel Funnel Reproduction SOP: DCM 2.0 Templates
+## Overview This Standard Operating Procedure (SOP) outlines the step-by-step process for reproducing the "DCM 2.0 Templates" funnel from James Kemp's HighLevel account with customized service and sales copy for clients.
+## Funnel Structure Analysis
+Based on the API analysis of the DCM 2.0 Templates funnel (ID: ATb1XCi2a8fAMP9ME7cY), the funnel contains the following 8 steps:
+### Core Funnel Flow: 1. **Social Code $9 (TEMPLATE)** - Big idea video page 2. **Upsell 1: The 3k Code + Social Code (TEMPLATE)** - First upsell bundle 3. **Upsell 2: Sovereign Membership - 9 Day Trial (TEMPLATE)** - Membership upsell 4. **Delivery - The Social Code (TEMPLATE)** - Product delivery page 5. **The Sovereign Community Membership - Thank You (TEMPLATE)** - Membership thank you 6. **Delivery - The 3k Code and Social Code (TEMPLATE)** - Bundle delivery page 7. **BUMP: The Cash Campaign Templates (Template)** - Order bump/ downsell 8. **The Client Funnel** - Final installation/setup page
+## Prerequisites
+### Required Access: - HighLevel Agency/Location account with funnel creation permissions - API access (if automating the process) - Copywriting tool access for content customization - Client's business information and unique value proposition
+### Required Information from Client: - Business name and branding - Target audience description - Unique service/product offering - Pricing structure - Value propositions - Contact information - Payment processing setup
+## Step-by-Step Reproduction Process
+### Phase 1: Funnel Setup and Structure
+#### Step 1: Create New Funnel
+
+1. Log into HighLevel account 2. Navigate to Sites > Funnels 3. Click "Create New Funnel" 4. Name the funnel: "[Client Name] - [Service Name] Funnel" 5. Set the funnel URL slug: `/[client-service-name]` ##
+
+## Step-by-Step Reproduction Process
+### Phase 1: Funnel Setup and Structure
+#### Step 1: Create New Funnel
+
+1. Log into HighLevel account 2. Navigate to Sites > Funnels 3. Click "Create New Funnel" 4. Name the funnel: "[Client Name] - [Service Name] Funnel" 5. Set the funnel URL slug: `/[client-service-name]` #### Step 2: Create Funnel Steps Create the following 8 steps in sequence:
+**Step 1: Big Idea Video Page** - Name: "[Client Service] $[Price] (Main Offer)" - URL: `/[client-service-main]` - Type: Optin Funnel Page
+**Step 2: First Upsell** - Name: "Upsell 1: [Premium Bundle Name]" - URL: `/[premium-bundle-name]` - Type: Optin Funnel Page
+**Step 3: Membership Upsell** - Name: "Upsell 2: [Membership Name] - [Trial Period] Trial" - URL: `/[membership-trial]` - Type: Optin Funnel Page
+**Step 4: Main Product Delivery** - Name: "Delivery - [Main Product Name]" - URL: `/[main-product-delivery]` - Type: Optin Funnel Page
+**Step 5: Membership Thank You** - Name: "[Membership Name] - Thank You" - URL: `/[membership-thank-you]` - Type: Optin Funnel Page
+**Step 6: Bundle Delivery** - Name: "Delivery - [Premium Bundle Name]" - URL: `/[bundle-delivery]` - Type: Optin Funnel Page
+**Step 7: Community Downsell/Order Bump** - Name: "BUMP: [Community/Downsell Offer Name]" - URL: `/[community-offer]` - Type: Optin Funnel Page
+**Step 8: Setup/Installation Page** - Name: "[Client] Implementation Guide" - URL: `/[implementation-guide]` - Type: Optin Funnel Page
+### Phase 2: Page Content Customization
+
+#### Step 1: Big Idea Video Page Content **Required Elements:** - Compelling headline with client's unique value proposition - Video player (embed client's big idea video) - Benefits list (3-5 key benefits) - Social proof (testimonials, case studies) - Clear call-to-action button - Price point ($7-$47 recommended) - Urgency/scarcity elements - Trust badges/guarantees
+**Copywriting Placeholders:** - `[CLIENT_BUSINESS_NAME]` - `[MAIN_PRODUCT_NAME]` - `[UNIQUE_VALUE_PROPOSITION]` - `[PRICE_POINT]` - `[KEY_BENEFIT_1]`, `[KEY_BENEFIT_2]`, `[KEY_BENEFIT_3]` - `[TESTIMONIAL_1]`, `[TESTIMONIAL_2]` - `[GUARANTEE_STATEMENT]`
+#### Step 2: Upsell Pages Content **Upsell 1 - Premium Bundle:** - Headline: "Wait! Get [Bundle Name] for Just $[Price]" - Bundle contents breakdown - Additional value proposition - Limited-time offer messaging - Accept/Decline buttons
+**Upsell 2 - Membership:** - Headline: "Join [Membership Name] for Just $[Trial Price]" - Membership benefits - Community access details - Trial terms and conditions - Monthly pricing after trial
+#### Step 3: Delivery Pages Content **Main Product Delivery:** - Welcome message - Access instructions - Download links/login credentials - Next steps guidance - Support contact information
+**Bundle Delivery:** - Bundle welcome message - Individual product access - Implementation timeline - Bonus materials access
+
+##
+
+## Components
+
+### Log into HighLevel account 2. Navigate to Sites > Funnels 3. Click "Create New Funnel" 4. Name the funnel
+
+"[Client Name] - [Service Name] Funnel" 5. Set the funnel URL slug: `/[client-service-name]` #### Step 2: Create Funnel Steps Create the following 8 steps in sequence:
+**Step 1: Big Idea Video Page** - Name: "[Client Service] $[Price] (Main Offer)" - URL: `/[client-service-main]` - Type: Optin Funnel Page
+**Step 2: First Upsell** - Name: "Upsell 1: [Premium Bundle Name]" - URL: `/[premium-bundle-name]` - Type: Optin Funnel Page
+**Step 3: Membership Upsell** - Name: "Upsell 2: [Membership Name] - [Trial Period] Trial" - URL: `/[membership-trial]` - Type: Optin Funnel Page
+**Step 4: Main Product Delivery** - Name: "Delivery - [Main Product Name]" - URL: `/[main-product-delivery]` - Type: Optin Funnel Page
+**Step 5: Membership Thank You** - Name: "[Membership Name] - Thank You" - URL: `/[membership-thank-you]` - Type: Optin Funnel Page
+**Step 6: Bundle Delivery** - Name: "Delivery - [Premium Bundle Name]" - URL: `/[bundle-delivery]` - Type: Optin Funnel Page
+**Step 7: Community Downsell/Order Bump** - Name: "BUMP: [Community/Downsell Offer Name]" - URL: `/[community-offer]` - Type: Optin Funnel Page
+**Step 8: Setup/Installation Page** - Name: "[Client] Implementation Guide" - URL: `/[implementation-guide]` - Type: Optin Funnel Page
+### Phase 2: Page Content Customization
+
+## How to Apply
+
+process for reproducing the "DCM 2.0 Templates" funnel from James Kemp's HighLevel account with customized service and sales copy for clients.
+
+
+
+================================================================================
+

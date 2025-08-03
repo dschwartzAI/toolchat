@@ -1,4 +1,5 @@
-import { TooltipAnchor, Button, Sidebar } from '@librechat/client';
+import { TooltipAnchor, Button } from '~/components/ui';
+import { Sidebar } from '~/components/svg';
 import { useLocalize } from '~/hooks';
 
 export default function OpenSidebar({

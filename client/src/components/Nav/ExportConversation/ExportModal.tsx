@@ -1,15 +1,8 @@
 import filenamify from 'filenamify';
 import { useEffect, useState, useMemo, useCallback } from 'react';
-import {
-  OGDialogTemplate,
-  OGDialog,
-  Button,
-  Input,
-  Label,
-  Checkbox,
-  Dropdown,
-} from '@librechat/client';
 import type { TConversation } from 'librechat-data-provider';
+import { OGDialog, Button, Input, Label, Checkbox, Dropdown } from '~/components/ui';
+import OGDialogTemplate from '~/components/ui/OGDialogTemplate';
 import { useLocalize, useExportConversation } from '~/hooks';
 
 const TYPE_OPTIONS = [
@@ -72,7 +65,7 @@ export default function ExportModal({
 
   const { exportConversation } = useExportConversation({
     conversation,
-    filename: filenamify(filename),
+    filename,
     type,
     includeOptions,
     exportBranches,
@@ -95,7 +88,7 @@ export default function ExportModal({
                 <Input
                   id="filename"
                   value={filename}
-                  onChange={(e) => setFileName(e.target.value || '')}
+                  onChange={(e) => setFileName(filenamify(e.target.value || ''))}
                   placeholder={localize('com_nav_export_filename_placeholder')}
                 />
               </div>

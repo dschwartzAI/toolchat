@@ -1,0 +1,136 @@
+---
+title: complicated Framework - Complete Guide & Customization Framework - Complete Guide
+type: frameworks
+source_files: 1d5153d5ffa7b721  # Limit to 5 for readability
+keywords: method, framework, complicated, customization, system
+token_count: 2698
+duplicates_removed: 0
+generated: 2025-07-07T12:14:59.794872
+---
+
+# complicated Framework - Complete Guide & Customization Framework - Complete Guide
+
+# complicated Framework
+
+## Overview
+
+** Chris Benetti cautions against overcomplicating ads and funnels, advising to keep things simple and avoid getting bogged down in complex technical strategies.
+
+## Complete Framework
+
+now where my hourly rate is $3 to $4,000 an hour right we have a unique tax situation so that's not only mostly profit it's mostly takehome and then I compare that to the $133,000 $13 an hour I was making 5 years ago the gap between here and there is thousands of hours of one toone coaching yeah so people go the trenches right that sounds amazing how do I create an offer around that it's well you probably can't because you don't have the skills and so I think there's just something to be said about creating business models that yes doesn't suck you're not I'm not spending 30 hours a week one to one coaching but I'll spend 5 to 10 hours a week oneto one with clients because number one it's really profitable people love buying onetoone it's its own unique mechanism in a lot of ways right having a onetoone coach but number two it makes me so good at what I do and I think there's just this crazy belief that people get to 10K a month and they did the hard yards of one to1 and now we're going to launch a course and that's going to get me to seven figure freedom and I'm just going to check into the community once a week and I just think it's bull crap it is but but those people are trying to get away from the pain they've already created M so they think that scaling themselves out of it is the way to do it right so they go well this thing is causing me pain which is one to one so therefore the thing that will provide relief from that pain is not doing one to one y and then the answer lies in a much more Nuance place somewhere in the middle of that is it it depends but when are you I always go back to leverage when are you going to deploy leverage yeah when are you what complexity of you gone through so your clients go through Simplicity right cuz that's Mastery you someone has to go through complexity because to get extraordinary results in anything you need to understand the complex variables that go into getting results of anything the body business relationships ever they're complicated machines and complicated systems someone needs to go through complexity and the idea that you can just package everything up and throw it at a client and go there you go work it out and I'll see you on Wednesday at a
+
+. I keep promising them. I'm going to write some bang along form. I haven't quite hasn't quite come to me yet, but it will come to me where I'll I'll write my I write another one of my disruption ads, or something that you we can probably run for a couple of years. . I've got it in me somewhere. It's just buried in the subconscious right now. But the the balance between, a long form ad. and again use something that works organically. All my long form ads are variants of something that's worked organically on the platform that we put it on. So if you've had a great Facebook post, if you've had a great Linkedin post. If you've had something that's worked particularly well on Instagram that will work as an ad. ## Chris Benetti on Ad Simplicity and Avoiding Overcomplication **Summary:** Chris Benetti cautions against overcomplicating ads and funnels, advising to keep things simple and avoid getting bogged down in complex technical strategies. Focus on getting the core message out and generating clients. Video Source:* Book Funnel Workshop.txt **Content:** I think there's opportunity to overcomplicate ads a lot, and especially if you start this. Okay, this whole thing. Right? Oh, yeah, definitely, yes. I would just say, be wary of the gurus who are technical ad people or technical funnel people, because they'll make you try to build a complicated system. And ultimately it's all gonna stop you from getting the shit out there and getting it done and getting clients from it. So, keep it simple is probably the biggest piece of feedback around ads that I've got. ## Book Funnels: DIY vs. Agency Management **Summary:** While DIY book funnel management is feasible up to a certain ad spend, scaling and optimizing for larger budgets often requires expert assistance. Investing in agency support can be beneficial for maximizing long-term returns and avoiding the complexities of high-spend ad campaigns. Video Source:* Book Funnel Workshop.txt **Content:** Yeah, I before I move on to the client speed I really want you to take away today that a book isn't hard, right? What is hardest, scaling it. getting the economics right, feeding it with creative. And and those things I believe in terms of . Candidly, you can diy this up to a hundred, or, maybe a little bit more a day in terms of ad spend and find your feet and optimize it yourself past that, and to really turn it into a big asset. It's it's complicated because there's a lot of moving parts that you want to get right in the funnel, and there's a lot of moving parts that you get right in the ads. ## Converting Book Customers into Clients: Waitlists and Live Workshops **Summary:** Two effective strategies for converting book customers into clients are using waitlists, which automatically funnel customers into client programs, and hosting live workshops, which offer high conversion rates and opportunities for direct client pitches. Video Source:* Book Funnel Workshop.txt **Content:** So the final, you've got your book. You've got your funnel. You've got some ads up, and you've probably promoted organically as well. You've started talking about it. The 1st 4 months of the sovereign consultant was just me talking about it, and I sold 500 copies of the book just by signing up for the book. Right? The the key piece, and the piece of both. The other piece of experimentation is around converting those those book customers into clients. So I've done 2 things, and I'm gonna double down on one of these things. and discard the other just through experimentation. So the 1st one is putting them on a wait list. And if you want the wait list again, it's in the waitlist training in in the classroom
+
+## How to Apply
+
+See the complete framework description for detailed application guidelines.
+
+
+
+---
+
+# Customization Framework
+
+## Overview
+
+This guide is for users who already have the DCM 2.
+
+## Complete Framework
+
+# Funnel Customization Guide: DCM 2.0 Templates
+## Overview This guide is for users who already have the DCM 2.0 Templates funnel cloned in their HighLevel account and need to customize it with copy generated by the chat app. Follow these steps to replace the template content with your personalized copy.
+## Prerequisites
+✅ DCM 2.0 Templates funnel already cloned in your HighLevel account
+✅ Copy generated from the chat app for your specific service/ business
+✅ Access to your HighLevel account with editing permissions
+✅ Your business assets (logo, images, videos, etc.)
+## Step-by-Step Customization Process
+### Phase 1: Locate Your Cloned Funnel
+1. **Log into your HighLevel account** 2. **Navigate to Sites > Funnels** 3. **Find your cloned DCM 2.0 Templates funnel** - Look for a funnel named "DCM 2.0 Templates" or similar - It should have 8 steps/pages ### Phase 2: Page-by-Page Customization
+#### Page 1: Big Idea Video Page (Social Code $9)
+**Location:** First step in your funnel **URL Pattern:** `/social-code-9-TEMPLATE`
+**Elements to Replace:**
+1. **Main Headline** - Find: Current template headline - Replace with: Chat app generated headline - Location: Top of page, usually in large text
+2. **Subheadline** - Find: Supporting headline text - Replace with: Chat app generated subheadline - Location: Below main headline
+3. **Video Section** - Find: Existing video placeholder or embed - Replace with: Your big idea video - **How to:** Click on video element > Replace video URL/embed code
+
+4. **Benefits List** - Find: Bullet points or numbered list of benefits - Replace with: Chat app generated benefits (usually 3-5 points) - **How to:** Click on each bullet point and edit text
+5. **Price Point** - Find: "$9" or current price - Replace with: Your chosen price point - Location: Usually near the buy button
+6. **Call-to-Action Button** - Find: "Buy Now" or similar button text - Replace with: Chat app generated CTA text - **How to:** Click button > Edit text
+7. **Testimonials/Social Proof** - Find: Existing testimonial sections - Replace with: Your customer testimonials - **How to:** Click testimonial text > Replace with your content
+8. **Business Name/Branding** - Find: "James Kemp" or "Social Code" references - Replace with: Your business name and product name - **Search tip:** Use Ctrl+F (Cmd+F on Mac) to find all instances #### Page 2: First Upsell (3k Code + Social Code Bundle)
+**Location:** Second step in funnel **URL Pattern:** `/3k-code-and-social-code-bundle-TEMPLATE`
+**Elements to Replace:**
+1. **Upsell Headline** - Find: "Wait! Get [Bundle Name]" text - Replace with: Chat app generated upsell headline
+2. **Bundle Description** - Find: Description of what's included in bundle - Replace with: Your bundle contents and benefits
+3. **Pricing** - Find: Bundle price (likely $97-$297 range) - Replace with: Your bundle pricing
+4. **Accept/Decline Buttons** - Find: "Yes, I want this" and "No thanks" buttons - Replace with: Chat app generated button text
+##
+
+## Components
+
+### **Log into your HighLevel account** 2. **Navigate to Sites > Funnels** 3. **Find your cloned DCM 2.0 Templates funnel** - Look for a funnel named "DCM 2.0 Templates" or similar - It should have 8 steps/pages ### Phase 2
+
+Page-by-Page Customization
+#### Page 1: Big Idea Video Page (Social Code $9)
+**Location:** First step in your funnel **URL Pattern:** `/social-code-9-TEMPLATE`
+**Elements to Replace:**
+
+### **Main Headline** - Find
+
+Current template headline - Replace with: Chat app generated headline - Location: Top of page, usually in large text
+
+### **Subheadline** - Find
+
+Supporting headline text - Replace with: Chat app generated subheadline - Location: Below main headline
+
+### **Video Section** - Find
+
+Existing video placeholder or embed - Replace with: Your big idea video - **How to:** Click on video element > Replace video URL/embed code
+
+### **Benefits List** - Find
+
+Bullet points or numbered list of benefits - Replace with: Chat app generated benefits (usually 3-5 points) - **How to:** Click on each bullet point and edit text
+
+### **Price Point** - Find
+
+"$9" or current price - Replace with: Your chosen price point - Location: Usually near the buy button
+
+### **Call-to-Action Button** - Find
+
+"Buy Now" or similar button text - Replace with: Chat app generated CTA text - **How to:** Click button > Edit text
+
+### **Testimonials/Social Proof** - Find
+
+Existing testimonial sections - Replace with: Your customer testimonials - **How to:** Click testimonial text > Replace with your content
+
+### **Business Name/Branding** - Find
+
+"James Kemp" or "Social Code" references - Replace with: Your business name and product name - **Search tip:** Use Ctrl+F (Cmd+F on Mac) to find all instances #### Page 2: First Upsell (3k Code + Social Code Bundle)
+**Location:** Second step in funnel **URL Pattern:** `/3k-code-and-social-code-bundle-TEMPLATE`
+**Elements to Replace:**
+
+### **Upsell Headline** - Find
+
+"Wait! Get [Bundle Name]" text - Replace with: Chat app generated upsell headline
+
+### **Bundle Description** - Find
+
+Description of what's included in bundle - Replace with: Your bundle contents and benefits
+
+### **Pricing** - Find
+
+Bundle price (likely $97-$297 range) - Replace with: Your bundle pricing
+
+### **Accept/Decline Buttons** - Find
+
+"Yes, I want this" and "No thanks" buttons - Replace with: Chat app generated button text
+##
+
+## How to Apply
+
+to replace the template content with your personalized copy.
+## Prerequisites
+✅ DCM 2.
+

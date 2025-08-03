@@ -1,0 +1,196 @@
+---
+title: generator Framework - Complete Guide & onboarding Framework - Complete Guide
+type: frameworks
+source_files: 1d5153d5ffa7b721  # Limit to 5 for readability
+keywords: method, onboarding, framework, generator, system
+token_count: 2981
+duplicates_removed: 0
+generated: 2025-07-07T12:14:59.794968
+---
+
+# generator Framework - Complete Guide & onboarding Framework - Complete Guide
+
+# generator Framework
+
+## Overview
+
+** This chunk addresses the value of accessing all trainings and recordings within a community membership.
+
+## Complete Framework
+
+. because clear beats, cute James Kemp: name and brand your systems. But don't go over the top. James Kemp: and with pricing is there a clear roi? Have you made it easy to get started? And I've done that by giving you the prescriptions of the pricing? James Kemp: And does your price factor in the cost of inaction? Have you just made it really easy to get started as the primary model? And again. this. I'm laboring this because it's a massive failure point. James Kemp: No one wants to watch 54 videos and intend 10 h of calls a week the better the client, and, the more money they have, the less time they have James Kemp: right, because more offers fail because they are indigestible rather than Lane James Kemp: telling people what's in it., all the things they get is more likely to kill demand than enhance it. Again, it's a common failure point that I see in products and offers that people are talking about all the stuff they get. James Kemp: and in and a desire to overwhelm them with value. James Kemp: And it's lazy, because if you have a clear promise and a plan, people don't need to know all the value you you deliver, they just need to get, be clear about it, so they can say yes and get started. James Kemp: So is to get some examples to bring these things together. Your next task is to construct an offer using a simple Google Doc James Kemp: syndicate folks, 95% of you should have one right now. So the reason we use a Google Doc as far as it's fast to create James Kemp: and to share and to modify. And it's most useful to demonstrate James Kemp: by examples. And I've got a template for you here as well. James Kemp: so this is an example from Jason and Janine. James Kemp: and it talks clearly about the promise James Kemp: and the plan. So the promise is. James Kemp: do you want support for me, and my incredible, incredible community can install a system that can can James Kemp: consistently attracts 5 prospects every month, securing at least one high value client every single month on your terms with the visibility you deserve, and without becoming stuck in the frustration of being the best kept secret. James Kemp: so clearly, clearly, clearly articulates what happens right? It uses numbers. It uses currency to clearly say. James Kemp: this is what's going to happen. This is what you get, and these are things you can point at James Kemp: it clearly, says that it's a 12 month program. but then it comes into over the next 6 weeks. James Kemp: and it talks about the plan will develop your client roadmap so you can. So you are faster. James Kemp: So your laser focused on who you work with. And more importantly, they'll want to work with you right? James Kemp: Then we install your product roadmap James Kemp: very clear. No cuteness. Just the client roadmap, the product roadmap, and then the IP generator system. James Kemp: So it's a great example James Kemp: of being very, very clear about the promise and the plan. and again distilling it down and removing any superfluous bits around the core. Right? Everything else in there is a benefit James Kemp: but the core James Kemp: clearly clearly articulated in the promise as something desirable, and the plan that future paces people to go through. James Kemp: This is what sales offers. James Kemp: If someone is clear that those are the things they want, and they agree with the plan. James Kemp: they are very, very, very likely to want to get started when the price meets the expectation. James Kemp: and again the pricing I've given you, will meet the expectation
+
+> "Support to install a system attracting 5 prospects monthly, securing 1 high-value client monthly, on your terms, without being the best-kept secret."
+ Example plan: 
+> "In the first 6 weeks, we'll install the client roadmap, product roadmap, and IP generator system."
+ Modalities: Coaching (discovering answers), consulting (giving answers), mentorship (showing how). I create for my community, coach on weekly calls, consult on WhatsApp, mentor on Zoom. You can sell modalities individually or bundled into products. ## Access to Training and Classroom Content **Summary:** This chunk addresses the value of accessing all trainings and recordings within a community membership. Video Source:* 100k community.txt **Content:** We've added a valuable benefit: access to all my trainings and templates. Many people want a back catalog of resources. As a community member, you get access to every recording and training. This is a key benefit of joining. ## Offer Specificity and Niche Targeting **Summary:** This chunk emphasizes the importance of offer specificity, avoiding trying to be everything to everyone, and targeting a specific niche. Video Source:* 100k community.txt **Content:** Are you clear about your core offer? Have you defined your content, community, and customization? Have you scoped out your promise, plan, and price with a clear ROI? The weakest offers try to be everything to everyone. A clear promise is essential. Have you laid out a plan with unique mechanisms? People buy new things that solve old problems. ## Outreach Templates and Offer Sharpening **Summary:** This chunk discusses providing outreach templates and the importance of sharpening existing offers for better conversion. Video Source:* 100k community.txt **Content:** I'll be providing templates for outreach, including social posts and emails. We'll cover these in detail next week. For now, focus on your offer. Are you working on a new offer or modifying an existing one? Let's sharpen your offer for better results. ## Niche Selection and Offer Clarity **Summary:** This chunk uses a real-world example to illustrate how to refine a niche and create a compelling offer promise. Video Source:* 100k community.txt **Content:** (Ramzi's example of e-commerce sellers wanting to step out of their business) A niche defines the desire in the marketplace. It's a good hypothesis, but not specific enough. What will the outcome look for them? Time freedom, flexibility. Most people don't want those things because they're terrifying. Pre-package a vision for them. 
+> "Helping e-commerce business owners run their business in one day a week"
+ is more specific. 
+> "I'll help you install the 3 systems that allow you to run your e-commerce business in one day a week"
+
+## How to Apply
+
+out of their business) A niche defines the desire in the marketplace. It's a good hypothesis, but not specific enough.
+
+
+
+---
+
+# onboarding Framework
+
+## Overview
+
+The onboarding framework consists of **Membership Name** - Find, **Trial Details** - Find, **Membership Benefits** - Find, **Monthly Pricing** - Find, **Welcome Message** - Find, **Access Instructions** - Find, **Download Links** - Find, **Support Information** - Find, **Confirmation Message** - Find, **Community Access Details** - Find, **Next Steps** - Find, **Bundle Welcome** - Find, **Individual Product Access** - Find, **Implementation Timeline** - Find, **Downsell Offer Name** - Find, **Offer Description** - Find, **Pricing** - Find, **Setup Instructions** - Find, **Resource Links** - Find, **Support Contact** - Find.
+
+## Complete Framework
+
+#### Page 3: Membership Upsell (Sovereign Membership Trial)
+
+**Location:** Third step in funnel **URL Pattern:** `/9-day-trial-sov-template`
+**Elements to Replace:**
+1. **Membership Name** - Find: "Sovereign Membership" or similar - Replace with: Your membership/community name
+2. **Trial Details** - Find: "9 Day Trial" and trial pricing - Replace with: Your trial period and pricing
+3. **Membership Benefits** - Find: List of membership perks - Replace with: Your membership benefits from chat app
+4. **Monthly Pricing** - Find: Regular monthly price after trial - Replace with: Your ongoing membership price
+#### Page 4: Main Product Delivery
+**Location:** Fourth step in funnel **URL Pattern:** `/social-code-training-template`
+**Elements to Replace:**
+1. **Welcome Message** - Find: Congratulations/welcome text - Replace with: Chat app generated welcome message
+2. **Access Instructions** - Find: Steps to access the product - Replace with: Your specific access instructions
+3. **Download Links** - Find: Template download/access links - Replace with: Your actual product links
+4. **Support Information** - Find: Contact details for help - Replace with: Your support contact information
+#### Page 5: Membership Thank You
+**Location:** Fifth step in funnel **URL Pattern:** `/sov-community-ty-template`
+**Elements to Replace:**
+
+1. **Confirmation Message** - Find: Membership confirmation text - Replace with: Your membership welcome message
+2. **Community Access Details** - Find: Instructions for accessing community - Replace with: Your community platform details (Discord, Facebook, etc.)
+3. **Next Steps** - Find: Onboarding instructions - Replace with: Your member onboarding process
+#### Page 6: Bundle Delivery
+**Location:** Sixth step in funnel **URL Pattern:** `/3k-code-social-code-training-template`
+**Elements to Replace:**
+1. **Bundle Welcome** - Find: Bundle delivery message - Replace with: Chat app generated bundle welcome
+2. **Individual Product Access** - Find: Links to each product in bundle - Replace with: Your actual product access links
+3. **Implementation Timeline** - Find: Suggested order/timeline for using products - Replace with: Your recommended implementation plan
+#### Page 7: Community Downsell/Order Bump
+**Location:** Seventh step in funnel **URL Pattern:** `/the-cash-campaign-template`
+**Elements to Replace:**
+1. **Downsell Offer Name** - Find: "Cash Campaign Templates" or similar - Replace with: Your community/downsell offer name
+2. **Offer Description** - Find: What's included in the downsell - Replace with: Your community benefits or downsell product details
+3. **Pricing** - Find: Downsell price
+
+Replace with: Your community/downsell pricing
+#### Page 8: Implementation Guide
+**Location:** Eighth step in funnel **URL Pattern:** `/install-template`
+**Elements to Replace:**
+1. **Setup Instructions** - Find: Template implementation steps - Replace with: Your specific setup/implementation guide
+2. **Resource Links** - Find: Links to tools or resources - Replace with: Your recommended tools and resources
+3. **Support Contact** - Find: Help/support information - Replace with: Your support details
+### Phase 3: Global Elements
+##
+
+## Components
+
+### **Membership Name** - Find
+
+"Sovereign Membership" or similar - Replace with: Your membership/community name
+
+### **Trial Details** - Find
+
+"9 Day Trial" and trial pricing - Replace with: Your trial period and pricing
+
+### **Membership Benefits** - Find
+
+List of membership perks - Replace with: Your membership benefits from chat app
+
+### **Monthly Pricing** - Find
+
+Regular monthly price after trial - Replace with: Your ongoing membership price
+#### Page 4: Main Product Delivery
+**Location:** Fourth step in funnel **URL Pattern:** `/social-code-training-template`
+**Elements to Replace:**
+
+### **Welcome Message** - Find
+
+Congratulations/welcome text - Replace with: Chat app generated welcome message
+
+### **Access Instructions** - Find
+
+Steps to access the product - Replace with: Your specific access instructions
+
+### **Download Links** - Find
+
+Template download/access links - Replace with: Your actual product links
+
+### **Support Information** - Find
+
+Contact details for help - Replace with: Your support contact information
+#### Page 5: Membership Thank You
+**Location:** Fifth step in funnel **URL Pattern:** `/sov-community-ty-template`
+**Elements to Replace:**
+
+### **Confirmation Message** - Find
+
+Membership confirmation text - Replace with: Your membership welcome message
+
+### **Community Access Details** - Find
+
+Instructions for accessing community - Replace with: Your community platform details (Discord, Facebook, etc.)
+
+### **Next Steps** - Find
+
+Onboarding instructions - Replace with: Your member onboarding process
+#### Page 6: Bundle Delivery
+**Location:** Sixth step in funnel **URL Pattern:** `/3k-code-social-code-training-template`
+**Elements to Replace:**
+
+### **Bundle Welcome** - Find
+
+Bundle delivery message - Replace with: Chat app generated bundle welcome
+
+### **Individual Product Access** - Find
+
+Links to each product in bundle - Replace with: Your actual product access links
+
+### **Implementation Timeline** - Find
+
+Suggested order/timeline for using products - Replace with: Your recommended implementation plan
+#### Page 7: Community Downsell/Order Bump
+**Location:** Seventh step in funnel **URL Pattern:** `/the-cash-campaign-template`
+**Elements to Replace:**
+
+### **Downsell Offer Name** - Find
+
+"Cash Campaign Templates" or similar - Replace with: Your community/downsell offer name
+
+### **Offer Description** - Find
+
+What's included in the downsell - Replace with: Your community benefits or downsell product details
+
+### **Pricing** - Find
+
+Downsell price
+
+### **Setup Instructions** - Find
+
+Template implementation steps - Replace with: Your specific setup/implementation guide
+
+### **Resource Links** - Find
+
+Links to tools or resources - Replace with: Your recommended tools and resources
+
+### **Support Contact** - Find
+
+Help/support information - Replace with: Your support details
+### Phase 3: Global Elements
+##
+
+## How to Apply
+
+Timeline** - Find: Suggested order/timeline for using products - Replace with: Your recommended implementation plan
+#### Page 7: Community Downsell/Order Bump
+**Location:** Seventh step in funnel **URL Pattern:** `/the-cash-campaign-template`
+**Elements to Replace:**
+1. **Downsell Offer Name** - Find: "Cash Campaign Templates" or similar - Replace with: Your community/downsell offer name
+2.
+

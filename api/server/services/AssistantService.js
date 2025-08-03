@@ -281,7 +281,7 @@ function createInProgressHandler(openai, thread_id, messages) {
 
       openai.seenCompletedMessages.add(message_id);
 
-      const message = await openai.beta.threads.messages.retrieve(message_id, { thread_id });
+      const message = await openai.beta.threads.messages.retrieve(thread_id, message_id);
       if (!message?.content?.length) {
         return;
       }
@@ -435,11 +435,9 @@ async function runAssistant({
     };
   });
 
-  const tool_outputs = await processRequiredActions(openai, actions);
-  const toolRun = await openai.beta.threads.runs.submitToolOutputs(run.id, {
-    thread_id: run.thread_id,
-    tool_outputs,
-  });
+  const outputs = await processRequiredActions(openai, actions);
+
+  const toolRun = await openai.beta.threads.runs.submitToolOutputs(run.thread_id, run.id, outputs);
 
   // Recursive call with accumulated steps and messages
   return await runAssistant({

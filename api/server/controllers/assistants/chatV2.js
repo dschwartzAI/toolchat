@@ -29,6 +29,7 @@ const { createRunBody } = require('~/server/services/createRunBody');
 const { getTransactions } = require('~/models/Transaction');
 const { checkBalance } = require('~/models/balanceMethods');
 const { getConvo } = require('~/models/Conversation');
+const { getFormattedMemories } = require('~/models');
 const getLogStores = require('~/cache/getLogStores');
 const { countTokens } = require('~/server/utils');
 const { getModelMaxTokens } = require('~/utils');
@@ -43,6 +44,7 @@ const { getOpenAIClient } = require('./helpers');
  * @returns {void}
  */
 const chatV2 = async (req, res) => {
+  console.log('[chatV2] Function called with body:', req.body);
   logger.debug('[/assistants/chat/] req.body', req.body);
 
   /** @type {{files: MongoFile[]}} */
@@ -188,6 +190,42 @@ const chatV2 = async (req, res) => {
       },
     };
 
+    // Fetch user memories if enabled
+    let memoryContext;
+    try {
+      const user = req.user;
+      const memoryConfig = req.app.locals?.memory;
+      console.log(`[Memory] Assistant checking memory for user ${user.id}: personalization.memories=${user.personalization?.memories}, memoryConfig.disabled=${memoryConfig?.disabled}`);
+      console.log('[Memory] Memory config:', memoryConfig);
+      logger.debug(`[Memory] Assistant checking memory for user ${user.id}: personalization.memories=${user.personalization?.memories}, memoryConfig.disabled=${memoryConfig?.disabled}`);
+      
+      if (user.personalization?.memories !== false && memoryConfig && !memoryConfig.disabled) {
+        console.log('[Memory] Fetching memories for assistant...');
+        try {
+          const memories = await getFormattedMemories({ userId: user.id });
+          console.log('[Memory] Retrieved memories for assistant:', memories);
+          logger.debug(`[Memory] Retrieved memories for assistant:`, memories ? 'Found' : 'None');
+          if (memories?.withoutKeys) {
+            memoryContext = memories.withoutKeys;
+            console.log(`[Memory] Memory context length: ${memoryContext.length} characters`);
+            console.log('[Memory] Memory context preview:', memoryContext.substring(0, 200) + '...');
+            logger.debug(`[Memory] Memory context length: ${memoryContext.length} characters`);
+          }
+        } catch (error) {
+          console.error('[Memory] Error calling getFormattedMemories:', error);
+          logger.error('[Memory] Error calling getFormattedMemories:', error);
+        }
+      } else {
+        console.log('[Memory] Memory not enabled - conditions not met');
+      }
+    } catch (error) {
+      console.error('[Memory] Error fetching memories for assistant:', error);
+      logger.error('[Memory] Error fetching memories for assistant:', error);
+    }
+
+    console.log(`[chatV2] Model from client: ${model}`);
+    console.log(`[chatV2] Assistant ID: ${assistant_id}`);
+    
     /** @type {CreateRunBody | undefined} */
     const body = createRunBody({
       assistant_id,
@@ -196,7 +234,10 @@ const chatV2 = async (req, res) => {
       instructions,
       endpointOption,
       clientTimestamp,
+      memoryContext,
     });
+    
+    console.log('[chatV2] Body being sent to OpenAI:', JSON.stringify(body, null, 2));
 
     const getRequestFileIds = async () => {
       let thread_file_ids = [];
@@ -467,7 +508,7 @@ const chatV2 = async (req, res) => {
 
     if (!response.run.usage) {
       await sleep(3000);
-      completedRun = await openai.beta.threads.runs.retrieve(response.run.id, { thread_id });
+      completedRun = await openai.beta.threads.runs.retrieve(thread_id, response.run.id);
       if (completedRun.usage) {
         await recordUsage({
           ...completedRun.usage,

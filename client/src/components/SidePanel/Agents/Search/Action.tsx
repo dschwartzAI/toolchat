@@ -1,16 +1,16 @@
 import { KeyRoundIcon } from 'lucide-react';
 import { AuthType, AgentCapabilities } from 'librechat-data-provider';
 import { useFormContext, Controller, useWatch } from 'react-hook-form';
+import type { AgentForm } from '~/common';
 import {
-  CircleHelpIcon,
   Checkbox,
   HoverCard,
   HoverCardContent,
   HoverCardPortal,
   HoverCardTrigger,
-} from '@librechat/client';
-import type { AgentForm } from '~/common';
+} from '~/components/ui';
 import { useLocalize, useSearchApiKeyForm } from '~/hooks';
+import { CircleHelpIcon } from '~/components/svg';
 import ApiKeyDialog from './ApiKeyDialog';
 import { ESide } from '~/common';
 

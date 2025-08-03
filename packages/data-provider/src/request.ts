@@ -97,9 +97,12 @@ axios.interceptors.response.use(
     if (originalRequest.url?.includes('/api/auth/logout') === true) {
       return Promise.reject(error);
     }
+    if (originalRequest.url?.includes('/api/feedback') === true) {
+      return Promise.reject(error);
+    }
 
     if (error.response.status === 401 && !originalRequest._retry) {
-      console.warn('401 error, refreshing token');
+      console.warn('401 error, refreshing token for URL:', originalRequest.url);
       originalRequest._retry = true;
 
       if (isRefreshing) {

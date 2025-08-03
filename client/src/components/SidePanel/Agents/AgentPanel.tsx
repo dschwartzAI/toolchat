@@ -1,6 +1,5 @@
 import { Plus } from 'lucide-react';
 import React, { useMemo, useCallback } from 'react';
-import { Button, useToastContext } from '@librechat/client';
 import { useWatch, useForm, FormProvider } from 'react-hook-form';
 import { useGetModelsQuery } from 'librechat-data-provider/react-query';
 import {
@@ -21,9 +20,11 @@ import { useSelectAgent, useLocalize, useAuthContext } from '~/hooks';
 import { useAgentPanelContext } from '~/Providers/AgentPanelContext';
 import AgentPanelSkeleton from './AgentPanelSkeleton';
 import AdvancedPanel from './Advanced/AdvancedPanel';
+import { useToastContext } from '~/Providers';
 import AgentConfig from './AgentConfig';
 import AgentSelect from './AgentSelect';
 import AgentFooter from './AgentFooter';
+import { Button } from '~/components';
 import ModelPanel from './ModelPanel';
 import { Panel } from '~/common';
 
@@ -169,6 +170,7 @@ export default function AgentPanel() {
         artifacts,
         description,
         instructions,
+        conversation_starters,
         model: _model,
         model_parameters,
         provider: _provider,
@@ -190,6 +192,7 @@ export default function AgentPanel() {
             artifacts,
             description,
             instructions,
+            conversation_starters,
             model,
             tools,
             provider,
@@ -215,6 +218,7 @@ export default function AgentPanel() {
         artifacts,
         description,
         instructions,
+        conversation_starters,
         model,
         tools,
         provider,

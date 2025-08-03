@@ -5,6 +5,12 @@ import { useGetAssistantDocsQuery, useGetEndpointsQuery } from '~/data-provider'
 import { getIconEndpoint, getEntity } from '~/utils';
 import { useSubmitMessage } from '~/hooks';
 
+// Agent IDs that should not display conversation starters
+const AGENTS_WITHOUT_STARTERS = [
+  'agent_KVXW88WVte1tcyABlAowy', // DarkJK
+  'agent_odD3oMA9NgaPXQEcf0Pnq'  // SovereignJK
+];
+
 const ConversationStarters = () => {
   const { conversation } = useChatContext();
   const agentsMap = useAgentsMapContext();
@@ -58,6 +64,11 @@ const ConversationStarters = () => {
     (text: string) => submitMessage({ text }),
     [submitMessage],
   );
+
+  // Check if this agent should not display conversation starters
+  if (conversation?.agent_id && AGENTS_WITHOUT_STARTERS.includes(conversation.agent_id)) {
+    return null;
+  }
 
   if (!conversation_starters.length) {
     return null;

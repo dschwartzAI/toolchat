@@ -52,6 +52,7 @@ const ConvoIconURL: React.FC<ConvoIconURLProps> = ({
         className={classMap[context ?? 'default'] ?? classMap.default}
         containerStyle={styleMap[context ?? 'default'] ?? styleMap.default}
         imageStyle={styleImageMap[context ?? 'default'] ?? styleImageMap.default}
+        context={context}
       />
     );
   }

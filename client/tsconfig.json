@@ -14,9 +14,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noImplicitAny": false,
-    "noEmit": false,
-    "declaration": true,
-    "declarationDir": "./types",
+    "noEmit": true,
     "jsx": "preserve",
     "baseUrl": "..",
     "paths": {
@@ -35,5 +33,5 @@
     "test/setupTests.js",
     "env.d.ts",
     "../config/translations/**/*.ts"
-, "../packages/client/src/hooks/useDelayedRender.tsx"  ]
+  ]
 }

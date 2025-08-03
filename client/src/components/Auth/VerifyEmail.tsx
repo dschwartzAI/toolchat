@@ -1,7 +1,8 @@
-import { useState, useEffect, useMemo, useCallback } from 'react';
-import { Spinner, ThemeSelector } from '@librechat/client';
 import { useSearchParams, useNavigate } from 'react-router-dom';
+import { useState, useEffect, useMemo, useCallback } from 'react';
 import { useVerifyEmailMutation, useResendVerificationEmail } from '~/data-provider';
+import { ThemeSelector } from '~/components/ui';
+import { Spinner } from '~/components/svg';
 import { useLocalize } from '~/hooks';
 
 function RequestPasswordReset() {

@@ -1,10 +1,10 @@
-import React, { useState, useCallback, useMemo, useEffect } from 'react';
 import { ListFilter, User, Share2 } from 'lucide-react';
-import { SystemCategories } from 'librechat-data-provider';
+import React, { useState, useCallback, useMemo, useEffect } from 'react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
-import { Dropdown, AnimatedSearchInput } from '@librechat/client';
-import type { Option } from '~/common';
+import { SystemCategories } from 'librechat-data-provider';
 import { usePromptGroupsNav, useLocalize, useCategories } from '~/hooks';
+import { Dropdown, AnimatedSearchInput } from '~/components/ui';
+import type { Option } from '~/common';
 import { cn } from '~/utils';
 import store from '~/store';
 

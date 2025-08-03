@@ -1,0 +1,25 @@
+ M .claude/settings.local.json
+ M LibreChat/.env
+ M LibreChat/Dockerfile.custom
+ M LibreChat/api/server/controllers/agents/client.js
+ M LibreChat/api/server/controllers/assistants/chatV2.js
+ M LibreChat/api/server/routes/assistants/chatV2.js
+ M LibreChat/api/server/services/createRunBody.js
+ M LibreChat/client/src/components/Chat/Messages/Content/RetrievalCall.tsx
+ M LibreChat/client/src/hooks/SSE/useContentHandler.ts
+ M LibreChat/docker-compose.yml
+ M LibreChat/librechat.yaml
+?? .env.backup
+?? LibreChat/MEMORY_SYSTEM_SUMMARY.md
+?? LibreChat/MEMORY_TESTING_GUIDE.md
+?? LibreChat/scripts/check-memory-system.js
+?? LibreChat/scripts/debug-memory-fetch.mjs
+?? LibreChat/scripts/enable-memories-for-users.js
+?? LibreChat/scripts/enable-memories.mjs
+?? LibreChat/scripts/migrate-memories.js
+?? LibreChat/scripts/test-memory-api.js
+?? LibreChat/scripts/test-memory-storage.mjs
+?? LibreChat/scripts/verify-memory.mjs
+?? LibreChat/test-memory.sh
+?? librechat.yaml.backup
+?? working-configs/

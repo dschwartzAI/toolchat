@@ -1,11 +1,12 @@
 import React, { memo, useEffect, useRef, useState } from 'react';
-import copy from 'copy-to-clipboard';
 import rehypeKatex from 'rehype-katex';
 import ReactMarkdown from 'react-markdown';
 import rehypeHighlight from 'rehype-highlight';
-import { Clipboard, CheckMark } from '@librechat/client';
+import copy from 'copy-to-clipboard';
 import { handleDoubleClick, langSubset } from '~/utils';
-import { useLocalize } from '~/hooks';
+import Clipboard from '~/components/svg/Clipboard';
+import CheckMark from '~/components/svg/CheckMark';
+import useLocalize from '~/hooks/useLocalize';
 
 type TCodeProps = {
   inline: boolean;

@@ -1,0 +1,286 @@
+# JK Implementation Guides
+This file contains all implementation guides and SOPs.
+
+================================================================================
+
+## GUIDE: 01 100 Workshops
+
+---
+title: $100 Workshops
+type: guides
+source_files: $100 Workshops.pdf  # Limit to 5 for readability
+keywords: business, client, customer, growth, leverage, offer
+token_count: 795
+duplicates_removed: 0
+generated: 2025-07-07T12:14:59.802689
+---
+
+# $100 Workshops
+
+$100 Workshops
+How To Generate Customers, Cashflow and Clients With $100 Workshops
+Workshops Work:
+The simple definition of a workshop is a live call where something gets done.
+Workshops combine information and insight.
+How something is done - information How it can work for an individual attendee - insight
+Where to create from:
+Solve a single problem, deliver a single result ● Clients first, customers second
+[Workshop Calendar - October 2024 Schedule Placeholder]
+The workshops you create are useful for clients. I will reiterate this regularly...
+How to create it:
+
+Magic pills sell in large numbers ● Reminding is more useful than teaching
+The best workshops are self-contained. They give everyone a result no matter if they decide to become clients or not. While tempting to leave something out this manipulation comes back in the future.
+The best clients understand the value of proximity and insight. They get the information in the workshop and
+Most people feel they will be fine with information. The majority will leave and do nothing with it. Some will leave, try to execute it, see it work for them and want more or will see it's harder than it looks and will come back.
+The duality of good workshops is that the more you create for clients the more sales you make to customers who are best fit clients.
+Said another way, the less sales you try and make the more sales you will make.
+The Two Frames
+This Is Part Of Client Delivery:
+"Welcome to our guests, this workshop is for my clients" Allowing people to understand that this workshop is being held as part of your normal delivery allows them to see and imagine a world they might like to be part of.
+Small Part Of Something Larger:
+
+Whether your workshop is demonstration, model or mechanism based it will only cover a small part of your world. Show how it fits into the big picture.
+Eg workshops are one component of the Sovereign Blueprint they work alone but work better when you have a great Client offer.
+The Power Ladder
+The realities of market dynamics can frustrate or be embraced.
+Not everybody is going to buy your stuff. In fact, very few will.
+The key to leverage is identifying who is likely to firstly, buy, then who will make a custom of buying (customer) and who would find further access to you useful (client)
+The Power Ladder™
+Understanding market dynamics and sophistication allows you to meet the right person with the right offer to generate insight for their specific stage of growth
+What people say and what people do are very different things.
+Many people in your addressable market can intend to work with you in the future. Hanging on this hope will sustain you for a little then depress you when it's not fulfilled.
+
+Many businesses go crazy and broke trying to 'educate' and 'nurture' their market when making an offer presents the simplest shortcut.
+The strongest intent demonstration is the act of purchasing. This gives you a signal to tune into and explore the intent behind that commitment.
+The Sovereign Blueprint
+Built on The Sovereign Principles and deploying the correct modality via the correct channel:
+Coaching - Helping people discover the answer inside them. ● Consulting - Giving someone the answer. ● Mentorship - Showing someone how I would do it ● Creator - Conjuring of original ideas ● Curator - Assembly of the best ideas
+If, then:
+
+
+
+
+If I share good content on social and make it easy and natural to join my email list I will grow my leads daily. If I create great workshops for clients then customers will purchase them and a few will naturally see that it's worth joining The Syndicate. If I make it easy to get started in The Syndicate with pricing economics I will maximize client experience and LTV naturally by unbundling and having dynamic offers. If I build a great client base and establish great relationships, I will naturally find those who value being coached in The Circle.
+
+================================================================================
+
+## GUIDE: 02 Funnel Customization Guide
+
+---
+title: Funnel Customization Guide
+type: guides
+source_files: FUNNEL_CUSTOMIZATION_GUIDE.pdf  # Limit to 5 for readability
+keywords: business, customer, offer, service
+token_count: 2215
+duplicates_removed: 0
+generated: 2025-07-07T12:14:59.802794
+---
+
+# Funnel Customization Guide
+
+# Funnel Customization Guide: DCM 2.0 Templates
+## Overview This guide is for users who already have the DCM 2.0 Templates funnel cloned in their HighLevel account and need to customize it with copy generated by the chat app. Follow these steps to replace the template content with your personalized copy.
+## Prerequisites
+✅ DCM 2.0 Templates funnel already cloned in your HighLevel account
+✅ Copy generated from the chat app for your specific service/ business
+✅ Access to your HighLevel account with editing permissions
+✅ Your business assets (logo, images, videos, etc.)
+## Step-by-Step Customization Process
+### Phase 1: Locate Your Cloned Funnel
+1. **Log into your HighLevel account** 2. **Navigate to Sites > Funnels** 3. **Find your cloned DCM 2.0 Templates funnel** - Look for a funnel named "DCM 2.0 Templates" or similar - It should have 8 steps/pages ### Phase 2: Page-by-Page Customization
+#### Page 1: Big Idea Video Page (Social Code $9)
+**Location:** First step in your funnel **URL Pattern:** `/social-code-9-TEMPLATE`
+**Elements to Replace:**
+1. **Main Headline** - Find: Current template headline - Replace with: Chat app generated headline - Location: Top of page, usually in large text
+2. **Subheadline** - Find: Supporting headline text - Replace with: Chat app generated subheadline - Location: Below main headline
+3. **Video Section** - Find: Existing video placeholder or embed - Replace with: Your big idea video - **How to:** Click on video element > Replace video URL/embed code
+
+4. **Benefits List** - Find: Bullet points or numbered list of benefits - Replace with: Chat app generated benefits (usually 3-5 points) - **How to:** Click on each bullet point and edit text
+5. **Price Point** - Find: "$9" or current price - Replace with: Your chosen price point - Location: Usually near the buy button
+6. **Call-to-Action Button** - Find: "Buy Now" or similar button text - Replace with: Chat app generated CTA text - **How to:** Click button > Edit text
+7. **Testimonials/Social Proof** - Find: Existing testimonial sections - Replace with: Your customer testimonials - **How to:** Click testimonial text > Replace with your content
+8. **Business Name/Branding** - Find: "James Kemp" or "Social Code" references - Replace with: Your business name and product name - **Search tip:** Use Ctrl+F (Cmd+F on Mac) to find all instances #### Page 2: First Upsell (3k Code + Social Code Bundle)
+**Location:** Second step in funnel **URL Pattern:** `/3k-code-and-social-code-bundle-TEMPLATE`
+**Elements to Replace:**
+1. **Upsell Headline** - Find: "Wait! Get [Bundle Name]" text - Replace with: Chat app generated upsell headline
+2. **Bundle Description** - Find: Description of what's included in bundle - Replace with: Your bundle contents and benefits
+3. **Pricing** - Find: Bundle price (likely $97-$297 range) - Replace with: Your bundle pricing
+4. **Accept/Decline Buttons** - Find: "Yes, I want this" and "No thanks" buttons - Replace with: Chat app generated button text
+##
+
+#### Page 3: Membership Upsell (Sovereign Membership Trial)
+
+**Location:** Third step in funnel **URL Pattern:** `/9-day-trial-sov-template`
+**Elements to Replace:**
+1. **Membership Name** - Find: "Sovereign Membership" or similar - Replace with: Your membership/community name
+2. **Trial Details** - Find: "9 Day Trial" and trial pricing - Replace with: Your trial period and pricing
+3. **Membership Benefits** - Find: List of membership perks - Replace with: Your membership benefits from chat app
+4. **Monthly Pricing** - Find: Regular monthly price after trial - Replace with: Your ongoing membership price
+#### Page 4: Main Product Delivery
+**Location:** Fourth step in funnel **URL Pattern:** `/social-code-training-template`
+**Elements to Replace:**
+1. **Welcome Message** - Find: Congratulations/welcome text - Replace with: Chat app generated welcome message
+2. **Access Instructions** - Find: Steps to access the product - Replace with: Your specific access instructions
+3. **Download Links** - Find: Template download/access links - Replace with: Your actual product links
+4. **Support Information** - Find: Contact details for help - Replace with: Your support contact information
+#### Page 5: Membership Thank You
+**Location:** Fifth step in funnel **URL Pattern:** `/sov-community-ty-template`
+**Elements to Replace:**
+
+1. **Confirmation Message** - Find: Membership confirmation text - Replace with: Your membership welcome message
+2. **Community Access Details** - Find: Instructions for accessing community - Replace with: Your community platform details (Discord, Facebook, etc.)
+3. **Next Steps** - Find: Onboarding instructions - Replace with: Your member onboarding process
+#### Page 6: Bundle Delivery
+**Location:** Sixth step in funnel **URL Pattern:** `/3k-code-social-code-training-template`
+**Elements to Replace:**
+1. **Bundle Welcome** - Find: Bundle delivery message - Replace with: Chat app generated bundle welcome
+2. **Individual Product Access** - Find: Links to each product in bundle - Replace with: Your actual product access links
+3. **Implementation Timeline** - Find: Suggested order/timeline for using products - Replace with: Your recommended implementation plan
+#### Page 7: Community Downsell/Order Bump
+**Location:** Seventh step in funnel **URL Pattern:** `/the-cash-campaign-template`
+**Elements to Replace:**
+1. **Downsell Offer Name** - Find: "Cash Campaign Templates" or similar - Replace with: Your community/downsell offer name
+2. **Offer Description** - Find: What's included in the downsell - Replace with: Your community benefits or downsell product details
+3. **Pricing** - Find: Downsell price
+
+Replace with: Your community/downsell pricing
+#### Page 8: Implementation Guide
+**Location:** Eighth step in funnel **URL Pattern:** `/install-template`
+**Elements to Replace:**
+1. **Setup Instructions** - Find: Template implementation steps - Replace with: Your specific setup/implementation guide
+2. **Resource Links** - Find: Links to tools or resources - Replace with: Your recommended tools and resources
+3. **Support Contact** - Find: Help/support information - Replace with: Your support details
+### Phase 3: Global Elements
+##
+
+### Phase 3: Global Elements
+#### Update Throughout All Pages:
+1. **Logo/Branding** - **How to:** Sites > Funnels > [Your Funnel] > Settings > Global Sections - Replace header logo with your logo - Update brand colors if needed
+2. **Contact Information** - **Search for:** Email addresses, phone numbers - **Replace with:** Your contact details - **Tip:** Use global search (Ctrl+F) on each page
+3. **Legal Pages Links** - **Find:** Privacy Policy, Terms of Service links - **Update:** Point to your legal pages
+4. **Social Media Links** - **Find:** Social media icons/links - **Replace:** With your social media profiles
+### Phase 4: Technical Updates
+#### Payment Integration: 1. **Navigate to:** Sites > Funnels > [Your Funnel] > Settings 2. **Update:** Payment processor settings 3. **Configure:** Your Stripe/payment account
+
+4. **Set:** Correct product prices and IDs
+#### Email Integration: 1. **Go to:** Marketing > Workflows 2. **Find:** Email sequences related to your funnel 3. **Update:** Email content with your copy 4. **Replace:** Sender name and email address
+#### Domain/URL Settings: 1. **Navigate to:** Sites > Funnels > [Your Funnel] > Settings 2. **Update:** Custom domain if you have one 3. **Check:** All internal links work correctly
+### Phase 5: Testing Your Customized Funnel
+#### Pre-Launch Checklist: - [ ] Test complete funnel flow from start to finish - [ ] Verify all copy has been replaced (no template text remains) - [ ] Check all links work correctly - [ ] Test payment processing with small amount - [ ] Verify email sequences trigger correctly - [ ] Test on mobile device - [ ] Check page loading speeds - [ ] Confirm all your branding is consistent
+#### Common Areas People Miss: - [ ] Footer text and links - [ ] Email subject lines in automation - [ ] Thank you page redirects - [ ] Order confirmation emails - [ ] Meta descriptions and page titles - [ ] Social sharing text - [ ] Error page messages
+### Phase 6: Going Live
+#### Final Steps: 1. **Set funnel to active/published** 2. **Update any advertising campaigns** with new funnel URLs 3. **Test with real purchase** (small amount) 4. **Monitor first few transactions** closely 5. **Set up analytics tracking** if not already done
+## Quick Reference: Copy Replacement Checklist
+### For Each Page, Replace: - [ ] **Headlines** (main and sub) - [ ] **Body copy** (descriptions, benefits) - [ ] **Button text** (CTAs) - [ ] **Pricing** (all price points)
+
+[ ] **Product/service names** - [ ] **Business name references** - [ ] **Contact information** - [ ] **Testimonials/social proof** - [ ] **Links** (downloads, access, support) ### Global Replacements: - [ ] **Logo and branding** - [ ] **Color scheme** (if needed) - [ ] **Legal page links** - [ ] **Social media links** - [ ] **Email addresses** - [ ] **Phone numbers**
+## Troubleshooting Tips
+### If You Can't Find an Element: 1. **Try the page editor:** Click "Edit Page" button 2. **Use browser search:** Ctrl+F (Cmd+F) to find specific text 3. **Check global sections:** Some elements might be in global headers/footers 4. **Look in workflows:** Email content might be in Marketing > Workflows
+
+================================================================================
+
+## GUIDE: 03 Highlevel Funnel Reproduction Sop
+
+---
+title: Highlevel Funnel Reproduction Sop
+type: guides
+source_files: HIGHLEVEL_FUNNEL_REPRODUCTION_SOP.pdf  # Limit to 5 for readability
+keywords: business, client, customer, framework, growth, offer, service, strategy
+token_count: 2675
+duplicates_removed: 0
+generated: 2025-07-07T12:14:59.802915
+---
+
+# Highlevel Funnel Reproduction Sop
+
+# HighLevel Funnel Reproduction SOP: DCM 2.0 Templates
+## Overview This Standard Operating Procedure (SOP) outlines the step-by-step process for reproducing the "DCM 2.0 Templates" funnel from James Kemp's HighLevel account with customized service and sales copy for clients.
+## Funnel Structure Analysis
+Based on the API analysis of the DCM 2.0 Templates funnel (ID: ATb1XCi2a8fAMP9ME7cY), the funnel contains the following 8 steps:
+### Core Funnel Flow: 1. **Social Code $9 (TEMPLATE)** - Big idea video page 2. **Upsell 1: The 3k Code + Social Code (TEMPLATE)** - First upsell bundle 3. **Upsell 2: Sovereign Membership - 9 Day Trial (TEMPLATE)** - Membership upsell 4. **Delivery - The Social Code (TEMPLATE)** - Product delivery page 5. **The Sovereign Community Membership - Thank You (TEMPLATE)** - Membership thank you 6. **Delivery - The 3k Code and Social Code (TEMPLATE)** - Bundle delivery page 7. **BUMP: The Cash Campaign Templates (Template)** - Order bump/ downsell 8. **The Client Funnel** - Final installation/setup page
+## Prerequisites
+### Required Access: - HighLevel Agency/Location account with funnel creation permissions - API access (if automating the process) - Copywriting tool access for content customization - Client's business information and unique value proposition
+### Required Information from Client: - Business name and branding - Target audience description - Unique service/product offering - Pricing structure - Value propositions - Contact information - Payment processing setup
+## Step-by-Step Reproduction Process
+### Phase 1: Funnel Setup and Structure
+#### Step 1: Create New Funnel
+
+1. Log into HighLevel account 2. Navigate to Sites > Funnels 3. Click "Create New Funnel" 4. Name the funnel: "[Client Name] - [Service Name] Funnel" 5. Set the funnel URL slug: `/[client-service-name]` ##
+
+## Step-by-Step Reproduction Process
+### Phase 1: Funnel Setup and Structure
+#### Step 1: Create New Funnel
+
+1. Log into HighLevel account 2. Navigate to Sites > Funnels 3. Click "Create New Funnel" 4. Name the funnel: "[Client Name] - [Service Name] Funnel" 5. Set the funnel URL slug: `/[client-service-name]` #### Step 2: Create Funnel Steps Create the following 8 steps in sequence:
+**Step 1: Big Idea Video Page** - Name: "[Client Service] $[Price] (Main Offer)" - URL: `/[client-service-main]` - Type: Optin Funnel Page
+**Step 2: First Upsell** - Name: "Upsell 1: [Premium Bundle Name]" - URL: `/[premium-bundle-name]` - Type: Optin Funnel Page
+**Step 3: Membership Upsell** - Name: "Upsell 2: [Membership Name] - [Trial Period] Trial" - URL: `/[membership-trial]` - Type: Optin Funnel Page
+**Step 4: Main Product Delivery** - Name: "Delivery - [Main Product Name]" - URL: `/[main-product-delivery]` - Type: Optin Funnel Page
+**Step 5: Membership Thank You** - Name: "[Membership Name] - Thank You" - URL: `/[membership-thank-you]` - Type: Optin Funnel Page
+**Step 6: Bundle Delivery** - Name: "Delivery - [Premium Bundle Name]" - URL: `/[bundle-delivery]` - Type: Optin Funnel Page
+**Step 7: Community Downsell/Order Bump** - Name: "BUMP: [Community/Downsell Offer Name]" - URL: `/[community-offer]` - Type: Optin Funnel Page
+**Step 8: Setup/Installation Page** - Name: "[Client] Implementation Guide" - URL: `/[implementation-guide]` - Type: Optin Funnel Page
+### Phase 2: Page Content Customization
+
+#### Step 1: Big Idea Video Page Content **Required Elements:** - Compelling headline with client's unique value proposition - Video player (embed client's big idea video) - Benefits list (3-5 key benefits) - Social proof (testimonials, case studies) - Clear call-to-action button - Price point ($7-$47 recommended) - Urgency/scarcity elements - Trust badges/guarantees
+**Copywriting Placeholders:** - `[CLIENT_BUSINESS_NAME]` - `[MAIN_PRODUCT_NAME]` - `[UNIQUE_VALUE_PROPOSITION]` - `[PRICE_POINT]` - `[KEY_BENEFIT_1]`, `[KEY_BENEFIT_2]`, `[KEY_BENEFIT_3]` - `[TESTIMONIAL_1]`, `[TESTIMONIAL_2]` - `[GUARANTEE_STATEMENT]`
+#### Step 2: Upsell Pages Content **Upsell 1 - Premium Bundle:** - Headline: "Wait! Get [Bundle Name] for Just $[Price]" - Bundle contents breakdown - Additional value proposition - Limited-time offer messaging - Accept/Decline buttons
+**Upsell 2 - Membership:** - Headline: "Join [Membership Name] for Just $[Trial Price]" - Membership benefits - Community access details - Trial terms and conditions - Monthly pricing after trial
+#### Step 3: Delivery Pages Content **Main Product Delivery:** - Welcome message - Access instructions - Download links/login credentials - Next steps guidance - Support contact information
+**Bundle Delivery:** - Bundle welcome message - Individual product access - Implementation timeline - Bonus materials access
+
+##
+
+#### Step 3: Delivery Pages Content **Main Product Delivery:** - Welcome message - Access instructions - Download links/login credentials - Next steps guidance - Support contact information
+**Bundle Delivery:** - Bundle welcome message - Individual product access - Implementation timeline - Bonus materials access
+
+#### Step 4: Thank You Pages Content **Membership Thank You:** - Confirmation message - Community access details - Onboarding schedule - Contact information for support
+### Phase 3: Technical Setup
+#### Step 1: Payment Integration 1. Set up payment processor (Stripe recommended) 2. Create products for each offer: - Main product ($7-$47) - Premium bundle ($97-$297) - Membership trial ($1-$9) - Community access ($27-$97) 3. Configure payment forms on each sales page 4. Set up order bumps and upsell logic
+#### Step 2: Email Automation 1. Create email sequences for each funnel path: - Main product purchasers - Bundle purchasers - Membership trial members - Community members 2. Set up delivery emails with access credentials 3. Configure follow-up sequences
+#### Step 3: Analytics and Tracking 1. Install Facebook Pixel (if using Facebook ads) 2. Set up Google Analytics 3. Configure conversion tracking 4. Set up HighLevel analytics
+### Phase 4: Content Integration with Copywriting Tool
+#### Step 1: Gather Client Information Use the copywriting tool to generate customized content by providing: - Client's business description - Target audience demographics - Unique selling propositions - Competitor analysis - Pricing strategy
+#### Step 2: Generate Page Copy For each funnel step, use the copywriting tool to create: - Headlines and subheadlines - Body copy - Call-to-action text - Email sequences
+
+Social proof elements
+#### Step 3: Customize Templates Replace all placeholder content with generated copy: 1. Import generated headlines 2. Replace benefit statements 3. Customize testimonials and social proof 4. Update pricing and offer details 5. Personalize email sequences
+### Phase 5: Testing and Optimization
+#### Step 1: Funnel Testing 1. Test complete funnel flow 2. Verify payment processing 3. Check email delivery 4. Test mobile responsiveness 5. Validate all links and redirects
+#### Step 2: A/B Testing Setup 1. Create variations for key pages 2. Test different headlines 3. Test pricing strategies 4. Test call-to-action buttons 5. Monitor conversion rates
+## API Integration Guide
+### Required API Endpoints: - `GET /funnels/funnel/list` - List existing funnels - `POST /funnels/funnel` - Create new funnel - `GET /funnels/page` - Get page details - `POST /funnels/page` - Create new page - `PUT /funnels/page/{pageId}` - Update page content
+### Authentication: - Use private integration key: `pit-02400293-370a-4ab9- a448-8830e6867687` - Location ID: `4BO06AvPiDJEeqf2WhmU` - API Version: `2021-07-28`
+### Sample API Calls:
+#### Create New Funnel: ```bash curl -X POST "https://services.leadconnectorhq.com/funnels/funnel" \ -H "Authorization: Bearer pit-02400293-370a-4ab9-a448-8830e6867687" \ -H "Version: 2021-07-28" \ -H "Content-Type: application/json" \
+
+d '{ "name": "[Client Name] - [Service Name] Funnel", "locationId": "4BO06AvPiDJEeqf2WhmU", "url": "/[client-service-name]" }' ```
+##
+
+#### Clone Page from Template: ```bash curl -X POST "https://services.leadconnectorhq.com/funnels/page" \ -H "Authorization: Bearer pit-02400293-370a-4ab9-a448-8830e6867687" \ -H "Version: 2021-07-28" \ -H "Content-Type: application/json" \ -d '{ "name": "[New Page Name]", "funnelId": "[New Funnel ID]", "stepId": "[New Step ID]", "templatePageId": "[Template Page ID]" }' ```
+## Quality Assurance Checklist
+### Pre-Launch Checklist: - [ ] All pages load correctly - [ ] Payment processing works - [ ] Email sequences are active - [ ] Mobile responsiveness verified - [ ] All links functional - [ ] Analytics tracking installed - [ ] Legal pages updated (privacy policy, terms) - [ ] Client branding consistent throughout - [ ] Pricing accuracy verified - [ ] Support contact information updated
+### Post-Launch Monitoring: - [ ] Conversion rates tracking - [ ] Payment processing monitoring - [ ] Email delivery rates - [ ] Customer support tickets - [ ] Page load speeds - [ ] Mobile user experience - [ ] A/B test results analysis
+## Troubleshooting Guide
+### Common Issues: 1. **Payment Processing Failures** - Verify Stripe/payment processor setup
+
+Check API keys and webhooks - Validate product configurations
+2. **Email Delivery Issues** - Check SMTP settings - Verify email templates - Monitor spam scores
+3. **Page Loading Problems** - Check domain configuration - Verify SSL certificates - Optimize image sizes
+4. **Mobile Display Issues** - Test on multiple devices - Check responsive design elements - Validate touch targets
+## Success Metrics
+### Key Performance Indicators (KPIs): - **Conversion Rate**: Target 2-5% for cold traffic - **Average Order Value**: Track upsell performance - **Customer Lifetime Value**: Monitor membership retention - **Email Open Rates**: Target 25-35% - **Email Click Rates**: Target 3-7% - **Page Load Speed**: Under 3 seconds - **Mobile Conversion Rate**: Within 80% of desktop
+### Optimization Targets: - Increase main offer conversion by 20% - Improve upsell acceptance by 15% - Reduce cart abandonment by 25% - Increase email engagement by 30%
+## Maintenance Schedule
+### Weekly Tasks: - Monitor conversion rates - Check email deliverability - Review customer feedback - Update inventory/availability
+### Monthly Tasks: - Analyze funnel performance - A/B test new elements - Update testimonials/social proof - Review and optimize email sequences
+### Quarterly Tasks:
+
+Comprehensive funnel audit - Competitor analysis update - Pricing strategy review - Technology stack evaluation
+## Conclusion
+This SOP provides a comprehensive framework for reproducing the DCM 2.0 Templates funnel structure with customized content for any service-based business. The key to success lies in maintaining the proven funnel flow while personalizing all content to match the client's unique value proposition and target audience.
+Regular monitoring, testing, and optimization are essential for maximizing funnel performance and achieving sustainable growth for the client's business.
+
+================================================================================
+

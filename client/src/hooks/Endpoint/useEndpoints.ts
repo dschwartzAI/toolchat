@@ -73,14 +73,21 @@ export const useEndpoints = ({
       return [];
     }
     const result: EModelEndpoint[] = [];
+    
     for (let i = 0; i < endpoints.length; i++) {
-      if (endpoints[i] === EModelEndpoint.agents && !hasAgentAccess) {
+      const endpoint = endpoints[i];
+      
+      // Skip agents if no access
+      if (endpoint === EModelEndpoint.agents && !hasAgentAccess) {
         continue;
       }
-      if (includedEndpoints.size > 0 && !includedEndpoints.has(endpoints[i])) {
+      
+      // Skip if included endpoints are specified and this isn't included
+      if (includedEndpoints.size > 0 && !includedEndpoints.has(endpoint)) {
         continue;
       }
-      result.push(endpoints[i]);
+      
+      result.push(endpoint);
     }
 
     return result;

@@ -24,6 +24,10 @@ router.post('/abort', handleAbort());
  */
 router.post(
   '/',
+  (req, res, next) => {
+    console.log('[chatV2 Route] POST request received:', req.body?.text?.substring(0, 50));
+    next();
+  },
   validateModel,
   buildEndpointOption,
   validateAssistant,

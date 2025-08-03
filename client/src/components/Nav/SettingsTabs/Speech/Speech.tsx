@@ -1,8 +1,7 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { useRecoilState } from 'recoil';
 import * as Tabs from '@radix-ui/react-tabs';
 import { Lightbulb, Cog } from 'lucide-react';
-import { useOnClickOutside, useMediaQuery } from '@librechat/client';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { useGetCustomConfigSpeechQuery } from 'librechat-data-provider/react-query';
 import {
   CloudBrowserVoicesSwitch,
@@ -21,8 +20,8 @@ import {
   EngineSTTDropdown,
   DecibelSelector,
 } from './STT';
+import { useOnClickOutside, useMediaQuery, useLocalize } from '~/hooks';
 import ConversationModeSwitch from './ConversationModeSwitch';
-import { useLocalize } from '~/hooks';
 import { cn, logger } from '~/utils';
 import store from '~/store';
 
@@ -145,6 +144,8 @@ function Speech() {
       setEngineTTS('browser');
     }
   }, [engineTTS, setEngineTTS]);
+
+  logger.log({ sttExternal, ttsExternal });
 
   const contentRef = useRef(null);
   useOnClickOutside(contentRef, () => confirmClear && setConfirmClear(false), []);

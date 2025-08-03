@@ -1,0 +1,191 @@
+version: 1.0.5
+cache: true
+
+# Production UI Configuration - Maximum simplification for business users
+interface:
+  endpointsMenu: false    # Hide endpoint selection - agents only
+  modelSelect: false      # Hide model selection completely
+  parameters: false       # Hide all technical parameters
+  presets: false         # Hide presets to avoid confusion
+  agents: true           # Show as primary interface
+  sidePanel: true
+  speechToText: true
+  textToSpeech: true
+  # Hide technical UI elements
+  showModelTags: false
+  showTokenCount: false
+  showPluginMenu: false
+  showSystemPrompt: false
+
+# Agent display customization
+agentDisplay:
+  # Rename technical terms for business users
+  agentsLabel: "Business Tools"
+  defaultAgentLabel: "Select a Business Tool"
+  agentDescription: "Choose a specialized tool for your business needs"
+  hideAgentSettings: true    # Hide all agent configuration from users
+  
+# Disable public features
+registration:
+  enabled: false         # Admin-only user creation
+  socialLogins: false    # No social login in production
+
+# Agent/Tool Configuration for Production
+endpoints:
+  agents:
+    # Completely disable builder for all non-admin users
+    disableBuilder: true
+    # Hide builder UI elements
+    hideBuilderUI: true
+    # Only show pre-configured agents
+    showOnlyConfigured: true
+    # Set appropriate limits
+    recursionLimit: 25
+    maxRecursionLimit: 50
+    # Enable only required capabilities
+    capabilities:
+      - "file_search"     # For Dark JK Coach RAG
+      - "artifacts"       # For Hybrid Offer Creator
+    # Disable unused capabilities
+    disabledCapabilities:
+      - "code_interpreter"  # Not needed for business tools
+      - "execute_code"      # Security consideration
+    
+  # Hide all custom endpoints in production
+  # Agents will use these internally but users won't see them
+  custom: []
+
+# File Configuration - Restrict to business documents
+fileConfig:
+  endpoints:
+    agents:
+      fileLimit: 10            # Reasonable limit for business docs
+      fileSizeLimit: 20        # 20MB max
+      totalFileSizeLimit: 100  # 100MB total per user
+      supportedMimeTypes:
+        - "text/plain"
+        - "text/markdown" 
+        - "application/pdf"
+        - "application/msword"
+        - "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+      # Disable technical file types
+      disabledMimeTypes:
+        - "application/x-python-code"
+        - "application/javascript"
+        - "application/json"
+
+# Production Rate Limits
+rateLimits:
+  # Strict limits for production stability
+  fileUploads:
+    ipMax: 50
+    ipWindowInMinutes: 60
+    userMax: 20
+    userWindowInMinutes: 60
+  # Message limits by user tier
+  messages:
+    free:
+      max: 20
+      windowInMinutes: 60
+    premium:
+      max: 100
+      windowInMinutes: 60
+    admin:
+      max: 1000
+      windowInMinutes: 60
+
+# Disable violations in production
+violationPolicy:
+  enabled: false
+  
+# Disable moderation for business users
+moderationEnabled: false
+
+# Production User Settings
+userSettings:
+  # Allow basic preferences only
+  allowUserSettings: true
+  # Hide all technical settings
+  hiddenSettings:
+    - "model"
+    - "temperature"
+    - "topP"
+    - "topK" 
+    - "maxTokens"
+    - "frequencyPenalty"
+    - "presencePenalty"
+    - "systemPrompt"
+    - "endpoint"
+    - "presetId"
+
+# Welcome Configuration
+welcomeMessage:
+  enabled: true
+  message: |
+    Welcome to Your AI Business Assistant Platform
+    
+    **Available Business Tools:**
+    
+    🎯 **DarkJK**
+    Strategic business coaching powered by James Kemp's methodology
+    
+    📝 **Hybrid Offer Creator**  
+    Create compelling 1500+ word sales letters through guided conversation
+    
+    Select a tool above to begin. For support, contact your administrator.
+
+# Title Generation
+titleGeneration:
+  # Business-friendly titles only
+  promptPrefix: "Create a 4-6 word business title for: "
+  
+# Session Configuration
+session:
+  # Production session settings
+  expiry: "7d"          # 7 day sessions
+  refreshExpiry: "30d"  # 30 day refresh
+  
+# Security Headers (for nginx integration)
+securityHeaders:
+  # Will be read by deployment scripts
+  contentSecurityPolicy: "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline';"
+  xFrameOptions: "DENY"
+  xContentTypeOptions: "nosniff"
+  
+# Telemetry (disabled for privacy)
+telemetry:
+  enabled: false
+
+# Production Features
+features:
+  # Enable business features
+  agents: true
+  artifacts: true
+  rag: true
+  # Disable technical features
+  codeInterpreter: false
+  plugins: false
+  webSearch: false
+  imageGeneration: false
+  
+# Admin Configuration
+admin:
+  # Only these features visible to admin
+  enabledFeatures:
+    - "userManagement"
+    - "agentConfiguration"
+    - "fileManagement"
+    - "usageStatistics"
+  # Hide from admin
+  disabledFeatures:
+    - "systemSettings"
+    - "endpointConfiguration"
+    - "modelConfiguration"
+
+# Branding
+branding:
+  appTitle: "SovereignAI"
+  companyName: "Your Business"
+  supportEmail: "support@yourbusiness.com"
+  logoUrl: "/images/logo.png"
+  faviconUrl: "/images/favicon.ico"

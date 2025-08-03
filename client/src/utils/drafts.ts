@@ -1,39 +1,78 @@
-import debounce from 'lodash/debounce';
-import { LocalStorageKeys } from 'librechat-data-provider';
+// Draft utility functions for handling message drafts in localStorage
 
-export const clearDraft = debounce((id?: string | null) => {
-  localStorage.removeItem(`${LocalStorageKeys.TEXT_DRAFT}${id ?? ''}`);
-}, 2500);
+/**
+ * Clear a draft from localStorage
+ */
+export const clearDraft = (conversationId: string | null | undefined) => {
+  if (conversationId) {
+    localStorage.removeItem(`draft-${conversationId}`);
+  }
+};
 
-export const encodeBase64 = (plainText: string): string => {
+/**
+ * Encode text to base64
+ */
+const encodeBase64 = (text: string): string => {
   try {
-    const textBytes = new TextEncoder().encode(plainText);
-    return btoa(String.fromCharCode(...textBytes));
-  } catch {
+    return btoa(unescape(encodeURIComponent(text)));
+  } catch (error) {
+    console.error('Error encoding to base64:', error);
     return '';
   }
 };
 
-export const decodeBase64 = (base64String: string): string => {
+/**
+ * Decode base64 to text
+ */
+const decodeBase64 = (base64: string): string => {
   try {
-    const bytes = atob(base64String);
-    const uint8Array = new Uint8Array(bytes.length);
-    for (let i = 0; i < bytes.length; i++) {
-      uint8Array[i] = bytes.charCodeAt(i);
-    }
-    return new TextDecoder().decode(uint8Array);
-  } catch {
+    return decodeURIComponent(escape(atob(base64)));
+  } catch (error) {
+    console.error('Error decoding from base64:', error);
     return '';
   }
 };
 
-export const setDraft = ({ id, value }: { id: string; value?: string }) => {
-  if (value && value.length > 1) {
-    localStorage.setItem(`${LocalStorageKeys.TEXT_DRAFT}${id}`, encodeBase64(value));
+/**
+ * Save a draft to localStorage with base64 encoding
+ */
+export const setDraft = (conversationId: string | null | undefined, text: string) => {
+  if (!conversationId || !text.trim()) {
     return;
   }
-  localStorage.removeItem(`${LocalStorageKeys.TEXT_DRAFT}${id}`);
+  
+  try {
+    const encoded = encodeBase64(text);
+    localStorage.setItem(`draft-${conversationId}`, encoded);
+  } catch (error) {
+    console.error('Error saving draft:', error);
+  }
 };
 
-export const getDraft = (id?: string): string | null =>
-  decodeBase64((localStorage.getItem(`${LocalStorageKeys.TEXT_DRAFT}${id ?? ''}`) ?? '') || '');
+/**
+ * Get a draft from localStorage and decode it
+ */
+export const getDraft = (conversationId: string | null | undefined): string => {
+  if (!conversationId) {
+    return '';
+  }
+  
+  try {
+    const encoded = localStorage.getItem(`draft-${conversationId}`);
+    if (!encoded) {
+      return '';
+    }
+    
+    // Try to decode as base64 first
+    const decoded = decodeBase64(encoded);
+    if (decoded) {
+      return decoded;
+    }
+    
+    // Fallback to raw value for backwards compatibility
+    return encoded;
+  } catch (error) {
+    console.error('Error retrieving draft:', error);
+    return '';
+  }
+};

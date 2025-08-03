@@ -1,6 +1,5 @@
-import { useMemo, useCallback, useEffect, useRef } from 'react';
 import { Plus } from 'lucide-react';
-import { SelectDropDown } from '@librechat/client';
+import { useMemo, useCallback, useEffect, useRef } from 'react';
 import {
   Tools,
   FileSources,
@@ -10,6 +9,8 @@ import {
   isImageVisionTool,
   defaultAssistantFormValues,
 } from 'librechat-data-provider';
+import type { UseFormReset } from 'react-hook-form';
+import type { UseMutationResult } from '@tanstack/react-query';
 import type {
   TPlugin,
   Assistant,
@@ -24,8 +25,7 @@ import type {
   TAssistantOption,
   LastSelectedModels,
 } from '~/common';
-import type { UseMutationResult } from '@tanstack/react-query';
-import type { UseFormReset } from 'react-hook-form';
+import SelectDropDown from '~/components/ui/SelectDropDown';
 import { useListAssistantsQuery } from '~/data-provider';
 import { useLocalize, useLocalStorage } from '~/hooks';
 import { cn, createDropdownSetter } from '~/utils';

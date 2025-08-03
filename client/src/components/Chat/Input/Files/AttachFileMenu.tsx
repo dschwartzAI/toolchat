@@ -1,11 +1,11 @@
-import React, { useRef, useState, useMemo } from 'react';
-import * as Ariakit from '@ariakit/react';
 import { useSetRecoilState } from 'recoil';
+import * as Ariakit from '@ariakit/react';
+import React, { useRef, useState, useMemo } from 'react';
 import { FileSearch, ImageUpIcon, TerminalSquareIcon, FileType2Icon } from 'lucide-react';
-import { FileUpload, TooltipAnchor, DropdownPopup, AttachmentIcon } from '@librechat/client';
-import { EToolResources, EModelEndpoint, defaultAgentCapabilities } from 'librechat-data-provider';
+import { EToolResources, EModelEndpoint, defaultAgentCapabilities, SystemRoles } from 'librechat-data-provider';
 import type { EndpointFileConfig } from 'librechat-data-provider';
-import { useLocalize, useGetAgentsConfig, useFileHandling, useAgentCapabilities } from '~/hooks';
+import { useLocalize, useGetAgentsConfig, useFileHandling, useAgentCapabilities, useAuthContext } from '~/hooks';
+import { FileUpload, TooltipAnchor, DropdownPopup, AttachmentIcon } from '~/components';
 import { ephemeralAgentByConvoId } from '~/store';
 import { cn } from '~/utils';
 
@@ -17,6 +17,7 @@ interface AttachFileMenuProps {
 
 const AttachFileMenu = ({ disabled, conversationId, endpointFileConfig }: AttachFileMenuProps) => {
   const localize = useLocalize();
+  const { user } = useAuthContext();
   const isUploadDisabled = disabled ?? false;
   const inputRef = useRef<HTMLInputElement>(null);
   const [isPopoverActive, setIsPopoverActive] = useState(false);
@@ -67,7 +68,8 @@ const AttachFileMenu = ({ disabled, conversationId, endpointFileConfig }: Attach
       });
     }
 
-    if (capabilities.fileSearchEnabled) {
+    // File search upload option only shown to admins
+    if (capabilities.fileSearchEnabled && user?.role === SystemRoles.ADMIN) {
       items.push({
         label: localize('com_ui_upload_file_search'),
         onClick: () => {

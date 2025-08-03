@@ -2,6 +2,7 @@ import React, { useCallback, useState } from 'react';
 import { QueryKeys } from 'librechat-data-provider';
 import { useQueryClient } from '@tanstack/react-query';
 import { useParams, useNavigate } from 'react-router-dom';
+import type { TMessage } from 'librechat-data-provider';
 import {
   Button,
   Spinner,
@@ -9,12 +10,11 @@ import {
   OGDialogTitle,
   OGDialogHeader,
   OGDialogContent,
-  useToastContext,
-} from '@librechat/client';
-import type { TMessage } from 'librechat-data-provider';
+} from '~/components';
 import { useDeleteConversationMutation } from '~/data-provider';
 import { useLocalize, useNewConvo } from '~/hooks';
 import { NotificationSeverity } from '~/common';
+import { useToastContext } from '~/Providers';
 
 type DeleteButtonProps = {
   conversationId: string;

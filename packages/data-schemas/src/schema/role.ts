@@ -2,9 +2,7 @@ import { Schema } from 'mongoose';
 import { PermissionTypes, Permissions } from 'librechat-data-provider';
 import type { IRole } from '~/types';
 
-/**
- * Uses a sub-schema for permissions. Notice we disable `_id` for this subdocument.
- */
+// Create a sub-schema for permissions. Notice we disable _id for this subdocument.
 const rolePermissionsSchema = new Schema(
   {
     [PermissionTypes.BOOKMARKS]: {
@@ -39,9 +37,6 @@ const rolePermissionsSchema = new Schema(
     [PermissionTypes.WEB_SEARCH]: {
       [Permissions.USE]: { type: Boolean, default: true },
     },
-    [PermissionTypes.FILE_SEARCH]: {
-      [Permissions.USE]: { type: Boolean, default: true },
-    },
   },
   { _id: false },
 );
@@ -72,7 +67,6 @@ const roleSchema: Schema<IRole> = new Schema({
       [PermissionTypes.TEMPORARY_CHAT]: { [Permissions.USE]: true },
       [PermissionTypes.RUN_CODE]: { [Permissions.USE]: true },
       [PermissionTypes.WEB_SEARCH]: { [Permissions.USE]: true },
-      [PermissionTypes.FILE_SEARCH]: { [Permissions.USE]: true },
     }),
   },
 });

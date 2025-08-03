@@ -78,3 +78,24 @@ export function clearAllConversationStorage() {
     }
   });
 }
+
+export function migrateLocalStorage() {
+  const lastConvoKey = LocalStorageKeys.LAST_CONVO_SETUP + '_0';
+  const lastConvo = localStorage.getItem(lastConvoKey);
+  
+  if (lastConvo) {
+    try {
+      const parsed = JSON.parse(lastConvo);
+      // If the stored endpoint is agents but no model/agent selected, clear it
+      // This forces proper default selection
+      if (parsed.endpoint === 'agents' && !parsed.model && !parsed.agent_id) {
+        console.log('[LocalStorage Migration] Clearing invalid agent endpoint selection');
+        localStorage.removeItem(lastConvoKey);
+      }
+    } catch (e) {
+      // Invalid JSON, remove it
+      console.log('[LocalStorage Migration] Removing invalid lastConvoSetup');
+      localStorage.removeItem(lastConvoKey);
+    }
+  }
+}

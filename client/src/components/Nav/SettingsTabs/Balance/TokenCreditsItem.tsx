@@ -1,7 +1,7 @@
 import React from 'react';
-import { Label } from '@librechat/client';
-import HoverCardSettings from '~/components/Nav/SettingsTabs/HoverCardSettings';
 import { useLocalize } from '~/hooks';
+import { Label } from '~/components';
+import HoverCardSettings from '~/components/Nav/SettingsTabs/HoverCardSettings';
 
 interface TokenCreditsItemProps {
   tokenCredits?: number;

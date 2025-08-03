@@ -11,6 +11,8 @@ export default function useAssistantsMap({
   const { data: assistants = {} } = useListAssistantsQuery(EModelEndpoint.assistants, undefined, {
     select: (res) => mapAssistants(res.data),
     enabled: isAuthenticated,
+    refetchOnMount: true,
+    staleTime: 0,
   });
   const { data: azureAssistants = {} } = useListAssistantsQuery(
     EModelEndpoint.azureAssistants,
@@ -18,6 +20,8 @@ export default function useAssistantsMap({
     {
       select: (res) => mapAssistants(res.data),
       enabled: isAuthenticated,
+      refetchOnMount: true,
+      staleTime: 0,
     },
   );
 

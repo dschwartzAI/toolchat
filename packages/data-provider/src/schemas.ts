@@ -169,6 +169,7 @@ export const defaultAgentFormValues = {
   projectIds: [],
   artifacts: '',
   isCollaborative: false,
+  conversation_starters: [],
   recursion_limit: undefined,
   [Tools.execute_code]: false,
   [Tools.file_search]: false,
@@ -352,9 +353,6 @@ export const anthropicSettings = {
       default: LEGACY_ANTHROPIC_MAX_OUTPUT,
     },
   },
-  web_search: {
-    default: false as const,
-  },
 };
 
 export const agentsSettings = {
@@ -534,7 +532,7 @@ export type MemoryArtifact = {
   key: string;
   value?: string;
   tokenCount?: number;
-  type: 'update' | 'delete' | 'error';
+  type: 'update' | 'delete';
 };
 
 export type TAttachmentMetadata = {
@@ -637,10 +635,10 @@ export const tConversationSchema = z.object({
   reasoning_summary: eReasoningSummarySchema.optional().nullable(),
   /* OpenAI: use Responses API */
   useResponsesApi: z.boolean().optional(),
-  /* OpenAI Responses API / Anthropic API / Google API */
+  /* OpenAI: use Responses API with Web Search */
   web_search: z.boolean().optional(),
-  /* disable streaming */
-  disableStreaming: z.boolean().optional(),
+  /* Google: use Search Grounding */
+  grounding: z.boolean().optional(),
   /* assistant */
   assistant_id: z.string().optional(),
   /* agents */
@@ -743,10 +741,8 @@ export const tQueryParamsSchema = tConversationSchema
     reasoning_summary: true,
     /** @endpoints openAI, custom, azureOpenAI */
     useResponsesApi: true,
-    /** @endpoints openAI, anthropic, google */
-    web_search: true,
-    /** @endpoints openAI, custom, azureOpenAI */
-    disableStreaming: true,
+    /** @endpoints google */
+    grounding: true,
     /** @endpoints google, anthropic, bedrock */
     topP: true,
     /** @endpoints google, anthropic */
@@ -829,7 +825,7 @@ export const googleBaseSchema = tConversationSchema.pick({
   topK: true,
   thinking: true,
   thinkingBudget: true,
-  web_search: true,
+  grounding: true,
   iconURL: true,
   greeting: true,
   spec: true,
@@ -861,7 +857,7 @@ export const googleGenConfigSchema = z
         thinkingBudget: coerceNumber.optional(),
       })
       .optional(),
-    web_search: z.boolean().optional(),
+    grounding: z.boolean().optional(),
   })
   .strip()
   .optional();
@@ -1079,7 +1075,6 @@ export const openAIBaseSchema = tConversationSchema.pick({
   reasoning_summary: true,
   useResponsesApi: true,
   web_search: true,
-  disableStreaming: true,
 });
 
 export const openAISchema = openAIBaseSchema
@@ -1123,7 +1118,6 @@ export const anthropicBaseSchema = tConversationSchema.pick({
   greeting: true,
   spec: true,
   maxContextTokens: true,
-  web_search: true,
 });
 
 export const anthropicSchema = anthropicBaseSchema

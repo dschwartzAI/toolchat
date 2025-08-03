@@ -2,17 +2,6 @@ import { useState, useCallback, useMemo } from 'react';
 import { ArrowUpLeft } from 'lucide-react';
 import { useSetRecoilState } from 'recoil';
 import {
-  Button,
-  Input,
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-  useToastContext,
-} from '@librechat/client';
-import {
   flexRender,
   getCoreRowModel,
   getFilteredRowModel,
@@ -32,7 +21,18 @@ import {
   isAssistantsEndpoint,
   type TFile,
 } from 'librechat-data-provider';
-import { useFileMapContext, useChatContext } from '~/Providers';
+
+import {
+  Button,
+  Input,
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '~/components/ui';
+import { useFileMapContext, useChatContext, useToastContext } from '~/Providers';
 import { useLocalize, useUpdateFiles } from '~/hooks';
 import { useGetFileConfig } from '~/data-provider';
 import store from '~/store';

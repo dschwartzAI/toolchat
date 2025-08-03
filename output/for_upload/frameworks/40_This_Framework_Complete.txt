@@ -1,0 +1,61 @@
+---
+title: This Framework - Complete Guide
+type: frameworks
+source_files: 1d5153d5ffa7b721  # Limit to 5 for readability
+keywords: this, framework, system, method
+token_count: 2134
+duplicates_removed: 0
+generated: 2025-07-07T12:14:59.795972
+---
+
+# This Framework - Complete Guide
+
+# This Framework
+
+## Overview
+
+** This chunk discusses the importance of a strong offer, working backward from the desired outcome, and the core components of an offer-driven model.
+
+## Complete Framework
+
+The better your Hybrid Offer the more Clients you convert. The better your Customers to Clients system the more Customers AND Clients you generate. The better your Daily Client Machine the more Leads turn into Customers who turn into Clients. Compounding in action.
+The DCM™
+This system creates Leads and Customers.
+You then engage with a customer to understand the intent and desire behind their action.
+It creates a short term focus that is most likely to generate results over the shortest time period.
+Efficiency.
+It also captures those who do not display immediate intent so you can convert them into prospects via qualification/conversation or convert them into customers in the future.
+The Daily Client Machine™
+[There appears to be a diagram showing three connected boxes: "The Offer Code Template" -> "The Offer Code Product" -> "The Syndicate", with labels underneath: "Create A Lead" -> "Create A Customer" -> "Create A Client"]
+Lead Flow vs Lead Conversion
+A critical distinction in lead generation is flow vs conversion.
+When people say they 'need more leads' my first goal is to determine whether they need more lead flow vs need more lead conversion.
+Flow is the volume and conversion is the action.
+The majority of people have a lead conversion bottleneck rather than a lead flow bottleneck.
+You have enough leads, just no efficient way to convert them into customers and/or clients.
+The most efficient way is to make an offer(s).. This allows the leads to self-select and demonstrate intent and narrows your focus to those who've demonstrated intent.
+If you're not making enough sales yet have even a tiny audience that you're communicating with, focusing on lead conversion before lead flow will yield the highest results.
+The Individual Components:
+
+There are only two key components inside The Daily Client Machine, your Big Idea and your Customer Offer.
+Armed with both you will get all the leads and customers you can handle.
+The Big Idea
+Illumination - Pain, Problem and Opportunity Unaware Offer: Lead Magnet Goal: Opt In
+Customer Offer
+Indoctrination - Pain and Problem Aware Offer: $50-$100 Digital Product Goal: Consumption and Implementation
+The easiest way is to illustrate with an
+
+- ```txt ## Crafting a Compelling Offer **Summary:** This chunk discusses the importance of a strong offer, working backward from the desired outcome, and the core components of an offer-driven model. Video Source:* 3k Code.txt **Content:** Welcome! Today, we'll focus on constructing your daily client machine—how to generate leads hourly, customers daily, and clients weekly. It's critical to attack things in the right order: offer, then sales, then marketing. The best way to hit a goal is to work backward from it. Create and validate an offer, make three sales with a Google Doc, create a customer offer that converts 5% of buyers into clients, and then automate lead flow, customer offers, and ascend customers into clients weekly. This system creates leads and customers, engages with customers to understand their intent, and captures those who don't display immediate intent for future conversion. The two key components are your big idea and your customer offer. The process is: lead magnet (capture and opt-in), customer offer ($100 digital product), and client offer. The big idea is a product of your client and customer offers, a frame that catches attention, creates curiosity, and establishes authority. ## Big Ideas and Customer Offers **Summary:** This chunk explores different frames for creating a big idea, including swiping, next steps, automation, and identity. It also discusses the customer offer and its role in converting leads. Video Source:* 3k Code.txt **Content:** Many big ideas become so successful they become the brand. Consider these frames: swiping (copy my success), next steps (your first client), automation (automatic clients), and identity (the sovereign consultant). Big ideas often have utility across multiple products (books, courses, consulting). My big idea, "selling from a Google Doc," led to a daily client machine that generates 5-10 leads daily and 1-2 product sales, doubling with simple ads. Put your big idea everywhere—social media profiles, ads. The customer offer turns leads into customers. Ideal components include training, templates, a live workshop, and a call. ## Offer Creation and Validation **Summary:** This chunk emphasizes the importance of offer creation, validation through market feedback, and the key principles of promise, process, and plan. Video Source:* 3k per week.txt **Content:** The path to a million-dollar business is simple, not easy: promise, process, mechanisms, plan, validation, sales, scale, automation. The hybrid offer is key, a single offer with multiple products. Four reasons people buy help: make money, save money, stay legal, live a better life. Focus on one core reason; everything else is a benefit. Understand the problem/desire you're solving. Validation is getting your offer in front of 10 people and making 3 sales. Use the community for feedback based on real data. ## Hybrid Offer Structure and Pricing **Summary:** This chunk explains the hybrid offer, its advantages over traditional consulting, and provides specific pricing recommendations for community offers, consulting offers, and customer offers. Video Source:* 3k per week.txt **Content:** The hybrid offer sells across a range of prices and times with a single offer, containing multiple products. It includes a 12-month ongoing commitment with clear promises, outcomes, and timelines. Pricing examples: Community offers ($100-200/week, $3,000 annual), consulting offers ($300-600/week), customer offers ($100). This pricing maximizes conversions and economics, making it easy to get started and upgrade. ## Offer Construction Principles **Summary:** This chunk details the three core principles of offer construction: promise, process, and plan. It stresses the importance of clarity, future pacing, and avoiding information overload. Video Source:* 3k per week.txt **Content:** Three principles: promise (what gets done), process (how it works), plan (how it rolls out)
+
+## Components
+
+### ```txt ## Crafting a Compelling Offer **Summary
+
+** This chunk discusses the importance of a strong offer, working backward from the desired outcome, and the core components of an offer-driven model. Video Source:* 3k Code.txt **Content:** Welcome! Today, we'll focus on constructing your daily client machine—how to generate leads hourly, customers daily, and clients weekly. It's critical to attack things in the right order: offer, then sales, then marketing. The best way to hit a goal is to work backward from it. Create and validate an offer, make three sales with a Google Doc, create a customer offer that converts 5% of buyers into clients, and then automate lead flow, customer offers, and ascend customers into clients weekly. This system creates leads and customers, engages with customers to understand their intent, and captures those who don't display immediate intent for future conversion. The two key components are your big idea and your customer offer. The process is: lead magnet (capture and opt-in), customer offer ($100 digital product), and client offer. The big idea is a product of your client and customer offers, a frame that catches attention, creates curiosity, and establishes authority. ## Big Ideas and Customer Offers **Summary:** This chunk explores different frames for creating a big idea, including swiping, next steps, automation, and identity. It also discusses the customer offer and its role in converting leads. Video Source:* 3k Code.txt **Content:** Many big ideas become so successful they become the brand. Consider these frames: swiping (copy my success), next steps (your first client), automation (automatic clients), and identity (the sovereign consultant). Big ideas often have utility across multiple products (books, courses, consulting). My big idea, "selling from a Google Doc," led to a daily client machine that generates 5-10 leads daily and 1-2 product sales, doubling with simple ads. Put your big idea everywhere—social media profiles, ads. The customer offer turns leads into customers. Ideal components include training, templates, a live workshop, and a call. ## Offer Creation and Validation **Summary:** This chunk emphasizes the importance of offer creation, validation through market feedback, and the key principles of promise, process, and plan. Video Source:* 3k per week.txt **Content:** The path to a million-dollar business is simple, not easy: promise, process, mechanisms, plan, validation, sales, scale, automation. The hybrid offer is key, a single offer with multiple products. Four reasons people buy help: make money, save money, stay legal, live a better life. Focus on one core reason; everything else is a benefit. Understand the problem/desire you're solving. Validation is getting your offer in front of 10 people and making 3 sales. Use the community for feedback based on real data. ## Hybrid Offer Structure and Pricing **Summary:** This chunk explains the hybrid offer, its advantages over traditional consulting, and provides specific pricing recommendations for community offers, consulting offers, and customer offers. Video Source:* 3k per week.txt **Content:** The hybrid offer sells across a range of prices and times with a single offer, containing multiple products. It includes a 12-month ongoing commitment with clear promises, outcomes, and timelines. Pricing examples: Community offers ($100-200/week, $3,000 annual), consulting offers ($300-600/week), customer offers ($100). This pricing maximizes conversions and economics, making it easy to get started and upgrade. ## Offer Construction Principles **Summary:** This chunk details the three core principles of offer construction: promise, process, and plan. It stresses the importance of clarity, future pacing, and avoiding information overload. Video Source:* 3k per week.txt **Content:** Three principles: promise (what gets done), process (how it works), plan (how it rolls out)
+
+## How to Apply
+
+The easiest way is to illustrate with an
+
+- ```txt ## Crafting a Compelling Offer **Summary:** This chunk discusses the importance of a strong offer, working backward from the desired outcome, and the core components of an offer-driven model. Video Source:* 3k Code.
+

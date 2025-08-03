@@ -1,30 +1,20 @@
 import React, { useState, useRef } from 'react';
 import * as Tabs from '@radix-ui/react-tabs';
+import { MessageSquare, Command, DollarSign, Bookmark, Plug } from 'lucide-react';
 import { SettingsTabValues } from 'librechat-data-provider';
-import { MessageSquare, Command, DollarSign } from 'lucide-react';
+import { useGetStartupConfig } from '~/data-provider';
+import type { TDialogProps } from '~/common';
 import { Dialog, DialogPanel, DialogTitle, Transition, TransitionChild } from '@headlessui/react';
 import {
   GearIcon,
-  DataIcon,
   UserIcon,
-  SpeechIcon,
-  useMediaQuery,
-  PersonalizationIcon,
-} from '@librechat/client';
-import type { TDialogProps } from '~/common';
+} from '~/components/svg';
 import {
   General,
-  Chat,
-  Commands,
-  Speech,
-  Personalization,
-  Data,
-  Balance,
   Account,
+  Integrations,
 } from './SettingsTabs';
-import usePersonalizationAccess from '~/hooks/usePersonalizationAccess';
-import { useLocalize, TranslationKeys } from '~/hooks';
-import { useGetStartupConfig } from '~/data-provider';
+import { useMediaQuery, useLocalize, TranslationKeys } from '~/hooks';
 import { cn } from '~/utils';
 
 export default function Settings({ open, onOpenChange }: TDialogProps) {
@@ -33,18 +23,12 @@ export default function Settings({ open, onOpenChange }: TDialogProps) {
   const localize = useLocalize();
   const [activeTab, setActiveTab] = useState(SettingsTabValues.GENERAL);
   const tabRefs = useRef({});
-  const { hasAnyPersonalizationFeature, hasMemoryOptOut } = usePersonalizationAccess();
 
   const handleKeyDown = (event: React.KeyboardEvent) => {
     const tabs: SettingsTabValues[] = [
       SettingsTabValues.GENERAL,
-      SettingsTabValues.CHAT,
-      SettingsTabValues.COMMANDS,
-      SettingsTabValues.SPEECH,
-      ...(hasAnyPersonalizationFeature ? [SettingsTabValues.PERSONALIZATION] : []),
-      SettingsTabValues.DATA,
-      ...(startupConfig?.balance?.enabled ? [SettingsTabValues.BALANCE] : []),
       SettingsTabValues.ACCOUNT,
+      SettingsTabValues.INTEGRATIONS,
     ];
     const currentIndex = tabs.indexOf(activeTab);
 
@@ -79,47 +63,14 @@ export default function Settings({ open, onOpenChange }: TDialogProps) {
       label: 'com_nav_setting_general',
     },
     {
-      value: SettingsTabValues.CHAT,
-      icon: <MessageSquare className="icon-sm" />,
-      label: 'com_nav_setting_chat',
-    },
-    {
-      value: SettingsTabValues.COMMANDS,
-      icon: <Command className="icon-sm" />,
-      label: 'com_nav_commands',
-    },
-    {
-      value: SettingsTabValues.SPEECH,
-      icon: <SpeechIcon className="icon-sm" />,
-      label: 'com_nav_setting_speech',
-    },
-    ...(hasAnyPersonalizationFeature
-      ? [
-          {
-            value: SettingsTabValues.PERSONALIZATION,
-            icon: <PersonalizationIcon />,
-            label: 'com_nav_setting_personalization' as TranslationKeys,
-          },
-        ]
-      : []),
-    {
-      value: SettingsTabValues.DATA,
-      icon: <DataIcon />,
-      label: 'com_nav_setting_data',
-    },
-    ...(startupConfig?.balance?.enabled
-      ? [
-          {
-            value: SettingsTabValues.BALANCE,
-            icon: <DollarSign size={18} />,
-            label: 'com_nav_setting_balance' as TranslationKeys,
-          },
-        ]
-      : ([] as { value: SettingsTabValues; icon: React.JSX.Element; label: TranslationKeys }[])),
-    {
       value: SettingsTabValues.ACCOUNT,
       icon: <UserIcon />,
       label: 'com_nav_setting_account',
+    },
+    {
+      value: SettingsTabValues.INTEGRATIONS,
+      icon: <Plug className="h-4 w-4" />,
+      label: 'com_nav_setting_integrations',
     },
   ];
 
@@ -223,33 +174,11 @@ export default function Settings({ open, onOpenChange }: TDialogProps) {
                     <Tabs.Content value={SettingsTabValues.GENERAL}>
                       <General />
                     </Tabs.Content>
-                    <Tabs.Content value={SettingsTabValues.CHAT}>
-                      <Chat />
-                    </Tabs.Content>
-                    <Tabs.Content value={SettingsTabValues.COMMANDS}>
-                      <Commands />
-                    </Tabs.Content>
-                    <Tabs.Content value={SettingsTabValues.SPEECH}>
-                      <Speech />
-                    </Tabs.Content>
-                    {hasAnyPersonalizationFeature && (
-                      <Tabs.Content value={SettingsTabValues.PERSONALIZATION}>
-                        <Personalization
-                          hasMemoryOptOut={hasMemoryOptOut}
-                          hasAnyPersonalizationFeature={hasAnyPersonalizationFeature}
-                        />
-                      </Tabs.Content>
-                    )}
-                    <Tabs.Content value={SettingsTabValues.DATA}>
-                      <Data />
-                    </Tabs.Content>
-                    {startupConfig?.balance?.enabled && (
-                      <Tabs.Content value={SettingsTabValues.BALANCE}>
-                        <Balance />
-                      </Tabs.Content>
-                    )}
                     <Tabs.Content value={SettingsTabValues.ACCOUNT}>
                       <Account />
+                    </Tabs.Content>
+                    <Tabs.Content value={SettingsTabValues.INTEGRATIONS}>
+                      <Integrations />
                     </Tabs.Content>
                   </div>
                 </Tabs.Root>

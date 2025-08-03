@@ -1,0 +1,120 @@
+---
+title: The Framework - Complete Guide
+type: frameworks
+source_files: 1d5153d5ffa7b721  # Limit to 5 for readability
+keywords: the, framework, system, method
+token_count: 3072
+duplicates_removed: 0
+generated: 2025-07-07T12:14:59.796541
+---
+
+# The Framework - Complete Guide
+
+# The Framework
+
+## Overview
+
+** This chunk discusses the importance of a strong offer, working backward from the desired outcome, and the core components of an offer-driven model.
+
+## Complete Framework
+
+The Hybrid Offer™
+Warning: This offer is not complex but there are multiple variables that require your discernment when executing. Use the parts that apply to you now, revisit as you make progress. Guidance at the end.
+Introduction
+The problem with traditional offers...
+Sell into front end then need to re-sell into back end ● Multi step sales process needed to sell into long commitments ● PIF presented first and raises bar to conversions ● Leaves money on the table for those who want 'more'
+How Hybrid overcomes these...
+Get's an easy 'yes' then adds economics meaning higher conversions ● Sell once, serve for duration ● Get's more PIF (if desired) ● Higher LTV
+There's 3 ways to increase revenue - get more clients, get clients to pay more, get clients to stay for longer - The Hybrid Offer does all 3.
+The System We Use - The Sovereign System
+The Phases
+To generate a client we can break it into phases: Lead = Someone we've earned the right to communicate with Customer = Someone who has transacted with us Client = Someone we commit time/resources to
+To obtain a client efficiently we must demonstrate competence at each stage. People can skip any of these steps. Eg a lead can quickly become a client, but this is the exception rather than the rule.
+For a client to ascend and identify themselves we must understand intent and desire.
+The fastest way to understand intent and desire is to initiate a transaction.
+IE Get someone to give you money.
+For someone to give you money you must gain their attention and trust by demonstrating you have something they desire.
+
+Zoomed out, this is what The Sovereign System looks like:
+[The document shows a diagram of "The Sovereign System™" with various components including Services, Event, Consulting, 1:1 Coaching, Community sections, and shows "Offers" leading to different products and services, with Strategy, Daily Client Machine™, Hybrid Client™, and Customers to Clients™ at the bottom]
+It is offer driven.
+This is the model I use myself.
+I aim to do as little 'selling' and 'marketing' as possible.
+Working backwards, I want to create highly valuable long term relationships, to find those I create clients and help them generate value, to find clients I generate customers to understand their intent, to find customers and demonstrate my ideas to earn attention and trust.
+Approaching EVERYTHING as an offer whether it's free or paid helps construct the most efficient ecosystem possible.
+Clients are not created equal.
+Power Laws apply.
+[The document shows "The Power Ladder™" diagram with pyramids showing progression from 70% at base to 1% at top, with different offer types and price points ($100-$100k+) at each level]
+There are people in your audience, leads, customer and client's bases that will happily pay you 50x what others will.
+You just need the right offer to enable them to do so.
+The Hybrid Offer
+Traditional coaching and consulting sells one or more products at specific price points for specific durations.
+While it is 'simple', it is closer to easy than simple.
+This is why the majority use it, it's easier to leave money on the table than work out how to take it off in a simple manner.
+The Hybrid addresses this by selling across the range of prices and times with a single offer.
+Simplicity is having ONE OFFER.
+
+There is a useful distinction between offers and products that is rarely made.
+Hybrid is a single offer with multiple products inside it.
+We must accept two realities:
+1. Lower priced products sell at higher volumes than higher priced products. 2. Short term programs sell at higher volumes than long term programs
+With these realities, we are searching for the holy grail of an offer that has a low price point, a perceived short term commitment and high price points with long term duration.
+By maximising the timeline duration AND the available price points we maximise Lifetime Value (LTV) while allowing the largest number of people to join.
+Here's the continuation of the text conversion from the additional images:
+Stacking Your Client Offers
+The Stack
+Before we can create great products we must be clear on what we do for others and how.
+Modalities and Strategy Matching
+Fixation on the identity of these labels distorts my value creation.
+Seeing them as simple modalities allows creativity to match the principles.
+The principles can be present in all these modalities.
+Coaching - Helping people discover the answer inside them.
+Consulting - Giving someone the answer.
+Mentorship - Showing someone how I would do it
+Creator - Conjuring of original ideas
+Curator - Assembly of the best ideas
+What I put into practice:
+I create for my community, I coach on the weekly calls, I consult on Slack and I mentor on Zoom. I curate and demonstrate these actions to pull more people towards me who might benefit from these actions.
+You can sell each modality individually or bundle them up together into products.
+
+The 3k Code™ - Why People Buy
+Assembling, Crafting and Delivering A High Converting Hybrid Offer inside The Sovereign System
+The 3k Code is a prescription.
+Assembled, it’s a formula.
+While I give some variables and teach you how to think along the journey, results will flow from following the prescription.
+My job is to give you the prescription.
+This formula is designed to be tight and minimal.
+It fails if you try and look for complexity or ‘more’.
+Your job is to assemble, test, learn and iterate.
+All results happen in the marketplace, not in the consumption of ideas.
+Most people get in their own way to prevent getting in the game.
+I can give you the formula but you must mix the potion and apply it.
+The System We Use - The Sovereign System™
+The Phases - Essential Stages of Evolution
+To generate a client we can break it into phases:
+Lead = Someone we’ve earned the right to communicate with Customer = Someone who has transacted with us Client = Someone we commit time/resources to
+
+To obtain a client efficiently we must demonstrate competence at each stage. People can skip any of these steps. Eg a lead can quickly become a client, but this is the exception rather than the rule.
+For a client to ascend and identify themselves we must understand intent and desire.
+The fastest way to understand intent and desire is to initiate a transaction.
+IE Get someone to give you money.
+For someone to give you money you must gain their attention and trust by demonstrating you have something they desire.
+The Model - Simplicity Scales
+For Clients - We have one community offer and one upgrade option.
+For Customers - We have one time products to generate customers and cashflow
+It is offer driven.
+We get Leads and turn them into Customers. We turn those Customers into Clients
+
+- ```txt ## Crafting a Compelling Offer **Summary:** This chunk discusses the importance of a strong offer, working backward from the desired outcome, and the core components of an offer-driven model. Video Source:* 3k Code.txt **Content:** Welcome! Today, we'll focus on constructing your daily client machine—how to generate leads hourly, customers daily, and clients weekly. It's critical to attack things in the right order: offer, then sales, then marketing. The best way to hit a goal is to work backward from it. Create and validate an offer, make three sales with a Google Doc, create a customer offer that converts 5% of buyers into clients, and then automate lead flow, customer offers, and ascend customers into clients weekly. This system creates leads and customers, engages with customers to understand their intent, and captures those who don't display immediate intent for future conversion. The two key components are your big idea and your customer offer. The process is: lead magnet (capture and opt-in), customer offer ($100 digital product), and client offer. The big idea is a product of your client and customer offers, a frame that catches attention, creates curiosity, and establishes authority. ## Big Ideas and Customer Offers **Summary:** This chunk explores different frames for creating a big idea, including swiping, next steps, automation, and identity. It also discusses the customer offer and its role in converting leads. Video Source:* 3k Code.txt **Content:** Many big ideas become so successful they become the brand. Consider these frames: swiping (copy my success), next steps (your first client), automation (automatic clients), and identity (the sovereign consultant). Big ideas often have utility across multiple products (books, courses, consulting). My big idea, "selling from a Google Doc," led to a daily client machine that generates 5-10 leads daily and 1-2 product sales, doubling with simple ads. Put your big idea everywhere—social media profiles, ads. The customer offer turns leads into customers. Ideal components include training, templates, a live workshop, and a call. ## Offer Creation and Validation **Summary:** This chunk emphasizes the importance of offer creation, validation through market feedback, and the key principles of promise, process, and plan. Video Source:* 3k per week.txt **Content:** The path to a million-dollar business is simple, not easy: promise, process, mechanisms, plan, validation, sales, scale, automation. The hybrid offer is key, a single offer with multiple products. Four reasons people buy help: make money, save money, stay legal, live a better life. Focus on one core reason; everything else is a benefit. Understand the problem/desire you're solving. Validation is getting your offer in front of 10 people and making 3 sales. Use the community for feedback based on real data. ## Hybrid Offer Structure and Pricing **Summary:** This chunk explains the hybrid offer, its advantages over traditional consulting, and provides specific pricing recommendations for community offers, consulting offers, and customer offers. Video Source:* 3k per week.txt **Content:** The hybrid offer sells across a range of prices and times with a single offer, containing multiple products. It includes a 12-month ongoing commitment with clear promises, outcomes, and timelines. Pricing examples: Community offers ($100-200/week, $3,000 annual), consulting offers ($300-600/week), customer offers ($100). This pricing maximizes conversions and economics, making it easy to get started and upgrade. ## Offer Construction Principles **Summary:** This chunk details the three core principles of offer construction: promise, process, and plan. It stresses the importance of clarity, future pacing, and avoiding information overload. Video Source:* 3k per week.txt **Content:** Three principles: promise (what gets done), process (how it works), plan (how it rolls out)
+
+## Components
+
+### ```txt ## Crafting a Compelling Offer **Summary
+
+** This chunk discusses the importance of a strong offer, working backward from the desired outcome, and the core components of an offer-driven model. Video Source:* 3k Code.txt **Content:** Welcome! Today, we'll focus on constructing your daily client machine—how to generate leads hourly, customers daily, and clients weekly. It's critical to attack things in the right order: offer, then sales, then marketing. The best way to hit a goal is to work backward from it. Create and validate an offer, make three sales with a Google Doc, create a customer offer that converts 5% of buyers into clients, and then automate lead flow, customer offers, and ascend customers into clients weekly. This system creates leads and customers, engages with customers to understand their intent, and captures those who don't display immediate intent for future conversion. The two key components are your big idea and your customer offer. The process is: lead magnet (capture and opt-in), customer offer ($100 digital product), and client offer. The big idea is a product of your client and customer offers, a frame that catches attention, creates curiosity, and establishes authority. ## Big Ideas and Customer Offers **Summary:** This chunk explores different frames for creating a big idea, including swiping, next steps, automation, and identity. It also discusses the customer offer and its role in converting leads. Video Source:* 3k Code.txt **Content:** Many big ideas become so successful they become the brand. Consider these frames: swiping (copy my success), next steps (your first client), automation (automatic clients), and identity (the sovereign consultant). Big ideas often have utility across multiple products (books, courses, consulting). My big idea, "selling from a Google Doc," led to a daily client machine that generates 5-10 leads daily and 1-2 product sales, doubling with simple ads. Put your big idea everywhere—social media profiles, ads. The customer offer turns leads into customers. Ideal components include training, templates, a live workshop, and a call. ## Offer Creation and Validation **Summary:** This chunk emphasizes the importance of offer creation, validation through market feedback, and the key principles of promise, process, and plan. Video Source:* 3k per week.txt **Content:** The path to a million-dollar business is simple, not easy: promise, process, mechanisms, plan, validation, sales, scale, automation. The hybrid offer is key, a single offer with multiple products. Four reasons people buy help: make money, save money, stay legal, live a better life. Focus on one core reason; everything else is a benefit. Understand the problem/desire you're solving. Validation is getting your offer in front of 10 people and making 3 sales. Use the community for feedback based on real data. ## Hybrid Offer Structure and Pricing **Summary:** This chunk explains the hybrid offer, its advantages over traditional consulting, and provides specific pricing recommendations for community offers, consulting offers, and customer offers. Video Source:* 3k per week.txt **Content:** The hybrid offer sells across a range of prices and times with a single offer, containing multiple products. It includes a 12-month ongoing commitment with clear promises, outcomes, and timelines. Pricing examples: Community offers ($100-200/week, $3,000 annual), consulting offers ($300-600/week), customer offers ($100). This pricing maximizes conversions and economics, making it easy to get started and upgrade. ## Offer Construction Principles **Summary:** This chunk details the three core principles of offer construction: promise, process, and plan. It stresses the importance of clarity, future pacing, and avoiding information overload. Video Source:* 3k per week.txt **Content:** Three principles: promise (what gets done), process (how it works), plan (how it rolls out)
+
+## How to Apply
+
+sales process needed to sell into long commitments ● PIF presented first and raises bar to conversions ● Leaves money on the table for those who want 'more'
+How Hybrid overcomes these.
+

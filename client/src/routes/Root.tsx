@@ -14,11 +14,12 @@ import {
   FileMapContext,
   SetConvoProvider,
 } from '~/Providers';
+import TermsAndConditionsModal from '~/components/ui/TermsAndConditionsModal';
 import { useUserTermsQuery, useGetStartupConfig } from '~/data-provider';
-import { TermsAndConditionsModal } from '~/components/ui';
 import { Nav, MobileNav } from '~/components/Nav';
 import { useHealthCheck } from '~/data-provider';
 import { Banner } from '~/components/Banners';
+import { migrateLocalStorage } from '~/utils/localStorage';
 
 export default function Root() {
   const [showTerms, setShowTerms] = useState(false);
@@ -43,6 +44,11 @@ export default function Root() {
   });
 
   useSearchEnabled(isAuthenticated);
+
+  // Run migration on mount
+  useEffect(() => {
+    migrateLocalStorage();
+  }, []);
 
   useEffect(() => {
     if (termsData) {

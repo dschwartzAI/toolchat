@@ -1,22 +1,15 @@
 import React, { useState, useMemo, useCallback } from 'react';
-import { useToastContext } from '@librechat/client';
 import { EModelEndpoint } from 'librechat-data-provider';
 import { Controller, useWatch, useFormContext } from 'react-hook-form';
 import type { AgentForm, AgentPanelProps, IconComponentTypes } from '~/common';
-import {
-  removeFocusOutlines,
-  processAgentOption,
-  getEndpointField,
-  defaultTextProps,
-  getIconKey,
-  cn,
-} from '~/utils';
-import { useFileMapContext, useAgentPanelContext } from '~/Providers';
+import { cn, defaultTextProps, removeFocusOutlines, getEndpointField, getIconKey } from '~/utils';
+import { useToastContext, useFileMapContext, useAgentPanelContext } from '~/Providers';
 import useAgentCapabilities from '~/hooks/Agents/useAgentCapabilities';
 import Action from '~/components/SidePanel/Builder/Action';
 import { ToolSelectDialog } from '~/components/Tools';
-import { useGetAgentFiles } from '~/data-provider';
 import { icons } from '~/hooks/Endpoint/Icons';
+import { processAgentOption } from '~/utils';
+import AgentConversationStarters from './ConversationStarters';
 import Instructions from './Instructions';
 import AgentAvatar from './AgentAvatar';
 import FileContext from './FileContext';
@@ -57,18 +50,6 @@ export default function AgentConfig({ createMutation }: Pick<AgentPanelProps, 'c
   const tools = useWatch({ control, name: 'tools' });
   const agent_id = useWatch({ control, name: 'id' });
 
-  const { data: agentFiles = [] } = useGetAgentFiles(agent_id);
-
-  const mergedFileMap = useMemo(() => {
-    const newFileMap = { ...fileMap };
-    agentFiles.forEach((file) => {
-      if (file.file_id) {
-        newFileMap[file.file_id] = file;
-      }
-    });
-    return newFileMap;
-  }, [fileMap, agentFiles]);
-
   const {
     ocrEnabled,
     codeEnabled,
@@ -94,10 +75,10 @@ export default function AgentConfig({ createMutation }: Pick<AgentPanelProps, 'c
 
     const _agent = processAgentOption({
       agent,
-      fileMap: mergedFileMap,
+      fileMap,
     });
     return _agent.context_files ?? [];
-  }, [agent, agent_id, mergedFileMap]);
+  }, [agent, agent_id, fileMap]);
 
   const knowledge_files = useMemo(() => {
     if (typeof agent === 'string') {
@@ -114,10 +95,10 @@ export default function AgentConfig({ createMutation }: Pick<AgentPanelProps, 'c
 
     const _agent = processAgentOption({
       agent,
-      fileMap: mergedFileMap,
+      fileMap,
     });
     return _agent.knowledge_files ?? [];
-  }, [agent, agent_id, mergedFileMap]);
+  }, [agent, agent_id, fileMap]);
 
   const code_files = useMemo(() => {
     if (typeof agent === 'string') {
@@ -134,10 +115,10 @@ export default function AgentConfig({ createMutation }: Pick<AgentPanelProps, 'c
 
     const _agent = processAgentOption({
       agent,
-      fileMap: mergedFileMap,
+      fileMap,
     });
     return _agent.code_files ?? [];
-  }, [agent, agent_id, mergedFileMap]);
+  }, [agent, agent_id, fileMap]);
 
   const handleAddActions = useCallback(() => {
     if (!agent_id) {
@@ -245,6 +226,19 @@ export default function AgentConfig({ createMutation }: Pick<AgentPanelProps, 'c
         </div>
         {/* Instructions */}
         <Instructions />
+        {/* Conversation Starters */}
+        <Controller
+          name="conversation_starters"
+          control={control}
+          defaultValue={[]}
+          render={({ field }) => (
+            <AgentConversationStarters
+              field={field}
+              inputClass={inputClass}
+              labelClass={labelClass}
+            />
+          )}
+        />
         {/* Model and Provider */}
         <div className="mb-4">
           <label className={labelClass} htmlFor="provider">

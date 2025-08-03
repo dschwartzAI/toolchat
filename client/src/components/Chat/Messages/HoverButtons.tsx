@@ -1,10 +1,10 @@
 import React, { useState, useMemo, memo } from 'react';
 import { useRecoilState } from 'recoil';
 import type { TConversation, TMessage, TFeedback } from 'librechat-data-provider';
-import { EditIcon, Clipboard, CheckMark, ContinueIcon, RegenerateIcon } from '@librechat/client';
+import { /* EditIcon, */ Clipboard, CheckMark, ContinueIcon /* , RegenerateIcon */ } from '~/components';
 import { useGenerationsByLatest, useLocalize } from '~/hooks';
-import { Fork } from '~/components/Conversations';
-import MessageAudio from './MessageAudio';
+// import { Fork } from '~/components/Conversations';
+// import MessageAudio from './MessageAudio';
 import Feedback from './Feedback';
 import { cn } from '~/utils';
 import store from '~/store';
@@ -160,14 +160,15 @@ const HoverButtons = ({
   if (error === true) {
     return (
       <div className="visible flex justify-center self-end lg:justify-start">
-        {regenerateEnabled && (
+        {/* Regenerate Button on Error - HIDDEN PER REQUIREMENTS */}
+        {/* {regenerateEnabled && (
           <HoverButton
             onClick={regenerate}
             title={localize('com_ui_regenerate')}
             icon={<RegenerateIcon size="19" />}
             isLast={isLast}
           />
-        )}
+        )} */}
       </div>
     );
   }
@@ -183,8 +184,8 @@ const HoverButtons = ({
 
   return (
     <div className="group visible flex justify-center gap-0.5 self-end focus-within:outline-none lg:justify-start">
-      {/* Text to Speech */}
-      {TextToSpeech && (
+      {/* Text to Speech - HIDDEN PER REQUIREMENTS */}
+      {/* {TextToSpeech && (
         <MessageAudio
           index={index}
           isLast={isLast}
@@ -200,7 +201,7 @@ const HoverButtons = ({
             />
           )}
         />
-      )}
+      )} */}
 
       {/* Copy Button */}
       <HoverButton
@@ -213,8 +214,8 @@ const HoverButtons = ({
         className={`ml-0 flex items-center gap-1.5 text-xs ${isSubmitting && isCreatedByUser ? 'md:opacity-0 md:group-hover:opacity-100' : ''}`}
       />
 
-      {/* Edit Button */}
-      {isEditableEndpoint && (
+      {/* Edit Button - HIDDEN PER REQUIREMENTS */}
+      {/* {isEditableEndpoint && (
         <HoverButton
           id={`edit-${message.messageId}`}
           onClick={onEdit}
@@ -226,24 +227,24 @@ const HoverButtons = ({
           isLast={isLast}
           className={isCreatedByUser ? '' : 'active'}
         />
-      )}
+      )} */}
 
-      {/* Fork Button */}
-      <Fork
+      {/* Fork Button - HIDDEN PER REQUIREMENTS */}
+      {/* <Fork
         messageId={message.messageId}
         conversationId={conversation.conversationId}
         forkingSupported={forkingSupported}
         latestMessageId={latestMessage?.messageId}
         isLast={isLast}
-      />
+      /> */}
 
       {/* Feedback Buttons */}
       {!isCreatedByUser && (
         <Feedback handleFeedback={handleFeedback} feedback={message.feedback} isLast={isLast} />
       )}
 
-      {/* Regenerate Button */}
-      {regenerateEnabled && (
+      {/* Regenerate Button - HIDDEN PER REQUIREMENTS */}
+      {/* {regenerateEnabled && (
         <HoverButton
           onClick={regenerate}
           title={localize('com_ui_regenerate')}
@@ -251,7 +252,7 @@ const HoverButtons = ({
           isLast={isLast}
           className="active"
         />
-      )}
+      )} */}
 
       {/* Continue Button */}
       {continueSupported && (

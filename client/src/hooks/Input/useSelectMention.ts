@@ -74,33 +74,19 @@ export default function useSelectMention({
         preset.model = assistantsMap?.[newEndpoint]?.[preset.assistant_id]?.model;
       }
 
-      const isModular = isCurrentModular && isNewModular && shouldSwitch;
-      if (isExistingConversation && isModular) {
-        template.endpointType = newEndpointType as EModelEndpoint | undefined;
-
-        const currentConvo = getDefaultConversation({
-          /* target endpointType is necessary to avoid endpoint mixing */
-          conversation: { ...(conversation ?? {}), endpointType: template.endpointType },
-          preset: template,
-          cleanOutput: true,
-        });
-
-        /* We don't reset the latest message, only when changing settings mid-converstion */
-        logger.info('conversation', 'Switching conversation to new spec (modular)', conversation);
-        newConversation({
-          template: currentConvo,
-          preset,
-          keepLatestMessage: true,
-          keepAddedConvos: true,
-        });
-        return;
-      }
-
-      logger.info('conversation', 'Switching conversation to new spec', conversation);
+      // Always create new conversation for modelspecs
+      // This ensures each business tool/coach starts with fresh context
+      logger.info('conversation', 'Creating new conversation for modelspec', {
+        spec: spec.name,
+        from: conversation?.spec,
+        to: spec.name,
+      });
+      
       newConversation({
         template: { ...(template as Partial<TConversation>) },
         preset,
-        keepAddedConvos: isModular,
+        keepLatestMessage: false,
+        keepAddedConvos: false,
       });
     },
     [
@@ -158,6 +144,35 @@ export default function useSelectMention({
       template.spec = null;
       template.iconURL = null;
       template.modelLabel = null;
+      // Force new conversation for agents endpoint to avoid inline switching
+      // This happens when switching between different agents or selecting an agent
+      // Also check if current conversation has a spec (modelspec conversation)
+      if (isAgentsEndpoint(newEndpoint) || conversation?.spec) {
+        const currentAgentId = conversation?.agent_id;
+        const newAgentId = kwargs.agent_id;
+        const currentSpec = conversation?.spec;
+        
+        // Always create new conversation when:
+        // 1. Selecting an agent
+        // 2. Current conversation has a spec (switching from modelspec)
+        // This prevents inline switching which confuses users
+        const finalPreset = { ...kwargs, spec: null, iconURL: null, modelLabel: null, endpoint: newEndpoint };
+        logger.info('conversation', 'Creating new conversation for agent/spec switch', {
+          fromAgent: currentAgentId,
+          toAgent: newAgentId,
+          fromSpec: currentSpec,
+          template
+        });
+        newConversation({
+          template: { ...(template as Partial<TConversation>) },
+          preset: finalPreset,
+          keepAddedConvos: false,
+          keepLatestMessage: false,
+          buildDefault: undefined,
+        });
+        return;
+      }
+
       if (isExistingConversation && isCurrentModular && isNewModular && shouldSwitch) {
         template.endpointType = newEndpointType;
 
@@ -184,15 +199,21 @@ export default function useSelectMention({
           preset: currentConvo,
           keepLatestMessage: true,
           keepAddedConvos: true,
+          // Only skip defaults for non-agent endpoints
+          buildDefault: isAgentsEndpoint(newEndpoint) ? undefined : false,
         });
         return;
       }
 
+      const finalPreset = { ...kwargs, spec: null, iconURL: null, modelLabel: null, endpoint: newEndpoint };
       logger.info('conversation', 'Switching conversation to new endpoint/model', template);
+      const shouldBuildDefault = isAgentsEndpoint(newEndpoint) ? undefined : false;
       newConversation({
         template: { ...(template as Partial<TConversation>) },
-        preset: { ...kwargs, spec: null, iconURL: null, modelLabel: null, endpoint: newEndpoint },
+        preset: finalPreset,
         keepAddedConvos: isNewModular,
+        // Only skip defaults for non-agent endpoints
+        buildDefault: shouldBuildDefault,
       });
     },
     [conversation, getDefaultConversation, modularChat, newConversation, endpointsConfig],

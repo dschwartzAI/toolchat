@@ -284,19 +284,6 @@ const openAIParams: Record<string, SettingDefinition> = {
     optionType: 'model',
     columnSpan: 4,
   },
-  disableStreaming: {
-    key: 'disableStreaming',
-    label: 'com_endpoint_disable_streaming_label',
-    labelCode: true,
-    description: 'com_endpoint_disable_streaming',
-    descriptionCode: true,
-    type: 'boolean',
-    default: false,
-    component: 'switch',
-    optionType: 'model',
-    showDefault: false,
-    columnSpan: 2,
-  } as const,
 };
 
 const anthropic: Record<string, SettingDefinition> = {
@@ -392,19 +379,6 @@ const anthropic: Record<string, SettingDefinition> = {
       step: anthropicSettings.thinkingBudget.step,
     },
     optionType: 'conversation',
-    columnSpan: 2,
-  },
-  web_search: {
-    key: 'web_search',
-    label: 'com_ui_web_search',
-    labelCode: true,
-    description: 'com_endpoint_anthropic_use_web_search',
-    descriptionCode: true,
-    type: 'boolean',
-    default: anthropicSettings.web_search.default,
-    component: 'switch',
-    optionType: 'conversation',
-    showDefault: false,
     columnSpan: 2,
   },
 };
@@ -576,8 +550,8 @@ const google: Record<string, SettingDefinition> = {
     optionType: 'conversation',
     columnSpan: 2,
   },
-  web_search: {
-    key: 'web_search',
+  grounding: {
+    key: 'grounding',
     label: 'com_endpoint_use_search_grounding',
     labelCode: true,
     description: 'com_endpoint_google_use_search_grounding',
@@ -602,7 +576,7 @@ const googleConfig: SettingsConfiguration = [
   librechat.resendFiles,
   google.thinking,
   google.thinkingBudget,
-  google.web_search,
+  google.grounding,
 ];
 
 const googleCol1: SettingsConfiguration = [
@@ -620,7 +594,7 @@ const googleCol2: SettingsConfiguration = [
   librechat.resendFiles,
   google.thinking,
   google.thinkingBudget,
-  google.web_search,
+  google.grounding,
 ];
 
 const openAI: SettingsConfiguration = [
@@ -639,7 +613,6 @@ const openAI: SettingsConfiguration = [
   openAIParams.reasoning_effort,
   openAIParams.useResponsesApi,
   openAIParams.reasoning_summary,
-  openAIParams.disableStreaming,
 ];
 
 const openAICol1: SettingsConfiguration = [
@@ -662,7 +635,6 @@ const openAICol2: SettingsConfiguration = [
   openAIParams.reasoning_summary,
   openAIParams.useResponsesApi,
   openAIParams.web_search,
-  openAIParams.disableStreaming,
 ];
 
 const anthropicConfig: SettingsConfiguration = [
@@ -677,7 +649,6 @@ const anthropicConfig: SettingsConfiguration = [
   anthropic.promptCache,
   anthropic.thinking,
   anthropic.thinkingBudget,
-  anthropic.web_search,
 ];
 
 const anthropicCol1: SettingsConfiguration = [
@@ -696,7 +667,6 @@ const anthropicCol2: SettingsConfiguration = [
   anthropic.promptCache,
   anthropic.thinking,
   anthropic.thinkingBudget,
-  anthropic.web_search,
 ];
 
 const bedrockAnthropic: SettingsConfiguration = [

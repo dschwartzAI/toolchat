@@ -2,13 +2,13 @@ import { Column } from '@tanstack/react-table';
 import { ListFilter, FilterX } from 'lucide-react';
 import { ArrowDownIcon, ArrowUpIcon, CaretSortIcon } from '@radix-ui/react-icons';
 import {
-  Button,
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@librechat/client';
+} from '~/components/ui/DropdownMenu';
+import { Button } from '~/components/ui/Button';
 import { useLocalize, TranslationKeys } from '~/hooks';
 import { cn } from '~/utils';
 

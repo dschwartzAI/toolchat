@@ -1,6 +1,5 @@
-import { useState, useEffect, useRef, useMemo } from 'react';
 import * as Popover from '@radix-ui/react-popover';
-import { useToastContext } from '@librechat/client';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import { useQueryClient } from '@tanstack/react-query';
 import {
   fileConfig as defaultFileConfig,
@@ -8,6 +7,7 @@ import {
   defaultOrderQuery,
   mergeFileConfig,
 } from 'librechat-data-provider';
+import type { UseMutationResult } from '@tanstack/react-query';
 import type {
   Metadata,
   Assistant,
@@ -15,11 +15,10 @@ import type {
   AssistantCreateParams,
   AssistantListResponse,
 } from 'librechat-data-provider';
-import type { UseMutationResult } from '@tanstack/react-query';
 import { useUploadAssistantAvatarMutation, useGetFileConfig } from '~/data-provider';
+import { useToastContext, useAssistantsMapContext } from '~/Providers';
 import { AssistantAvatar, NoImage, AvatarMenu } from './Images';
-import { useAssistantsMapContext } from '~/Providers';
-// import { Spinner } from '@librechat/client';
+// import { Spinner } from '~/components/svg';
 import { useLocalize } from '~/hooks';
 import { formatBytes } from '~/utils';
 

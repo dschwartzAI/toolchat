@@ -1,11 +1,12 @@
 import { useMemo, memo, type FC, useCallback } from 'react';
 import throttle from 'lodash/throttle';
 import { parseISO, isToday } from 'date-fns';
-import { Spinner, useMediaQuery } from '@librechat/client';
 import { List, AutoSizer, CellMeasurer, CellMeasurerCache } from 'react-virtualized';
+import { useLocalize, TranslationKeys, useMediaQuery } from '~/hooks';
 import { TConversation } from 'librechat-data-provider';
-import { useLocalize, TranslationKeys } from '~/hooks';
+import type { AgentMapContext, AssistantMapContext } from '~/utils/map';
 import { groupConversationsByDate } from '~/utils';
+import { Spinner } from '~/components/svg';
 import Convo from './Convo';
 
 interface ConversationsProps {
@@ -16,6 +17,8 @@ interface ConversationsProps {
   loadMoreConversations: () => void;
   isLoading: boolean;
   isSearchLoading: boolean;
+  agentMap?: AgentMapContext;
+  assistantMap?: AssistantMapContext;
 }
 
 const LoadingSpinner = memo(() => {
@@ -51,11 +54,15 @@ const MemoizedConvo = memo(
     retainView,
     toggleNav,
     isLatestConvo,
+    agentMap,
+    assistantMap,
   }: {
     conversation: TConversation;
     retainView: () => void;
     toggleNav: () => void;
     isLatestConvo: boolean;
+    agentMap?: AgentMapContext;
+    assistantMap?: AssistantMapContext;
   }) => {
     return (
       <Convo
@@ -63,6 +70,8 @@ const MemoizedConvo = memo(
         retainView={retainView}
         toggleNav={toggleNav}
         isLatestConvo={isLatestConvo}
+        agentMap={agentMap}
+        assistantMap={assistantMap}
       />
     );
   },
@@ -84,6 +93,8 @@ const Conversations: FC<ConversationsProps> = ({
   loadMoreConversations,
   isLoading,
   isSearchLoading,
+  agentMap,
+  assistantMap,
 }) => {
   const isSmallScreen = useMediaQuery('(max-width: 768px)');
   const convoHeight = isSmallScreen ? 44 : 34;
@@ -166,6 +177,8 @@ const Conversations: FC<ConversationsProps> = ({
                   retainView={moveToTop}
                   toggleNav={toggleNav}
                   isLatestConvo={item.convo.conversationId === firstTodayConvoId}
+                  agentMap={agentMap}
+                  assistantMap={assistantMap}
                 />
               ) : null}
             </div>
@@ -173,7 +186,7 @@ const Conversations: FC<ConversationsProps> = ({
         </CellMeasurer>
       );
     },
-    [cache, flattenedItems, firstTodayConvoId, moveToTop, toggleNav],
+    [cache, flattenedItems, firstTodayConvoId, moveToTop, toggleNav, agentMap, assistantMap],
   );
 
   const getRowHeight = useCallback(
@@ -214,7 +227,7 @@ const Conversations: FC<ConversationsProps> = ({
                 rowCount={flattenedItems.length}
                 rowHeight={getRowHeight}
                 rowRenderer={rowRenderer}
-                overscanRowCount={10}
+                overscanRowCount={100}
                 className="outline-none"
                 style={{ outline: 'none' }}
                 role="list"

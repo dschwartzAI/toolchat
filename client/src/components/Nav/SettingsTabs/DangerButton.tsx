@@ -1,11 +1,12 @@
 import { forwardRef } from 'react';
 import type { ForwardedRef } from 'react';
 import { CheckIcon } from 'lucide-react';
-import { Spinner, DialogButton } from '@librechat/client';
-import HoverCardSettings from './HoverCardSettings';
+import { DialogButton } from '~/components/ui';
+import { Spinner } from '~/components/svg';
 import type { TDangerButtonProps } from '~/common';
 import { useLocalize } from '~/hooks';
 import { cn } from '~/utils';
+import HoverCardSettings from './HoverCardSettings';
 
 const DangerButton = (props: TDangerButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
   const {

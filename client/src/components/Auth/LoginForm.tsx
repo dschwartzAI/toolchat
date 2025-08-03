@@ -1,11 +1,12 @@
-import React, { useState, useEffect, useContext } from 'react';
 import { useForm } from 'react-hook-form';
+import React, { useState, useEffect, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { Turnstile } from '@marsidev/react-turnstile';
-import { ThemeContext, Spinner, Button } from '@librechat/client';
 import type { TLoginUser, TStartupConfig } from 'librechat-data-provider';
 import type { TAuthContext } from '~/common';
 import { useResendVerificationEmail, useGetStartupConfig } from '~/data-provider';
-import { useLocalize } from '~/hooks';
+import { ThemeContext, useLocalize } from '~/hooks';
+import { Spinner, Button } from '~/components';
 
 type TLoginFormProps = {
   onSubmit: (data: TLoginUser) => void;
@@ -142,12 +143,12 @@ const LoginForm: React.FC<TLoginFormProps> = ({ onSubmit, startupConfig, error, 
           {renderError('password')}
         </div>
         {startupConfig.passwordResetEnabled && (
-          <a
-            href="/forgot-password"
+          <Link
+            to="/forgot-password"
             className="inline-flex p-1 text-sm font-medium text-green-600 transition-colors hover:text-green-700 dark:text-green-400 dark:hover:text-green-300"
           >
             {localize('com_auth_password_forgot')}
-          </a>
+          </Link>
         )}
 
         {requireCaptcha && (

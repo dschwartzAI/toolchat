@@ -1,3 +1,4 @@
+import type { TModelSelectProps } from '~/common';
 import {
   Switch,
   Label,
@@ -6,8 +7,7 @@ import {
   InputNumber,
   SelectDropDown,
   HoverCardTrigger,
-} from '@librechat/client';
-import type { TModelSelectProps } from '~/common';
+} from '~/components';
 import { cn, optionText, defaultTextProps, removeFocusRings } from '~/utils';
 import OptionHover from './OptionHover';
 import { useLocalize } from '~/hooks';

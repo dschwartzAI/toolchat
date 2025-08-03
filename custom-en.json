@@ -1,0 +1,164 @@
+{
+  "com.ui.agents": "Business Tools",
+  "com.ui.agent": "Business Tool",
+  "com.ui.selectAgent": "Select a Business Tool",
+  "com.ui.createAgent": "Create Business Tool",
+  "com.ui.editAgent": "Edit Business Tool",
+  "com.ui.deleteAgent": "Delete Business Tool",
+  "com.ui.agentBuilder": "Business Tool Builder",
+  "com.ui.agentName": "Tool Name",
+  "com.ui.agentDescription": "Tool Description",
+  "com.ui.agentInstructions": "Tool Configuration",
+  
+  "com.ui.endpoint": "Tool Category",
+  "com.ui.endpoints": "Tool Categories",
+  "com.ui.selectEndpoint": "Select Tool Category",
+  "com.ui.endpointsMenu": "Tool Categories",
+  
+  "com.ui.model": "Tool Type",
+  "com.ui.models": "Tool Types",
+  "com.ui.selectModel": "Select Tool Type",
+  "com.ui.modelParameters": "Tool Settings",
+  
+  "com.ui.newChat": "Start New Session",
+  "com.ui.newConversation": "New Business Session",
+  "com.ui.conversation": "Session",
+  "com.ui.conversations": "Sessions",
+  "com.ui.clearConversations": "Clear Sessions",
+  "com.ui.deleteConversation": "Delete Session",
+  
+  "com.ui.parameters": "Settings",
+  "com.ui.temperature": "Creativity Level",
+  "com.ui.maxTokens": "Response Length",
+  "com.ui.topP": "Focus Level",
+  "com.ui.topK": "Option Variety",
+  
+  "com.ui.save": "Save",
+  "com.ui.saving": "Saving...",
+  "com.ui.saved": "Saved",
+  "com.ui.saveAs": "Save As",
+  "com.ui.savingPreset": "Saving Template...",
+  "com.ui.savedPreset": "Template Saved",
+  
+  "com.ui.presets": "Templates",
+  "com.ui.preset": "Template",
+  "com.ui.selectPreset": "Select a Template",
+  "com.ui.createPreset": "Create Template",
+  "com.ui.editPreset": "Edit Template",
+  "com.ui.deletePreset": "Delete Template",
+  
+  "com.ui.prompts": "Instructions",
+  "com.ui.prompt": "Instruction",
+  "com.ui.systemPrompt": "Business Context",
+  
+  "com.ui.files": "Documents",
+  "com.ui.file": "Document",
+  "com.ui.uploadFile": "Upload Document",
+  "com.ui.uploadFiles": "Upload Documents",
+  "com.ui.fileUploaded": "Document Uploaded",
+  "com.ui.filesUploaded": "Documents Uploaded",
+  "com.ui.fileDeleted": "Document Deleted",
+  "com.ui.filesDeleted": "Documents Deleted",
+  
+  "com.ui.artifacts": "Generated Documents",
+  "com.ui.artifact": "Generated Document",
+  "com.ui.viewArtifact": "View Document",
+  "com.ui.downloadArtifact": "Download Document",
+  
+  "com.ui.tools": "Capabilities",
+  "com.ui.tool": "Capability",
+  "com.ui.toolUsed": "Capability Used",
+  "com.ui.toolsUsed": "Capabilities Used",
+  
+  "com.ui.fileSearch": "Document Search",
+  "com.ui.codeInterpreter": "Data Processor",
+  "com.ui.webSearch": "Web Research",
+  
+  "com.nav.agents": "Business Tools",
+  "com.nav.newChat": "New Session",
+  "com.nav.assistant": "Business Assistant",
+  "com.nav.assistants": "Business Assistants",
+  "com.nav.playground": "Tool Workshop",
+  "com.nav.profile": "My Account",
+  "com.nav.settings": "Preferences",
+  "com.nav.logout": "Sign Out",
+  "com.nav.help": "Help & Support",
+  
+  "com.error.premium": "This tool requires a Premium subscription. Please contact your administrator.",
+  "com.error.tier": "Your subscription doesn't include access to this tool.",
+  "com.error.unauthorized": "You don't have permission to use this feature.",
+  "com.error.rateLimit": "You've reached your usage limit. Please try again later or upgrade your subscription.",
+  "com.error.generic": "Something went wrong. Please try again or contact support.",
+  
+  "com.user.tier.free": "Free Account",
+  "com.user.tier.premium": "Premium Account",
+  "com.user.tier.admin": "Administrator",
+  
+  "com.assistants.knowledge": "Knowledge Base",
+  "com.assistants.capabilities": "Tool Capabilities",
+  "com.assistants.actions": "Tool Actions",
+  "com.assistants.searchApi": "Research Capability",
+  
+  "com.ui.input.placeholder": "Type your message here...",
+  "com.ui.input.placeholderAgent": "Type your message or @mention a business tool...",
+  
+  "com.ui.darkMode": "Dark Theme",
+  "com.ui.lightMode": "Light Theme",
+  "com.ui.auto": "Auto",
+  
+  "com.ui.share": "Share Session",
+  "com.ui.shareLink": "Share Link",
+  "com.ui.sharedConversation": "Shared Session",
+  
+  "com.ui.regenerate": "Regenerate Response",
+  "com.ui.continue": "Continue",
+  "com.ui.stop": "Stop",
+  "com.ui.edit": "Edit",
+  "com.ui.delete": "Delete",
+  "com.ui.copy": "Copy",
+  "com.ui.copied": "Copied!",
+  
+  "com.ui.welcomeMessage": "Welcome to your AI Business Tools Platform!",
+  "com.ui.welcomeSubtitle": "Select a business tool to get started",
+  
+  "com.auth.login": "Sign In",
+  "com.auth.logout": "Sign Out",
+  "com.auth.register": "Register",
+  "com.auth.email": "Email",
+  "com.auth.password": "Password",
+  "com.auth.forgotPassword": "Forgot Password?",
+  "com.auth.resetPassword": "Reset Password",
+  
+  "com.ui.privacyPolicy": "Privacy Policy",
+  "com.ui.termsOfService": "Terms of Service",
+  
+  "com.ui.createNewAgent": "Create New Business Tool",
+  "com.ui.agentUpdated": "Business Tool Updated",
+  "com.ui.agentCreated": "Business Tool Created",
+  "com.ui.agentDeleted": "Business Tool Deleted",
+  
+  "com.ui.confirmDelete": "Are you sure you want to delete this?",
+  "com.ui.confirmClear": "Are you sure you want to clear all sessions?",
+  
+  "com.ui.noAgentsAvailable": "No business tools available. Please contact your administrator.",
+  "com.ui.noConversations": "No sessions yet. Start a new session to begin.",
+  
+  "com.ui.export": "Export Sessions",
+  "com.ui.import": "Import Sessions",
+  "com.ui.exportData": "Export My Data",
+  
+  "com.ui.unpin": "Unpin",
+  "com.ui.pin": "Pin",
+  "com.ui.pinned": "Pinned",
+  
+  "com.endpoint.custom": "Business Tools",
+  "com.endpoint.openAI": "Business Assistant",
+  "com.endpoint.anthropic": "Content Creator",
+  "com.endpoint.agents": "Business Tools",
+  
+  "com.ui.searchPlaceholder": "Search sessions...",
+  "com.ui.searchMessages": "Search messages...",
+  
+  "com.ui.enterToSend": "Press Enter to send",
+  "com.ui.shiftEnterToBreak": "Shift + Enter for new line"
+}

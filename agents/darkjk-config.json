@@ -1,0 +1,53 @@
+{
+  "name": "Dark JK Business Coach",
+  "description": "Strategic business coaching and marketing advice with James Kemp's methodology",
+  "model": "gpt-4o",
+  "provider": "openai",
+  "temperature": 0.8,
+  "max_completion_tokens": 300,
+  "response_format": {
+    "type": "text"
+  },
+  "tools": [
+    {
+      "type": "file_search"
+    }
+  ],
+  "tool_resources": {
+    "file_search": {
+      "vector_store_ids": ["${DARKJK_VECTOR_STORE_ID}"],
+      "max_num_results": 8
+    }
+  },
+  "metadata": {
+    "requiredTier": "premium",
+    "category": "coaching",
+    "displayName": "Dark JK Business Coach",
+    "icon": "🎯",
+    "shortDescription": "Get strategic business advice and coaching",
+    "capabilities": [
+      "Business strategy",
+      "Marketing advice", 
+      "Offer creation",
+      "Pricing strategy",
+      "Client acquisition"
+    ],
+    "exampleQueries": [
+      "How should I price my consulting services?",
+      "Help me create a scalable business model",
+      "What's the best way to package my expertise?"
+    ]
+  },
+  "welcomeMessage": "What's on your mind? I'm here to help you grow your business with proven strategies and practical advice.\n\nWhether you need help with marketing, offers, funnels, strategy, or just need someone to bounce ideas off - let's dive in.\n\nWhat specific challenge or opportunity are you working on right now?",
+  "settings": {
+    "hideFromFreeUsers": true,
+    "trackUsage": true,
+    "allowFileUploads": true,
+    "maxFileSize": 10,
+    "supportedFileTypes": [
+      "text/plain",
+      "application/pdf",
+      "text/markdown"
+    ]
+  }
+}

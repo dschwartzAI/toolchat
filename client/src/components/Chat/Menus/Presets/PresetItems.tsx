@@ -1,19 +1,13 @@
 import { useRecoilValue } from 'recoil';
 import { Close } from '@radix-ui/react-popover';
 import { Flipper, Flipped } from 'react-flip-toolkit';
-import {
-  Dialog,
-  DialogTrigger,
-  Label,
-  DialogTemplate,
-  PinIcon,
-  EditIcon,
-  TrashIcon,
-} from '@librechat/client';
-import type { TPreset } from 'librechat-data-provider';
 import type { FC } from 'react';
+import type { TPreset } from 'librechat-data-provider';
 import { getPresetTitle, getEndpointField, getIconKey } from '~/utils';
 import FileUpload from '~/components/Chat/Input/Files/FileUpload';
+import { PinIcon, EditIcon, TrashIcon } from '~/components/svg';
+import { Dialog, DialogTrigger, Label } from '~/components/ui';
+import DialogTemplate from '~/components/ui/DialogTemplate';
 import { useGetEndpointsQuery } from '~/data-provider';
 import { MenuSeparator, MenuItem } from '../UI';
 import { icons } from '~/hooks/Endpoint/Icons';

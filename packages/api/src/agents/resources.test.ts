@@ -71,12 +71,7 @@ describe('primeResources', () => {
         tool_resources,
       });
 
-      expect(mockGetFiles).toHaveBeenCalledWith(
-        { file_id: { $in: ['ocr-file-1'] } },
-        {},
-        {},
-        { userId: undefined, agentId: undefined },
-      );
+      expect(mockGetFiles).toHaveBeenCalledWith({ file_id: { $in: ['ocr-file-1'] } }, {}, {});
       expect(result.attachments).toEqual(mockOcrFiles);
       expect(result.tool_resources).toEqual(tool_resources);
     });

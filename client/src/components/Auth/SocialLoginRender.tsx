@@ -6,7 +6,7 @@ import {
   DiscordIcon,
   AppleIcon,
   SamlIcon,
-} from '@librechat/client';
+} from '~/components';
 
 import SocialButton from './SocialButton';
 

@@ -1,0 +1,108 @@
+{
+  "generated": "2025-07-07",
+  "description": "Consolidated files for LibreChat upload (within 30 file limit)",
+  "total_files": 20,
+  "original_files": 120,
+  "files": [
+    {
+      "filename": "01_Frameworks_Collection_1.txt",
+      "approximate_tokens": 6571,
+      "description": "01 Frameworks Collection 1"
+    },
+    {
+      "filename": "02_Frameworks_Collection_2.txt",
+      "approximate_tokens": 11441,
+      "description": "02 Frameworks Collection 2"
+    },
+    {
+      "filename": "03_Frameworks_Collection_3.txt",
+      "approximate_tokens": 14011,
+      "description": "03 Frameworks Collection 3"
+    },
+    {
+      "filename": "04_Frameworks_Collection_4.txt",
+      "approximate_tokens": 14288,
+      "description": "04 Frameworks Collection 4"
+    },
+    {
+      "filename": "05_Frameworks_Collection_5.txt",
+      "approximate_tokens": 23961,
+      "description": "05 Frameworks Collection 5"
+    },
+    {
+      "filename": "06_Frameworks_Collection_6.txt",
+      "approximate_tokens": 18216,
+      "description": "06 Frameworks Collection 6"
+    },
+    {
+      "filename": "07_Frameworks_Collection_7.txt",
+      "approximate_tokens": 23099,
+      "description": "07 Frameworks Collection 7"
+    },
+    {
+      "filename": "08_Frameworks_Collection_8.txt",
+      "approximate_tokens": 84853,
+      "description": "08 Frameworks Collection 8"
+    },
+    {
+      "filename": "09_Frameworks_Collection_9.txt",
+      "approximate_tokens": 58297,
+      "description": "09 Frameworks Collection 9"
+    },
+    {
+      "filename": "10_Core_Concepts.txt",
+      "approximate_tokens": 3972,
+      "description": "10 Core Concepts"
+    },
+    {
+      "filename": "11_Transcripts_Collection_1.txt",
+      "approximate_tokens": 27872,
+      "description": "11 Transcripts Collection 1"
+    },
+    {
+      "filename": "12_Transcripts_Collection_2.txt",
+      "approximate_tokens": 36011,
+      "description": "12 Transcripts Collection 2"
+    },
+    {
+      "filename": "13_Transcripts_Collection_3.txt",
+      "approximate_tokens": 35412,
+      "description": "13 Transcripts Collection 3"
+    },
+    {
+      "filename": "14_Transcripts_Collection_4.txt",
+      "approximate_tokens": 35690,
+      "description": "14 Transcripts Collection 4"
+    },
+    {
+      "filename": "15_Transcripts_Collection_5.txt",
+      "approximate_tokens": 35271,
+      "description": "15 Transcripts Collection 5"
+    },
+    {
+      "filename": "16_Transcripts_Collection_6.txt",
+      "approximate_tokens": 34968,
+      "description": "16 Transcripts Collection 6"
+    },
+    {
+      "filename": "17_Transcripts_Collection_7.txt",
+      "approximate_tokens": 38171,
+      "description": "17 Transcripts Collection 7"
+    },
+    {
+      "filename": "18_Transcripts_Collection_8.txt",
+      "approximate_tokens": 37289,
+      "description": "18 Transcripts Collection 8"
+    },
+    {
+      "filename": "19_All_Templates.txt",
+      "approximate_tokens": 13608,
+      "description": "19 All Templates"
+    },
+    {
+      "filename": "20_All_Guides.txt",
+      "approximate_tokens": 5011,
+      "description": "20 All Guides"
+    }
+  ]
+}

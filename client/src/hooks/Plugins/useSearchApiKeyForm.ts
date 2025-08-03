@@ -19,11 +19,12 @@ export default function useSearchApiKeyForm({
 
   const onSubmitHandler = useCallback(
     (data: SearchApiKeyFormData) => {
+      reset();
       installTool(data);
       setIsDialogOpen(false);
       onSubmit?.();
     },
-    [onSubmit, installTool],
+    [onSubmit, reset, installTool],
   );
 
   const handleRevokeApiKey = useCallback(() => {

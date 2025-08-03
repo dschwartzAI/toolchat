@@ -10,6 +10,7 @@ export const URLIcon = memo(
     imageStyle = { width: '100%', height: '100%' },
     className = 'icon-md mr-1 shrink-0 overflow-hidden rounded-full',
     endpoint,
+    context,
   }: {
     iconURL: string;
     altName?: string | null;
@@ -17,6 +18,7 @@ export const URLIcon = memo(
     containerStyle?: React.CSSProperties;
     imageStyle?: React.CSSProperties;
     endpoint?: string;
+    context?: 'landing' | 'menu-item' | 'nav' | 'message';
   }) => {
     const [imageError, setImageError] = useState(false);
 
@@ -53,7 +55,7 @@ export const URLIcon = memo(
           style={imageStyle}
           className="object-cover"
           onError={handleImageError}
-          loading="lazy"
+          loading={context === 'menu-item' ? 'eager' : 'lazy'}
           decoding="async"
           width={Number(containerStyle.width) || 20}
           height={Number(containerStyle.height) || 20}

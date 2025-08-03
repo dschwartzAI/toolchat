@@ -1,0 +1,127 @@
+{
+  "name": "Hybrid Offer Creator",
+  "description": "Create compelling business offers and sales letters through guided conversation",
+  "model": "claude-3-5-sonnet-20241022",
+  "provider": "anthropic",
+  "temperature": 0.7,
+  "max_completion_tokens": 2000,
+  "response_format": {
+    "type": "text"
+  },
+  "tools": [
+    {
+      "type": "artifacts"
+    }
+  ],
+  "metadata": {
+    "requiredTier": "premium",
+    "category": "content",
+    "displayName": "Hybrid Offer Creator",
+    "icon": "📝",
+    "shortDescription": "Generate professional sales letters and offer documents",
+    "capabilities": [
+      "Sales letter creation",
+      "Offer document generation",
+      "1500+ word documents",
+      "Interactive editing",
+      "Export to various formats"
+    ],
+    "exampleQueries": [
+      "I need to create a sales letter for my consulting service",
+      "Help me build an offer for my online course",
+      "Create a compelling offer document for my coaching program"
+    ],
+    "documentGenerationModel": "claude-3-opus-20240229",
+    "documentGenerationTemperature": 0.3
+  },
+  "conversationFlow": {
+    "phases": ["gathering", "generating", "editing"],
+    "requiredFields": [
+      "offerType",
+      "offerDescription",
+      "targetAudience",
+      "problemStatement",
+      "solutionOverview",
+      "uniqueValueProposition",
+      "promise",
+      "phases",
+      "guarantee",
+      "paymentTerms",
+      "scarcity",
+      "clientResults"
+    ],
+    "questionOrder": [
+      {
+        "key": "offerType",
+        "question": "What type of offer are you creating? (Membership, Community, Consulting, Service, Product, Course, Workshop)",
+        "required": true
+      },
+      {
+        "key": "offerDescription",
+        "question": "Tell me about your core product/service at a high level",
+        "required": true
+      },
+      {
+        "key": "targetAudience",
+        "question": "Who's your target audience? Be specific about who they are and what they're looking for",
+        "required": true
+      },
+      {
+        "key": "problemStatement",
+        "question": "What specific problem does your offer solve?",
+        "required": true
+      },
+      {
+        "key": "solutionOverview",
+        "question": "How does your offer solve this problem? What's your approach?",
+        "required": true
+      },
+      {
+        "key": "uniqueValueProposition",
+        "question": "What makes your offer unique and better than the competition?",
+        "required": true
+      },
+      {
+        "key": "promise",
+        "question": "What specific transformation or outcome do you promise?",
+        "required": true
+      },
+      {
+        "key": "phases",
+        "question": "What are the phases or steps involved in your offer? Describe the client journey",
+        "required": true
+      },
+      {
+        "key": "guarantee",
+        "question": "What guarantee or risk reversal will you offer?",
+        "required": true
+      },
+      {
+        "key": "paymentTerms",
+        "question": "What are your payment options?",
+        "required": true
+      },
+      {
+        "key": "scarcity",
+        "question": "What creates urgency to act now?",
+        "required": true
+      },
+      {
+        "key": "clientResults",
+        "question": "Share specific results you've achieved or helped others achieve",
+        "required": true
+      }
+    ]
+  },
+  "settings": {
+    "hideFromFreeUsers": true,
+    "trackUsage": true,
+    "allowFileUploads": false,
+    "enableArtifacts": true,
+    "artifactType": "document",
+    "minDocumentLength": 1500,
+    "maxDocumentLength": 2000
+  },
+  "completionMessage": "I have everything I need to create your offer document. Give me a moment to generate a compelling sales letter for you...",
+  "editingInstructions": "You can ask me to make any changes to the document. For example:\n- 'Change the headline to...'\n- 'Make the tone more conversational'\n- 'Add more urgency to the call to action'\n- 'Update the price to $X'\n\nWhat would you like me to adjust?"
+}

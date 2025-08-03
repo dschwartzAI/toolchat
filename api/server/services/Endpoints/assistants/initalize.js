@@ -6,7 +6,7 @@ const {
   getUserKeyExpiry,
   checkUserKeyExpiry,
 } = require('~/server/services/UserService');
-const OAIClient = require('~/app/clients/OpenAIClient');
+const OpenAIClient = require('~/app/clients/OpenAIClient');
 const { isUserProvided } = require('~/server/utils');
 
 const initializeClient = async ({ req, res, endpointOption, version, initAppClient = false }) => {
@@ -79,7 +79,7 @@ const initializeClient = async ({ req, res, endpointOption, version, initAppClie
   openai.res = res;
 
   if (endpointOption && initAppClient) {
-    const client = new OAIClient(apiKey, clientOptions);
+    const client = new OpenAIClient(apiKey, clientOptions);
     return {
       client,
       openai,

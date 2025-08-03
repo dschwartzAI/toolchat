@@ -28,6 +28,7 @@ export type AgentForm = {
   tools?: string[];
   provider?: AgentProvider | OptionWithIcon;
   agent_ids?: string[];
+  conversation_starters?: string[];
   [AgentCapabilities.artifacts]?: ArtifactModes | string;
   recursion_limit?: number;
 } & TAgentCapabilities;

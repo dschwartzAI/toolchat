@@ -1,0 +1,4 @@
+FROM librechat-final:latest
+COPY client/dist /app/client/dist
+CMD ["node", "startup.js"]
+EOF < /dev/null

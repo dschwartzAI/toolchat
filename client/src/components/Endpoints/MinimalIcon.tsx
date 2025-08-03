@@ -1,4 +1,4 @@
-import { Feather } from 'lucide-react';
+import { Feather, User, Wrench } from 'lucide-react';
 import { EModelEndpoint, alternateName } from 'librechat-data-provider';
 import {
   AzureMinimalIcon,
@@ -10,7 +10,7 @@ import {
   AnthropicIcon,
   BedrockIcon,
   Sparkles,
-} from '@librechat/client';
+} from '~/components/svg';
 import UnknownIcon from '~/hooks/Endpoint/UnknownIcon';
 import { IconProps } from '~/common';
 import { cn } from '~/utils';
@@ -44,10 +44,10 @@ const MinimalIcon: React.FC<IconProps> = (props) => {
       name: 'Custom',
     },
     [EModelEndpoint.chatGPTBrowser]: { icon: <LightningIcon />, name: 'ChatGPT' },
-    [EModelEndpoint.assistants]: { icon: <Sparkles className="icon-sm" />, name: 'Assistant' },
-    [EModelEndpoint.azureAssistants]: { icon: <Sparkles className="icon-sm" />, name: 'Assistant' },
+    [EModelEndpoint.assistants]: { icon: <User className="icon-sm" />, name: 'Coach' },
+    [EModelEndpoint.azureAssistants]: { icon: <User className="icon-sm" />, name: 'Coach' },
     [EModelEndpoint.agents]: {
-      icon: <Feather className="icon-sm" />,
+      icon: <Wrench className="icon-sm" />,
       name: props.modelLabel ?? alternateName[EModelEndpoint.agents],
     },
     [EModelEndpoint.bedrock]: {
@@ -75,7 +75,7 @@ const MinimalIcon: React.FC<IconProps> = (props) => {
         height: size,
       }}
       className={cn(
-        'relative flex items-center justify-center rounded-sm text-text-secondary',
+        'relative flex items-center justify-center rounded-sm text-text-secondary transition-opacity duration-300',
         props.className ?? '',
       )}
     >

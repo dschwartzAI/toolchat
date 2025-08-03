@@ -1,5 +1,4 @@
 import { useMemo } from 'react';
-import { useMediaQuery } from '@librechat/client';
 import { useOutletContext } from 'react-router-dom';
 import { getConfigDefaults, PermissionTypes, Permissions } from 'librechat-data-provider';
 import type { ContextType } from '~/common';
@@ -7,10 +6,12 @@ import ModelSelector from './Menus/Endpoints/ModelSelector';
 import { PresetsMenu, HeaderNewChat, OpenSidebar } from './Menus';
 import { useGetStartupConfig } from '~/data-provider';
 import ExportAndShareMenu from './ExportAndShareMenu';
-import BookmarkMenu from './Menus/BookmarkMenu';
+import { useMediaQuery, useHasAccess } from '~/hooks';
+import TagMenu from './Menus/TagMenu';
+import FeedbackButton from './Menus/FeedbackButton';
+import ThemeToggle from './Menus/ThemeToggle';
 import { TemporaryChat } from './TemporaryChat';
 import AddMultiConvo from './AddMultiConvo';
-import { useHasAccess } from '~/hooks';
 
 const defaultInterface = getConfigDefaults().interface;
 
@@ -56,25 +57,33 @@ export default function Header() {
             } ${!navVisible ? 'translate-x-0' : 'translate-x-[-100px]'}`}
           >
             <ModelSelector startupConfig={startupConfig} />
-            {interfaceConfig.presets === true && interfaceConfig.modelSelect && <PresetsMenu />}
-            {hasAccessToBookmarks === true && <BookmarkMenu />}
-            {hasAccessToMultiConvo === true && <AddMultiConvo />}
+            {/* Presets button hidden per requirements */}
+            {/* {interfaceConfig.presets === true && interfaceConfig.modelSelect && <PresetsMenu />} */}
+            {<TagMenu />}
+            {/* Multi-conversation button hidden per requirements */}
+            {/* {hasAccessToMultiConvo === true && <AddMultiConvo />} */}
             {isSmallScreen && (
               <>
+                <FeedbackButton />
+                <ThemeToggle />
                 <ExportAndShareMenu
                   isSharedButtonEnabled={startupConfig?.sharedLinksEnabled ?? false}
                 />
-                <TemporaryChat />
+                {/* Temporary chat button hidden per requirements */}
+                {/* <TemporaryChat /> */}
               </>
             )}
           </div>
         </div>
         {!isSmallScreen && (
           <div className="flex items-center gap-2">
+            <FeedbackButton />
+            <ThemeToggle />
             <ExportAndShareMenu
               isSharedButtonEnabled={startupConfig?.sharedLinksEnabled ?? false}
             />
-            <TemporaryChat />
+            {/* Temporary chat button hidden per requirements */}
+            {/* <TemporaryChat /> */}
           </div>
         )}
       </div>

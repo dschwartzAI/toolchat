@@ -29,10 +29,22 @@ export const useGenTitleMutation = (): TGenTitleMutation => {
   const queryClient = useQueryClient();
   return useMutation((payload: t.TGenTitleRequest) => dataService.genTitle(payload), {
     onSuccess: (response, vars) => {
+      const convo = queryClient.getQueryData([QueryKeys.conversation, vars.conversationId]);
+      if (convo?.endpoint === 'agents') {
+        queryClient.setQueryData(
+          [QueryKeys.conversation, vars.conversationId],
+          (convo) => convo ? { ...convo, title: 'SoloOS' } : convo,
+        );
+        updateConvoInAllQueries(queryClient, vars.conversationId, (c) => ({
+          ...c,
+          title: 'SoloOS',
+        }));
+        document.title = 'SoloOS';
+        return;
+      }
       queryClient.setQueryData(
         [QueryKeys.conversation, vars.conversationId],
-        (convo: t.TConversation | undefined) =>
-          convo ? { ...convo, title: response.title } : convo,
+        (convo) => convo ? { ...convo, title: response.title } : convo,
       );
       updateConvoInAllQueries(queryClient, vars.conversationId, (c) => ({
         ...c,
@@ -55,10 +67,9 @@ export const useUpdateConversationMutation = (
   return useMutation(
     (payload: t.TUpdateConversationRequest) => dataService.updateConversation(payload),
     {
-      onSuccess: (updatedConvo, payload) => {
-        const targetId = payload.conversationId || id;
-        queryClient.setQueryData([QueryKeys.conversation, targetId], updatedConvo);
-        updateConvoInAllQueries(queryClient, targetId, () => updatedConvo);
+      onSuccess: (updatedConvo) => {
+        queryClient.setQueryData([QueryKeys.conversation, id], updatedConvo);
+        updateConvoInAllQueries(queryClient, id, () => updatedConvo);
       },
     },
   );

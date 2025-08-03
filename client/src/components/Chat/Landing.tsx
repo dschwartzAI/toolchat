@@ -1,11 +1,11 @@
 import { useMemo, useCallback, useState, useEffect, useRef } from 'react';
 import { easings } from '@react-spring/web';
 import { EModelEndpoint } from 'librechat-data-provider';
-import { BirthdayIcon, TooltipAnchor, SplitText } from '@librechat/client';
 import { useChatContext, useAgentsMapContext, useAssistantsMapContext } from '~/Providers';
 import { useGetEndpointsQuery, useGetStartupConfig } from '~/data-provider';
+import { BirthdayIcon, TooltipAnchor, SplitText } from '~/components';
 import ConvoIcon from '~/components/Endpoints/ConvoIcon';
-import { useLocalize, useAuthContext } from '~/hooks';
+import { useLocalize, useAuthContext, useSubmitMessage } from '~/hooks';
 import { getIconEndpoint, getEntity } from '~/utils';
 
 const containerClassName =
@@ -35,6 +35,7 @@ export default function Landing({ centerFormOnLanding }: { centerFormOnLanding: 
   const { data: endpointsConfig } = useGetEndpointsQuery();
   const { user } = useAuthContext();
   const localize = useLocalize();
+  const { submitMessage } = useSubmitMessage();
 
   const [textHasMultipleLines, setTextHasMultipleLines] = useState(false);
   const [lineCount, setLineCount] = useState(1);
@@ -66,7 +67,7 @@ export default function Landing({ centerFormOnLanding }: { centerFormOnLanding: 
     agent_id: conversation?.agent_id,
     assistant_id: conversation?.assistant_id,
   });
-
+  
   const name = entity?.name ?? '';
   const description = (entity?.description || conversation?.greeting) ?? '';
 
@@ -203,10 +204,20 @@ export default function Landing({ centerFormOnLanding }: { centerFormOnLanding: 
             />
           )}
         </div>
-        {description && (
-          <div className="animate-fadeIn mt-4 max-w-md text-center text-sm font-normal text-text-primary">
+        {(isAgent || isAssistant) && description && (
+          <div className="animate-fadeIn mt-4 max-w-md text-center text-lg font-normal text-text-primary">
             {description}
           </div>
+        )}
+        {isAgent && 
+         conversation?.agent_id !== 'agent_KVXW88WVte1tcyABlAowy' && // DarkJK
+         conversation?.agent_id !== 'agent_odD3oMA9NgaPXQEcf0Pnq' && ( // SovereignJK
+          <button
+            onClick={() => submitMessage({ text: 'begin' })}
+            className="animate-fadeIn mt-4 rounded-lg bg-green-600 px-6 py-2 text-white transition-colors hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 dark:bg-green-500 dark:hover:bg-green-600"
+          >
+            Begin
+          </button>
         )}
       </div>
     </div>

@@ -1,13 +1,13 @@
 import React, { useState, useId } from 'react';
 import { PlusCircle } from 'lucide-react';
 import * as Menu from '@ariakit/react/menu';
-import { DropdownPopup } from '@librechat/client';
 import { specialVariables } from 'librechat-data-provider';
-import { Controller, useFormContext } from 'react-hook-form';
 import type { TSpecialVarLabel } from 'librechat-data-provider';
+import { Controller, useFormContext } from 'react-hook-form';
 import type { AgentForm } from '~/common';
 import { cn, defaultTextProps, removeFocusOutlines } from '~/utils';
-// import { ControlCombobox } from '@librechat/client';
+// import ControlCombobox from '~/components/ui/ControlCombobox';
+import { DropdownPopup } from '~/components';
 import { useLocalize } from '~/hooks';
 
 const inputClass = cn(

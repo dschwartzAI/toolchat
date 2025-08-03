@@ -37,28 +37,36 @@ export default function useSelectorEffects({
     if (!isAgentsEndpoint(endpoint as string)) {
       return;
     }
-    if (selectedAgentId == null && agents.length > 0) {
-      let agent_id = localStorage.getItem(`${LocalStorageKeys.AGENT_ID_PREFIX}${index}`);
-      if (agent_id == null) {
-        agent_id = agents[0]?.id;
-      }
-      const agent = agentsMap?.[agent_id];
+    // Commenting out auto-selection logic to fix agent selection issue
+    // This was causing agents to revert to the stored/first agent
+    // if (selectedAgentId == null && agents.length > 0) {
+    //   let agent_id = localStorage.getItem(`${LocalStorageKeys.AGENT_ID_PREFIX}${index}`);
+    //   if (agent_id == null) {
+    //     agent_id = agents[0]?.id;
+    //   }
+    //   const agent = agentsMap?.[agent_id];
 
-      if (agent !== undefined) {
-        setOption('model')('');
-        setOption('agent_id')(agent_id);
-      }
-    }
+    //   if (agent !== undefined) {
+    //     setOption('model')('');
+    //     setOption('agent_id')(agent_id);
+    //   }
+    // }
   }, [index, agents, selectedAgentId, agentsMap, endpoint, setOption]);
   useEffect(() => {
     if (!isAssistantsEndpoint(endpoint as string)) {
       return;
     }
     if (selectedAssistantId == null && assistants.length > 0) {
-      let assistant_id = localStorage.getItem(`${LocalStorageKeys.ASST_ID_PREFIX}${index}`);
-      if (assistant_id == null) {
-        assistant_id = assistants[0]?.id;
-      }
+      // Try to find DarkJK specifically
+      const darkJK = assistants.find((asst) => 
+        asst.name?.toLowerCase().includes('darkjk') || 
+        asst.name?.toLowerCase().includes('dark jk')
+      );
+      
+      let assistant_id = darkJK?.id ?? 
+        localStorage.getItem(`${LocalStorageKeys.ASST_ID_PREFIX}${index}`) ?? 
+        assistants[0]?.id;
+      
       const assistant = assistantsMap?.[endpoint ?? '']?.[assistant_id];
       if (assistant !== undefined) {
         setOption('model')(assistant.model);
@@ -83,32 +91,37 @@ export default function useSelectorEffects({
     if (!conversation?.endpoint) {
       return;
     }
+    
+    // Prevent unnecessary updates if values haven't changed
+    const getCurrentValues = () => {
+      if (isAgentsEndpoint(conversation?.endpoint)) {
+        return {
+          endpoint: conversation.endpoint || '',
+          model: conversation.agent_id ?? '',
+          modelSpec: conversation.spec || '',
+        };
+      } else if (isAssistantsEndpoint(conversation?.endpoint)) {
+        return {
+          endpoint: conversation.endpoint || '',
+          model: conversation.assistant_id || '',
+          modelSpec: conversation.spec || '',
+        };
+      }
+      return {
+        endpoint: conversation.endpoint || '',
+        model: conversation.model || '',
+        modelSpec: conversation.spec || '',
+      };
+    };
+    
     if (
       conversation?.assistant_id ||
       conversation?.agent_id ||
       conversation?.model ||
       conversation?.spec
     ) {
-      if (isAgentsEndpoint(conversation?.endpoint)) {
-        debouncedSetSelectedValues({
-          endpoint: conversation.endpoint || '',
-          model: conversation.agent_id ?? '',
-          modelSpec: conversation.spec || '',
-        });
-        return;
-      } else if (isAssistantsEndpoint(conversation?.endpoint)) {
-        debouncedSetSelectedValues({
-          endpoint: conversation.endpoint || '',
-          model: conversation.assistant_id || '',
-          modelSpec: conversation.spec || '',
-        });
-        return;
-      }
-      debouncedSetSelectedValues({
-        endpoint: conversation.endpoint || '',
-        model: conversation.model || '',
-        modelSpec: conversation.spec || '',
-      });
+      const newValues = getCurrentValues();
+      debouncedSetSelectedValues(newValues);
     }
     return () => {
       if (debounceTimeoutRef.current) {

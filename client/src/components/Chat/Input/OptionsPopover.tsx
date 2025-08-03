@@ -1,10 +1,11 @@
 import { useRef } from 'react';
 import { Save } from 'lucide-react';
 import { Portal, Content } from '@radix-ui/react-popover';
-import { Button, CrossIcon, useOnClickOutside } from '@librechat/client';
 import type { ReactNode } from 'react';
+import { useLocalize, useOnClickOutside } from '~/hooks';
 import { cn, removeFocusOutlines } from '~/utils';
-import { useLocalize } from '~/hooks';
+import { CrossIcon } from '~/components/svg';
+import { Button } from '~/components/ui';
 
 type TOptionsPopoverProps = {
   children: ReactNode;

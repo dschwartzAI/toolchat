@@ -162,9 +162,11 @@ const verifyEmail = async (req) => {
  * Register a new user.
  * @param {MongoUser} user <email, password, name, username>
  * @param {Partial<MongoUser>} [additionalData={}]
- * @returns {Promise<{status: number, message: string, user?: MongoUser}>}
+ * @param {Express.Request} req
+ * @param {Express.Response} res
+ * @returns {Promise<{status: number, message: string, user?: MongoUser, token?: string}>}
  */
-const registerUser = async (user, additionalData = {}) => {
+const registerUser = async (user, additionalData = {}, req = null, res = null) => {
   const { error } = registerSchema.safeParse(user);
   if (error) {
     const errorMessage = errorsToString(error.errors);
@@ -223,17 +225,43 @@ const registerUser = async (user, additionalData = {}) => {
 
     const newUser = await createUser(newUserData, balanceConfig, disableTTL, true);
     newUserId = newUser._id;
-    if (emailEnabled && !newUser.emailVerified) {
+    
+    // Check if we should auto-login the user
+    const shouldAutoLogin = !emailEnabled || disableTTL;
+    
+    logger.info(`[registerUser] Email config check - emailEnabled: ${emailEnabled}, ALLOW_UNVERIFIED_EMAIL_LOGIN: ${process.env.ALLOW_UNVERIFIED_EMAIL_LOGIN}, disableTTL: ${disableTTL}, shouldAutoLogin: ${shouldAutoLogin}`);
+    
+    if (emailEnabled && !newUser.emailVerified && !disableTTL) {
       await sendVerificationEmail({
         _id: newUserId,
         email,
         name,
       });
+      return { status: 200, message: genericVerificationMessage };
     } else {
       await updateUser(newUserId, { emailVerified: true });
+      
+      // Auto-login: return user data and token
+      if (shouldAutoLogin && res) {
+        const token = await setAuthTokens(newUserId, res);
+        return { 
+          status: 200, 
+          message: 'Registration successful',
+          user: {
+            id: newUser._id,
+            email: newUser.email,
+            username: newUser.username,
+            name: newUser.name,
+            role: newUser.role,
+            emailVerified: true,
+            isNewUser: true
+          },
+          token
+        };
+      }
+      
+      return { status: 200, message: genericVerificationMessage };
     }
-
-    return { status: 200, message: genericVerificationMessage };
   } catch (err) {
     logger.error('[registerUser] Error in registering user:', err);
     if (newUserId) {

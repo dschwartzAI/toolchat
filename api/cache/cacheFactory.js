@@ -1,13 +1,12 @@
 const KeyvRedis = require('@keyv/redis').default;
 const { Keyv } = require('keyv');
-const { RedisStore } = require('rate-limit-redis');
+const { cacheConfig } = require('./cacheConfig');
+const { keyvRedisClient, ioredisClient, GLOBAL_PREFIX_SEPARATOR } = require('./redisClients');
 const { Time } = require('librechat-data-provider');
-const { logger } = require('@librechat/data-schemas');
 const { RedisStore: ConnectRedis } = require('connect-redis');
 const MemoryStore = require('memorystore')(require('express-session'));
-const { keyvRedisClient, ioredisClient, GLOBAL_PREFIX_SEPARATOR } = require('./redisClients');
-const { cacheConfig } = require('./cacheConfig');
 const { violationFile } = require('./keyvFiles');
+const { RedisStore } = require('rate-limit-redis');
 
 /**
  * Creates a cache instance using Redis or a fallback store. Suitable for general caching needs.
@@ -17,25 +16,12 @@ const { violationFile } = require('./keyvFiles');
  * @returns {Keyv} Cache instance.
  */
 const standardCache = (namespace, ttl = undefined, fallbackStore = undefined) => {
-  if (
-    cacheConfig.USE_REDIS &&
-    !cacheConfig.FORCED_IN_MEMORY_CACHE_NAMESPACES?.includes(namespace)
-  ) {
-    try {
-      const keyvRedis = new KeyvRedis(keyvRedisClient);
-      const cache = new Keyv(keyvRedis, { namespace, ttl });
-      keyvRedis.namespace = cacheConfig.REDIS_KEY_PREFIX;
-      keyvRedis.keyPrefixSeparator = GLOBAL_PREFIX_SEPARATOR;
-
-      cache.on('error', (err) => {
-        logger.error(`Cache error in namespace ${namespace}:`, err);
-      });
-
-      return cache;
-    } catch (err) {
-      logger.error(`Failed to create Redis cache for namespace ${namespace}:`, err);
-      throw err;
-    }
+  if (cacheConfig.USE_REDIS) {
+    const keyvRedis = new KeyvRedis(keyvRedisClient);
+    const cache = new Keyv(keyvRedis, { namespace, ttl });
+    keyvRedis.namespace = cacheConfig.REDIS_KEY_PREFIX;
+    keyvRedis.keyPrefixSeparator = GLOBAL_PREFIX_SEPARATOR;
+    return cache;
   }
   if (fallbackStore) return new Keyv({ store: fallbackStore, namespace, ttl });
   return new Keyv({ namespace, ttl });
@@ -61,13 +47,7 @@ const violationCache = (namespace, ttl = undefined) => {
 const sessionCache = (namespace, ttl = undefined) => {
   namespace = namespace.endsWith(':') ? namespace : `${namespace}:`;
   if (!cacheConfig.USE_REDIS) return new MemoryStore({ ttl, checkPeriod: Time.ONE_DAY });
-  const store = new ConnectRedis({ client: ioredisClient, ttl, prefix: namespace });
-  if (ioredisClient) {
-    ioredisClient.on('error', (err) => {
-      logger.error(`Session store Redis error for namespace ${namespace}:`, err);
-    });
-  }
-  return store;
+  return new ConnectRedis({ client: ioredisClient, ttl, prefix: namespace });
 };
 
 /**
@@ -79,30 +59,8 @@ const limiterCache = (prefix) => {
   if (!prefix) throw new Error('prefix is required');
   if (!cacheConfig.USE_REDIS) return undefined;
   prefix = prefix.endsWith(':') ? prefix : `${prefix}:`;
-
-  try {
-    if (!ioredisClient) {
-      logger.warn(`Redis client not available for rate limiter with prefix ${prefix}`);
-      return undefined;
-    }
-
-    return new RedisStore({ sendCommand, prefix });
-  } catch (err) {
-    logger.error(`Failed to create Redis rate limiter for prefix ${prefix}:`, err);
-    return undefined;
-  }
+  return new RedisStore({ sendCommand, prefix });
 };
-
-const sendCommand = (...args) => {
-  if (!ioredisClient) {
-    logger.warn('Redis client not available for command execution');
-    return Promise.reject(new Error('Redis client not available'));
-  }
-
-  return ioredisClient.call(...args).catch((err) => {
-    logger.error('Redis command execution failed:', err);
-    throw err;
-  });
-};
+const sendCommand = (...args) => ioredisClient?.call(...args);
 
 module.exports = { standardCache, sessionCache, violationCache, limiterCache };

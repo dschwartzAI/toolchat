@@ -1,9 +1,10 @@
-import { isAssistantsEndpoint } from 'librechat-data-provider';
+import { isAssistantsEndpoint, isAgentsEndpoint } from 'librechat-data-provider';
 import type {
   TConversation,
   TEndpointsConfig,
   TPreset,
   TAssistantsMap,
+  TAgentsMap,
 } from 'librechat-data-provider';
 import ConvoIconURL from '~/components/Endpoints/ConvoIconURL';
 import MinimalIcon from '~/components/Endpoints/MinimalIcon';
@@ -14,6 +15,7 @@ export default function EndpointIcon({
   endpointsConfig,
   className = 'mr-0',
   assistantMap,
+  agentMap,
   context,
 }: {
   conversation: TConversation | TPreset | null;
@@ -21,6 +23,7 @@ export default function EndpointIcon({
   containerClassName?: string;
   context?: 'message' | 'nav' | 'landing' | 'menu-item';
   assistantMap?: TAssistantsMap;
+  agentMap?: TAgentsMap;
   className?: string;
   size?: number;
 }) {
@@ -37,7 +40,17 @@ export default function EndpointIcon({
   const assistantAvatar = (assistant && (assistant.metadata?.avatar as string)) || '';
   const assistantName = assistant && (assistant.name ?? '');
 
-  const iconURL = assistantAvatar || convoIconURL;
+  const agent = isAgentsEndpoint(endpoint)
+    ? agentMap?.[conversation?.agent_id ?? '']
+    : null;
+  const agentAvatar = agent?.avatar?.filepath || '';
+  const agentName = agent?.name || '';
+
+  const iconURL = assistantAvatar || agentAvatar || convoIconURL;
+
+  // Show a placeholder icon while data is loading for agents/assistants
+  const isWaitingForData = (isAgentsEndpoint(endpoint) && conversation?.agent_id && !agent) ||
+    (isAssistantsEndpoint(endpoint) && conversation?.assistant_id && !assistant);
 
   if (iconURL && (iconURL.includes('http') || iconURL.startsWith('/images/'))) {
     return (
@@ -48,6 +61,8 @@ export default function EndpointIcon({
         endpointIconURL={endpointIconURL}
         assistantAvatar={assistantAvatar}
         assistantName={assistantName ?? ''}
+        agentAvatar={agentAvatar}
+        agentName={agentName}
       />
     );
   } else {
@@ -59,7 +74,7 @@ export default function EndpointIcon({
         endpointType={endpointType}
         model={conversation?.model}
         error={false}
-        className={className}
+        className={`${className} ${isWaitingForData ? 'opacity-60' : ''}`}
         isCreatedByUser={false}
         chatGptLabel={undefined}
         modelLabel={undefined}

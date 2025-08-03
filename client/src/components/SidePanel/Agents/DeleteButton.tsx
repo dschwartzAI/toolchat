@@ -1,18 +1,13 @@
 import { useFormContext } from 'react-hook-form';
-import {
-  OGDialog,
-  OGDialogTrigger,
-  Label,
-  OGDialogTemplate,
-  TrashIcon,
-  useToastContext,
-} from '@librechat/client';
 import type { Agent, AgentCreateParams } from 'librechat-data-provider';
 import type { UseMutationResult } from '@tanstack/react-query';
 import { cn, logger, removeFocusOutlines, getDefaultAgentFormValues } from '~/utils';
+import { OGDialog, OGDialogTrigger, Label } from '~/components/ui';
+import OGDialogTemplate from '~/components/ui/OGDialogTemplate';
+import { useChatContext, useToastContext } from '~/Providers';
 import { useLocalize, useSetIndexOptions } from '~/hooks';
 import { useDeleteAgentMutation } from '~/data-provider';
-import { useChatContext } from '~/Providers';
+import { TrashIcon } from '~/components/svg';
 
 export default function DeleteButton({
   agent_id,

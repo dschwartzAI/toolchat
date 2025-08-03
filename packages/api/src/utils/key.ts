@@ -18,8 +18,8 @@ export interface GoogleServiceKey {
 }
 
 /**
- * Load Google service key from file path, URL, or stringified JSON
- * @param keyPath - The path to the service key file, URL to fetch it from, or stringified JSON
+ * Load Google service key from file path or URL
+ * @param keyPath - The path or URL to the service key file
  * @returns The parsed service key object or null if failed
  */
 export async function loadServiceKey(keyPath: string): Promise<GoogleServiceKey | null> {
@@ -29,29 +29,8 @@ export async function loadServiceKey(keyPath: string): Promise<GoogleServiceKey 
 
   let serviceKey: unknown;
 
-  // Check if it's base64 encoded (common pattern for storing in env vars)
-  if (keyPath.trim().match(/^[A-Za-z0-9+/]+=*$/)) {
-    try {
-      const decoded = Buffer.from(keyPath.trim(), 'base64').toString('utf-8');
-      // Try to parse the decoded string as JSON
-      serviceKey = JSON.parse(decoded);
-    } catch {
-      // Not base64 or not valid JSON after decoding, continue with other methods
-      // Silent failure - not critical
-    }
-  }
-
-  // Check if it's a stringified JSON (starts with '{')
-  if (!serviceKey && keyPath.trim().startsWith('{')) {
-    try {
-      serviceKey = JSON.parse(keyPath);
-    } catch (error) {
-      logger.error('Failed to parse service key from stringified JSON', error);
-      return null;
-    }
-  }
   // Check if it's a URL
-  else if (!serviceKey && /^https?:\/\//.test(keyPath)) {
+  if (/^https?:\/\//.test(keyPath)) {
     try {
       const response = await axios.get(keyPath);
       serviceKey = response.data;
@@ -59,7 +38,7 @@ export async function loadServiceKey(keyPath: string): Promise<GoogleServiceKey 
       logger.error(`Failed to fetch the service key from URL: ${keyPath}`, error);
       return null;
     }
-  } else if (!serviceKey) {
+  } else {
     // It's a file path
     try {
       const absolutePath = path.isAbsolute(keyPath) ? keyPath : path.resolve(keyPath);
@@ -87,30 +66,5 @@ export async function loadServiceKey(keyPath: string): Promise<GoogleServiceKey 
     return null;
   }
 
-  // Fix private key formatting if needed
-  const key = serviceKey as GoogleServiceKey;
-  if (key.private_key && typeof key.private_key === 'string') {
-    // Replace escaped newlines with actual newlines
-    // When JSON.parse processes "\\n", it becomes "\n" (single backslash + n)
-    // When JSON.parse processes "\n", it becomes an actual newline character
-    key.private_key = key.private_key.replace(/\\n/g, '\n');
-
-    // Also handle the String.raw`\n` case mentioned in Stack Overflow
-    key.private_key = key.private_key.split(String.raw`\n`).join('\n');
-
-    // Ensure proper PEM format
-    if (!key.private_key.includes('\n')) {
-      // If no newlines are present, try to format it properly
-      const privateKeyMatch = key.private_key.match(
-        /^(-----BEGIN [A-Z ]+-----)(.*)(-----END [A-Z ]+-----)$/,
-      );
-      if (privateKeyMatch) {
-        const [, header, body, footer] = privateKeyMatch;
-        // Add newlines after header and before footer
-        key.private_key = `${header}\n${body}\n${footer}`;
-      }
-    }
-  }
-
-  return key;
+  return serviceKey as GoogleServiceKey;
 }

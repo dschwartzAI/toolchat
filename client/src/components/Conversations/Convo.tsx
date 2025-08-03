@@ -2,14 +2,15 @@ import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { useRecoilValue } from 'recoil';
 import { useParams } from 'react-router-dom';
 import { Constants } from 'librechat-data-provider';
-import { useToastContext, useMediaQuery } from '@librechat/client';
 import type { TConversation } from 'librechat-data-provider';
+import type { AgentMapContext, AssistantMapContext } from '~/utils/map';
+import { useNavigateToConvo, useMediaQuery, useLocalize } from '~/hooks';
 import { useUpdateConversationMutation } from '~/data-provider';
 import EndpointIcon from '~/components/Endpoints/EndpointIcon';
-import { useNavigateToConvo, useLocalize } from '~/hooks';
 import { useGetEndpointsQuery } from '~/data-provider';
 import { NotificationSeverity } from '~/common';
 import { ConvoOptions } from './ConvoOptions';
+import { useToastContext } from '~/Providers';
 import RenameForm from './RenameForm';
 import ConvoLink from './ConvoLink';
 import { cn } from '~/utils';
@@ -20,6 +21,8 @@ interface ConversationProps {
   retainView: () => void;
   toggleNav: () => void;
   isLatestConvo: boolean;
+  agentMap?: AgentMapContext;
+  assistantMap?: AssistantMapContext;
 }
 
 export default function Conversation({
@@ -27,6 +30,8 @@ export default function Conversation({
   retainView,
   toggleNav,
   isLatestConvo,
+  agentMap,
+  assistantMap,
 }: ConversationProps) {
   const params = useParams();
   const localize = useLocalize();
@@ -182,6 +187,8 @@ export default function Conversation({
             endpointsConfig={endpointsConfig}
             size={20}
             context="menu-item"
+            agentMap={agentMap}
+            assistantMap={assistantMap}
           />
         </ConvoLink>
       )}

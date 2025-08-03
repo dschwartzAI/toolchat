@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect, useMemo, memo, useCallback } from 'react';
 import { AutoSizer, List } from 'react-virtualized';
-import { Spinner, useCombobox } from '@librechat/client';
 import { useSetRecoilState, useRecoilValue } from 'recoil';
 import { PermissionTypes, Permissions } from 'librechat-data-provider';
 import type { TPromptGroup } from 'librechat-data-provider';
@@ -8,8 +7,9 @@ import type { PromptOption } from '~/common';
 import { removeCharIfLast, mapPromptGroups, detectVariables } from '~/utils';
 import VariableDialog from '~/components/Prompts/Groups/VariableDialog';
 import CategoryIcon from '~/components/Prompts/Groups/CategoryIcon';
-import { useLocalize, useHasAccess } from '~/hooks';
+import { useLocalize, useCombobox, useHasAccess } from '~/hooks';
 import { useGetAllPromptGroups } from '~/data-provider';
+import { Spinner } from '~/components/svg';
 import MentionItem from './MentionItem';
 import store from '~/store';
 

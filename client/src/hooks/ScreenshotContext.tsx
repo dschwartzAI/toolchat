@@ -1,6 +1,6 @@
 import { createContext, useRef, useContext, RefObject } from 'react';
 import { toCanvas } from 'html-to-image';
-import { ThemeContext } from '@librechat/client';
+import { ThemeContext } from '~/hooks/ThemeContext';
 
 type ScreenshotContextType = {
   ref?: RefObject<HTMLDivElement>;

@@ -15,8 +15,20 @@ const { getOpenIdConfig } = require('~/strategies');
 
 const registrationController = async (req, res) => {
   try {
-    const response = await registerUser(req.body);
-    const { status, message } = response;
+    const response = await registerUser(req.body, {}, req, res);
+    const { status, message, user, token } = response;
+    
+    // If auto-login data is provided, set cookie for new user tour
+    if (user && token) {
+      res.cookie('isNewUser', 'true', {
+        httpOnly: false,
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: 'strict',
+        maxAge: 5 * 60 * 1000 // 5 minutes
+      });
+      return res.status(status).json({ message, user, token });
+    }
+    
     res.status(status).send({ message });
   } catch (err) {
     logger.error('[registrationController]', err);

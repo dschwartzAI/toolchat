@@ -13,25 +13,14 @@ export default function MemoryArtifacts({ attachments }: { attachments?: TAttach
   const [isAnimating, setIsAnimating] = useState(false);
   const prevShowInfoRef = useRef<boolean>(showInfo);
 
-  const { hasErrors, memoryArtifacts } = useMemo(() => {
-    let hasErrors = false;
+  const memoryArtifacts = useMemo(() => {
     const result: MemoryArtifact[] = [];
-
-    if (!attachments || attachments.length === 0) {
-      return { hasErrors, memoryArtifacts: result };
-    }
-
-    for (const attachment of attachments) {
+    for (const attachment of attachments ?? []) {
       if (attachment?.[Tools.memory] != null) {
         result.push(attachment[Tools.memory]);
-
-        if (!hasErrors && attachment[Tools.memory].type === 'error') {
-          hasErrors = true;
-        }
       }
     }
-
-    return { hasErrors, memoryArtifacts: result };
+    return result;
   }, [attachments]);
 
   useLayoutEffect(() => {
@@ -86,12 +75,7 @@ export default function MemoryArtifacts({ attachments }: { attachments?: TAttach
       <div className="flex items-center">
         <div className="inline-block">
           <button
-            className={cn(
-              'outline-hidden my-1 flex items-center gap-1 text-sm font-semibold transition-colors',
-              hasErrors
-                ? 'text-red-500 hover:text-red-600 dark:text-red-400 dark:hover:text-red-500'
-                : 'text-text-secondary-alt hover:text-text-primary',
-            )}
+            className="outline-hidden my-1 flex items-center gap-1 text-sm font-semibold text-text-secondary-alt transition-colors hover:text-text-primary"
             type="button"
             onClick={() => setShowInfo((prev) => !prev)}
             aria-expanded={showInfo}
@@ -118,7 +102,7 @@ export default function MemoryArtifacts({ attachments }: { attachments?: TAttach
                 fill="currentColor"
               />
             </svg>
-            {hasErrors ? localize('com_ui_memory_error') : localize('com_ui_memory_updated')}
+            {localize('com_ui_memory_updated')}
           </button>
         </div>
       </div>

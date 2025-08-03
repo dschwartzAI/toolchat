@@ -1,5 +1,4 @@
 import { useMemo } from 'react';
-import { Blocks, MCPIcon, AttachmentIcon } from '@librechat/client';
 import { MessageSquareQuote, ArrowRightToLine, Settings2, Database, Bookmark } from 'lucide-react';
 import {
   isAssistantsEndpoint,
@@ -12,10 +11,11 @@ import {
 import type { TInterfaceConfig, TEndpointsConfig } from 'librechat-data-provider';
 import type { NavLink } from '~/common';
 import AgentPanelSwitch from '~/components/SidePanel/Agents/AgentPanelSwitch';
-import BookmarkPanel from '~/components/SidePanel/Bookmarks/BookmarkPanel';
+import TagPanel from '~/components/SidePanel/Tags/TagPanel';
 import MemoryViewer from '~/components/SidePanel/Memories/MemoryViewer';
 import PanelSwitch from '~/components/SidePanel/Builder/PanelSwitch';
 import PromptsAccordion from '~/components/Prompts/PromptsAccordion';
+import { Blocks, MCPIcon, AttachmentIcon } from '~/components/svg';
 import Parameters from '~/components/SidePanel/Parameters/Panel';
 import FilesPanel from '~/components/SidePanel/Files/Panel';
 import MCPPanel from '~/components/SidePanel/MCP/MCPPanel';
@@ -148,17 +148,14 @@ export default function useSideNavLinks({
         label: '',
         icon: Bookmark,
         id: 'bookmarks',
-        Component: BookmarkPanel,
+        Component: TagPanel,
       });
     }
 
     if (
       startupConfig?.mcpServers &&
       Object.values(startupConfig.mcpServers).some(
-        (server: any) =>
-          (server.customUserVars && Object.keys(server.customUserVars).length > 0) ||
-          server.isOAuth ||
-          server.startup === false,
+        (server) => server.customUserVars && Object.keys(server.customUserVars).length > 0,
       )
     ) {
       links.push({

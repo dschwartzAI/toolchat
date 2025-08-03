@@ -1,0 +1,1598 @@
+{
+  "generated": "2025-07-07T12:14:59.803007",
+  "generator": "RAG Document Processor v1.0",
+  "statistics": {
+    "total_files": 120,
+    "total_tokens": 520740,
+    "average_tokens_per_file": 4339,
+    "files_by_category": {
+      "frameworks": 58,
+      "core_concepts": 1,
+      "transcripts": 56,
+      "templates": 2,
+      "guides": 3
+    }
+  },
+  "upload_instructions": {
+    "step1": "Navigate to LibreChat and select the Dark JK Coach agent",
+    "step2": "Go to the Files/Knowledge section in agent settings",
+    "step3": "Upload files in the following order for best results:",
+    "order": [
+      "1. frameworks/ - Core business frameworks (highest priority)",
+      "2. core_concepts/ - Book chapters and key concepts",
+      "3. transcripts/ - Workshop and training transcripts",
+      "4. templates/ - Email and offer templates",
+      "5. guides/ - Implementation guides and SOPs"
+    ],
+    "step4": "Wait for each category to process before uploading the next",
+    "step5": "Test with queries like 'What are the 3 Es?' to verify"
+  },
+  "categories": {
+    "frameworks": {
+      "file_count": 58,
+      "total_tokens": 242793,
+      "files": [
+        {
+          "filename": "01_business_Framework_Complete.txt",
+          "title": "business Framework - Complete Guide & sending Framework - Complete Guide",
+          "tokens": 568,
+          "keywords": [
+            "business",
+            "method",
+            "framework",
+            "system",
+            "sending"
+          ],
+          "source_count": 2
+        },
+        {
+          "filename": "02_exact_Framework_Complete.txt",
+          "title": "exact Framework - Complete Guide & Key Framework - Complete Guide",
+          "tokens": 707,
+          "keywords": [
+            "key",
+            "method",
+            "framework",
+            "system",
+            "exact"
+          ],
+          "source_count": 2
+        },
+        {
+          "filename": "03_Sales_Framework_Complete.txt",
+          "title": "Sales Framework - Complete Guide & research Framework - Complete Guide",
+          "tokens": 738,
+          "keywords": [
+            "method",
+            "framework",
+            "sales",
+            "research",
+            "system"
+          ],
+          "source_count": 2
+        },
+        {
+          "filename": "04_no_Framework_Complete.txt",
+          "title": "no Framework - Complete Guide & provided Framework - Complete Guide",
+          "tokens": 826,
+          "keywords": [
+            "method",
+            "no",
+            "framework",
+            "system",
+            "provided"
+          ],
+          "source_count": 2
+        },
+        {
+          "filename": "05_controlled_Framework_Complete.txt",
+          "title": "controlled Framework - Complete Guide & funnel Framework - Complete Guide",
+          "tokens": 888,
+          "keywords": [
+            "method",
+            "framework",
+            "funnel",
+            "controlled",
+            "system"
+          ],
+          "source_count": 2
+        },
+        {
+          "filename": "06_broken_Framework_Complete.txt",
+          "title": "broken Framework - Complete Guide & DarkJK Framework - Complete Guide",
+          "tokens": 976,
+          "keywords": [
+            "broken",
+            "method",
+            "framework",
+            "darkjk",
+            "system"
+          ],
+          "source_count": 2
+        },
+        {
+          "filename": "07_No_Framework_Complete.txt",
+          "title": "No Framework - Complete Guide & our Framework - Complete Guide",
+          "tokens": 1108,
+          "keywords": [
+            "method",
+            "no",
+            "framework",
+            "our",
+            "system"
+          ],
+          "source_count": 2
+        },
+        {
+          "filename": "08_simple_Framework_Complete.txt",
+          "title": "simple Framework - Complete Guide & DAILY CLIENT MACHINE Framework - Complete Guide",
+          "tokens": 1147,
+          "keywords": [
+            "method",
+            "framework",
+            "simple",
+            "daily client machine",
+            "system"
+          ],
+          "source_count": 2
+        },
+        {
+          "filename": "09_sessions_Framework_Complete.txt",
+          "title": "sessions Framework - Complete Guide & productization Framework - Complete Guide",
+          "tokens": 1405,
+          "keywords": [
+            "sessions",
+            "method",
+            "framework",
+            "productization",
+            "system"
+          ],
+          "source_count": 2
+        },
+        {
+          "filename": "10_effective_Framework_Complete.txt",
+          "title": "effective Framework - Complete Guide & acquisition Framework - Complete Guide",
+          "tokens": 1466,
+          "keywords": [
+            "acquisition",
+            "effective",
+            "method",
+            "framework",
+            "system"
+          ],
+          "source_count": 2
+        },
+        {
+          "filename": "11_Clients_Framework_Complete.txt",
+          "title": "Clients Framework - Complete Guide & build Framework - Complete Guide",
+          "tokens": 1577,
+          "keywords": [
+            "clients",
+            "method",
+            "framework",
+            "build",
+            "system"
+          ],
+          "source_count": 3
+        },
+        {
+          "filename": "12_on_Framework_Complete.txt",
+          "title": "on Framework - Complete Guide & whole Framework - Complete Guide",
+          "tokens": 1636,
+          "keywords": [
+            "whole",
+            "method",
+            "framework",
+            "on",
+            "system"
+          ],
+          "source_count": 2
+        },
+        {
+          "filename": "13_interesting_Framework_Complete.txt",
+          "title": "interesting Framework - Complete Guide & one Framework - Complete Guide",
+          "tokens": 1657,
+          "keywords": [
+            "method",
+            "one",
+            "interesting",
+            "framework",
+            "system"
+          ],
+          "source_count": 2
+        },
+        {
+          "filename": "14_best_Framework_Complete.txt",
+          "title": "best Framework - Complete Guide & his Framework - Complete Guide",
+          "tokens": 1667,
+          "keywords": [
+            "method",
+            "framework",
+            "his",
+            "best",
+            "system"
+          ],
+          "source_count": 2
+        },
+        {
+          "filename": "15_based_Framework_Complete.txt",
+          "title": "based Framework - Complete Guide & workshop Framework - Complete Guide",
+          "tokens": 1674,
+          "keywords": [
+            "method",
+            "framework",
+            "workshop",
+            "based",
+            "system"
+          ],
+          "source_count": 2
+        },
+        {
+          "filename": "16_helpful_Framework_Complete.txt",
+          "title": "helpful Framework - Complete Guide & normal Framework - Complete Guide",
+          "tokens": 1674,
+          "keywords": [
+            "method",
+            "helpful",
+            "framework",
+            "normal",
+            "system"
+          ],
+          "source_count": 2
+        },
+        {
+          "filename": "17_IP_generator_Framework_Complete.txt",
+          "title": "IP generator Framework - Complete Guide & call based Framework - Complete Guide",
+          "tokens": 1677,
+          "keywords": [
+            "method",
+            "call based",
+            "framework",
+            "ip generator",
+            "system"
+          ],
+          "source_count": 2
+        },
+        {
+          "filename": "18_the_same_Framework_Complete.txt",
+          "title": "the same Framework - Complete Guide & in the Framework - Complete Guide",
+          "tokens": 1678,
+          "keywords": [
+            "method",
+            "framework",
+            "the same",
+            "in the",
+            "system"
+          ],
+          "source_count": 2
+        },
+        {
+          "filename": "19_old_business_Framework_Complete.txt",
+          "title": "old business Framework - Complete Guide & idea of Framework - Complete Guide",
+          "tokens": 1678,
+          "keywords": [
+            "old business",
+            "method",
+            "framework",
+            "idea of",
+            "system"
+          ],
+          "source_count": 2
+        },
+        {
+          "filename": "20_offering_Framework_Complete.txt",
+          "title": "offering Framework - Complete Guide & delivery Framework - Complete Guide",
+          "tokens": 1680,
+          "keywords": [
+            "method",
+            "offering",
+            "framework",
+            "delivery",
+            "system"
+          ],
+          "source_count": 2
+        },
+        {
+          "filename": "21_Daily_client_machine_Framework_Complete.txt",
+          "title": "Daily client machine Framework - Complete Guide & activating Framework - Complete Guide",
+          "tokens": 1690,
+          "keywords": [
+            "method",
+            "framework",
+            "activating",
+            "daily client machine",
+            "system"
+          ],
+          "source_count": 2
+        },
+        {
+          "filename": "22_reticular_activating_Framework_Complete.txt",
+          "title": "reticular activating Framework - Complete Guide & y Framework - Complete Guide",
+          "tokens": 1707,
+          "keywords": [
+            "method",
+            "framework",
+            "y",
+            "reticular activating",
+            "system"
+          ],
+          "source_count": 2
+        },
+        {
+          "filename": "23_comprehensive_Framework_Complete.txt",
+          "title": "comprehensive Framework - Complete Guide & Simpler Framework - Complete Guide",
+          "tokens": 1722,
+          "keywords": [
+            "comprehensive",
+            "method",
+            "framework",
+            "simpler",
+            "system"
+          ],
+          "source_count": 2
+        },
+        {
+          "filename": "24_such_Framework_Complete.txt",
+          "title": "such Framework - Complete Guide & Creation Framework - Complete Guide",
+          "tokens": 1725,
+          "keywords": [
+            "method",
+            "framework",
+            "creation",
+            "such",
+            "system"
+          ],
+          "source_count": 2
+        },
+        {
+          "filename": "25_client_Framework_Complete.txt",
+          "title": "client Framework - Complete Guide & content Framework - Complete Guide",
+          "tokens": 1741,
+          "keywords": [
+            "content",
+            "method",
+            "client",
+            "framework",
+            "system"
+          ],
+          "source_count": 2
+        },
+        {
+          "filename": "26_own_Framework_Complete.txt",
+          "title": "own Framework - Complete Guide & Ach Framework - Complete Guide",
+          "tokens": 1765,
+          "keywords": [
+            "method",
+            "framework",
+            "ach",
+            "system",
+            "own"
+          ],
+          "source_count": 2
+        },
+        {
+          "filename": "27_step_Framework_Complete.txt",
+          "title": "step Framework - Complete Guide & generation Framework - Complete Guide",
+          "tokens": 2357,
+          "keywords": [
+            "generation",
+            "method",
+            "framework",
+            "step",
+            "system"
+          ],
+          "source_count": 4
+        },
+        {
+          "filename": "28_complicated_Framework_Complete.txt",
+          "title": "complicated Framework - Complete Guide & Customization Framework - Complete Guide",
+          "tokens": 2698,
+          "keywords": [
+            "method",
+            "framework",
+            "complicated",
+            "customization",
+            "system"
+          ],
+          "source_count": 3
+        },
+        {
+          "filename": "29_generator_Framework_Complete.txt",
+          "title": "generator Framework - Complete Guide & onboarding Framework - Complete Guide",
+          "tokens": 2981,
+          "keywords": [
+            "method",
+            "onboarding",
+            "framework",
+            "generator",
+            "system"
+          ],
+          "source_count": 3
+        },
+        {
+          "filename": "30_nervous_Framework_Complete.txt",
+          "title": "nervous Framework - Complete Guide & lovely Framework - Complete Guide",
+          "tokens": 3270,
+          "keywords": [
+            "method",
+            "framework",
+            "lovely",
+            "nervous",
+            "system"
+          ],
+          "source_count": 4
+        },
+        {
+          "filename": "31_creating_Framework_Complete.txt",
+          "title": "creating Framework - Complete Guide & only the Framework - Complete Guide",
+          "tokens": 3278,
+          "keywords": [
+            "creating",
+            "method",
+            "framework",
+            "only the",
+            "system"
+          ],
+          "source_count": 4
+        },
+        {
+          "filename": "32_marketing_Framework_Complete.txt",
+          "title": "marketing Framework - Complete Guide & right Framework - Complete Guide",
+          "tokens": 3320,
+          "keywords": [
+            "method",
+            "right",
+            "framework",
+            "marketing",
+            "system"
+          ],
+          "source_count": 3
+        },
+        {
+          "filename": "33_powerful_Framework_Complete.txt",
+          "title": "powerful Framework - Complete Guide & most powerful Framework - Complete Guide",
+          "tokens": 3341,
+          "keywords": [
+            "method",
+            "framework",
+            "most powerful",
+            "system",
+            "powerful"
+          ],
+          "source_count": 2
+        },
+        {
+          "filename": "34_$100_Workshop_Framework_Complete.txt",
+          "title": "$100 Workshop Framework - Complete Guide & iterative Framework - Complete Guide",
+          "tokens": 3383,
+          "keywords": [
+            "method",
+            "framework",
+            "iterative",
+            "system",
+            "$100 workshop"
+          ],
+          "source_count": 4
+        },
+        {
+          "filename": "35_is_Framework_Complete.txt",
+          "title": "is Framework - Complete Guide & Reproduction Framework - Complete Guide",
+          "tokens": 3463,
+          "keywords": [
+            "method",
+            "framework",
+            "reproduction",
+            "is",
+            "system"
+          ],
+          "source_count": 6
+        },
+        {
+          "filename": "36_these_Framework_Complete.txt",
+          "title": "these Framework - Complete Guide & Stack Framework - Complete Guide",
+          "tokens": 3755,
+          "keywords": [
+            "these",
+            "method",
+            "framework",
+            "stack",
+            "system"
+          ],
+          "source_count": 5
+        },
+        {
+          "filename": "37_Solution_Framework_Complete.txt",
+          "title": "Solution Framework - Complete Guide & Offer Stack Framework - Complete Guide",
+          "tokens": 3996,
+          "keywords": [
+            "solution",
+            "method",
+            "framework",
+            "offer stack",
+            "system"
+          ],
+          "source_count": 2
+        },
+        {
+          "filename": "38_Profitability_Framework_Complete.txt",
+          "title": "Profitability Framework - Complete Guide",
+          "tokens": 1999,
+          "keywords": [
+            "profitability",
+            "framework",
+            "system",
+            "method"
+          ],
+          "source_count": 1
+        },
+        {
+          "filename": "39_sovereign_Framework_Complete.txt",
+          "title": "sovereign Framework - Complete Guide",
+          "tokens": 2082,
+          "keywords": [
+            "sovereign",
+            "framework",
+            "system",
+            "method"
+          ],
+          "source_count": 2
+        },
+        {
+          "filename": "40_This_Framework_Complete.txt",
+          "title": "This Framework - Complete Guide",
+          "tokens": 2134,
+          "keywords": [
+            "this",
+            "framework",
+            "system",
+            "method"
+          ],
+          "source_count": 2
+        },
+        {
+          "filename": "41_and_Framework_Complete.txt",
+          "title": "and Framework - Complete Guide",
+          "tokens": 2331,
+          "keywords": [
+            "and",
+            "framework",
+            "system",
+            "method"
+          ],
+          "source_count": 4
+        },
+        {
+          "filename": "42_or_Framework_Complete.txt",
+          "title": "or Framework - Complete Guide",
+          "tokens": 2439,
+          "keywords": [
+            "or",
+            "framework",
+            "system",
+            "method"
+          ],
+          "source_count": 3
+        },
+        {
+          "filename": "43_Payment_Framework_Complete.txt",
+          "title": "Payment Framework - Complete Guide",
+          "tokens": 2596,
+          "keywords": [
+            "payment",
+            "framework",
+            "system",
+            "method"
+          ],
+          "source_count": 3
+        },
+        {
+          "filename": "44_Sovereign_Framework_Complete.txt",
+          "title": "Sovereign Framework - Complete Guide",
+          "tokens": 2608,
+          "keywords": [
+            "sovereign",
+            "framework",
+            "system",
+            "method"
+          ],
+          "source_count": 4
+        },
+        {
+          "filename": "45_payment_Framework_Complete.txt",
+          "title": "payment Framework - Complete Guide",
+          "tokens": 2928,
+          "keywords": [
+            "payment",
+            "framework",
+            "system",
+            "method"
+          ],
+          "source_count": 3
+        },
+        {
+          "filename": "46_The_Framework_Complete.txt",
+          "title": "The Framework - Complete Guide",
+          "tokens": 3072,
+          "keywords": [
+            "the",
+            "framework",
+            "system",
+            "method"
+          ],
+          "source_count": 3
+        },
+        {
+          "filename": "47_3_Framework_Complete.txt",
+          "title": "3 Framework - Complete Guide",
+          "tokens": 3530,
+          "keywords": [
+            "3",
+            "framework",
+            "system",
+            "method"
+          ],
+          "source_count": 7
+        },
+        {
+          "filename": "48_this_Framework_Complete.txt",
+          "title": "this Framework - Complete Guide",
+          "tokens": 3584,
+          "keywords": [
+            "this",
+            "framework",
+            "system",
+            "method"
+          ],
+          "source_count": 5
+        },
+        {
+          "filename": "49_sales_Framework_Complete.txt",
+          "title": "sales Framework - Complete Guide",
+          "tokens": 4746,
+          "keywords": [
+            "sales",
+            "framework",
+            "system",
+            "method"
+          ],
+          "source_count": 7
+        },
+        {
+          "filename": "50_your_Framework_Complete.txt",
+          "title": "your Framework - Complete Guide",
+          "tokens": 4953,
+          "keywords": [
+            "your",
+            "framework",
+            "system",
+            "method"
+          ],
+          "source_count": 7
+        },
+        {
+          "filename": "51_that_Framework_Complete.txt",
+          "title": "that Framework - Complete Guide",
+          "tokens": 6401,
+          "keywords": [
+            "that",
+            "framework",
+            "system",
+            "method"
+          ],
+          "source_count": 8
+        },
+        {
+          "filename": "52_daily_client_machine_Framework_Complete.txt",
+          "title": "daily client machine Framework - Complete Guide",
+          "tokens": 11269,
+          "keywords": [
+            "daily client machine",
+            "framework",
+            "system",
+            "method"
+          ],
+          "source_count": 15
+        },
+        {
+          "filename": "53_Daily_Client_Machine_Framework_Complete.txt",
+          "title": "Daily Client Machine Framework - Complete Guide",
+          "tokens": 11995,
+          "keywords": [
+            "daily client machine",
+            "framework",
+            "system",
+            "method"
+          ],
+          "source_count": 24
+        },
+        {
+          "filename": "54_Hybrid_Offer_Framework_Complete.txt",
+          "title": "Hybrid Offer Framework - Complete Guide",
+          "tokens": 13862,
+          "keywords": [
+            "hybrid offer",
+            "framework",
+            "system",
+            "method"
+          ],
+          "source_count": 27
+        },
+        {
+          "filename": "55_a_Framework_Complete.txt",
+          "title": "a Framework - Complete Guide",
+          "tokens": 15907,
+          "keywords": [
+            "a",
+            "framework",
+            "system",
+            "method"
+          ],
+          "source_count": 19
+        },
+        {
+          "filename": "56_Sovereign_Consultant_Framework_Complete.txt",
+          "title": "Sovereign Consultant Framework - Complete Guide",
+          "tokens": 17543,
+          "keywords": [
+            "sovereign consultant",
+            "framework",
+            "system",
+            "method"
+          ],
+          "source_count": 29
+        },
+        {
+          "filename": "57_hybrid_offer_Framework_Complete.txt",
+          "title": "hybrid offer Framework - Complete Guide",
+          "tokens": 20242,
+          "keywords": [
+            "hybrid offer",
+            "framework",
+            "system",
+            "method"
+          ],
+          "source_count": 27
+        },
+        {
+          "filename": "58_the_Framework_Complete.txt",
+          "title": "the Framework - Complete Guide",
+          "tokens": 33953,
+          "keywords": [
+            "the",
+            "framework",
+            "system",
+            "method"
+          ],
+          "source_count": 44
+        }
+      ]
+    },
+    "core_concepts": {
+      "file_count": 1,
+      "total_tokens": 4231,
+      "files": [
+        {
+          "filename": "01_Core_Concepts___General.txt",
+          "title": "Core Concepts - General",
+          "tokens": 4231,
+          "keywords": [
+            "business",
+            "client",
+            "customer",
+            "framework",
+            "offer"
+          ],
+          "source_count": 5
+        }
+      ]
+    },
+    "transcripts": {
+      "file_count": 56,
+      "total_tokens": 255035,
+      "files": [
+        {
+          "filename": "01_James_3K_Code_Transcript___Part_5.txt",
+          "title": "James 3K Code Transcript - Part 5 & Customers To Clients",
+          "tokens": 1977,
+          "keywords": [
+            "service",
+            "business",
+            "client",
+            "customer",
+            "profit"
+          ],
+          "source_count": 3
+        },
+        {
+          "filename": "02_Yt_Transcripts_Cleaned___Part_18.txt",
+          "title": "Yt Transcripts Cleaned - Part 18",
+          "tokens": 2704,
+          "keywords": [
+            "business",
+            "client",
+            "growth",
+            "leverage",
+            "offer"
+          ],
+          "source_count": 4
+        },
+        {
+          "filename": "03_Dcm_2_Transcript___Part_5.txt",
+          "title": "Dcm 2 Transcript - Part 5",
+          "tokens": 3697,
+          "keywords": [
+            "business",
+            "client",
+            "customer",
+            "method",
+            "offer"
+          ],
+          "source_count": 5
+        },
+        {
+          "filename": "04_All_Processed_Transcripts_Combined___Part_8.txt",
+          "title": "All Processed Transcripts Combined - Part 8",
+          "tokens": 4301,
+          "keywords": [
+            "business",
+            "client",
+            "customer",
+            "framework",
+            "growth"
+          ],
+          "source_count": 6
+        },
+        {
+          "filename": "05_All_Processed_Transcripts_Combined___Part_2.txt",
+          "title": "All Processed Transcripts Combined - Part 2",
+          "tokens": 4312,
+          "keywords": [
+            "business",
+            "client",
+            "customer",
+            "leverage",
+            "method"
+          ],
+          "source_count": 6
+        },
+        {
+          "filename": "06_All_Processed_Transcripts_Combined___Part_1.txt",
+          "title": "All Processed Transcripts Combined - Part 1",
+          "tokens": 4320,
+          "keywords": [
+            "business",
+            "client",
+            "customer",
+            "growth",
+            "offer"
+          ],
+          "source_count": 6
+        },
+        {
+          "filename": "07_Yt_Transcripts_Cleaned___Part_1.txt",
+          "title": "Yt Transcripts Cleaned - Part 1",
+          "tokens": 4328,
+          "keywords": [
+            "business",
+            "client",
+            "customer",
+            "growth",
+            "leverage"
+          ],
+          "source_count": 6
+        },
+        {
+          "filename": "08_Yt_Transcripts_Cleaned___Part_4.txt",
+          "title": "Yt Transcripts Cleaned - Part 4",
+          "tokens": 4346,
+          "keywords": [
+            "business",
+            "client",
+            "customer",
+            "offer",
+            "profit"
+          ],
+          "source_count": 6
+        },
+        {
+          "filename": "09_Yt_Transcripts_Cleaned___Part_2.txt",
+          "title": "Yt Transcripts Cleaned - Part 2",
+          "tokens": 4348,
+          "keywords": [
+            "business",
+            "client",
+            "customer",
+            "growth",
+            "method"
+          ],
+          "source_count": 6
+        },
+        {
+          "filename": "10_Yt_Transcripts_Cleaned___Part_8.txt",
+          "title": "Yt Transcripts Cleaned - Part 8",
+          "tokens": 4356,
+          "keywords": [
+            "business",
+            "client",
+            "framework"
+          ],
+          "source_count": 6
+        },
+        {
+          "filename": "11_Yt_Transcripts_Cleaned___Part_13.txt",
+          "title": "Yt Transcripts Cleaned - Part 13",
+          "tokens": 4368,
+          "keywords": [
+            "business",
+            "client",
+            "customer",
+            "offer",
+            "system"
+          ],
+          "source_count": 6
+        },
+        {
+          "filename": "12_All_Processed_Transcripts_Combined___Part_9.txt",
+          "title": "All Processed Transcripts Combined - Part 9",
+          "tokens": 4384,
+          "keywords": [
+            "business",
+            "client",
+            "customer",
+            "growth",
+            "method"
+          ],
+          "source_count": 6
+        },
+        {
+          "filename": "13_Dcm_2_Transcript___Part_2.txt",
+          "title": "Dcm 2 Transcript - Part 2",
+          "tokens": 4410,
+          "keywords": [
+            "client",
+            "customer",
+            "growth",
+            "offer",
+            "scale"
+          ],
+          "source_count": 7
+        },
+        {
+          "filename": "14_Yt_Transcripts_Cleaned___Part_5.txt",
+          "title": "Yt Transcripts Cleaned - Part 5",
+          "tokens": 4482,
+          "keywords": [
+            "business",
+            "client",
+            "customer",
+            "growth",
+            "leverage"
+          ],
+          "source_count": 6
+        },
+        {
+          "filename": "15_Yt_Transcripts_Cleaned___Part_14.txt",
+          "title": "Yt Transcripts Cleaned - Part 14",
+          "tokens": 4501,
+          "keywords": [
+            "business",
+            "client",
+            "offer",
+            "scale",
+            "system"
+          ],
+          "source_count": 6
+        },
+        {
+          "filename": "16_All_Processed_Transcripts_Combined___Part_7.txt",
+          "title": "All Processed Transcripts Combined - Part 7",
+          "tokens": 4541,
+          "keywords": [
+            "business",
+            "client",
+            "customer",
+            "framework",
+            "growth"
+          ],
+          "source_count": 7
+        },
+        {
+          "filename": "17_Yt_Transcripts_Cleaned___Part_16.txt",
+          "title": "Yt Transcripts Cleaned - Part 16",
+          "tokens": 4554,
+          "keywords": [
+            "business",
+            "client",
+            "leverage",
+            "scale",
+            "service"
+          ],
+          "source_count": 6
+        },
+        {
+          "filename": "18_All_Processed_Transcripts_Combined___Part_12.txt",
+          "title": "All Processed Transcripts Combined - Part 12",
+          "tokens": 4559,
+          "keywords": [
+            "business",
+            "client",
+            "customer",
+            "growth",
+            "leverage"
+          ],
+          "source_count": 6
+        },
+        {
+          "filename": "19_Yt_Transcripts_Cleaned___Part_7.txt",
+          "title": "Yt Transcripts Cleaned - Part 7",
+          "tokens": 4584,
+          "keywords": [
+            "business",
+            "client",
+            "growth",
+            "offer",
+            "profit"
+          ],
+          "source_count": 6
+        },
+        {
+          "filename": "20_New_Transcripts_James___Part_2.txt",
+          "title": "New Transcripts James - Part 2",
+          "tokens": 4597,
+          "keywords": [
+            "business",
+            "client",
+            "customer",
+            "growth",
+            "leverage"
+          ],
+          "source_count": 6
+        },
+        {
+          "filename": "21_All_Processed_Transcripts_Combined___Part_11.txt",
+          "title": "All Processed Transcripts Combined - Part 11",
+          "tokens": 4634,
+          "keywords": [
+            "client",
+            "customer",
+            "leverage",
+            "method",
+            "offer"
+          ],
+          "source_count": 6
+        },
+        {
+          "filename": "22_Yt_Transcripts_Cleaned___Part_17.txt",
+          "title": "Yt Transcripts Cleaned - Part 17",
+          "tokens": 4637,
+          "keywords": [
+            "business",
+            "client",
+            "profit",
+            "service",
+            "strategy"
+          ],
+          "source_count": 6
+        },
+        {
+          "filename": "23_New_Transcripts_James___Part_7.txt",
+          "title": "New Transcripts James - Part 7",
+          "tokens": 4640,
+          "keywords": [
+            "business",
+            "client",
+            "offer",
+            "revenue",
+            "tactic"
+          ],
+          "source_count": 6
+        },
+        {
+          "filename": "24_New_Transcripts_James___Part_5.txt",
+          "title": "New Transcripts James - Part 5",
+          "tokens": 4662,
+          "keywords": [
+            "client",
+            "leverage",
+            "offer",
+            "revenue",
+            "scale"
+          ],
+          "source_count": 6
+        },
+        {
+          "filename": "25_New_Transcripts_James___Part_9.txt",
+          "title": "New Transcripts James - Part 9",
+          "tokens": 4664,
+          "keywords": [
+            "business",
+            "client",
+            "customer",
+            "offer",
+            "profit"
+          ],
+          "source_count": 6
+        },
+        {
+          "filename": "26_All_Processed_Transcripts_Combined___Part_10.txt",
+          "title": "All Processed Transcripts Combined - Part 10",
+          "tokens": 4686,
+          "keywords": [
+            "business",
+            "client",
+            "customer",
+            "growth",
+            "offer"
+          ],
+          "source_count": 6
+        },
+        {
+          "filename": "27_James_3K_Code_Transcript___Part_4.txt",
+          "title": "James 3K Code Transcript - Part 4",
+          "tokens": 4706,
+          "keywords": [
+            "business",
+            "client",
+            "framework",
+            "method",
+            "offer"
+          ],
+          "source_count": 6
+        },
+        {
+          "filename": "28_Yt_Transcripts_Cleaned___Part_3.txt",
+          "title": "Yt Transcripts Cleaned - Part 3",
+          "tokens": 4713,
+          "keywords": [
+            "business",
+            "client",
+            "customer",
+            "leverage",
+            "offer"
+          ],
+          "source_count": 6
+        },
+        {
+          "filename": "29_New_Transcripts_James___Part_3.txt",
+          "title": "New Transcripts James - Part 3",
+          "tokens": 4714,
+          "keywords": [
+            "business",
+            "client",
+            "customer",
+            "offer",
+            "revenue"
+          ],
+          "source_count": 6
+        },
+        {
+          "filename": "30_New_Transcripts_James___Part_4.txt",
+          "title": "New Transcripts James - Part 4",
+          "tokens": 4719,
+          "keywords": [
+            "business",
+            "client",
+            "offer",
+            "scale",
+            "system"
+          ],
+          "source_count": 6
+        },
+        {
+          "filename": "31_New_Transcripts_James___Part_6.txt",
+          "title": "New Transcripts James - Part 6",
+          "tokens": 4720,
+          "keywords": [
+            "business",
+            "client",
+            "leverage",
+            "offer",
+            "strategy"
+          ],
+          "source_count": 6
+        },
+        {
+          "filename": "32_James_3K_Code_Transcript___Part_1.txt",
+          "title": "James 3K Code Transcript - Part 1",
+          "tokens": 4726,
+          "keywords": [
+            "business",
+            "client",
+            "customer",
+            "method",
+            "offer"
+          ],
+          "source_count": 6
+        },
+        {
+          "filename": "33_Yt_Transcripts_Cleaned___Part_12.txt",
+          "title": "Yt Transcripts Cleaned - Part 12",
+          "tokens": 4730,
+          "keywords": [
+            "business",
+            "client",
+            "leverage",
+            "offer",
+            "profit"
+          ],
+          "source_count": 6
+        },
+        {
+          "filename": "34_All_Processed_Transcripts_Combined___Part_6.txt",
+          "title": "All Processed Transcripts Combined - Part 6",
+          "tokens": 4733,
+          "keywords": [
+            "business",
+            "client",
+            "customer",
+            "growth",
+            "leverage"
+          ],
+          "source_count": 6
+        },
+        {
+          "filename": "35_New_Transcripts_James___Part_1.txt",
+          "title": "New Transcripts James - Part 1",
+          "tokens": 4739,
+          "keywords": [
+            "business",
+            "client",
+            "customer",
+            "growth",
+            "offer"
+          ],
+          "source_count": 6
+        },
+        {
+          "filename": "36_New_Transcripts_James___Part_11.txt",
+          "title": "New Transcripts James - Part 11",
+          "tokens": 4740,
+          "keywords": [
+            "client",
+            "framework",
+            "leverage",
+            "offer",
+            "profit"
+          ],
+          "source_count": 6
+        },
+        {
+          "filename": "37_Dcm_2_Transcript___Part_3.txt",
+          "title": "Dcm 2 Transcript - Part 3",
+          "tokens": 4747,
+          "keywords": [
+            "client",
+            "customer",
+            "offer",
+            "scale",
+            "service"
+          ],
+          "source_count": 7
+        },
+        {
+          "filename": "38_All_Processed_Transcripts_Combined___Part_14.txt",
+          "title": "All Processed Transcripts Combined - Part 14",
+          "tokens": 4748,
+          "keywords": [
+            "business",
+            "client",
+            "customer",
+            "leverage",
+            "offer"
+          ],
+          "source_count": 6
+        },
+        {
+          "filename": "39_New_Transcripts_James___Part_13.txt",
+          "title": "New Transcripts James - Part 13",
+          "tokens": 4750,
+          "keywords": [
+            "business",
+            "client",
+            "offer",
+            "profit",
+            "scale"
+          ],
+          "source_count": 6
+        },
+        {
+          "filename": "40_James_3K_Code_Transcript___Part_3.txt",
+          "title": "James 3K Code Transcript - Part 3",
+          "tokens": 4751,
+          "keywords": [
+            "business",
+            "client",
+            "method",
+            "offer",
+            "revenue"
+          ],
+          "source_count": 6
+        },
+        {
+          "filename": "41_James_3K_Code_Transcript___Part_2.txt",
+          "title": "James 3K Code Transcript - Part 2",
+          "tokens": 4754,
+          "keywords": [
+            "business",
+            "client",
+            "customer",
+            "leverage",
+            "offer"
+          ],
+          "source_count": 6
+        },
+        {
+          "filename": "42_New_Transcripts_James___Part_12.txt",
+          "title": "New Transcripts James - Part 12",
+          "tokens": 4754,
+          "keywords": [
+            "business",
+            "client",
+            "framework",
+            "offer",
+            "scale"
+          ],
+          "source_count": 6
+        },
+        {
+          "filename": "43_New_Transcripts_James___Part_10.txt",
+          "title": "New Transcripts James - Part 10",
+          "tokens": 4755,
+          "keywords": [
+            "business",
+            "client",
+            "customer",
+            "leverage",
+            "offer"
+          ],
+          "source_count": 6
+        },
+        {
+          "filename": "44_Yt_Transcripts_Cleaned___Part_9.txt",
+          "title": "Yt Transcripts Cleaned - Part 9",
+          "tokens": 4755,
+          "keywords": [
+            "business",
+            "client",
+            "customer",
+            "framework",
+            "growth"
+          ],
+          "source_count": 6
+        },
+        {
+          "filename": "45_All_Processed_Transcripts_Combined___Part_3.txt",
+          "title": "All Processed Transcripts Combined - Part 3",
+          "tokens": 4755,
+          "keywords": [
+            "business",
+            "client",
+            "customer",
+            "framework",
+            "growth"
+          ],
+          "source_count": 6
+        },
+        {
+          "filename": "46_New_Transcripts_James___Part_8.txt",
+          "title": "New Transcripts James - Part 8",
+          "tokens": 4760,
+          "keywords": [
+            "business",
+            "client",
+            "offer",
+            "revenue",
+            "scale"
+          ],
+          "source_count": 6
+        },
+        {
+          "filename": "47_Yt_Transcripts_Cleaned___Part_6.txt",
+          "title": "Yt Transcripts Cleaned - Part 6",
+          "tokens": 4793,
+          "keywords": [
+            "business",
+            "client",
+            "customer",
+            "offer",
+            "profit"
+          ],
+          "source_count": 6
+        },
+        {
+          "filename": "48_Yt_Transcripts_Cleaned___Part_11.txt",
+          "title": "Yt Transcripts Cleaned - Part 11",
+          "tokens": 4805,
+          "keywords": [
+            "business",
+            "client",
+            "customer",
+            "leverage",
+            "offer"
+          ],
+          "source_count": 6
+        },
+        {
+          "filename": "49_Yt_Transcripts_Cleaned___Part_15.txt",
+          "title": "Yt Transcripts Cleaned - Part 15",
+          "tokens": 4805,
+          "keywords": [
+            "business",
+            "client",
+            "growth",
+            "offer",
+            "tactic"
+          ],
+          "source_count": 6
+        },
+        {
+          "filename": "50_Yt_Transcripts_Cleaned___Part_10.txt",
+          "title": "Yt Transcripts Cleaned - Part 10",
+          "tokens": 4807,
+          "keywords": [
+            "business",
+            "client",
+            "growth",
+            "leverage",
+            "offer"
+          ],
+          "source_count": 6
+        },
+        {
+          "filename": "51_All_Processed_Transcripts_Combined___Part_13.txt",
+          "title": "All Processed Transcripts Combined - Part 13",
+          "tokens": 4808,
+          "keywords": [
+            "business",
+            "client",
+            "customer",
+            "growth",
+            "leverage"
+          ],
+          "source_count": 7
+        },
+        {
+          "filename": "52_All_Processed_Transcripts_Combined___Part_15.txt",
+          "title": "All Processed Transcripts Combined - Part 15",
+          "tokens": 4825,
+          "keywords": [
+            "business",
+            "client",
+            "customer",
+            "leverage",
+            "offer"
+          ],
+          "source_count": 7
+        },
+        {
+          "filename": "53_All_Processed_Transcripts_Combined___Part_5.txt",
+          "title": "All Processed Transcripts Combined - Part 5",
+          "tokens": 4925,
+          "keywords": [
+            "business",
+            "client",
+            "customer",
+            "leverage",
+            "offer"
+          ],
+          "source_count": 8
+        },
+        {
+          "filename": "54_Dcm_2_Transcript___Part_1.txt",
+          "title": "Dcm 2 Transcript - Part 1",
+          "tokens": 4933,
+          "keywords": [
+            "business",
+            "client",
+            "customer",
+            "offer",
+            "scale"
+          ],
+          "source_count": 8
+        },
+        {
+          "filename": "55_Dcm_2_Transcript___Part_4.txt",
+          "title": "Dcm 2 Transcript - Part 4",
+          "tokens": 4980,
+          "keywords": [
+            "business",
+            "client",
+            "customer",
+            "offer",
+            "profit"
+          ],
+          "source_count": 7
+        },
+        {
+          "filename": "56_All_Processed_Transcripts_Combined___Part_4.txt",
+          "title": "All Processed Transcripts Combined - Part 4",
+          "tokens": 4993,
+          "keywords": [
+            "business",
+            "client",
+            "customer",
+            "framework",
+            "growth"
+          ],
+          "source_count": 7
+        }
+      ]
+    },
+    "templates": {
+      "file_count": 2,
+      "total_tokens": 12996,
+      "files": [
+        {
+          "filename": "01_Email_Templates_Collection.txt",
+          "title": "Email Templates Collection",
+          "tokens": 5410,
+          "keywords": [
+            "business",
+            "client",
+            "customer",
+            "growth",
+            "leverage"
+          ],
+          "source_count": 17
+        },
+        {
+          "filename": "02_Offer_Templates_Collection.txt",
+          "title": "Offer Templates Collection",
+          "tokens": 7586,
+          "keywords": [
+            "business",
+            "client",
+            "customer",
+            "growth",
+            "leverage"
+          ],
+          "source_count": 25
+        }
+      ]
+    },
+    "guides": {
+      "file_count": 3,
+      "total_tokens": 5685,
+      "files": [
+        {
+          "filename": "01_100_Workshops.txt",
+          "title": "$100 Workshops",
+          "tokens": 795,
+          "keywords": [
+            "business",
+            "client",
+            "customer",
+            "growth",
+            "leverage"
+          ],
+          "source_count": 1
+        },
+        {
+          "filename": "02_Funnel_Customization_Guide.txt",
+          "title": "Funnel Customization Guide",
+          "tokens": 2215,
+          "keywords": [
+            "business",
+            "customer",
+            "offer",
+            "service"
+          ],
+          "source_count": 3
+        },
+        {
+          "filename": "03_Highlevel_Funnel_Reproduction_Sop.txt",
+          "title": "Highlevel Funnel Reproduction Sop",
+          "tokens": 2675,
+          "keywords": [
+            "business",
+            "client",
+            "customer",
+            "framework",
+            "growth"
+          ],
+          "source_count": 4
+        }
+      ]
+    }
+  }
+}

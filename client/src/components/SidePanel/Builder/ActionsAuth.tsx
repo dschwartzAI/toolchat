@@ -13,7 +13,7 @@ import {
   OGDialogHeader,
   OGDialogContent,
   OGDialogTrigger,
-} from '@librechat/client';
+} from '~/components/ui';
 import { TranslationKeys, useLocalize } from '~/hooks';
 import { cn } from '~/utils';
 

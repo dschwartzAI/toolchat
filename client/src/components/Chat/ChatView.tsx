@@ -1,23 +1,26 @@
-import { memo, useCallback } from 'react';
+import { memo, useCallback, lazy, Suspense } from 'react';
 import { useRecoilValue } from 'recoil';
 import { useForm } from 'react-hook-form';
-import { Spinner } from '@librechat/client';
 import { useParams } from 'react-router-dom';
 import { Constants } from 'librechat-data-provider';
 import type { TMessage } from 'librechat-data-provider';
 import type { ChatFormValues } from '~/common';
 import { ChatContext, AddedChatContext, useFileMapContext, ChatFormProvider } from '~/Providers';
 import { useChatHelpers, useAddedResponse, useSSE } from '~/hooks';
-import ConversationStarters from './Input/ConversationStarters';
 import { useGetMessagesByConvoId } from '~/data-provider';
-import MessagesView from './Messages/MessagesView';
-import Presentation from './Presentation';
+import { SimpleTour } from '~/components/Tour';
+import { Spinner } from '~/components/svg';
 import { buildTree, cn } from '~/utils';
 import ChatForm from './Input/ChatForm';
-import Landing from './Landing';
 import Header from './Header';
 import Footer from './Footer';
 import store from '~/store';
+
+// Lazy load heavy components
+const ConversationStarters = lazy(() => import('./Input/ConversationStarters'));
+const MessagesView = lazy(() => import('./Messages/MessagesView'));
+const Presentation = lazy(() => import('./Presentation'));
+const Landing = lazy(() => import('./Landing'));
 
 function LoadingSpinner() {
   return (
@@ -69,16 +72,26 @@ function ChatView({ index = 0 }: { index?: number }) {
   } else if ((isLoading || isNavigating) && !isLandingPage) {
     content = <LoadingSpinner />;
   } else if (!isLandingPage) {
-    content = <MessagesView messagesTree={messagesTree} />;
+    content = (
+      <Suspense fallback={<LoadingSpinner />}>
+        <MessagesView messagesTree={messagesTree} />
+      </Suspense>
+    );
   } else {
-    content = <Landing centerFormOnLanding={centerFormOnLanding} />;
+    content = (
+      <Suspense fallback={<LoadingSpinner />}>
+        <Landing centerFormOnLanding={centerFormOnLanding} />
+      </Suspense>
+    );
   }
 
   return (
     <ChatFormProvider {...methods}>
       <ChatContext.Provider value={chatHelpers}>
         <AddedChatContext.Provider value={addedChatHelpers}>
-          <Presentation>
+          <SimpleTour />
+          <Suspense fallback={<LoadingSpinner />}>
+            <Presentation>
             <div className="flex h-full w-full flex-col">
               {!isLoading && <Header />}
               <>
@@ -98,13 +111,20 @@ function ChatView({ index = 0 }: { index?: number }) {
                     )}
                   >
                     <ChatForm index={index} />
-                    {isLandingPage ? <ConversationStarters /> : <Footer />}
+                    {isLandingPage ? (
+                      <Suspense fallback={null}>
+                        <ConversationStarters />
+                      </Suspense>
+                    ) : (
+                      <Footer />
+                    )}
                   </div>
                 </div>
                 {isLandingPage && <Footer />}
               </>
             </div>
-          </Presentation>
+            </Presentation>
+          </Suspense>
         </AddedChatContext.Provider>
       </ChatContext.Provider>
     </ChatFormProvider>

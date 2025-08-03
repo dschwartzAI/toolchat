@@ -14,7 +14,7 @@ import {
   // DropdownMenuItem,
   // DropdownMenuContent,
   // DropdownMenuTrigger,
-} from '@librechat/client';
+} from '~/components/ui';
 import { useLocalize, useCustomLink, useAuthContext } from '~/hooks';
 import AdvancedSwitch from '~/components/Prompts/AdvancedSwitch';
 // import { RightPanel } from '../../components/Prompts/RightPanel';

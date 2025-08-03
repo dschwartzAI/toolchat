@@ -1,0 +1,77 @@
+---
+title: step Framework - Complete Guide & generation Framework - Complete Guide
+type: frameworks
+source_files: 1d5153d5ffa7b721  # Limit to 5 for readability
+keywords: generation, method, framework, step, system
+token_count: 2357
+duplicates_removed: 0
+generated: 2025-07-07T12:14:59.794780
+---
+
+# step Framework - Complete Guide & generation Framework - Complete Guide
+
+# step Framework
+
+## Overview
+
+This Standard Operating Procedure (SOP) outlines the step-by-step process for reproducing the "DCM 2.
+
+## Complete Framework
+
+# HighLevel Funnel Reproduction SOP: DCM 2.0 Templates
+## Overview This Standard Operating Procedure (SOP) outlines the step-by-step process for reproducing the "DCM 2.0 Templates" funnel from James Kemp's HighLevel account with customized service and sales copy for clients.
+## Funnel Structure Analysis
+Based on the API analysis of the DCM 2.0 Templates funnel (ID: ATb1XCi2a8fAMP9ME7cY), the funnel contains the following 8 steps:
+### Core Funnel Flow: 1. **Social Code $9 (TEMPLATE)** - Big idea video page 2. **Upsell 1: The 3k Code + Social Code (TEMPLATE)** - First upsell bundle 3. **Upsell 2: Sovereign Membership - 9 Day Trial (TEMPLATE)** - Membership upsell 4. **Delivery - The Social Code (TEMPLATE)** - Product delivery page 5. **The Sovereign Community Membership - Thank You (TEMPLATE)** - Membership thank you 6. **Delivery - The 3k Code and Social Code (TEMPLATE)** - Bundle delivery page 7. **BUMP: The Cash Campaign Templates (Template)** - Order bump/ downsell 8. **The Client Funnel** - Final installation/setup page
+## Prerequisites
+### Required Access: - HighLevel Agency/Location account with funnel creation permissions - API access (if automating the process) - Copywriting tool access for content customization - Client's business information and unique value proposition
+### Required Information from Client: - Business name and branding - Target audience description - Unique service/product offering - Pricing structure - Value propositions - Contact information - Payment processing setup
+## Step-by-Step Reproduction Process
+### Phase 1: Funnel Setup and Structure
+#### Step 1: Create New Funnel
+
+1. Log into HighLevel account 2. Navigate to Sites > Funnels 3. Click "Create New Funnel" 4. Name the funnel: "[Client Name] - [Service Name] Funnel" 5. Set the funnel URL slug: `/[client-service-name]` ##
+
+[details]. DM for link."
+ This is a sales page with insight. Sell up to the line, but make the sale via DM. ## The Sovereign Consultant: Prioritizing Life Over Business **Summary:** James Kemp introduces the Sovereign Consultant model, emphasizing the importance of building a life that a business feeds, rather than the other way around, and prioritizing intentional inputs and leverage. Video Source:* Sovereign Consultant.txt **Content:** The Sovereign Consultant model is about building a life that a business feeds. Most people want a good life, and the cash flow, impact, and meaning a business provides can feed that life. It's easy to stay at the surface level of strategy, but tactics and strategies alone are volatile and exhausting. Principles and philosophy guide strategy and lower volatility. My calendar demonstrates what's important to me: daily exercise, date night, family dinner, client group calls, and calls only on Tuesdays and Thursdays. This creates space for creativity and flow. You don't earn the right to free space; you choose it. Intentional time management dictates results. The Sovereign way is about leverage and serving the maximum number of people. ## The Sovereign Consultant: Building a Brand **Summary:** James Kemp outlines a three-step process for building a strong brand: defining and selling a unique mechanism, crafting an aspirational identity, and building a world around your brand. Video Source:* Sovereign Consultant.txt **Content:** A brand is what people say about you when you're not there. The ideal brand does all the selling. Three components: world, identity, and mechanisms. Start with the mechanism – the way you get results. It needs to be unique (yours) and work. Examples: Daily Client Machine (lead magnet with a self-liquidating offer), Customers to Clients (low-ticket workshops with an offer), Hybrid Offer (selling via documents). Next, craft an aspirational identity. What does someone become when they commit to your world? JK's "Cash Creators" is a great example. Finally, world-building. People buy who you are more than what you do. World-building is an abstraction of your reality. Components: characters, language, places, storylines, memes. My world: The Brazilian, Mr. 13, Miss 7, the cat, the dog, Bali, my journey back to $3 million. Have fun with it (oat milk, Atomic Habits). ``` ============================================================
+
+## Components
+
+### Log into HighLevel account 2. Navigate to Sites > Funnels 3. Click "Create New Funnel" 4. Name the funnel
+
+"[Client Name] - [Service Name] Funnel" 5. Set the funnel URL slug: `/[client-service-name]` ##
+
+## How to Apply
+
+process for reproducing the "DCM 2.0 Templates" funnel from James Kemp's HighLevel account with customized service and sales copy for clients.
+
+
+
+---
+
+# generation Framework
+
+## Overview
+
+** This chunk emphasizes the importance of a clear plan within the offer, outlining the promise, plan, pricing, and ROI to maximize value and resonate with prospects.
+
+## Complete Framework
+
+Future buyers and customers captured early
+Faster cashflow and marketing scale
+31% of email list are buyers
+Higher conversion rates on future offers
+Enhancing Lead Generation Efficiency
+James discussed the inefficiencies of traditional lead generation systems, highlighting that only 1-5% of an audience typically converts to clients, resulting in significant waste. He emphasized the need for scalable and controlled systems to identify potential clients early and generate cash flow during growth. James also explained different client types, from those investing in long-term coaching to occasional buyers, and stressed the importance of adapting strategies to the evolving market. He concluded that while traditional lead generation methods still work, they are not sustainable for long-term growth and need to be improved for better efficiency and scalability.
+Unified Funnel Strategy Integration
+James discussed his work on integrating two distinct funnel approaches into a unified strategy. He explained how the dual-mode client generation system can use non-client buyers to fund marketing efforts while targeting high-quality prospects. James outlined two main buying types: one focused on consuming information and deriving insight, and another on purchasing and consuming information. He emphasized that both approaches have their advantages and can be used together to create a more effective funnel system. James also touched on the importance of understanding the context around offers, including what happens before and after the offer itself.
+Marketing Strategies and Content Optimization
+James discussed various marketing strategies, including hybrid offers, daily client machines, and video-based content. He emphasized the importance of using a style that is native to the presenter and highlighted the significance of the headline in driving conversions for big idea videos and VSLs. James also explained the concept of insight funnels, starting with high-tier offers and downselling if necessary, and discussed the effectiveness of different ad formats for low-ticket funnels. He concluded by explaining the DCM (Daily Client Machine) concept and the importance of presenting the same core ideas in different formats to appeal to different buying types.
+Optimizing Low-Ticket Funnel Strategies
+
+. The key is a product that offers higher client value beyond the community level. This allows clients to control their access and the speed of their results, with greater access generally leading to faster results. ## The Nuance of Selling the Hybrid Offer and Maximizing Value **Summary:** This chunk emphasizes the importance of a clear plan within the offer, outlining the promise, plan, pricing, and ROI to maximize value and resonate with prospects. Video Source:* Sovereign Consultant.txt **Content:** A compelling offer needs a clear promise, plan, and price. Can you articulate their desires and the outcomes of their commitment? Can you describe what they'll see? What negative downsides are you helping them avoid? What happens first, next, and after that? A clear picture of the next few days and weeks is crucial. Pricing should offer a clear ROI and be easy to get started with. ## Crafting Compelling Offers: Promise, Plan, and Pricing **Summary:** This chunk provides a framework for crafting compelling offers, emphasizing a clear promise, a detailed plan, and a justifiable price with a clear ROI, using a real-world example. Video Source:* Sovereign Consultant.txt **Content:** Effective offers have a clear promise, plan, and price. A strong promise outlines the specific outcome, installing a lead generation system that attracts five prospects and secures one high-value client monthly. The plan details the steps involved, developing a client roadmap and setting up a content system. This clarity allows for selling longer-term commitments (12 months) by focusing on initial, shorter-term commitments (6 weeks). ## Using Google Docs for Offer Creation and Iteration **Summary:** This chunk advocates for using Google Docs for offer creation due to its speed, ease of sharing, and modification, allowing for dynamic iteration based on market feedback. Video Source:* Sovereign Consultant.txt **Content:** Use Google Docs for offer creation. They're fast to create, share, and modify, allowing for dynamic iteration based on market feedback. The market writes the offer; iterate based on their feedback. This dynamic approach allows you to refine your offer until it resonates with your target audience and achieves the desired results. ## Clarity on Your Core Offering and Avoiding Messaging Confusion **Summary:** This chunk reiterates the importance of clarity on your core offering and avoiding muddled messaging, especially as your business grows and evolves. Video Source:* Sovereign Consultant.txt **Content:** Clarity about your core offering is paramount. It's easy to get sidetracked, but staying true to your core offering is essential for effective messaging and offer creation. Avoid muddying your message by trying to be everything to everyone. Focus on what you do best and let that clarity guide your decisions. ## Product Structure: Content, Community, and Customization **Summary:** This chunk outlines the three key components of product structure: content, community, and customization, and emphasizes the importance of a clear promise, plan, and price with a demonstrable ROI. Video Source:* Sovereign Consultant.txt **Content:** Products should include content (training videos), community (interaction platform), and customization (tailored access). Ensure your offer includes a promise, plan, and price with a clear ROI. If you can deliver on these elements, your offer is market-ready. Different levels of access within the product cater to varying client needs and budgets. ## Validating Your Offer and the Importance of Three Sales **Summary:** This chunk sets a validation milestone of three sales for new offers and explains how even a small network can provide valuable feedback for rapid iteration and improvement. Video Source:* Sovereign Consultant.txt **Content:** Aim for three sales to validate your offer. This milestone allows you to test your offer's viability and gather initial feedback. A smaller network allows for faster feedback and iteration, improving your offer more quickly through direct, real-world interaction. If 30% of people who see your offer buy it, you have something scalable
+
+## How to Apply
+
+involved, developing a client roadmap and setting up a content system. This clarity allows for selling longer-term commitments (12 months) by focusing on initial, shorter-term commitments (6 weeks).
+

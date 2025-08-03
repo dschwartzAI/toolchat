@@ -3,6 +3,7 @@ import { useSetRecoilState } from 'recoil';
 import AvatarEditor from 'react-avatar-editor';
 import { FileImage, RotateCw, Upload } from 'lucide-react';
 import { fileConfig as defaultFileConfig, mergeFileConfig } from 'librechat-data-provider';
+import type { TUser } from 'librechat-data-provider';
 import {
   Slider,
   Button,
@@ -12,10 +13,9 @@ import {
   OGDialogHeader,
   OGDialogTitle,
   OGDialogTrigger,
-  useToastContext,
-} from '@librechat/client';
-import type { TUser } from 'librechat-data-provider';
+} from '~/components';
 import { useUploadAvatarMutation, useGetFileConfig } from '~/data-provider';
+import { useToastContext } from '~/Providers';
 import { cn, formatBytes } from '~/utils';
 import { useLocalize } from '~/hooks';
 import store from '~/store';

@@ -1,9 +1,10 @@
-import { useMemo, useEffect, useState } from 'react';
 import * as Ariakit from '@ariakit/react';
 import { ExternalLink } from 'lucide-react';
+import { useMemo, useEffect, useState } from 'react';
 import { ShieldEllipsis } from 'lucide-react';
 import { useForm, Controller } from 'react-hook-form';
 import { Permissions, SystemRoles, roleDefaults, PermissionTypes } from 'librechat-data-provider';
+import type { Control, UseFormSetValue, UseFormGetValues } from 'react-hook-form';
 import {
   OGDialog,
   OGDialogTitle,
@@ -12,12 +13,11 @@ import {
   Button,
   Switch,
   DropdownPopup,
-  OGDialogTemplate,
-  useToastContext,
-} from '@librechat/client';
-import type { Control, UseFormSetValue, UseFormGetValues } from 'react-hook-form';
+} from '~/components/ui';
 import { useUpdatePromptPermissionsMutation } from '~/data-provider';
+import OGDialogTemplate from '~/components/ui/OGDialogTemplate';
 import { useLocalize, useAuthContext } from '~/hooks';
+import { useToastContext } from '~/Providers';
 
 type FormValues = Record<Permissions, boolean>;
 

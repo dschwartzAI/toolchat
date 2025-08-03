@@ -1,5 +1,6 @@
-import { Feather } from 'lucide-react';
 import { EModelEndpoint } from 'librechat-data-provider';
+import type { IconMapProps, AgentIconMapProps, IconsRecord } from '~/common';
+import { Feather, User, Wrench } from 'lucide-react';
 import {
   MinimalPlugin,
   GPTIcon,
@@ -11,8 +12,7 @@ import {
   LightningIcon,
   BedrockIcon,
   Sparkles,
-} from '@librechat/client';
-import type { IconMapProps, AgentIconMapProps, IconsRecord } from '~/common';
+} from '~/components/svg';
 import UnknownIcon from './UnknownIcon';
 import { cn } from '~/utils';
 
@@ -37,7 +37,7 @@ const AssistantAvatar = ({
     return <AssistantIcon className={cn('text-token-secondary', className)} size={size} />;
   }
 
-  return <Sparkles className={cn(context === 'landing' ? 'icon-2xl' : '', className)} />;
+  return <User className={cn(context === 'landing' ? 'icon-2xl' : '', className)} size={size} />;
 };
 
 const AgentAvatar = ({ className = '', avatar = '', agentName, size }: AgentIconMapProps) => {
@@ -53,7 +53,8 @@ const AgentAvatar = ({ className = '', avatar = '', agentName, size }: AgentIcon
     );
   }
 
-  return <Feather className={cn(agentName === '' ? 'icon-2xl' : '', className)} size={size} />;
+  // Default to Wrench icon for all agents (Tools)
+  return <Wrench className={cn(agentName === '' ? 'icon-2xl' : '', className)} size={size} />;
 };
 
 const Bedrock = ({ className = '' }: IconMapProps) => {

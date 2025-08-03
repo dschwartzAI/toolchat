@@ -1,6 +1,6 @@
 import debounce from 'lodash/debounce';
 import React, { createContext, useContext, useState, useMemo } from 'react';
-import { isAgentsEndpoint, isAssistantsEndpoint } from 'librechat-data-provider';
+import { isAgentsEndpoint, isAssistantsEndpoint, LocalStorageKeys } from 'librechat-data-provider';
 import type * as t from 'librechat-data-provider';
 import type { Endpoint, SelectedValues } from '~/common';
 import { useAgentsMapContext, useAssistantsMapContext, useChatContext } from '~/Providers';
@@ -21,6 +21,7 @@ type ModelSelectorContextType = {
   agentsMap: t.TAgentsMap | undefined;
   assistantsMap: t.TAssistantsMap | undefined;
   endpointsConfig: t.TEndpointsConfig;
+  startupConfig: t.TStartupConfig | undefined;
 
   // Functions
   endpointRequiresUserKey: (endpoint: string) => boolean;
@@ -68,7 +69,7 @@ export function ModelSelectorProvider({ children, startupConfig }: ModelSelector
     returnHandlers: true,
   });
 
-  // State
+  // State - use current conversation endpoint or last selected
   const [selectedValues, setSelectedValues] = useState<SelectedValues>({
     endpoint: conversation?.endpoint || '',
     model: conversation?.model || '',
@@ -112,12 +113,29 @@ export function ModelSelectorProvider({ children, startupConfig }: ModelSelector
 
   const handleSelectSpec = (spec: t.TModelSpec) => {
     let model = spec.preset.model ?? null;
+    
+    // Create a new conversation with this spec
+    const conversationData = {
+      ...spec.preset,
+      spec: spec.name,
+      iconURL: spec.iconURL ?? spec.preset.iconURL ?? spec.preset.endpoint ?? '',
+    };
+    
+    // Call newConversation to create a new chat
+    newConversation({
+      template: conversationData,
+      preset: spec.preset,
+    });
+    
+    // Still call onSelectSpec for any additional handling
     onSelectSpec?.(spec);
+    
     if (isAgentsEndpoint(spec.preset.endpoint)) {
       model = spec.preset.agent_id ?? '';
     } else if (isAssistantsEndpoint(spec.preset.endpoint)) {
       model = spec.preset.assistant_id ?? '';
     }
+    
     setSelectedValues({
       endpoint: spec.preset.endpoint,
       model,
@@ -135,6 +153,42 @@ export function ModelSelectorProvider({ children, startupConfig }: ModelSelector
         model: '',
         modelSpec: '',
       });
+    } else if (isAssistantsEndpoint(endpoint.value)) {
+      // For assistants endpoint, select the first assistant or the stored one
+      const assistants = Object.values(assistantsMap?.[endpoint.value] ?? {});
+      if (assistants.length > 0) {
+        const storedAssistantId = localStorage.getItem(`${LocalStorageKeys.ASST_ID_PREFIX}0${endpoint.value}`);
+        const assistantId = storedAssistantId && assistantsMap?.[endpoint.value]?.[storedAssistantId] 
+          ? storedAssistantId 
+          : assistants[0]?.id;
+        
+        if (assistantId) {
+          handleSelectModel(endpoint, assistantId);
+        }
+      }
+    } else if (isAgentsEndpoint(endpoint.value)) {
+      // For agents endpoint, only auto-select if there's no current selection
+      const agents = Object.values(agentsMap ?? {});
+      
+      // More comprehensive checks to avoid overriding user selection
+      const hasExistingSelection = 
+        selectedValues.model || 
+        conversation?.agent_id ||
+        (selectedValues.endpoint === endpoint.value && selectedValues.model);
+      
+      if (agents.length > 0 && !hasExistingSelection) {
+        const storedAgentId = localStorage.getItem(`${LocalStorageKeys.AGENT_ID_PREFIX}0`);
+        const agentId = storedAgentId && agentsMap?.[storedAgentId] 
+          ? storedAgentId 
+          : agents[0]?.id;
+        
+        if (agentId) {
+          // Small delay to avoid race conditions
+          setTimeout(() => {
+            handleSelectModel(endpoint, agentId);
+          }, 100);
+        }
+      }
     }
   };
 
@@ -171,6 +225,7 @@ export function ModelSelectorProvider({ children, startupConfig }: ModelSelector
     assistantsMap,
     mappedEndpoints,
     endpointsConfig,
+    startupConfig,
 
     // Functions
     handleSelectSpec,

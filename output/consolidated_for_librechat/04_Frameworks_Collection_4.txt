@@ -1,0 +1,510 @@
+# JK Business Frameworks Collection 4
+This file contains 7 business frameworks from James Kemp's methodology.
+
+================================================================================
+
+## FILE: 22_reticular_activating_Framework_Complete.txt
+
+---
+title: reticular activating Framework - Complete Guide & y Framework - Complete Guide
+type: frameworks
+source_files: 1d5153d5ffa7b721  # Limit to 5 for readability
+keywords: method, framework, y, reticular activating, system
+token_count: 1707
+duplicates_removed: 0
+generated: 2025-07-07T12:14:59.794281
+---
+
+# reticular activating Framework - Complete Guide & y Framework - Complete Guide
+
+# reticular activating Framework
+
+## Overview
+
+** James Kemp advises against being wishy-washy and trying to please everyone, emphasizing the importance of a tight plan that allows people to easily say yes or no.
+
+## Complete Framework
+
+The promise is short-term, the vision is long-term. ## Being True to Your Fans and Embracing Discernment **Summary:** James Kemp advises against being wishy-washy and trying to please everyone, emphasizing the importance of a tight plan that allows people to easily say yes or no. He also discusses the concept of true fans and their unwavering loyalty. Video Source:* 1000 true fans.txt **Content:** Where I've been straying is not being true to the true fans. The tighter your plan, the easier it is for people to say yes or no. Most people build their business to please everyone. They're constantly thinking, "What does the market want?" Most people don't know what they want. We are articulating ideals and demonstrating. It's the handholds. "This is interesting, or this is relevant." The reticular activating system, the yellow car thing. Sack yourself. Create raving fans. The true fans are the true fans. a footy team, you don't change teams. Offers and content are invitations to pay attention. The best offers are binary. Easy yes or no. The best content is binary. Popular people have detractors because they're individualistic. You can't scale things you don't care about. The coaching industry talks about scaling volume, not scaling care. ## Distributing Your Plan and Building Trust Through Content **Summary:** James Kemp recommends sharing your plan across all platforms, regardless of whether it's a personal or business profile. He also discusses building trust and relationships through content, emphasizing total attention time and the number of insights consumed. Video Source:* 1000 true fans.txt **Content:** Should I share my plan from a personal Facebook profile or a business page? As long as you're in it, it doesn't matter. Put your plan everywhere. People can refer back to it. Is there a best content format for building trust? It's hitting the four points and letting them consume. Total attention time. People binge my content before calls. They need to consume a certain amount to get enough insight. A 20-minute YouTube video might have 7,000 words, which is about 30 emails. Both convert, but total consumption time varies. With video, you move people faster because they consume at a higher rate. We're chasing a certain number of insights. 10 insights could come from 10 Facebook posts or one YouTube video. ## Identifying Barriers to Buying and Removing Them Through Content **Summary:** James Kemp discusses the importance of identifying barriers to buying and using content to remove those barriers. He emphasizes the value of offer creation and how it can accelerate client acquisition and retention. Video Source:* 1000 true fans.txt **Content:** When people buy, what conditions have they met? There are natural barriers to buying. I focus on offer creation. If I help people create an offer before they become clients, I can quickly tweak it to increase their earnings. They've already done the groundwork. They think I'm a genius, but they did the work. I know what moves the needle. Getting an offer beforehand makes them more likely to become and stay a client. We've already created momentum. What do they need to get results? What do you need to give them so they see they can get the result, but are better off with you? If your content proves they're looking at a barrier the wrong way, that's insight. If it shows they have what they need but don't know how to use it, that's insight. Insight removes barriers. ## Simplifying Offers and Embracing a Scarcity Mindset **Summary:** James Kemp advocates for small, easy-to-digest offers with fewer barriers. He criticizes the scarcity mindset of withholding help and suggests aiming to help people, which naturally leads to client acquisition. Video Source:* 1000 true fans.txt **Content:** I talk about small promises
+
+## How to Apply
+
+that's insight.
+
+
+
+---
+
+# y Framework
+
+## Overview
+
+So they're, they're just, they're just the trends and the, and the spectrum that just moves along as people go through it.
+
+## Complete Framework
+
+. So they're, they're just, they're just the trends and the, and the spectrum that just moves along as people go through it. But fame has always been the most efficient business model. Yeah. It's just got a shitload of trade-offs around it that, that, that potentially need to be managed. Yeah, a hundred percent. Should we talk about ai? I know you've been doing some stuff with it. I've been going deep., it's, it's obviously a topic on everyone's minds., I'll just preface this by saying I see the market, our, our community. Let's just talk about the people in this room. I imagine a lot of people are split, they're either not doing anything with it or they're doing way too much., I talk to clients sometimes and they have a very clear bottleneck in their funnel, and they're, yeah man, I've just been spending last week creating an AI bot that replies to people's comments on my Facebook post. And I'm, brother in Christ, that is not worth doing., this is not a problem to solve. And so I think, it, finding how to leverage this in such a way that it's beneficial that it moves the needle is very, very challenging. I feel I'm finding more of a sweet spot. What have, what have you been working on ai and more specifically, how do you, how are you thinking about it now for businesses ours? I'm, I'm thinking of rather than, the conversation around the AI reminds me of the conversation, and I'm old enough to remember this about marketing automation. When marketing automation first came out, and believe it or not, it hasn't existed forever. When marketing automation first came out, people were, I'm gonna automate everything. And what people did was they automated s****y process. So there's this, I'm gonna automate all these emails, but they were s**t emails. I'm gonna automate this, this, this web flow. But it was a, it was a s****y flow. And so AI's the same, is that it's only as good as the things you feed it, right? And so people have tried to delegate work to AI rather than taking the time to understand what work needs to be created. So I'll give you, I'll give you an example about how, how I think about it. If someone starts working with me, the, the, the, the central pillar of what we need is a, is a good offer, right? And a good offer is only the one that's validated and responded to by the marketplace., their marketplace in general. That in that initial time, if we're starting from scratch, or even if we're doing something that will take seven to 14 days to get something, unless someone's a hyper action taker, something that is market ready and valid, validation. So there's a lag time between getting in the market and, and learning that is just filled with work labor. The most important thing is if the market responds to it. So you've got a minimum viable offer that you need to put in the market and get a response from. We know that if we have best, even with best practices, we need all these things to do it. And then the market responds. So how I think about it, if an AI tool can get that MVP in five minutes rather than 10 days, then we spend the, the, the time that we have saved learning about the offer in the marketplace where, where, where it matters, right? We can sit there and f*****g go through the Google Doc and pick out words and those things we don't really know until it hits the market. Mm-hmm. We don't really, really know much. We've got a good guess, but that, that's the best as we can do
+
+## How to Apply
+
+See the complete framework description for detailed application guidelines.
+
+
+
+================================================================================
+
+## FILE: 23_comprehensive_Framework_Complete.txt
+
+---
+title: comprehensive Framework - Complete Guide & Simpler Framework - Complete Guide
+type: frameworks
+source_files: 1d5153d5ffa7b721  # Limit to 5 for readability
+keywords: comprehensive, method, framework, simpler, system
+token_count: 1722
+duplicates_removed: 0
+generated: 2025-07-07T12:14:59.794376
+---
+
+# comprehensive Framework - Complete Guide & Simpler Framework - Complete Guide
+
+# comprehensive Framework
+
+## Overview
+
+The comprehensive is a comprehensive framework for business transformation.
+
+## Complete Framework
+
+#### Clone Page from Template: ```bash curl -X POST "https://services.leadconnectorhq.com/funnels/page" \ -H "Authorization: Bearer pit-02400293-370a-4ab9-a448-8830e6867687" \ -H "Version: 2021-07-28" \ -H "Content-Type: application/json" \ -d '{ "name": "[New Page Name]", "funnelId": "[New Funnel ID]", "stepId": "[New Step ID]", "templatePageId": "[Template Page ID]" }' ```
+## Quality Assurance Checklist
+### Pre-Launch Checklist: - [ ] All pages load correctly - [ ] Payment processing works - [ ] Email sequences are active - [ ] Mobile responsiveness verified - [ ] All links functional - [ ] Analytics tracking installed - [ ] Legal pages updated (privacy policy, terms) - [ ] Client branding consistent throughout - [ ] Pricing accuracy verified - [ ] Support contact information updated
+### Post-Launch Monitoring: - [ ] Conversion rates tracking - [ ] Payment processing monitoring - [ ] Email delivery rates - [ ] Customer support tickets - [ ] Page load speeds - [ ] Mobile user experience - [ ] A/B test results analysis
+## Troubleshooting Guide
+### Common Issues: 1. **Payment Processing Failures** - Verify Stripe/payment processor setup
+
+Check API keys and webhooks - Validate product configurations
+2. **Email Delivery Issues** - Check SMTP settings - Verify email templates - Monitor spam scores
+3. **Page Loading Problems** - Check domain configuration - Verify SSL certificates - Optimize image sizes
+4. **Mobile Display Issues** - Test on multiple devices - Check responsive design elements - Validate touch targets
+## Success Metrics
+### Key Performance Indicators (KPIs): - **Conversion Rate**: Target 2-5% for cold traffic - **Average Order Value**: Track upsell performance - **Customer Lifetime Value**: Monitor membership retention - **Email Open Rates**: Target 25-35% - **Email Click Rates**: Target 3-7% - **Page Load Speed**: Under 3 seconds - **Mobile Conversion Rate**: Within 80% of desktop
+### Optimization Targets: - Increase main offer conversion by 20% - Improve upsell acceptance by 15% - Reduce cart abandonment by 25% - Increase email engagement by 30%
+## Maintenance Schedule
+### Weekly Tasks: - Monitor conversion rates - Check email deliverability - Review customer feedback - Update inventory/availability
+### Monthly Tasks: - Analyze funnel performance - A/B test new elements - Update testimonials/social proof - Review and optimize email sequences
+### Quarterly Tasks:
+
+Comprehensive funnel audit - Competitor analysis update - Pricing strategy review - Technology stack evaluation
+## Conclusion
+This SOP provides a comprehensive framework for reproducing the DCM 2.0 Templates funnel structure with customized content for any service-based business. The key to success lies in maintaining the proven funnel flow while personalizing all content to match the client's unique value proposition and target audience.
+Regular monitoring, testing, and optimization are essential for maximizing funnel performance and achieving sustainable growth for the client's business.
+
+## How to Apply
+
+ID]", "templatePageId": "[Template Page ID]" }' ```
+## Quality Assurance Checklist
+### Pre-Launch Checklist: - [ ] All pages load correctly - [ ] Payment processing works - [ ] Email sequences are active - [ ] Mobile responsiveness verified - [ ] All links functional - [ ] Analytics tracking installed - [ ] Legal pages updated (privacy policy, terms) - [ ] Client branding consistent throughout - [ ] Pricing accuracy verified - [ ] Support contact information updated
+### Post-Launch Monitoring: - [ ] Conversion rates tracking - [ ] Payment processing monitoring - [ ] Email delivery rates - [ ] Customer support tickets - [ ] Page load speeds - [ ] Mobile user experience - [ ] A/B test results analysis
+## Troubleshooting Guide
+### Common Issues: 1. **Payment Processing Failures** - Verify Stripe/payment processor setup
+
+Check API keys and webhooks - Validate product configurations
+2.
+
+
+
+---
+
+# Simpler Framework
+
+## Overview
+
+** Books are highly evergreen marketing assets, remaining relevant and effective for years.
+
+## Complete Framework
+
+. the easier they are to convert into becoming a client, and the longer they stay in your world. . We've been talking a little bit over the last couple of weeks about content. my Youtube strategy and my video strategy. And that's about, brand Width, it's about getting people on brand and consuming one or some or all of the ideas that you have. So by the time that they're reaching out, or you're having a conversation about an offer. they are already sold on those things, and you are the origin of them. ## Books as Evergreen Assets and Client Generation Tools **Summary:** Books are highly evergreen marketing assets, remaining relevant and effective for years. They offer excellent value and can generate clients even without complex funnels, though distribution and economics are key for maximizing their potential. Video Source:* Book Funnel Workshop.txt **Content:** So in the Internet space. And in in the online space the rate of change is super super high, things come and go and they fizzle out and they disappear really, really, quickly, and their effectiveness and a book is an interesting one, because as an asset, it's 1 of the most evergreen I can't think of an asset that's more evergreen than a book, really, because even a workshop or a webinar would need a that can, that they can feasibly run for years, they still need to be changed and refreshed and updated where there are plenty of examples of books that are 10 or even 15 years old that are still selling in the market today. ## Creating a Book: A Simpler Process Than You Think **Summary:** Creating a client-getting book is often simpler than anticipated, frequently achievable in a weekend or less by compiling existing materials. The most time-consuming aspect is editing for readability and usability. Video Source:* Book Funnel Workshop.txt **Content:** So how do we create a book? It is a lot simpler than you think. The creation of all my books has been done in a weekend or less right because they were. They were compiled, and amalgamations of things that are already done honestly, that the most of the time spent on books is editing. So editing is just making it readable and making it usable. And once you've got a baseline down then most of the time is making it editable, making it readable and making it consumable. ## How-To Books and Mechanism Books: Delivering Results and Converting Clients **Summary:** How-to books that provide complete solutions are most effective for client conversion. Books focused on a single mechanism are also highly effective, especially for problem-oriented solutions. Video Source:* Book Funnel Workshop.txt **Content:** So I I believe that the best books and I have found that the best books are how to books. They give everybody. They give somebody everything they need to ultimately fulfill on the idea. So they tell them. You tell them how to do the thing so they could spend $10 with you and do that, or they could spend a hundred grand with you, and, and get you to do it for them. So books that hold back create customers that will hold back on you. So if you leave out the secret ingredients or leave out the key thing out of the book. You will find that that book doesn't ultimately convert people books that give people everything in terms of the central idea and the central concepts., indoctrinate people the most and create the highest caliber of person. ## Two Types of Client-Getting Books: Big Idea vs. Single Mechanism **Summary:** Client-getting books can be categorized into two main types: "Big Idea" books that encompass a comprehensive vision, and "Mechanism" books that focus on a specific strategy or process. Both types can be effective, but Mechanism books often sell better due to their immediate problem-solving nature. Video Source:* Book Funnel Workshop
+
+## How to Apply
+
+Than You Think **Summary:** Creating a client-getting book is often simpler than anticipated, frequently achievable in a weekend or less by compiling existing materials. The most time-consuming aspect is editing for readability and usability.
+
+
+
+================================================================================
+
+## FILE: 24_such_Framework_Complete.txt
+
+---
+title: such Framework - Complete Guide & Creation Framework - Complete Guide
+type: frameworks
+source_files: 1d5153d5ffa7b721  # Limit to 5 for readability
+keywords: method, framework, creation, such, system
+token_count: 1725
+duplicates_removed: 0
+generated: 2025-07-07T12:14:59.794472
+---
+
+# such Framework - Complete Guide & Creation Framework - Complete Guide
+
+# such Framework
+
+## Overview
+
+The such is a comprehensive framework for business transformation.
+
+## Complete Framework
+
+. julie williams: Hmm. julie williams: okay. thanks, Jess. James Kemp: I, and I'll and I'll say it again. James Kemp: I'm being really prescriptive today. James Kemp: And black syndicate folks will get into mindset, and those things all we and other and other contexts, but. James Kemp: the act of doing this. James Kemp: the active to the construction of it. as James Kemp: getting it out, getting it out of the way and getting it out there. That's all that matters. You can feel lots of ways about things. James Kemp: but if you're committed to the outcome that you want for yourself, and you're the outcome that you want for the client. Then only do the things that you want to do. James Kemp: Emily. Emily Utter: Hi, I have lots of questions as usual, I did my first workshop today. I think I had 14 sales. which I guess is all right, considering I have no social media. And I made the offer for the first time, and it was a hot mess. But anyways. Emily Utter: as you're going through this, what I'm realizing, I think my offer. Promise still isn't clear. I'm in the make more money category. That's what I'm helping them do. But I feel my Emily Utter: angle of it. And this might be the problem I'm not sure is the self expression. love your business Emily Utter: what we did in the workshop today was, explore the different friction points all the things they don't really in the business. Right? Emily Utter: So Emily Utter: I wrote, I wrote a bunch of notes while you're talking. Can my core offer be? I help you make more money through self-expression? Or is that too nebulous? And people are fuck that, or I don't care, or whatever James Kemp: it is, pretty nebulous, how much money? What does the expression look ? Emily Utter: Well, so okay, for example, I helped a client shift her niche, and then the very first launch of her program. She did a half a million launch, and it's because I helped her do the thing she really wanted to do, instead of the thing she was pretending she wanted to do. James Kemp: So. The first step that we go through in the plan is aligning you with your James Kemp: ideal niche that you can freely express yourself to with my Ach system. Emily Utter: Okay. Emily Utter: no such system exists. It's Emily's bullshit meter. Put a Tm on everything, and it's a system, right Emily Utter: whatever. I think when you mentioned the bleeding confusion I was, yeah. And I think, too, most of the people who bought my workshop. And I'm sure, the first sales into this community. They're all gonna be people who've worked with me. Emily Utter: And so I've been banking on the fact that, they know, my time is worth it. And so I could call it Emily Utter: talk to Emily, and I feel those people would still buy. Maybe that's naive. Maybe I'm being lazy. And I do have my whole. Pdf, I don't know if you're open to looking at it, or I can post it, or whatever. But James Kemp: The core is, the core is making more money. Emily Utter: But the method is through James Kemp: self expression. Emily Utter: right? Right? But people aren't waking up in the night crying over their self expression. are they? Yeah? Cause. They're ashamed of making money. James Kemp: just people are ashamed of wanting good relationships or having more sex or getting better bodies when it comes down to it
+
+## How to Apply
+
+that we go through in the plan is aligning you with your James Kemp: ideal niche that you can freely express yourself to with my Ach system. Emily Utter: Okay.
+
+
+
+---
+
+# Creation Framework
+
+## Overview
+
+** Client-getting books can be categorized into two main types: "Big Idea" books that encompass a comprehensive vision, and "Mechanism" books that focus on a specific strategy or process.
+
+## Complete Framework
+
+., indoctrinate people the most and create the highest caliber of person. ## Two Types of Client-Getting Books: Big Idea vs. Single Mechanism **Summary:** Client-getting books can be categorized into two main types: "Big Idea" books that encompass a comprehensive vision, and "Mechanism" books that focus on a specific strategy or process. Both types can be effective, but Mechanism books often sell better due to their immediate problem-solving nature. Video Source:* Book Funnel Workshop.txt **Content:** So there's 2 types of books that we can create. The 1st one is the big idea. the one that completely sells them and if you want to get more context on the sovereign consultant and the pieces of how I assembled that watch the authority training in the classroom. but the big idea completely sells them on your whole vision, your whole world, who they who they can become what they need, what they need to do next, and and ultimately how they do it. The the why, what, how, so? The sovereign consultant is A is an example of a big idea book. It's a big idea that creates the idea of what a sovereign consultant is. what they need to do to do it, and how to do it. As they unpack the chapters. So, the the Big Idea book is more of the book than our book, slightly contradicting what I said before, but it's it's ultimately the the big idea. the second type of book which I'm confident that 80% of you have now is a book that's just about a single mechanism. ## From Trainings to Books: Leveraging Existing Content **Summary:** Existing training materials and workshops can be easily repurposed into books. Transcribing workshops and blending them with training documents provides a substantial base for a book, requiring primarily editing and structuring. Video Source:* Book Funnel Workshop.txt **Content:** So the sovereign consultant book is created from 4 trainings. So there's a software consultant the the simplest path to a million dollars profit a year. You can see that training. You can see that it's got a Google Doc attached to it. The hybrid offer customers to clients in the data client machine. So, as I said, I will create 3 more books based on those mechanisms. So I will have an interconnected world of books that that point to each other and cross reference each other. Because I've already got the baseline of those books. So what I did is, I created a training. I ran the workshop. I got the workshop transcribed, and then I blended the the original training Doc, because I do my trainings in in Google Docs. And I blended that with the transcript of the of the workshop. The average hour long workshop generates about 17 to 24,000 words depending on how fast you speak. That's a book right? There is editing required, but you can have something usable and drop it into drop it into those, and I'm going to give you the book and the outline, and in a more readable and raw format. ## Simplifying the Book Creation Process: Focusing on Client Acquisition **Summary:** Client-getting books should be viewed as enhanced lead magnets or condensed workshops, focusing on client acquisition rather than being complex literary works. This approach simplifies the process and allows for quicker client generation. Video Source:* Book Funnel Workshop.txt **Content:** This is a lead magnet on steroids or a reduction of a workshop. Right? And again, most people here have done both of those things, and the book is the happy middle ground in terms of the asset that is created from those, and also an asset that ultimately we can put into something that's got bit better economics
+
+## How to Apply
+
+Focusing on Client Acquisition **Summary:** Client-getting books should be viewed as enhanced lead magnets or condensed workshops, focusing on client acquisition rather than being complex literary works. This approach simplifies the process and allows for quicker client generation.
+
+
+
+================================================================================
+
+## FILE: 25_client_Framework_Complete.txt
+
+---
+title: client Framework - Complete Guide & content Framework - Complete Guide
+type: frameworks
+source_files: 1d5153d5ffa7b721  # Limit to 5 for readability
+keywords: content, method, client, framework, system
+token_count: 1741
+duplicates_removed: 0
+generated: 2025-07-07T12:14:59.794580
+---
+
+# client Framework - Complete Guide & content Framework - Complete Guide
+
+# client Framework
+
+## Overview
+
+James Kemp: We're going to create and sell a customer offer that converts 5% of its buyers into clients for you James Kemp: in that offer that we've just defined.
+
+## Complete Framework
+
+. If I generate leads, then therefore I should. James Kemp: This is deeply flawed because of the number of variables at each stage is. there's hundreds of posts, hundreds of ads. You can run hundreds of variables on the front ends James Kemp: that you need to find the one or 2 that works. James Kemp: So if you start with hundreds of variables, and then there's 20 different ways to sell it. Then you need to decipher all those variables, and most people fail James Kemp: because they're being sold to by marketers whose default choice is marketing. James Kemp: and the best way to head a goal is not to work towards it is to work backwards from it James Kemp: because working fords is chaotic because there's so many potential variables, there's hundreds of ways to market and lot of them work. There's hundreds of ways to sell and a lot of them work. James Kemp: But working backwards is methodical because it reduces the variables to only the ones that move you to the next stage. James Kemp: because over a long enough time period and everybody's tried that we all have both approaches, get you to the goal, but working backwards, gets you there faster and with more certainty. James Kemp: So we're going to do 3 things James Kemp: we're going to create and validate a threek offer by making 3 sales from a simple Google Doc. And that's what we're going to focus on today. James Kemp: We're going to create and sell a customer offer that converts 5% of its buyers into clients for you James Kemp: in that offer that we've just defined. James Kemp: Then we're going to automate the lead flow and the customer offer and Nsn. Customers into clients every week. James Kemp: So we go from making 3 K. And validating that to 3 KA week to 3 KA day. James Kemp: So we use 3 systems to do this. The hybrid offer James Kemp: which I'll talk about today, customers to clients and the daily client machine. James Kemp: The sequence is very, very, very, very important. because each of these systems solve for a specific stage. and we've got a master one before moving to the next one. James Kemp: and that's the right pace. James Kemp: Right? You may be at different stages, and everybody here is at different stages of the current offer of the marketing of the flow. James Kemp: But skipping steps is not speed. I constantly go back and reevaluate my offer based on feedback. James Kemp: One of the reasons that we use Google Docs is because it's dynamic, right? You can put it on the sales page. And those things later. Once you have something that converts at 30 to 40, James Kemp: but it's dynamic. I'm tweaking words. I'm tweaking, positioning all the time. James Kemp: so skipping steps is not speed. It sometimes feels it. I can just jump straight to marketing. I need more leads, so I can just jump jump to that. But it's just skipping steps. James Kemp: So mastery and the sequence compounds. The better your hybrid offer. The more clients you convert. the better your customers to client system, the more customers and clients you generate. and the better your daily client machine, the more leads turn into customers who turn into clients and and it compounds in action. James Kemp: Right? So the sequence is really really important. James Kemp: and syndicate folks know that I just bang on about offers all the time, because it's the big fulcrum. It's the big lever James Kemp: the better your offer the easier everything is the better your offer you don't need to do my selling at all. You just do some invitations the better. Offer the faster your marketing works out of the gate
+
+## How to Apply
+
+is not speed. I constantly go back and reevaluate my offer based on feedback.
+
+
+
+---
+
+# content Framework
+
+## Overview
+
+** This chunk emphasizes the importance of a clear plan within the offer, outlining the promise, plan, pricing, and ROI to maximize value and resonate with prospects.
+
+## Complete Framework
+
+. The key is a product that offers higher client value beyond the community level. This allows clients to control their access and the speed of their results, with greater access generally leading to faster results. ## The Nuance of Selling the Hybrid Offer and Maximizing Value **Summary:** This chunk emphasizes the importance of a clear plan within the offer, outlining the promise, plan, pricing, and ROI to maximize value and resonate with prospects. Video Source:* Sovereign Consultant.txt **Content:** A compelling offer needs a clear promise, plan, and price. Can you articulate their desires and the outcomes of their commitment? Can you describe what they'll see? What negative downsides are you helping them avoid? What happens first, next, and after that? A clear picture of the next few days and weeks is crucial. Pricing should offer a clear ROI and be easy to get started with. ## Crafting Compelling Offers: Promise, Plan, and Pricing **Summary:** This chunk provides a framework for crafting compelling offers, emphasizing a clear promise, a detailed plan, and a justifiable price with a clear ROI, using a real-world example. Video Source:* Sovereign Consultant.txt **Content:** Effective offers have a clear promise, plan, and price. A strong promise outlines the specific outcome, installing a lead generation system that attracts five prospects and secures one high-value client monthly. The plan details the steps involved, developing a client roadmap and setting up a content system. This clarity allows for selling longer-term commitments (12 months) by focusing on initial, shorter-term commitments (6 weeks). ## Using Google Docs for Offer Creation and Iteration **Summary:** This chunk advocates for using Google Docs for offer creation due to its speed, ease of sharing, and modification, allowing for dynamic iteration based on market feedback. Video Source:* Sovereign Consultant.txt **Content:** Use Google Docs for offer creation. They're fast to create, share, and modify, allowing for dynamic iteration based on market feedback. The market writes the offer; iterate based on their feedback. This dynamic approach allows you to refine your offer until it resonates with your target audience and achieves the desired results. ## Clarity on Your Core Offering and Avoiding Messaging Confusion **Summary:** This chunk reiterates the importance of clarity on your core offering and avoiding muddled messaging, especially as your business grows and evolves. Video Source:* Sovereign Consultant.txt **Content:** Clarity about your core offering is paramount. It's easy to get sidetracked, but staying true to your core offering is essential for effective messaging and offer creation. Avoid muddying your message by trying to be everything to everyone. Focus on what you do best and let that clarity guide your decisions. ## Product Structure: Content, Community, and Customization **Summary:** This chunk outlines the three key components of product structure: content, community, and customization, and emphasizes the importance of a clear promise, plan, and price with a demonstrable ROI. Video Source:* Sovereign Consultant.txt **Content:** Products should include content (training videos), community (interaction platform), and customization (tailored access). Ensure your offer includes a promise, plan, and price with a clear ROI. If you can deliver on these elements, your offer is market-ready. Different levels of access within the product cater to varying client needs and budgets. ## Validating Your Offer and the Importance of Three Sales **Summary:** This chunk sets a validation milestone of three sales for new offers and explains how even a small network can provide valuable feedback for rapid iteration and improvement. Video Source:* Sovereign Consultant.txt **Content:** Aim for three sales to validate your offer. This milestone allows you to test your offer's viability and gather initial feedback. A smaller network allows for faster feedback and iteration, improving your offer more quickly through direct, real-world interaction. If 30% of people who see your offer buy it, you have something scalable
+
+## How to Apply
+
+involved, developing a client roadmap and setting up a content system. This clarity allows for selling longer-term commitments (12 months) by focusing on initial, shorter-term commitments (6 weeks).
+
+
+
+================================================================================
+
+## FILE: 26_own_Framework_Complete.txt
+
+---
+title: own Framework - Complete Guide & Ach Framework - Complete Guide
+type: frameworks
+source_files: 1d5153d5ffa7b721  # Limit to 5 for readability
+keywords: method, framework, ach, system, own
+token_count: 1765
+duplicates_removed: 0
+generated: 2025-07-07T12:14:59.794683
+---
+
+# own Framework - Complete Guide & Ach Framework - Complete Guide
+
+# own Framework
+
+## Overview
+
+James Kemp: So we do, which is all to say, understand the principles, follow the the pattern, but introduce James Kemp: your own process to it.
+
+## Complete Framework
+
+## Q&A: The Importance of Differentiation & Creativity James Kemp: The the creative. We've talked about this a bit. And, office hours and the circle calls this week is the creative requirement. Adam Franklin: And these categories and the businesses that we're in. James Kemp: Isn't just the things people look at and images and those things. It's creative. Requirement is is differentiation. James Kemp: Bye, the barriers to entry in almost every James Kemp: coaching, consulting agency services category have just dropped into the floor. James Kemp: Anyone can do and say whatever they on the Internet. And this means that people have James Kemp: fatigue on a lot of different levels. They have offer fatigue, they have face fatigue, they have idea, fatigue. James Kemp: and the the crazier you are the easier it is now, because you will James Kemp: see and do, and feel and say and present things that other people don't have access to, and James Kemp: the one of the declines in performance of advertising is because the speed to copy everybody else is just ramped up to infinity. Right as soon as you launch something good. If people are watching you, someone else will launch almost the identical thing. James Kemp: and that will James Kemp: it does. It has a dual. It's a duality it educates the market. And so maybe it's good, but it also induces fatigue in the market because they're seeing the same idea. James Kemp: said the same way by different people. And they people just get blindness right? James Kemp: And so the creative requirement James Kemp: that the burden on all of us now is to be different right? And the irony James Kemp: is that the more time you spend in places this, the more time you spend looking at what your friends, colleagues, peers, competitors, and those things are, are doing, the harder it is to be creative. Adam Franklin: And. James Kemp: Over over time for me. James Kemp: My best ideas have come from adjacent markets, or taking b 2 c ideas to b 2 b, or taking concepts, and one plus one equals 9 by taking concepts from different places and introducing them into the marketplaces and the places you operate in. James Kemp: which is all to say. James Kemp: The more you try and follow. James Kemp: I understand. That's why I always try and present the principles and the thinking behind these things rather than just. This is what to do. James Kemp: Because if you just stick on, the this is what to do, and these are the tactics. And this is what to say, and those things James Kemp: that it won't work by default because James Kemp: everybody else is saying it, and everybody else is doing it, and everybody else is saying it in exactly the same way. James Kemp: and James Kemp: some of the measures that people have to take, especially sensitive people who absorb everything and are looking at what everybody else is doing. James Kemp: Some of the measures that people have to take to deprogram themselves from of doing the same thing in the same way, and saying the same stuff, and then getting annoyed that it doesn't work are extreme. James Kemp: So we do, which is all to say, understand the principles, follow the the pattern, but introduce James Kemp: your own process to it. Your own, essence to it, and and those things, and James Kemp: I'm increasingly reluctant to James Kemp: in many ways give scripts. And what exactly do I say in this? And what exactly do I say in that? James Kemp: Because if I'm giving them to 100 people at once. James Kemp: I'm just further perpetuating there their James Kemp: the the averageness, because that's that's what it returns to in the mean
+
+## How to Apply
+
+to it. Your own, essence to it, and and those things, and James Kemp: I'm increasingly reluctant to James Kemp: in many ways give scripts.
+
+
+
+---
+
+# Ach Framework
+
+## Overview
+
+The first step that we go through in the plan is aligning you with your James Kemp: ideal niche that you can freely express yourself to with my Ach system.
+
+## Complete Framework
+
+. julie williams: Hmm. julie williams: okay. thanks, Jess. James Kemp: I, and I'll and I'll say it again. James Kemp: I'm being really prescriptive today. James Kemp: And black syndicate folks will get into mindset, and those things all we and other and other contexts, but. James Kemp: the act of doing this. James Kemp: the active to the construction of it. as James Kemp: getting it out, getting it out of the way and getting it out there. That's all that matters. You can feel lots of ways about things. James Kemp: but if you're committed to the outcome that you want for yourself, and you're the outcome that you want for the client. Then only do the things that you want to do. James Kemp: Emily. Emily Utter: Hi, I have lots of questions as usual, I did my first workshop today. I think I had 14 sales. which I guess is all right, considering I have no social media. And I made the offer for the first time, and it was a hot mess. But anyways. Emily Utter: as you're going through this, what I'm realizing, I think my offer. Promise still isn't clear. I'm in the make more money category. That's what I'm helping them do. But I feel my Emily Utter: angle of it. And this might be the problem I'm not sure is the self expression. love your business Emily Utter: what we did in the workshop today was, explore the different friction points all the things they don't really in the business. Right? Emily Utter: So Emily Utter: I wrote, I wrote a bunch of notes while you're talking. Can my core offer be? I help you make more money through self-expression? Or is that too nebulous? And people are fuck that, or I don't care, or whatever James Kemp: it is, pretty nebulous, how much money? What does the expression look ? Emily Utter: Well, so okay, for example, I helped a client shift her niche, and then the very first launch of her program. She did a half a million launch, and it's because I helped her do the thing she really wanted to do, instead of the thing she was pretending she wanted to do. James Kemp: So. The first step that we go through in the plan is aligning you with your James Kemp: ideal niche that you can freely express yourself to with my Ach system. Emily Utter: Okay. Emily Utter: no such system exists. It's Emily's bullshit meter. Put a Tm on everything, and it's a system, right Emily Utter: whatever. I think when you mentioned the bleeding confusion I was, yeah. And I think, too, most of the people who bought my workshop. And I'm sure, the first sales into this community. They're all gonna be people who've worked with me. Emily Utter: And so I've been banking on the fact that, they know, my time is worth it. And so I could call it Emily Utter: talk to Emily, and I feel those people would still buy. Maybe that's naive. Maybe I'm being lazy. And I do have my whole. Pdf, I don't know if you're open to looking at it, or I can post it, or whatever. But James Kemp: The core is, the core is making more money. Emily Utter: But the method is through James Kemp: self expression. Emily Utter: right? Right? But people aren't waking up in the night crying over their self expression. are they? Yeah? Cause. They're ashamed of making money. James Kemp: just people are ashamed of wanting good relationships or having more sex or getting better bodies when it comes down to it
+
+## How to Apply
+
+that we go through in the plan is aligning you with your James Kemp: ideal niche that you can freely express yourself to with my Ach system. Emily Utter: Okay.
+
+
+
+================================================================================
+
+## FILE: 27_step_Framework_Complete.txt
+
+---
+title: step Framework - Complete Guide & generation Framework - Complete Guide
+type: frameworks
+source_files: 1d5153d5ffa7b721  # Limit to 5 for readability
+keywords: generation, method, framework, step, system
+token_count: 2357
+duplicates_removed: 0
+generated: 2025-07-07T12:14:59.794780
+---
+
+# step Framework - Complete Guide & generation Framework - Complete Guide
+
+# step Framework
+
+## Overview
+
+This Standard Operating Procedure (SOP) outlines the step-by-step process for reproducing the "DCM 2.
+
+## Complete Framework
+
+# HighLevel Funnel Reproduction SOP: DCM 2.0 Templates
+## Overview This Standard Operating Procedure (SOP) outlines the step-by-step process for reproducing the "DCM 2.0 Templates" funnel from James Kemp's HighLevel account with customized service and sales copy for clients.
+## Funnel Structure Analysis
+Based on the API analysis of the DCM 2.0 Templates funnel (ID: ATb1XCi2a8fAMP9ME7cY), the funnel contains the following 8 steps:
+### Core Funnel Flow: 1. **Social Code $9 (TEMPLATE)** - Big idea video page 2. **Upsell 1: The 3k Code + Social Code (TEMPLATE)** - First upsell bundle 3. **Upsell 2: Sovereign Membership - 9 Day Trial (TEMPLATE)** - Membership upsell 4. **Delivery - The Social Code (TEMPLATE)** - Product delivery page 5. **The Sovereign Community Membership - Thank You (TEMPLATE)** - Membership thank you 6. **Delivery - The 3k Code and Social Code (TEMPLATE)** - Bundle delivery page 7. **BUMP: The Cash Campaign Templates (Template)** - Order bump/ downsell 8. **The Client Funnel** - Final installation/setup page
+## Prerequisites
+### Required Access: - HighLevel Agency/Location account with funnel creation permissions - API access (if automating the process) - Copywriting tool access for content customization - Client's business information and unique value proposition
+### Required Information from Client: - Business name and branding - Target audience description - Unique service/product offering - Pricing structure - Value propositions - Contact information - Payment processing setup
+## Step-by-Step Reproduction Process
+### Phase 1: Funnel Setup and Structure
+#### Step 1: Create New Funnel
+
+1. Log into HighLevel account 2. Navigate to Sites > Funnels 3. Click "Create New Funnel" 4. Name the funnel: "[Client Name] - [Service Name] Funnel" 5. Set the funnel URL slug: `/[client-service-name]` ##
+
+[details]. DM for link."
+ This is a sales page with insight. Sell up to the line, but make the sale via DM. ## The Sovereign Consultant: Prioritizing Life Over Business **Summary:** James Kemp introduces the Sovereign Consultant model, emphasizing the importance of building a life that a business feeds, rather than the other way around, and prioritizing intentional inputs and leverage. Video Source:* Sovereign Consultant.txt **Content:** The Sovereign Consultant model is about building a life that a business feeds. Most people want a good life, and the cash flow, impact, and meaning a business provides can feed that life. It's easy to stay at the surface level of strategy, but tactics and strategies alone are volatile and exhausting. Principles and philosophy guide strategy and lower volatility. My calendar demonstrates what's important to me: daily exercise, date night, family dinner, client group calls, and calls only on Tuesdays and Thursdays. This creates space for creativity and flow. You don't earn the right to free space; you choose it. Intentional time management dictates results. The Sovereign way is about leverage and serving the maximum number of people. ## The Sovereign Consultant: Building a Brand **Summary:** James Kemp outlines a three-step process for building a strong brand: defining and selling a unique mechanism, crafting an aspirational identity, and building a world around your brand. Video Source:* Sovereign Consultant.txt **Content:** A brand is what people say about you when you're not there. The ideal brand does all the selling. Three components: world, identity, and mechanisms. Start with the mechanism – the way you get results. It needs to be unique (yours) and work. Examples: Daily Client Machine (lead magnet with a self-liquidating offer), Customers to Clients (low-ticket workshops with an offer), Hybrid Offer (selling via documents). Next, craft an aspirational identity. What does someone become when they commit to your world? JK's "Cash Creators" is a great example. Finally, world-building. People buy who you are more than what you do. World-building is an abstraction of your reality. Components: characters, language, places, storylines, memes. My world: The Brazilian, Mr. 13, Miss 7, the cat, the dog, Bali, my journey back to $3 million. Have fun with it (oat milk, Atomic Habits). ``` ============================================================
+
+## Components
+
+### Log into HighLevel account 2. Navigate to Sites > Funnels 3. Click "Create New Funnel" 4. Name the funnel
+
+"[Client Name] - [Service Name] Funnel" 5. Set the funnel URL slug: `/[client-service-name]` ##
+
+## How to Apply
+
+process for reproducing the "DCM 2.0 Templates" funnel from James Kemp's HighLevel account with customized service and sales copy for clients.
+
+
+
+---
+
+# generation Framework
+
+## Overview
+
+** This chunk emphasizes the importance of a clear plan within the offer, outlining the promise, plan, pricing, and ROI to maximize value and resonate with prospects.
+
+## Complete Framework
+
+Future buyers and customers captured early
+Faster cashflow and marketing scale
+31% of email list are buyers
+Higher conversion rates on future offers
+Enhancing Lead Generation Efficiency
+James discussed the inefficiencies of traditional lead generation systems, highlighting that only 1-5% of an audience typically converts to clients, resulting in significant waste. He emphasized the need for scalable and controlled systems to identify potential clients early and generate cash flow during growth. James also explained different client types, from those investing in long-term coaching to occasional buyers, and stressed the importance of adapting strategies to the evolving market. He concluded that while traditional lead generation methods still work, they are not sustainable for long-term growth and need to be improved for better efficiency and scalability.
+Unified Funnel Strategy Integration
+James discussed his work on integrating two distinct funnel approaches into a unified strategy. He explained how the dual-mode client generation system can use non-client buyers to fund marketing efforts while targeting high-quality prospects. James outlined two main buying types: one focused on consuming information and deriving insight, and another on purchasing and consuming information. He emphasized that both approaches have their advantages and can be used together to create a more effective funnel system. James also touched on the importance of understanding the context around offers, including what happens before and after the offer itself.
+Marketing Strategies and Content Optimization
+James discussed various marketing strategies, including hybrid offers, daily client machines, and video-based content. He emphasized the importance of using a style that is native to the presenter and highlighted the significance of the headline in driving conversions for big idea videos and VSLs. James also explained the concept of insight funnels, starting with high-tier offers and downselling if necessary, and discussed the effectiveness of different ad formats for low-ticket funnels. He concluded by explaining the DCM (Daily Client Machine) concept and the importance of presenting the same core ideas in different formats to appeal to different buying types.
+Optimizing Low-Ticket Funnel Strategies
+
+. The key is a product that offers higher client value beyond the community level. This allows clients to control their access and the speed of their results, with greater access generally leading to faster results. ## The Nuance of Selling the Hybrid Offer and Maximizing Value **Summary:** This chunk emphasizes the importance of a clear plan within the offer, outlining the promise, plan, pricing, and ROI to maximize value and resonate with prospects. Video Source:* Sovereign Consultant.txt **Content:** A compelling offer needs a clear promise, plan, and price. Can you articulate their desires and the outcomes of their commitment? Can you describe what they'll see? What negative downsides are you helping them avoid? What happens first, next, and after that? A clear picture of the next few days and weeks is crucial. Pricing should offer a clear ROI and be easy to get started with. ## Crafting Compelling Offers: Promise, Plan, and Pricing **Summary:** This chunk provides a framework for crafting compelling offers, emphasizing a clear promise, a detailed plan, and a justifiable price with a clear ROI, using a real-world example. Video Source:* Sovereign Consultant.txt **Content:** Effective offers have a clear promise, plan, and price. A strong promise outlines the specific outcome, installing a lead generation system that attracts five prospects and secures one high-value client monthly. The plan details the steps involved, developing a client roadmap and setting up a content system. This clarity allows for selling longer-term commitments (12 months) by focusing on initial, shorter-term commitments (6 weeks). ## Using Google Docs for Offer Creation and Iteration **Summary:** This chunk advocates for using Google Docs for offer creation due to its speed, ease of sharing, and modification, allowing for dynamic iteration based on market feedback. Video Source:* Sovereign Consultant.txt **Content:** Use Google Docs for offer creation. They're fast to create, share, and modify, allowing for dynamic iteration based on market feedback. The market writes the offer; iterate based on their feedback. This dynamic approach allows you to refine your offer until it resonates with your target audience and achieves the desired results. ## Clarity on Your Core Offering and Avoiding Messaging Confusion **Summary:** This chunk reiterates the importance of clarity on your core offering and avoiding muddled messaging, especially as your business grows and evolves. Video Source:* Sovereign Consultant.txt **Content:** Clarity about your core offering is paramount. It's easy to get sidetracked, but staying true to your core offering is essential for effective messaging and offer creation. Avoid muddying your message by trying to be everything to everyone. Focus on what you do best and let that clarity guide your decisions. ## Product Structure: Content, Community, and Customization **Summary:** This chunk outlines the three key components of product structure: content, community, and customization, and emphasizes the importance of a clear promise, plan, and price with a demonstrable ROI. Video Source:* Sovereign Consultant.txt **Content:** Products should include content (training videos), community (interaction platform), and customization (tailored access). Ensure your offer includes a promise, plan, and price with a clear ROI. If you can deliver on these elements, your offer is market-ready. Different levels of access within the product cater to varying client needs and budgets. ## Validating Your Offer and the Importance of Three Sales **Summary:** This chunk sets a validation milestone of three sales for new offers and explains how even a small network can provide valuable feedback for rapid iteration and improvement. Video Source:* Sovereign Consultant.txt **Content:** Aim for three sales to validate your offer. This milestone allows you to test your offer's viability and gather initial feedback. A smaller network allows for faster feedback and iteration, improving your offer more quickly through direct, real-world interaction. If 30% of people who see your offer buy it, you have something scalable
+
+## How to Apply
+
+involved, developing a client roadmap and setting up a content system. This clarity allows for selling longer-term commitments (12 months) by focusing on initial, shorter-term commitments (6 weeks).
+
+
+
+================================================================================
+
+## FILE: 28_complicated_Framework_Complete.txt
+
+---
+title: complicated Framework - Complete Guide & Customization Framework - Complete Guide
+type: frameworks
+source_files: 1d5153d5ffa7b721  # Limit to 5 for readability
+keywords: method, framework, complicated, customization, system
+token_count: 2698
+duplicates_removed: 0
+generated: 2025-07-07T12:14:59.794872
+---
+
+# complicated Framework - Complete Guide & Customization Framework - Complete Guide
+
+# complicated Framework
+
+## Overview
+
+** Chris Benetti cautions against overcomplicating ads and funnels, advising to keep things simple and avoid getting bogged down in complex technical strategies.
+
+## Complete Framework
+
+now where my hourly rate is $3 to $4,000 an hour right we have a unique tax situation so that's not only mostly profit it's mostly takehome and then I compare that to the $133,000 $13 an hour I was making 5 years ago the gap between here and there is thousands of hours of one toone coaching yeah so people go the trenches right that sounds amazing how do I create an offer around that it's well you probably can't because you don't have the skills and so I think there's just something to be said about creating business models that yes doesn't suck you're not I'm not spending 30 hours a week one to one coaching but I'll spend 5 to 10 hours a week oneto one with clients because number one it's really profitable people love buying onetoone it's its own unique mechanism in a lot of ways right having a onetoone coach but number two it makes me so good at what I do and I think there's just this crazy belief that people get to 10K a month and they did the hard yards of one to1 and now we're going to launch a course and that's going to get me to seven figure freedom and I'm just going to check into the community once a week and I just think it's bull crap it is but but those people are trying to get away from the pain they've already created M so they think that scaling themselves out of it is the way to do it right so they go well this thing is causing me pain which is one to one so therefore the thing that will provide relief from that pain is not doing one to one y and then the answer lies in a much more Nuance place somewhere in the middle of that is it it depends but when are you I always go back to leverage when are you going to deploy leverage yeah when are you what complexity of you gone through so your clients go through Simplicity right cuz that's Mastery you someone has to go through complexity because to get extraordinary results in anything you need to understand the complex variables that go into getting results of anything the body business relationships ever they're complicated machines and complicated systems someone needs to go through complexity and the idea that you can just package everything up and throw it at a client and go there you go work it out and I'll see you on Wednesday at a
+
+. I keep promising them. I'm going to write some bang along form. I haven't quite hasn't quite come to me yet, but it will come to me where I'll I'll write my I write another one of my disruption ads, or something that you we can probably run for a couple of years. . I've got it in me somewhere. It's just buried in the subconscious right now. But the the balance between, a long form ad. and again use something that works organically. All my long form ads are variants of something that's worked organically on the platform that we put it on. So if you've had a great Facebook post, if you've had a great Linkedin post. If you've had something that's worked particularly well on Instagram that will work as an ad. ## Chris Benetti on Ad Simplicity and Avoiding Overcomplication **Summary:** Chris Benetti cautions against overcomplicating ads and funnels, advising to keep things simple and avoid getting bogged down in complex technical strategies. Focus on getting the core message out and generating clients. Video Source:* Book Funnel Workshop.txt **Content:** I think there's opportunity to overcomplicate ads a lot, and especially if you start this. Okay, this whole thing. Right? Oh, yeah, definitely, yes. I would just say, be wary of the gurus who are technical ad people or technical funnel people, because they'll make you try to build a complicated system. And ultimately it's all gonna stop you from getting the shit out there and getting it done and getting clients from it. So, keep it simple is probably the biggest piece of feedback around ads that I've got. ## Book Funnels: DIY vs. Agency Management **Summary:** While DIY book funnel management is feasible up to a certain ad spend, scaling and optimizing for larger budgets often requires expert assistance. Investing in agency support can be beneficial for maximizing long-term returns and avoiding the complexities of high-spend ad campaigns. Video Source:* Book Funnel Workshop.txt **Content:** Yeah, I before I move on to the client speed I really want you to take away today that a book isn't hard, right? What is hardest, scaling it. getting the economics right, feeding it with creative. And and those things I believe in terms of . Candidly, you can diy this up to a hundred, or, maybe a little bit more a day in terms of ad spend and find your feet and optimize it yourself past that, and to really turn it into a big asset. It's it's complicated because there's a lot of moving parts that you want to get right in the funnel, and there's a lot of moving parts that you get right in the ads. ## Converting Book Customers into Clients: Waitlists and Live Workshops **Summary:** Two effective strategies for converting book customers into clients are using waitlists, which automatically funnel customers into client programs, and hosting live workshops, which offer high conversion rates and opportunities for direct client pitches. Video Source:* Book Funnel Workshop.txt **Content:** So the final, you've got your book. You've got your funnel. You've got some ads up, and you've probably promoted organically as well. You've started talking about it. The 1st 4 months of the sovereign consultant was just me talking about it, and I sold 500 copies of the book just by signing up for the book. Right? The the key piece, and the piece of both. The other piece of experimentation is around converting those those book customers into clients. So I've done 2 things, and I'm gonna double down on one of these things. and discard the other just through experimentation. So the 1st one is putting them on a wait list. And if you want the wait list again, it's in the waitlist training in in the classroom
+
+## How to Apply
+
+See the complete framework description for detailed application guidelines.
+
+
+
+---
+
+# Customization Framework
+
+## Overview
+
+This guide is for users who already have the DCM 2.
+
+## Complete Framework
+
+# Funnel Customization Guide: DCM 2.0 Templates
+## Overview This guide is for users who already have the DCM 2.0 Templates funnel cloned in their HighLevel account and need to customize it with copy generated by the chat app. Follow these steps to replace the template content with your personalized copy.
+## Prerequisites
+✅ DCM 2.0 Templates funnel already cloned in your HighLevel account
+✅ Copy generated from the chat app for your specific service/ business
+✅ Access to your HighLevel account with editing permissions
+✅ Your business assets (logo, images, videos, etc.)
+## Step-by-Step Customization Process
+### Phase 1: Locate Your Cloned Funnel
+1. **Log into your HighLevel account** 2. **Navigate to Sites > Funnels** 3. **Find your cloned DCM 2.0 Templates funnel** - Look for a funnel named "DCM 2.0 Templates" or similar - It should have 8 steps/pages ### Phase 2: Page-by-Page Customization
+#### Page 1: Big Idea Video Page (Social Code $9)
+**Location:** First step in your funnel **URL Pattern:** `/social-code-9-TEMPLATE`
+**Elements to Replace:**
+1. **Main Headline** - Find: Current template headline - Replace with: Chat app generated headline - Location: Top of page, usually in large text
+2. **Subheadline** - Find: Supporting headline text - Replace with: Chat app generated subheadline - Location: Below main headline
+3. **Video Section** - Find: Existing video placeholder or embed - Replace with: Your big idea video - **How to:** Click on video element > Replace video URL/embed code
+
+4. **Benefits List** - Find: Bullet points or numbered list of benefits - Replace with: Chat app generated benefits (usually 3-5 points) - **How to:** Click on each bullet point and edit text
+5. **Price Point** - Find: "$9" or current price - Replace with: Your chosen price point - Location: Usually near the buy button
+6. **Call-to-Action Button** - Find: "Buy Now" or similar button text - Replace with: Chat app generated CTA text - **How to:** Click button > Edit text
+7. **Testimonials/Social Proof** - Find: Existing testimonial sections - Replace with: Your customer testimonials - **How to:** Click testimonial text > Replace with your content
+8. **Business Name/Branding** - Find: "James Kemp" or "Social Code" references - Replace with: Your business name and product name - **Search tip:** Use Ctrl+F (Cmd+F on Mac) to find all instances #### Page 2: First Upsell (3k Code + Social Code Bundle)
+**Location:** Second step in funnel **URL Pattern:** `/3k-code-and-social-code-bundle-TEMPLATE`
+**Elements to Replace:**
+1. **Upsell Headline** - Find: "Wait! Get [Bundle Name]" text - Replace with: Chat app generated upsell headline
+2. **Bundle Description** - Find: Description of what's included in bundle - Replace with: Your bundle contents and benefits
+3. **Pricing** - Find: Bundle price (likely $97-$297 range) - Replace with: Your bundle pricing
+4. **Accept/Decline Buttons** - Find: "Yes, I want this" and "No thanks" buttons - Replace with: Chat app generated button text
+##
+
+## Components
+
+### **Log into your HighLevel account** 2. **Navigate to Sites > Funnels** 3. **Find your cloned DCM 2.0 Templates funnel** - Look for a funnel named "DCM 2.0 Templates" or similar - It should have 8 steps/pages ### Phase 2
+
+Page-by-Page Customization
+#### Page 1: Big Idea Video Page (Social Code $9)
+**Location:** First step in your funnel **URL Pattern:** `/social-code-9-TEMPLATE`
+**Elements to Replace:**
+
+### **Main Headline** - Find
+
+Current template headline - Replace with: Chat app generated headline - Location: Top of page, usually in large text
+
+### **Subheadline** - Find
+
+Supporting headline text - Replace with: Chat app generated subheadline - Location: Below main headline
+
+### **Video Section** - Find
+
+Existing video placeholder or embed - Replace with: Your big idea video - **How to:** Click on video element > Replace video URL/embed code
+
+### **Benefits List** - Find
+
+Bullet points or numbered list of benefits - Replace with: Chat app generated benefits (usually 3-5 points) - **How to:** Click on each bullet point and edit text
+
+### **Price Point** - Find
+
+"$9" or current price - Replace with: Your chosen price point - Location: Usually near the buy button
+
+### **Call-to-Action Button** - Find
+
+"Buy Now" or similar button text - Replace with: Chat app generated CTA text - **How to:** Click button > Edit text
+
+### **Testimonials/Social Proof** - Find
+
+Existing testimonial sections - Replace with: Your customer testimonials - **How to:** Click testimonial text > Replace with your content
+
+### **Business Name/Branding** - Find
+
+"James Kemp" or "Social Code" references - Replace with: Your business name and product name - **Search tip:** Use Ctrl+F (Cmd+F on Mac) to find all instances #### Page 2: First Upsell (3k Code + Social Code Bundle)
+**Location:** Second step in funnel **URL Pattern:** `/3k-code-and-social-code-bundle-TEMPLATE`
+**Elements to Replace:**
+
+### **Upsell Headline** - Find
+
+"Wait! Get [Bundle Name]" text - Replace with: Chat app generated upsell headline
+
+### **Bundle Description** - Find
+
+Description of what's included in bundle - Replace with: Your bundle contents and benefits
+
+### **Pricing** - Find
+
+Bundle price (likely $97-$297 range) - Replace with: Your bundle pricing
+
+### **Accept/Decline Buttons** - Find
+
+"Yes, I want this" and "No thanks" buttons - Replace with: Chat app generated button text
+##
+
+## How to Apply
+
+to replace the template content with your personalized copy.
+## Prerequisites
+✅ DCM 2.
+
+
+
+================================================================================
+

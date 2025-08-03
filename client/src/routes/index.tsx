@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react';
 import { createBrowserRouter, Navigate, Outlet } from 'react-router-dom';
 import {
   Login,
@@ -10,14 +11,26 @@ import {
 } from '~/components/Auth';
 import { OAuthSuccess, OAuthError } from '~/components/OAuth';
 import { AuthContextProvider } from '~/hooks/AuthContext';
+import { Spinner } from '~/components/svg';
 import RouteErrorBoundary from './RouteErrorBoundary';
 import StartupLayout from './Layouts/Startup';
 import LoginLayout from './Layouts/Login';
+
+// Lazy load heavy components
+const ShareRoute = lazy(() => import('./ShareRoute'));
+const ChatRoute = lazy(() => import('./ChatRoute'));
+const Search = lazy(() => import('./Search'));
+const Root = lazy(() => import('./Root'));
+
+// Dashboard routes need to be imported normally as they're route configs
 import dashboardRoutes from './Dashboard';
-import ShareRoute from './ShareRoute';
-import ChatRoute from './ChatRoute';
-import Search from './Search';
-import Root from './Root';
+
+// Loading component
+const LoadingSpinner = () => (
+  <div className="flex h-screen items-center justify-center">
+    <Spinner className="text-text-primary" />
+  </div>
+);
 
 const AuthLayout = () => (
   <AuthContextProvider>
@@ -26,10 +39,35 @@ const AuthLayout = () => (
   </AuthContextProvider>
 );
 
+// Wrapper components for lazy loaded routes
+const LazyRoot = () => (
+  <Suspense fallback={<LoadingSpinner />}>
+    <Root />
+  </Suspense>
+);
+
+const LazyChatRoute = () => (
+  <Suspense fallback={<LoadingSpinner />}>
+    <ChatRoute />
+  </Suspense>
+);
+
+const LazySearch = () => (
+  <Suspense fallback={<LoadingSpinner />}>
+    <Search />
+  </Suspense>
+);
+
+const LazyShareRoute = () => (
+  <Suspense fallback={<LoadingSpinner />}>
+    <ShareRoute />
+  </Suspense>
+);
+
 export const router = createBrowserRouter([
   {
     path: 'share/:shareId',
-    element: <ShareRoute />,
+    element: <LazyShareRoute />,
     errorElement: <RouteErrorBoundary />,
   },
   {
@@ -47,25 +85,6 @@ export const router = createBrowserRouter([
     ],
   },
   {
-    path: '/',
-    element: <StartupLayout />,
-    errorElement: <RouteErrorBoundary />,
-    children: [
-      {
-        path: 'register',
-        element: <Registration />,
-      },
-      {
-        path: 'forgot-password',
-        element: <RequestPasswordReset />,
-      },
-      {
-        path: 'reset-password',
-        element: <ResetPassword />,
-      },
-    ],
-  },
-  {
     path: 'verify',
     element: <VerifyEmail />,
     errorElement: <RouteErrorBoundary />,
@@ -74,6 +93,24 @@ export const router = createBrowserRouter([
     element: <AuthLayout />,
     errorElement: <RouteErrorBoundary />,
     children: [
+      {
+        path: '/',
+        element: <StartupLayout />,
+        children: [
+          {
+            path: 'register',
+            element: <Registration />,
+          },
+          {
+            path: 'forgot-password',
+            element: <RequestPasswordReset />,
+          },
+          {
+            path: 'reset-password',
+            element: <ResetPassword />,
+          },
+        ],
+      },
       {
         path: '/',
         element: <LoginLayout />,
@@ -91,7 +128,7 @@ export const router = createBrowserRouter([
       dashboardRoutes,
       {
         path: '/',
-        element: <Root />,
+        element: <LazyRoot />,
         children: [
           {
             index: true,
@@ -99,11 +136,11 @@ export const router = createBrowserRouter([
           },
           {
             path: 'c/:conversationId?',
-            element: <ChatRoute />,
+            element: <LazyChatRoute />,
           },
           {
             path: 'search',
-            element: <Search />,
+            element: <LazySearch />,
           },
         ],
       },

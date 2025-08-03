@@ -4,15 +4,14 @@ import * as s from './schemas';
 
 export default function createPayload(submission: t.TSubmission) {
   const {
-    isEdited,
+    conversation,
     userMessage,
+    endpointOption,
+    isEdited,
     isContinued,
     isTemporary,
-    isRegenerate,
-    conversation,
-    editedContent,
     ephemeralAgent,
-    endpointOption,
+    editedContent,
   } = submission;
   const { conversationId } = s.tConvoUpdateSchema.parse(conversation);
   const { endpoint: _e, endpointType } = endpointOption as {
@@ -32,12 +31,11 @@ export default function createPayload(submission: t.TSubmission) {
     ...userMessage,
     ...endpointOption,
     endpoint,
-    isTemporary,
-    isRegenerate,
-    editedContent,
-    conversationId,
-    isContinued: !!(isEdited && isContinued),
     ephemeralAgent: s.isAssistantsEndpoint(endpoint) ? undefined : ephemeralAgent,
+    isContinued: !!(isEdited && isContinued),
+    conversationId,
+    isTemporary,
+    editedContent,
   };
 
   return { server, payload };
