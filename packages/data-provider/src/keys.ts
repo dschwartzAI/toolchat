@@ -48,6 +48,20 @@ export enum QueryKeys {
   banner = 'banner',
   /* Memories */
   memories = 'memories',
+  /* Academy */
+  courses = 'courses',
+  modules = 'modules',
+  course = 'course',
+  lesson = 'lesson',
+  lessonProgress = 'lessonProgress',
+  courseProgress = 'courseProgress',
+  forumCategories = 'forumCategories',
+  forumPosts = 'forumPosts',
+  forumPost = 'forumPost',
+  userEnrollments = 'userEnrollments',
+  adminCourses = 'adminCourses',
+  academyForumPosts = 'academyForumPosts',
+  academyForumPost = 'academyForumPost',
 }
 
 export enum MutationKeys {
