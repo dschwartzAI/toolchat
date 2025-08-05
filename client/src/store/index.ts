@@ -12,12 +12,14 @@ import lang from './language';
 import settings from './settings';
 import misc from './misc';
 import isTemporary from './temporary';
+import academy from './academy';
 export * from './agents';
 
 export default {
   ...artifacts,
   ...families,
   ...endpoints,
+  ...academy,
   ...user,
   ...text,
   ...toast,

@@ -17,6 +17,7 @@ import {
 import TermsAndConditionsModal from '~/components/ui/TermsAndConditionsModal';
 import { useUserTermsQuery, useGetStartupConfig } from '~/data-provider';
 import { Nav, MobileNav } from '~/components/Nav';
+import AcademySidebar from '~/components/Academy/AcademySidebar';
 import { useHealthCheck } from '~/data-provider';
 import { Banner } from '~/components/Banners';
 import { migrateLocalStorage } from '~/utils/localStorage';
@@ -28,6 +29,7 @@ export default function Root() {
     const savedNavVisible = localStorage.getItem('navVisible');
     return savedNavVisible !== null ? JSON.parse(savedNavVisible) : true;
   });
+  const [academyVisible, setAcademyVisible] = useState(false);
 
   const { isAuthenticated, logout } = useAuthContext();
 
@@ -77,7 +79,17 @@ export default function Root() {
             <Banner onHeightChange={setBannerHeight} />
             <div className="flex" style={{ height: `calc(100dvh - ${bannerHeight}px)` }}>
               <div className="relative z-0 flex h-full w-full overflow-hidden">
-                <Nav navVisible={navVisible} setNavVisible={setNavVisible} />
+                <Nav 
+                  navVisible={navVisible} 
+                  setNavVisible={setNavVisible}
+                  academyVisible={academyVisible}
+                  setAcademyVisible={setAcademyVisible}
+                />
+                {academyVisible && (
+                  <div className="border-r border-border-light">
+                    <AcademySidebar onClose={() => setAcademyVisible(false)} />
+                  </div>
+                )}
                 <div className="relative flex h-full max-w-full flex-1 flex-col overflow-hidden">
                   <MobileNav setNavVisible={setNavVisible} />
                   <Outlet context={{ navVisible, setNavVisible } satisfies ContextType} />

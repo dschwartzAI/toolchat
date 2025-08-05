@@ -25,6 +25,9 @@ const Root = lazy(() => import('./Root'));
 // Dashboard routes need to be imported normally as they're route configs
 import dashboardRoutes from './Dashboard';
 
+// Academy routes
+const AcademyRoutes = lazy(() => import('./Academy'));
+
 // Loading component
 const LoadingSpinner = () => (
   <div className="flex h-screen items-center justify-center">
@@ -141,6 +144,14 @@ export const router = createBrowserRouter([
           {
             path: 'search',
             element: <LazySearch />,
+          },
+          {
+            path: 'academy/*',
+            element: (
+              <Suspense fallback={<LoadingSpinner />}>
+                <AcademyRoutes />
+              </Suspense>
+            ),
           },
         ],
       },

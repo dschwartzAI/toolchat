@@ -18,6 +18,7 @@ import { Conversations } from '~/components/Conversations';
 import SearchBar from './SearchBar';
 import NewChat from './NewChat';
 import { Logo } from '~/components/ui';
+import { GraduationCap } from '~/components/svg';
 import { cn } from '~/utils';
 import store from '~/store';
 const TagNav = lazy(() => import('./Tags/TagNav'));
@@ -52,9 +53,13 @@ const Nav = memo(
   ({
     navVisible,
     setNavVisible,
+    academyVisible,
+    setAcademyVisible,
   }: {
     navVisible: boolean;
     setNavVisible: React.Dispatch<React.SetStateAction<boolean>>;
+    academyVisible?: boolean;
+    setAcademyVisible?: React.Dispatch<React.SetStateAction<boolean>>;
   }) => {
     const localize = useLocalize();
     const { isAuthenticated } = useAuthContext();
@@ -239,6 +244,24 @@ const Nav = memo(
                         headerButtons={headerButtons}
                         isSmallScreen={isSmallScreen}
                       />
+                      {setAcademyVisible && (
+                        <div className="px-2 mb-1">
+                          <button
+                            onClick={() => setAcademyVisible(!academyVisible)}
+                            className={cn(
+                              'group flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all duration-200',
+                              'border border-transparent',
+                              academyVisible 
+                                ? 'bg-green-500/15 text-green-600 border-green-500/30' 
+                                : 'bg-surface-secondary/50 hover:bg-surface-secondary hover:border-border-light text-text-secondary hover:text-text-primary'
+                            )}
+                            aria-label={localize('com_academy_title')}
+                          >
+                            <GraduationCap className="h-4 w-4" />
+                            <span>{localize('com_academy_title') || 'Academy'}</span>
+                          </button>
+                        </div>
+                      )}
                       <Conversations
                         conversations={conversations}
                         moveToTop={moveToTop}

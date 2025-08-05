@@ -1,7 +1,10 @@
 import { useMutation, useQueryClient, UseMutationOptions } from '@tanstack/react-query';
 import { QueryKeys } from 'librechat-data-provider';
+import request from '~/data-provider/request';
 
-// Mock implementations for now
+// Re-export specialized mutations
+export * from './moduleMutations';
+export * from './forumMutations';
 
 // Progress mutations
 export const useUpdateLessonProgressMutation = (
