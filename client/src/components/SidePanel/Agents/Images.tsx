@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 import * as Popover from '@radix-ui/react-popover';
 import { useLocalize } from '~/hooks';
 
@@ -33,12 +33,18 @@ export const AgentAvatarRender = ({
 }) => {
   const radius = 55; // Radius of the SVG circle
   const circumference = 2 * Math.PI * radius;
+  const [imageError, setImageError] = React.useState(false);
 
   // Calculate the offset based on the loading progress
   const offset = circumference - progress * circumference;
   const circleCSSProperties = {
     transition: 'stroke-dashoffset 0.3s linear',
   };
+
+  // If image fails to load, show NoImage component
+  if (imageError || !url) {
+    return <NoImage />;
+  }
 
   return (
     <div>
@@ -51,6 +57,7 @@ export const AgentAvatarRender = ({
           height="80"
           style={{ opacity: progress < 1 ? 0.4 : 1 }}
           key={url || 'default-key'}
+          onError={() => setImageError(true)}
         />
         {progress < 1 && (
           <div className="absolute inset-0 flex items-center justify-center bg-black/5 text-white">

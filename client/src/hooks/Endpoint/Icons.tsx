@@ -1,3 +1,4 @@
+import React from 'react';
 import { EModelEndpoint } from 'librechat-data-provider';
 import type { IconMapProps, AgentIconMapProps, IconsRecord } from '~/common';
 import { Feather, User, Wrench } from 'lucide-react';
@@ -40,15 +41,21 @@ const AssistantAvatar = ({
   return <User className={cn(context === 'landing' ? 'icon-2xl' : '', className)} size={size} />;
 };
 
-const AgentAvatar = ({ className = '', avatar = '', agentName, size }: AgentIconMapProps) => {
-  if (agentName != null && agentName && avatar) {
+const AgentAvatar = ({ className = '', avatar = '', agentName, size, iconURL }: AgentIconMapProps) => {
+  const [imageError, setImageError] = React.useState(false);
+  
+  // Use iconURL as fallback when avatar fails to load or doesn't exist
+  const imageSrc = (avatar && !imageError) ? avatar : iconURL;
+  
+  if (agentName != null && agentName && imageSrc) {
     return (
       <img
-        src={avatar}
+        src={imageSrc}
         className="bg-token-surface-secondary dark:bg-token-surface-tertiary h-full w-full rounded-full object-cover"
         alt={agentName}
         width="80"
         height="80"
+        onError={() => setImageError(true)}
       />
     );
   }

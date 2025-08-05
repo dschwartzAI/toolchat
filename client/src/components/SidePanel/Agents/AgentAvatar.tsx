@@ -14,7 +14,7 @@ import type {
   AgentCreateParams,
   AgentListResponse,
 } from 'librechat-data-provider';
-import { useUploadAgentAvatarMutation, useGetFileConfig } from '~/data-provider';
+import { useUploadAgentAvatarMutation, useGetFileConfig, useGetStartupConfig } from '~/data-provider';
 import { AgentAvatarRender, NoImage, AvatarMenu } from './Images';
 import { useToastContext } from '~/Providers';
 import { useLocalize } from '~/hooks';
@@ -38,6 +38,7 @@ function Avatar({
   const { data: fileConfig = defaultFileConfig } = useGetFileConfig({
     select: (data) => mergeFileConfig(data),
   });
+  const { data: startupConfig } = useGetStartupConfig();
 
   const localize = useLocalize();
   const { showToast } = useToastContext();
@@ -106,9 +107,19 @@ function Avatar({
     if (avatar && avatar.filepath) {
       setPreviewUrl(avatar.filepath);
     } else {
+      // Check for modelSpec fallback
+      if (agent_id && startupConfig?.modelSpecs?.list) {
+        const spec = startupConfig.modelSpecs.list.find(
+          (spec) => spec.preset?.agent_id === agent_id
+        );
+        if (spec?.iconURL || spec?.specIconURL) {
+          setPreviewUrl(spec.iconURL || spec.specIconURL || '');
+          return;
+        }
+      }
       setPreviewUrl('');
     }
-  }, [avatar]);
+  }, [avatar, agent_id, startupConfig]);
 
   useEffect(() => {
     /** Experimental: Condition to prime avatar upload before Agent Creation

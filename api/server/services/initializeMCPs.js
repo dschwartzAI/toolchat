@@ -36,7 +36,7 @@ async function initializeMCPs(app) {
   const flowManager = flowsCache ? getFlowStateManager(flowsCache) : null;
 
   try {
-    await mcpManager.initializeMCPs({
+    await mcpManager.initializeMCP({
       mcpServers: filteredServers,
       flowManager,
       tokenMethods: {

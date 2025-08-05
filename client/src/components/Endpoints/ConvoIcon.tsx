@@ -44,15 +44,25 @@ export default function ConvoIcon({
     ? (entity as t.Agent | undefined)?.avatar?.filepath
     : ((entity as t.Assistant | undefined)?.metadata?.avatar as string);
 
+  // Add modelSpec fallback for when agent isn't loaded yet
+  const modelSpecIconURL = isAgent && !entity && conversation?.agent_id
+    ? endpointsConfig?.modelSpecs?.list?.find(
+        spec => spec.preset?.agent_id === conversation.agent_id
+      )?.iconURL
+    : null;
+
   const endpointIconURL = getEndpointField(endpointsConfig, endpoint, 'iconURL');
   const iconKey = getIconKey({ endpoint, endpointsConfig, endpointIconURL });
   const Icon = icons[iconKey] ?? null;
 
+  // Use avatar if available, otherwise fall back to iconURL or modelSpec iconURL
+  const displayIconURL = avatar || iconURL || modelSpecIconURL;
+
   return (
     <>
-      {iconURL && iconURL.includes('http') ? (
+      {displayIconURL && (displayIconURL.includes('http') || displayIconURL.startsWith('/images/')) ? (
         <ConvoIconURL
-          iconURL={iconURL}
+          iconURL={displayIconURL}
           modelLabel={conversation?.chatGptLabel ?? conversation?.modelLabel ?? ''}
           endpointIconURL={endpointIconURL}
           assistantAvatar={avatar}

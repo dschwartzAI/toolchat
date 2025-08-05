@@ -145,8 +145,5 @@
       "admin/",
       "packages/"
     ]
-  },
-  "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.17.1"
   }
 }
