@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArrowLeft, PlayCircle, FileText, Link, ChevronDown, ChevronUp, ChevronRight, CheckCircle, MessageCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { EModelEndpoint } from 'librechat-data-provider';
+import useNewConvo from '~/hooks/useNewConvo';
 import { cn } from '~/utils';
 import type { TModule } from '~/data-provider/Academy/types';
 
@@ -13,6 +15,7 @@ const ModuleViewer: React.FC<ModuleViewerProps> = ({ module, onBack }) => {
   const [isTranscriptExpanded, setIsTranscriptExpanded] = useState(false);
   const [isCompleted, setIsCompleted] = useState(false);
   const navigate = useNavigate();
+  const { newConversation } = useNewConvo();
 
   const handleMarkComplete = () => {
     setIsCompleted(true);
@@ -21,14 +24,36 @@ const ModuleViewer: React.FC<ModuleViewerProps> = ({ module, onBack }) => {
   };
 
   const handleChatWithCourse = () => {
-    // Navigate directly with the agent_id parameter and initial text
+    // Create a new conversation with DarkJK agent
     const initialText = `I'm watching "${module.title}". Help me understand `;
-    navigate(`/c/new?agent_id=agent_KVXW88WVte1tcyABlAowy`, {
-      state: { 
-        focusChat: true,
-        initialText: initialText
-      }
+    
+    // First, create a new conversation with the DarkJK agent
+    newConversation({
+      template: {
+        endpoint: EModelEndpoint.agents,
+        agent_id: 'agent_KVXW88WVte1tcyABlAowy',
+        title: `Academy: ${module.title}`
+      },
+      buildDefault: true
     });
+    
+    // Navigate with the initial text - the newConversation already handles navigation
+    // We just need to update the state after a brief delay to ensure the conversation is set
+    setTimeout(() => {
+      // The newConversation already navigated to /c/new
+      // We need to set the initial text in the chat form
+      const currentPath = window.location.pathname;
+      if (currentPath.includes('/c/')) {
+        // Force update the location state with initial text
+        navigate(currentPath, {
+          replace: true,
+          state: { 
+            focusChat: true,
+            initialText: initialText
+          }
+        });
+      }
+    }, 200);
   };
 
   const formatDuration = (seconds?: number) => {
