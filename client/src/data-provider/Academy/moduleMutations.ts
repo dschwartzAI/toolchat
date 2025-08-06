@@ -11,7 +11,7 @@ export const useCreateModuleMutation = (
   return useMutation({
     mutationFn: async (data: any) => {
       const response = await request.post('/api/lms/modules', data);
-      return response.data;
+      return response;
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['modules'] });
@@ -28,7 +28,7 @@ export const useUpdateModuleMutation = (
   return useMutation({
     mutationFn: async ({ moduleId, updates }: { moduleId: string; updates: any }) => {
       const response = await request.put(`/api/lms/modules/${moduleId}`, updates);
-      return response.data;
+      return response;
     },
     onSuccess: (data, variables) => {
       queryClient.invalidateQueries({ queryKey: ['module', variables.moduleId] });
@@ -46,7 +46,7 @@ export const useDeleteModuleMutation = (
   return useMutation({
     mutationFn: async (moduleId: string) => {
       const response = await request.delete(`/api/lms/modules/${moduleId}`);
-      return response.data;
+      return response;
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['modules'] });
@@ -63,7 +63,7 @@ export const useRestoreModuleMutation = (
   return useMutation({
     mutationFn: async (moduleId: string) => {
       const response = await request.post(`/api/lms/modules/${moduleId}/restore`);
-      return response.data;
+      return response;
     },
     onSuccess: (data, moduleId) => {
       queryClient.invalidateQueries({ queryKey: ['module', moduleId] });
@@ -81,7 +81,7 @@ export const useReorderModulesMutation = (
   return useMutation({
     mutationFn: async (moduleOrders: Array<{ moduleId: string; order: number }>) => {
       const response = await request.post('/api/lms/modules/reorder', { moduleOrders });
-      return response.data;
+      return response;
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['modules'] });
@@ -109,7 +109,7 @@ export const useUploadThumbnailMutation = (
           },
         }
       );
-      return response.data;
+      return response;
     },
     onSuccess: (data, variables) => {
       queryClient.invalidateQueries({ queryKey: ['module', variables.moduleId] });
@@ -130,7 +130,7 @@ export const useBulkPublishMutation = (
         moduleIds,
         isPublished,
       });
-      return response.data;
+      return response;
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['modules'] });

@@ -32,7 +32,6 @@ const CommunityTab: React.FC = () => {
   
   const createPostMutation = useCreateForumPostMutation({
     onSuccess: (newPost) => {
-      console.log('[CommunityTab] Post created successfully:', newPost);
       // Add the new post to local state immediately with proper formatting
       if (newPost) {
         // Ensure the post has the expected structure
@@ -63,7 +62,6 @@ const CommunityTab: React.FC = () => {
   
   const deletePostMutation = useDeletePostMutation({
     onSuccess: (data) => {
-      console.log('[CommunityTab] Post deleted successfully:', data);
       // Remove the post from local state immediately
       setForumPosts(posts => posts.filter(p => p._id !== data?.postId));
       showToast({ 
@@ -84,7 +82,6 @@ const CommunityTab: React.FC = () => {
   
   const deleteReplyMutation = useDeleteReplyMutation({
     onSuccess: (data, replyId) => {
-      console.log('[CommunityTab] Reply deleted successfully');
       // Remove from local state
       setForumPosts(posts => posts.map(post => ({
         ...post,
@@ -107,7 +104,6 @@ const CommunityTab: React.FC = () => {
   
   const pinPostMutation = usePinPostMutation({
     onSuccess: (data) => {
-      console.log('[CommunityTab] Post pin toggled successfully:', data);
       showToast({ 
         message: data?.pinned ? 'Post pinned to top' : 'Post unpinned', 
         status: 'success' 
@@ -124,7 +120,6 @@ const CommunityTab: React.FC = () => {
   
   const updatePostMutation = useUpdatePostMutation({
     onSuccess: () => {
-      console.log('[CommunityTab] Post updated successfully');
       showToast({ 
         message: 'Post updated successfully', 
         status: 'success' 
@@ -141,7 +136,6 @@ const CommunityTab: React.FC = () => {
   
   const createReplyMutation = useCreateForumReplyMutation({
     onSuccess: (newReply, variables) => {
-      console.log('[CommunityTab] Reply created successfully:', newReply);
       // Add the reply to local state immediately
       if (newReply) {
         const formattedReply = {
@@ -183,39 +177,24 @@ const CommunityTab: React.FC = () => {
   const posts = postsData?.pages?.[0]?.posts || postsData?.posts || [];
   const categories = Array.isArray(categoriesData) ? categoriesData : [];
 
-  // Debug logging
-  console.log('[CommunityTab] postsData:', postsData);
-  console.log('[CommunityTab] postsData?.pages?.[0]:', postsData?.pages?.[0]);
-  console.log('[CommunityTab] postsData?.pages?.[0]?.posts:', postsData?.pages?.[0]?.posts);
-  console.log('[CommunityTab] postsData?.posts:', postsData?.posts);
-  console.log('[CommunityTab] posts extracted:', posts);
-  console.log('[CommunityTab] posts.length:', posts.length);
-  console.log('[CommunityTab] forumPosts.length:', forumPosts.length);
-
   // Initialize forum posts with query data on first load
   useEffect(() => {
-    console.log('[CommunityTab] useEffect - posts.length:', posts.length, 'forumPosts.length:', forumPosts.length);
     if (posts.length > 0 && forumPosts.length === 0) {
-      console.log('[CommunityTab] Setting forumPosts with:', posts);
       setForumPosts(posts);
     }
   }, [posts, setForumPosts]);
 
   const handleCreatePost = async (newPost: { title: string; content: string; category: string }) => {
     try {
-      console.log('[CommunityTab] handleCreatePost called with:', newPost);
       const postData = {
         title: newPost.title,
         content: newPost.content,
         categoryId: newPost.category,
         tags: []
       };
-      console.log('[CommunityTab] Sending post data:', postData);
       await createPostMutation.mutateAsync(postData);
-      console.log('[CommunityTab] Post creation initiated');
     } catch (error: any) {
       console.error('[CommunityTab] Failed to create post:', error);
-      console.error('[CommunityTab] Error details:', error.response?.data);
     }
   };
   
@@ -234,9 +213,7 @@ const CommunityTab: React.FC = () => {
     
     try {
       if (deleteConfirm.type === 'post') {
-        console.log('[CommunityTab] Attempting to delete post:', deleteConfirm.id);
         const result = await deletePostMutation.mutateAsync(deleteConfirm.id);
-        console.log('[CommunityTab] Delete result:', result);
         // Remove from local state immediately
         setForumPosts(posts => posts.filter(p => p._id !== deleteConfirm.id));
       } else {
@@ -271,20 +248,13 @@ const CommunityTab: React.FC = () => {
 
   const handleAddComment = async (postId: string, content: string, parentId?: string) => {
     try {
-      console.log('[CommunityTab] Creating comment for post:', postId);
-      console.log('[CommunityTab] Comment content:', content);
-      console.log('[CommunityTab] Parent reply ID:', parentId);
-      
       await createReplyMutation.mutateAsync({
         postId,
         content,
         parentReplyId: parentId
       });
-      
-      console.log('[CommunityTab] Comment creation initiated');
     } catch (error: any) {
       console.error('[CommunityTab] Failed to create comment:', error);
-      console.error('[CommunityTab] Error details:', error.response?.data);
     }
   };
 
@@ -306,9 +276,7 @@ const CommunityTab: React.FC = () => {
   
   const handleTogglePin = async (postId: string) => {
     try {
-      console.log('[CommunityTab] Attempting to toggle pin for post:', postId);
       const result = await pinPostMutation.mutateAsync(postId);
-      console.log('[CommunityTab] Pin toggle result:', result);
       // Update local state to reflect the pin status
       setForumPosts(posts => posts.map(p => 
         p._id === postId 
@@ -322,7 +290,6 @@ const CommunityTab: React.FC = () => {
   
   const handleEditPost = async (postId: string, title: string, content: string) => {
     try {
-      console.log('[CommunityTab] Attempting to edit post:', postId);
       await updatePostMutation.mutateAsync({ 
         postId, 
         updates: { title, content } 
@@ -340,8 +307,6 @@ const CommunityTab: React.FC = () => {
 
   // Use forumPosts as the source of truth since it contains all updates
   let allPosts = forumPosts.length > 0 ? forumPosts : posts;
-  console.log('[CommunityTab] allPosts before filter:', allPosts);
-  console.log('[CommunityTab] allPosts.length before filter:', allPosts.length);
 
   // Apply category filter
   if (selectedCategory !== 'all') {
@@ -356,10 +321,6 @@ const CommunityTab: React.FC = () => {
     // Otherwise sort by creation date
     return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
   });
-
-  console.log('[CommunityTab] allPosts after filter:', allPosts);
-  console.log('[CommunityTab] allPosts.length after filter:', allPosts.length);
-  console.log('[CommunityTab] selectedCategory:', selectedCategory);
 
   return (
     <div className="h-full flex flex-col">

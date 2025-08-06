@@ -1,15 +1,6 @@
 import { useQuery, UseQueryOptions } from '@tanstack/react-query';
 import { QueryKeys, request } from 'librechat-data-provider';
 import type { TGetCoursesResponse, TGetModulesResponse } from './types';
-import { 
-  mockCourses, 
-  mockForumCategories, 
-  mockForumPosts, 
-  mockCourseProgress,
-  mockLessonProgress,
-  mockUserEnrollments 
-} from './mockData';
-import { mockModules } from './mockModules';
 
 export const useGetModulesQuery = (
   options?: UseQueryOptions<TGetModulesResponse>
@@ -17,9 +8,8 @@ export const useGetModulesQuery = (
   return useQuery<TGetModulesResponse>({
     queryKey: [QueryKeys.modules],
     queryFn: async () => {
-      // Use mock data for now
-      return Promise.resolve(mockModules as TGetModulesResponse);
-      // Future: return request.get('/api/lms/modules').then((res) => res.data);
+      const response = await request.get('/api/lms/modules');
+      return response;
     },
     ...options,
   });
@@ -33,7 +23,7 @@ export const useGetModuleQuery = (
     queryKey: ['module', moduleId],
     queryFn: async () => {
       const response = await request.get(`/api/lms/modules/${moduleId}`);
-      return response.data;
+      return response;
     },
     enabled: !!moduleId,
     ...options,
@@ -46,9 +36,7 @@ export const useGetCoursesQuery = (
   return useQuery<TGetCoursesResponse>({
     queryKey: [QueryKeys.courses],
     queryFn: async () => {
-      // Use mock data for now
-      return Promise.resolve(mockCourses as TGetCoursesResponse);
-      // Original: return request.get('/api/lms/courses').then((res) => res.data);
+      return request.get('/api/lms/courses');
     },
     ...options,
   });
@@ -61,10 +49,7 @@ export const useGetCourseQuery = (
   return useQuery<any>({
     queryKey: [QueryKeys.course, courseId],
     queryFn: async () => {
-      // Use mock data for now
-      const course = mockCourses.courses.find(c => c._id === courseId);
-      return Promise.resolve(course);
-      // Original: return request.get(`/api/lms/courses/${courseId}`).then((res) => res.data);
+      return request.get(`/api/lms/courses/${courseId}`);
     },
     enabled: !!courseId,
     ...options,
@@ -78,16 +63,7 @@ export const useGetLessonQuery = (
   return useQuery<any>({
     queryKey: [QueryKeys.lesson, lessonId],
     queryFn: async () => {
-      // Use mock data for now - find lesson in courses
-      for (const course of mockCourses.courses) {
-        for (const module of course.modules || []) {
-          const lesson = module.lessons?.find(l => l._id === lessonId);
-          if (lesson) {
-            return Promise.resolve(lesson);
-          }
-        }
-      }
-      return Promise.resolve(null);
+      return request.get(`/api/lms/lessons/${lessonId}`);
     },
     enabled: !!lessonId,
     ...options,
@@ -102,9 +78,7 @@ export const useGetCourseProgressQuery = (
   return useQuery<any>({
     queryKey: [QueryKeys.courseProgress, courseId],
     queryFn: async () => {
-      // Use mock data for now
-      return Promise.resolve(mockCourseProgress);
-      // Original: return request.get(`/api/lms/progress/course/${courseId}`).then((res) => res.data);
+      return request.get(`/api/lms/progress/course/${courseId}`);
     },
     enabled: !!courseId,
     ...options,
@@ -124,18 +98,14 @@ export const useGetForumCategoriesQuery = (
       ];
       
       try {
-        console.log('[ForumCategories] Making API request to /api/lms/forum/categories');
         const response = await request.get('/api/lms/forum/categories');
-        console.log('[ForumCategories] API response:', response);
         
         if (response && Array.isArray(response)) {
           return response;
         }
         
-        console.warn('[ForumCategories] API returned unexpected response format, using fallback');
         return fallbackCategories;
       } catch (error) {
-        console.error('[ForumCategories] API call failed:', error);
         return fallbackCategories;
       }
     },

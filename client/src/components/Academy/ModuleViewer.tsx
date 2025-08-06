@@ -17,6 +17,36 @@ const ModuleViewer: React.FC<ModuleViewerProps> = ({ module, onBack }) => {
   const navigate = useNavigate();
   const { newConversation } = useNewConvo();
 
+  // Helper function to convert video URLs to proper embed format
+  const getEmbedUrl = (url: string) => {
+    if (!url) return '';
+    
+    // Handle Vimeo URLs
+    if (url.includes('vimeo.com')) {
+      // Extract video ID from various Vimeo URL formats
+      const vimeoMatch = url.match(/vimeo\.com\/(\d+)/);
+      if (vimeoMatch) {
+        return `https://player.vimeo.com/video/${vimeoMatch[1]}?badge=0&autopause=0&player_id=0&app_id=58479`;
+      }
+    }
+    
+    // Handle YouTube URLs
+    if (url.includes('youtube.com') || url.includes('youtu.be')) {
+      // Already embedded YouTube URL
+      if (url.includes('youtube.com/embed/')) {
+        return url;
+      }
+      // Convert watch URL to embed
+      const youtubeMatch = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\n?#]+)/);
+      if (youtubeMatch) {
+        return `https://www.youtube.com/embed/${youtubeMatch[1]}`;
+      }
+    }
+    
+    // Return original URL if it's already in embed format or unrecognized
+    return url;
+  };
+
   const handleMarkComplete = () => {
     setIsCompleted(true);
     // In production, this would update the backend
@@ -99,11 +129,11 @@ const ModuleViewer: React.FC<ModuleViewerProps> = ({ module, onBack }) => {
             <div className="bg-surface-secondary rounded-lg overflow-hidden">
               <div className="aspect-video bg-black">
                 <iframe
-                  src={module.videoUrl}
+                  src={getEmbedUrl(module.videoUrl)}
                   className="w-full h-full"
                   allowFullScreen
                   title={module.title}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
                 />
               </div>
               <div className="p-3 border-t border-border-light">

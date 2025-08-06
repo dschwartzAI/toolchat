@@ -79,20 +79,38 @@ const ForumController = {
         });
       }
       
+      // Populate replies/comments for each post
+      const ForumReply = require('~/models/ForumReply');
+      const postsWithReplies = await Promise.all(posts.map(async (post) => {
+        const replies = await ForumReply.find({ 
+          post: post._id, 
+          deletedAt: null 
+        })
+          .populate('author', 'name avatar')
+          .sort({ createdAt: 1 })
+          .lean();
+        
+        return {
+          ...post,
+          comments: replies // Add replies as comments field expected by frontend
+        };
+      }));
+      
       const total = await ForumPost.countDocuments({ deletedAt: null });
       
-      logger.info(`[ForumController] Found ${posts.length} posts out of ${total} total`);
-      logger.info(`[ForumController] Sample post structure:`, posts[0] ? {
-        id: posts[0]._id,
-        title: posts[0].title,
-        category: posts[0].category,
-        author: posts[0].author
+      logger.info(`[ForumController] Found ${postsWithReplies.length} posts out of ${total} total`);
+      logger.info(`[ForumController] Sample post structure:`, postsWithReplies[0] ? {
+        id: postsWithReplies[0]._id,
+        title: postsWithReplies[0].title,
+        category: postsWithReplies[0].category,
+        author: postsWithReplies[0].author,
+        commentsCount: postsWithReplies[0].comments?.length || 0
       } : 'No posts found');
       
       res.json({
-        posts,
+        posts: postsWithReplies,
         total,
-        hasMore: (parseInt(offset) + posts.length) < total
+        hasMore: (parseInt(offset) + postsWithReplies.length) < total
       });
     } catch (error) {
       logger.error('[ForumController] Error getting all posts:', error);

@@ -169,8 +169,11 @@ const ModuleEditor: React.FC<ModuleEditorProps> = ({ module, onSave, onCancel })
                 id="videoUrl"
                 value={formData.videoUrl}
                 onChange={(e) => setFormData({ ...formData, videoUrl: e.target.value })}
-                placeholder="https://youtube.com/embed/..."
+                placeholder="https://vimeo.com/123456789 or https://youtube.com/watch?v=..."
               />
+              <p className="mt-1 text-xs text-text-tertiary">
+                Supports Vimeo and YouTube URLs. Just paste the regular video URL - it will be automatically converted.
+              </p>
             </div>
           </div>
 
