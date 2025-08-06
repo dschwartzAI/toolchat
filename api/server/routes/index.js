@@ -28,6 +28,7 @@ const user = require('./user');
 const mcp = require('./mcp');
 const integrations = require('./integrations');
 const feedback = require('./feedback-simple');
+const lms = require('./lms');
 
 module.exports = {
   edit,
@@ -60,4 +61,5 @@ module.exports = {
   mcp,
   integrations,
   feedback,
+  lms,
 };

@@ -23,6 +23,11 @@ const {
 const { getConvoTitle, getConvo, saveConvo, deleteConvos } = require('./Conversation');
 const { getPreset, getPresets, savePreset, deletePresets } = require('./Preset');
 
+// LMS Models
+const Module = require('./Module');
+const ForumPost = require('./ForumPost');
+const ForumReply = require('./ForumReply');
+
 module.exports = {
   ...methods,
   comparePassword,
@@ -51,4 +56,9 @@ module.exports = {
   getPresets,
   savePreset,
   deletePresets,
+
+  // LMS Models
+  Module,
+  ForumPost,
+  ForumReply,
 };

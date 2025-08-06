@@ -142,6 +142,7 @@ export default function useSideNavLinks({
       Component: FilesPanel,
     });
 
+
     if (hasAccessToBookmarks) {
       links.push({
         title: 'com_sidepanel_conversation_tags',

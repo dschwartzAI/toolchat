@@ -294,6 +294,6 @@ userSchema.index({ email: 1 });
 userSchema.index({ username: 1 });
 userSchema.index({ tier: 1 });
 
-const User = mongoose.model('User', userSchema);
+const User = mongoose.models.User || mongoose.model('User', userSchema);
 
 module.exports = User;

@@ -134,3 +134,20 @@ helm/**/.values.yaml
 /.openai/
 /.tabnine/
 /.codeium
+
+# Test files that might contain credentials
+test-module-creation.js
+test-*.js
+
+# Knowledge processing scripts (may contain API keys)
+process_knowledge.py
+**/process_knowledge*.py
+**/search_knowledge.py
+**/test_*_search.py
+
+# JK knowledge folders
+JK knowledge/
+docs/JK Vector Knowledge/
+docs/knowledge/processed_chunks/
+docs/knowledge/processed_chunks_fixed/
+docs/knowledge/*.pdf

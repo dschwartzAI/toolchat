@@ -115,6 +115,7 @@ const startServer = async () => {
   app.use('/api/tags', routes.tags);
   app.use('/api/mcp', routes.mcp);
   app.use('/api/feedback', routes.feedback);
+  app.use('/api/lms', routes.lms);
 
   // Add the error controller one more time after all routes
   app.use(errorController);

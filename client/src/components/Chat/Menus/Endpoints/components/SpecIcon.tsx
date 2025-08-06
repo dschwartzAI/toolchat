@@ -19,9 +19,8 @@ const SpecIcon: React.FC<SpecIconProps> = ({ currentSpec, endpointsConfig }) => 
   const iconKey = getIconKey({ endpoint, endpointsConfig, endpointIconURL });
   let Icon: IconType;
 
-  if (!iconURL.includes('http')) {
-    Icon = (icons[iconURL] ?? icons[iconKey] ?? icons.unknown) as IconType;
-  } else if (iconURL) {
+  // Check if iconURL is a path to an image file (starts with / or http)
+  if (iconURL && (iconURL.startsWith('/') || iconURL.includes('http'))) {
     return (
       <URLIcon
         iconURL={iconURL}
@@ -31,6 +30,9 @@ const SpecIcon: React.FC<SpecIconProps> = ({ currentSpec, endpointsConfig }) => 
         endpoint={endpoint || undefined}
       />
     );
+  } else if (iconURL) {
+    // Check if iconURL is a key in the icons object
+    Icon = (icons[iconURL] ?? icons[iconKey] ?? icons.unknown) as IconType;
   } else {
     Icon = (icons[endpoint ?? ''] ?? icons[iconKey] ?? icons.unknown) as IconType;
   }
