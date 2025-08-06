@@ -66,9 +66,10 @@ export default function Header() {
               <>
                 <FeedbackButton />
                 <ThemeToggle />
-                <ExportAndShareMenu
+                {/* Export/Share hidden per requirements - saves mobile UI space */}
+                {/* <ExportAndShareMenu
                   isSharedButtonEnabled={startupConfig?.sharedLinksEnabled ?? false}
-                />
+                /> */}
                 {/* Temporary chat button hidden per requirements */}
                 {/* <TemporaryChat /> */}
               </>
@@ -79,9 +80,10 @@ export default function Header() {
           <div className="flex items-center gap-2">
             <FeedbackButton />
             <ThemeToggle />
-            <ExportAndShareMenu
+            {/* Export/Share hidden per requirements - saves UI space */}
+            {/* <ExportAndShareMenu
               isSharedButtonEnabled={startupConfig?.sharedLinksEnabled ?? false}
-            />
+            /> */}
             {/* Temporary chat button hidden per requirements */}
             {/* <TemporaryChat /> */}
           </div>

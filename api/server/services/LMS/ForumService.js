@@ -435,18 +435,23 @@ class ForumService {
         throw new Error('Post not found');
       }
 
+      const newPinnedState = !post.isPinned;
+
       // If we're pinning this post, unpin all others first
-      if (!post.isPinned) {
+      if (newPinnedState) {
         await ForumPost.updateMany(
           { isPinned: true },
           { $set: { isPinned: false } }
         );
       }
 
-      post.isPinned = !post.isPinned;
-      await post.save();
+      // Update the post using updateOne to avoid validation issues
+      await ForumPost.updateOne(
+        { _id: postId },
+        { $set: { isPinned: newPinnedState } }
+      );
 
-      return { pinned: post.isPinned };
+      return { pinned: newPinnedState };
     } catch (error) {
       logger.error('[ForumService] Error toggling pin:', error);
       throw error;
@@ -461,10 +466,15 @@ class ForumService {
         throw new Error('Post not found');
       }
 
-      post.isLocked = !post.isLocked;
-      await post.save();
+      const newLockedState = !post.isLocked;
 
-      return { locked: post.isLocked };
+      // Update the post using updateOne to avoid validation issues
+      await ForumPost.updateOne(
+        { _id: postId },
+        { $set: { isLocked: newLockedState } }
+      );
+
+      return { locked: newLockedState };
     } catch (error) {
       logger.error('[ForumService] Error toggling lock:', error);
       throw error;
