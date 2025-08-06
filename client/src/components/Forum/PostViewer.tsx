@@ -1,13 +1,21 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, ThumbsUp, MessageCircle, Eye, MoreVertical, Flag, Edit, Trash } from 'lucide-react';
+import { ArrowLeft, ThumbsUp, MessageCircle, Eye, MoreVertical, Flag, Edit, Trash, Pin, Lock, History } from 'lucide-react';
+import { SystemRoles } from 'librechat-data-provider';
 import { cn } from '~/utils';
-import { Button, DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '~/components/ui';
+import { Button, DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator, Dialog, DialogContent, DialogHeader, DialogTitle } from '~/components/ui';
 import { Spinner } from '~/components/svg';
 import ReplyThread from './ReplyThread';
 import CreateReply from './CreateReply';
 import { useLocalize, useAuthContext } from '~/hooks';
-import { useGetForumPostQuery, useLikePostMutation, useDeletePostMutation } from '~/data-provider/Academy';
+import { 
+  useGetForumPostQuery, 
+  useLikePostMutation, 
+  useDeletePostMutation,
+  usePinPostMutation,
+  useLockPostMutation,
+  useRestorePostMutation
+} from '~/data-provider/Academy';
 import { useToastContext } from '~/Providers';
 import { formatDistanceToNow } from '~/utils/formatDate';
 import ReactMarkdown from 'react-markdown';
@@ -22,10 +30,16 @@ export const PostViewer: React.FC = () => {
   
   const [showReplyForm, setShowReplyForm] = useState(false);
   const [editingReplyId, setEditingReplyId] = useState<string | null>(null);
+  const [showEditHistory, setShowEditHistory] = useState(false);
 
   const { data: post, isLoading, error } = useGetForumPostQuery(postId || '');
   const likePost = useLikePostMutation();
   const deletePost = useDeletePostMutation();
+  const pinPost = usePinPostMutation();
+  const lockPost = useLockPostMutation();
+  const restorePost = useRestorePostMutation();
+  
+  const isAdmin = user?.role === SystemRoles.ADMIN;
 
   const handleLike = () => {
     if (!post) return;
@@ -59,6 +73,50 @@ export const PostViewer: React.FC = () => {
         onError: () => {
           showToast({
             message: localize('com_academy_delete_error'),
+            status: 'error'
+          });
+        }
+      }
+    );
+  };
+
+  const handlePin = () => {
+    if (!post) return;
+    
+    pinPost.mutate(
+      post._id,
+      {
+        onSuccess: () => {
+          showToast({
+            message: post.isPinned ? localize('com_academy_post_unpinned') : localize('com_academy_post_pinned'),
+            status: 'success'
+          });
+        },
+        onError: () => {
+          showToast({
+            message: localize('com_academy_action_failed'),
+            status: 'error'
+          });
+        }
+      }
+    );
+  };
+
+  const handleLock = () => {
+    if (!post) return;
+    
+    lockPost.mutate(
+      post._id,
+      {
+        onSuccess: () => {
+          showToast({
+            message: post.isLocked ? localize('com_academy_post_unlocked') : localize('com_academy_post_locked'),
+            status: 'success'
+          });
+        },
+        onError: () => {
+          showToast({
+            message: localize('com_academy_action_failed'),
             status: 'error'
           });
         }
@@ -104,9 +162,28 @@ export const PostViewer: React.FC = () => {
           </Button>
 
           <div className="flex items-start justify-between gap-4">
-            <h1 className="text-3xl font-bold text-text-primary">{post.title}</h1>
+            <div className="flex-1">
+              <h1 className="text-3xl font-bold text-text-primary">{post.title}</h1>
+              <div className="flex items-center gap-2 mt-2">
+                {post.isPinned && (
+                  <span className="text-xs bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 px-2 py-1 rounded">
+                    {localize('com_academy_pinned')}
+                  </span>
+                )}
+                {post.isLocked && (
+                  <span className="text-xs bg-gray-100 dark:bg-gray-900/30 text-gray-600 dark:text-gray-400 px-2 py-1 rounded">
+                    {localize('com_academy_locked')}
+                  </span>
+                )}
+                {post.deletedAt && isAdmin && (
+                  <span className="text-xs bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 px-2 py-1 rounded">
+                    {localize('com_academy_deleted')}
+                  </span>
+                )}
+              </div>
+            </div>
             
-            {isAuthor && (
+            {(isAuthor || isAdmin) && (
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" size="icon">
@@ -114,14 +191,48 @@ export const PostViewer: React.FC = () => {
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
-                  <DropdownMenuItem onClick={() => navigate(`/academy/forum/posts/${post._id}/edit`)}>
-                    <Edit className="h-4 w-4 mr-2" />
-                    {localize('com_ui_edit')}
-                  </DropdownMenuItem>
-                  <DropdownMenuItem onClick={handleDelete} className="text-red-600">
-                    <Trash className="h-4 w-4 mr-2" />
-                    {localize('com_ui_delete')}
-                  </DropdownMenuItem>
+                  {isAuthor && (
+                    <>
+                      <DropdownMenuItem onClick={() => navigate(`/academy/forum/posts/${post._id}/edit`)}>
+                        <Edit className="h-4 w-4 mr-2" />
+                        {localize('com_ui_edit')}
+                      </DropdownMenuItem>
+                      <DropdownMenuItem onClick={handleDelete} className="text-red-600">
+                        <Trash className="h-4 w-4 mr-2" />
+                        {localize('com_ui_delete')}
+                      </DropdownMenuItem>
+                    </>
+                  )}
+                  
+                  {post.editHistory && post.editHistory.length > 0 && (
+                    <>
+                      {isAuthor && <DropdownMenuSeparator />}
+                      <DropdownMenuItem onClick={() => setShowEditHistory(true)}>
+                        <History className="h-4 w-4 mr-2" />
+                        {localize('com_academy_view_edit_history')}
+                      </DropdownMenuItem>
+                    </>
+                  )}
+                  
+                  {isAdmin && (
+                    <>
+                      {(isAuthor || post.editHistory?.length > 0) && <DropdownMenuSeparator />}
+                      <DropdownMenuItem onClick={handlePin}>
+                        <Pin className="h-4 w-4 mr-2" />
+                        {post.isPinned ? localize('com_academy_unpin') : localize('com_academy_pin')}
+                      </DropdownMenuItem>
+                      <DropdownMenuItem onClick={handleLock}>
+                        <Lock className="h-4 w-4 mr-2" />
+                        {post.isLocked ? localize('com_academy_unlock') : localize('com_academy_lock')}
+                      </DropdownMenuItem>
+                      {!isAuthor && (
+                        <DropdownMenuItem onClick={handleDelete} className="text-red-600">
+                          <Trash className="h-4 w-4 mr-2" />
+                          {localize('com_ui_delete')}
+                        </DropdownMenuItem>
+                      )}
+                    </>
+                  )}
                 </DropdownMenuContent>
               </DropdownMenu>
             )}
@@ -242,6 +353,38 @@ export const PostViewer: React.FC = () => {
           )}
         </div>
       </div>
+
+      {/* Edit History Dialog */}
+      {showEditHistory && post.editHistory && post.editHistory.length > 0 && (
+        <Dialog open={showEditHistory} onOpenChange={setShowEditHistory}>
+          <DialogContent className="max-w-3xl max-h-[80vh] overflow-y-auto">
+            <DialogHeader>
+              <DialogTitle>{localize('com_academy_edit_history')}</DialogTitle>
+            </DialogHeader>
+            <div className="space-y-4">
+              {post.editHistory.map((edit, index) => (
+                <div key={index} className="border-b border-border-light pb-4">
+                  <div className="flex items-center gap-2 text-sm text-text-secondary mb-2">
+                    <span>{localize('com_academy_edited_by')}: {edit.editedBy?.name || 'Unknown'}</span>
+                    <span>•</span>
+                    <span>{formatDistanceToNow(edit.editedAt)}</span>
+                  </div>
+                  {edit.title && (
+                    <div className="mb-2">
+                      <span className="font-medium">{localize('com_academy_title')}:</span>
+                      <p className="text-text-secondary">{edit.title}</p>
+                    </div>
+                  )}
+                  <div>
+                    <span className="font-medium">{localize('com_academy_content')}:</span>
+                    <div className="text-text-secondary whitespace-pre-wrap">{edit.content}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </DialogContent>
+        </Dialog>
+      )}
     </div>
   );
 };

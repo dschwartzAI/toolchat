@@ -1,55 +1,253 @@
 import React, { useState, useEffect } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { useGetForumCategoriesQuery, useGetForumPostsQuery } from '~/data-provider';
-import { Filter } from 'lucide-react';
+import { 
+  useCreateForumPostMutation,
+  useCreateForumReplyMutation,
+  useDeletePostMutation,
+  useDeleteReplyMutation,
+  usePinPostMutation,
+  useUpdatePostMutation
+} from '~/data-provider/Academy/forumMutations';
+import { Filter, AlertTriangle } from 'lucide-react';
 import PostCreator from './PostCreator';
 import PostPreview from './PostPreview';
 import store from '~/store';
 import { cn } from '~/utils';
+import { useToastContext } from '~/Providers';
 
 const CommunityTab: React.FC = () => {
   const [expandedPosts, setExpandedPosts] = useRecoilState(store.expandedPosts);
   const [forumPosts, setForumPosts] = useRecoilState(store.forumPosts);
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const [deleteConfirm, setDeleteConfirm] = useState<{ show: boolean; type: 'post' | 'comment'; id: string; title?: string } | null>(null);
   const currentUser = useRecoilValue(store.user);
+  const { showToast } = useToastContext();
   
   const { data: categoriesData, isLoading: categoriesLoading } = useGetForumCategoriesQuery();
   const { data: postsData, isLoading: postsLoading } = useGetForumPostsQuery({
     categoryId: selectedCategory === 'all' ? null : selectedCategory,
     sortBy: 'recent'
   });
+  
+  const createPostMutation = useCreateForumPostMutation({
+    onSuccess: (newPost) => {
+      console.log('[CommunityTab] Post created successfully:', newPost);
+      // Add the new post to local state immediately with proper formatting
+      if (newPost) {
+        // Ensure the post has the expected structure
+        const formattedPost = {
+          ...newPost,
+          category: newPost.category || { name: 'General', _id: 'general' },
+          comments: newPost.comments || [],
+          likeCount: newPost.likeCount || 0,
+          replyCount: newPost.replyCount || 0,
+          isLiked: false,
+          isPinned: false
+        };
+        setForumPosts(posts => [formattedPost, ...posts]);
+      }
+      showToast({ 
+        message: 'Post created successfully!', 
+        status: 'success' 
+      });
+    },
+    onError: (error) => {
+      console.error('[CommunityTab] Error creating post:', error);
+      showToast({ 
+        message: 'Failed to create post. Please try again.', 
+        status: 'error' 
+      });
+    }
+  });
+  
+  const deletePostMutation = useDeletePostMutation({
+    onSuccess: (data) => {
+      console.log('[CommunityTab] Post deleted successfully:', data);
+      // Remove the post from local state immediately
+      setForumPosts(posts => posts.filter(p => p._id !== data?.postId));
+      showToast({ 
+        message: 'Post deleted successfully', 
+        status: 'success' 
+      });
+    },
+    onError: (error: any) => {
+      console.error('[CommunityTab] Error deleting post:', error);
+      console.error('[CommunityTab] Error response:', error.response);
+      console.error('[CommunityTab] Error data:', error.response?.data);
+      showToast({ 
+        message: error.response?.data?.error || 'Failed to delete post', 
+        status: 'error' 
+      });
+    }
+  });
+  
+  const deleteReplyMutation = useDeleteReplyMutation({
+    onSuccess: (data, replyId) => {
+      console.log('[CommunityTab] Reply deleted successfully');
+      // Remove from local state
+      setForumPosts(posts => posts.map(post => ({
+        ...post,
+        comments: post.comments?.filter(c => c._id !== replyId) || [],
+        replyCount: Math.max(0, (post.replyCount || 0) - 1)
+      })));
+      showToast({ 
+        message: 'Comment deleted successfully', 
+        status: 'success' 
+      });
+    },
+    onError: (error: any) => {
+      console.error('[CommunityTab] Error deleting reply:', error);
+      showToast({ 
+        message: error.response?.data?.error || 'Failed to delete comment', 
+        status: 'error' 
+      });
+    }
+  });
+  
+  const pinPostMutation = usePinPostMutation({
+    onSuccess: (data) => {
+      console.log('[CommunityTab] Post pin toggled successfully:', data);
+      showToast({ 
+        message: data?.pinned ? 'Post pinned to top' : 'Post unpinned', 
+        status: 'success' 
+      });
+    },
+    onError: (error: any) => {
+      console.error('[CommunityTab] Error toggling pin:', error);
+      showToast({ 
+        message: error.response?.data?.error || 'Failed to toggle pin', 
+        status: 'error' 
+      });
+    }
+  });
+  
+  const updatePostMutation = useUpdatePostMutation({
+    onSuccess: () => {
+      console.log('[CommunityTab] Post updated successfully');
+      showToast({ 
+        message: 'Post updated successfully', 
+        status: 'success' 
+      });
+    },
+    onError: (error: any) => {
+      console.error('[CommunityTab] Error updating post:', error);
+      showToast({ 
+        message: error.response?.data?.error || 'Failed to update post', 
+        status: 'error' 
+      });
+    }
+  });
+  
+  const createReplyMutation = useCreateForumReplyMutation({
+    onSuccess: (newReply, variables) => {
+      console.log('[CommunityTab] Reply created successfully:', newReply);
+      // Add the reply to local state immediately
+      if (newReply) {
+        const formattedReply = {
+          ...newReply,
+          author: newReply.author || {
+            _id: currentUser?.id || 'current-user',
+            name: currentUser?.name || currentUser?.username || 'You',
+            avatar: currentUser?.avatar || null
+          },
+          likeCount: newReply.likeCount || 0,
+          isLiked: false
+        };
+        
+        setForumPosts(posts => posts.map(post => 
+          post._id === variables.postId 
+            ? { 
+                ...post, 
+                comments: [...(post.comments || []), formattedReply],
+                replyCount: (post.replyCount || 0) + 1
+              }
+            : post
+        ));
+      }
+      showToast({ 
+        message: 'Comment added successfully!', 
+        status: 'success' 
+      });
+    },
+    onError: (error: any) => {
+      console.error('[CommunityTab] Error creating reply:', error);
+      showToast({ 
+        message: error.response?.data?.error || 'Failed to add comment', 
+        status: 'error' 
+      });
+    }
+  });
 
   // Extract posts from paginated response
   const posts = postsData?.pages?.[0]?.posts || postsData?.posts || [];
   const categories = Array.isArray(categoriesData) ? categoriesData : [];
 
+  // Debug logging
+  console.log('[CommunityTab] postsData:', postsData);
+  console.log('[CommunityTab] postsData?.pages?.[0]:', postsData?.pages?.[0]);
+  console.log('[CommunityTab] postsData?.pages?.[0]?.posts:', postsData?.pages?.[0]?.posts);
+  console.log('[CommunityTab] postsData?.posts:', postsData?.posts);
+  console.log('[CommunityTab] posts extracted:', posts);
+  console.log('[CommunityTab] posts.length:', posts.length);
+  console.log('[CommunityTab] forumPosts.length:', forumPosts.length);
+
   // Initialize forum posts with query data on first load
   useEffect(() => {
+    console.log('[CommunityTab] useEffect - posts.length:', posts.length, 'forumPosts.length:', forumPosts.length);
     if (posts.length > 0 && forumPosts.length === 0) {
+      console.log('[CommunityTab] Setting forumPosts with:', posts);
       setForumPosts(posts);
     }
-  }, [posts]);
+  }, [posts, setForumPosts]);
 
-  const handleCreatePost = (newPost: { title: string; content: string; category: string }) => {
-    // In real implementation, this would call a mutation
-    const mockPost = {
-      _id: `post-${Date.now()}`,
-      title: newPost.title,
-      content: newPost.content,
-      author: {
-        _id: currentUser?.id || 'current-user',
-        name: currentUser?.name || currentUser?.username || 'You',
-        avatar: currentUser?.avatar || null
-      },
-      category: categories.find(c => c._id === newPost.category) || { name: 'General' },
-      likeCount: 0,
-      replyCount: 0,
-      createdAt: new Date().toISOString(),
-      isLiked: false,
-      comments: []
-    };
+  const handleCreatePost = async (newPost: { title: string; content: string; category: string }) => {
+    try {
+      console.log('[CommunityTab] handleCreatePost called with:', newPost);
+      const postData = {
+        title: newPost.title,
+        content: newPost.content,
+        categoryId: newPost.category,
+        tags: []
+      };
+      console.log('[CommunityTab] Sending post data:', postData);
+      await createPostMutation.mutateAsync(postData);
+      console.log('[CommunityTab] Post creation initiated');
+    } catch (error: any) {
+      console.error('[CommunityTab] Failed to create post:', error);
+      console.error('[CommunityTab] Error details:', error.response?.data);
+    }
+  };
+  
+  const handleDeletePost = async (postId: string) => {
+    // Find the post to get its title for the confirmation
+    const post = forumPosts.find(p => p._id === postId);
+    setDeleteConfirm({ show: true, type: 'post', id: postId, title: post?.title });
+  };
+  
+  const handleDeleteComment = async (commentId: string) => {
+    setDeleteConfirm({ show: true, type: 'comment', id: commentId });
+  };
+  
+  const confirmDelete = async () => {
+    if (!deleteConfirm) return;
     
-    setForumPosts([mockPost, ...forumPosts]);
+    try {
+      if (deleteConfirm.type === 'post') {
+        console.log('[CommunityTab] Attempting to delete post:', deleteConfirm.id);
+        const result = await deletePostMutation.mutateAsync(deleteConfirm.id);
+        console.log('[CommunityTab] Delete result:', result);
+        // Remove from local state immediately
+        setForumPosts(posts => posts.filter(p => p._id !== deleteConfirm.id));
+      } else {
+        // Delete comment from server
+        await deleteReplyMutation.mutateAsync(deleteConfirm.id);
+      }
+    } catch (error: any) {
+      console.error('[CommunityTab] Failed to delete:', error);
+    } finally {
+      setDeleteConfirm(null);
+    }
   };
 
   const togglePostExpansion = (postId: string) => {
@@ -71,31 +269,23 @@ const CommunityTab: React.FC = () => {
     ));
   };
 
-  const handleAddComment = (postId: string, content: string, parentId?: string) => {
-    // In real implementation, this would call a mutation
-    const newComment = {
-      _id: `comment-${Date.now()}`,
-      content,
-      author: {
-        _id: currentUser?.id || 'current-user',
-        name: currentUser?.name || currentUser?.username || 'You',
-        avatar: currentUser?.avatar || null
-      },
-      createdAt: new Date().toISOString(),
-      likeCount: 0,
-      isLiked: false,
-      parentId: parentId
-    };
-
-    setForumPosts(posts => posts.map(post => 
-      post._id === postId 
-        ? { 
-            ...post, 
-            comments: [...(post.comments || []), newComment],
-            replyCount: post.replyCount + 1
-          }
-        : post
-    ));
+  const handleAddComment = async (postId: string, content: string, parentId?: string) => {
+    try {
+      console.log('[CommunityTab] Creating comment for post:', postId);
+      console.log('[CommunityTab] Comment content:', content);
+      console.log('[CommunityTab] Parent reply ID:', parentId);
+      
+      await createReplyMutation.mutateAsync({
+        postId,
+        content,
+        parentReplyId: parentId
+      });
+      
+      console.log('[CommunityTab] Comment creation initiated');
+    } catch (error: any) {
+      console.error('[CommunityTab] Failed to create comment:', error);
+      console.error('[CommunityTab] Error details:', error.response?.data);
+    }
   };
 
   const handleLikeComment = (postId: string, commentId: string) => {
@@ -113,14 +303,63 @@ const CommunityTab: React.FC = () => {
         : post
     ));
   };
+  
+  const handleTogglePin = async (postId: string) => {
+    try {
+      console.log('[CommunityTab] Attempting to toggle pin for post:', postId);
+      const result = await pinPostMutation.mutateAsync(postId);
+      console.log('[CommunityTab] Pin toggle result:', result);
+      // Update local state to reflect the pin status
+      setForumPosts(posts => posts.map(p => 
+        p._id === postId 
+          ? { ...p, isPinned: result?.pinned }
+          : result?.pinned ? { ...p, isPinned: false } : p // Unpin others if this was pinned
+      ));
+    } catch (error) {
+      console.error('[CommunityTab] Failed to toggle pin:', error);
+    }
+  };
+  
+  const handleEditPost = async (postId: string, title: string, content: string) => {
+    try {
+      console.log('[CommunityTab] Attempting to edit post:', postId);
+      await updatePostMutation.mutateAsync({ 
+        postId, 
+        updates: { title, content } 
+      });
+      // Update local state
+      setForumPosts(posts => posts.map(p => 
+        p._id === postId 
+          ? { ...p, title, content }
+          : p
+      ));
+    } catch (error) {
+      console.error('[CommunityTab] Failed to edit post:', error);
+    }
+  };
 
   // Use forumPosts as the source of truth since it contains all updates
   let allPosts = forumPosts.length > 0 ? forumPosts : posts;
+  console.log('[CommunityTab] allPosts before filter:', allPosts);
+  console.log('[CommunityTab] allPosts.length before filter:', allPosts.length);
 
   // Apply category filter
   if (selectedCategory !== 'all') {
     allPosts = allPosts.filter(post => post.category?._id === selectedCategory);
   }
+
+  // Sort posts with pinned posts first
+  allPosts = [...allPosts].sort((a, b) => {
+    // Pinned posts always come first
+    if (a.isPinned && !b.isPinned) return -1;
+    if (!a.isPinned && b.isPinned) return 1;
+    // Otherwise sort by creation date
+    return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+  });
+
+  console.log('[CommunityTab] allPosts after filter:', allPosts);
+  console.log('[CommunityTab] allPosts.length after filter:', allPosts.length);
+  console.log('[CommunityTab] selectedCategory:', selectedCategory);
 
   return (
     <div className="h-full flex flex-col">
@@ -188,12 +427,57 @@ const CommunityTab: React.FC = () => {
                   onLike={() => handleLikePost(post._id)}
                   onAddComment={(content, parentId) => handleAddComment(post._id, content, parentId)}
                   onLikeComment={(commentId) => handleLikeComment(post._id, commentId)}
+                  onDeletePost={() => handleDeletePost(post._id)}
+                  onDeleteComment={handleDeleteComment}
+                  onTogglePin={() => handleTogglePin(post._id)}
+                  onEditPost={(title, content) => handleEditPost(post._id, title, content)}
                 />
               ))}
             </div>
           )}
         </div>
       </div>
+      
+      {/* Delete Confirmation Dialog */}
+      {deleteConfirm && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+          <div className="bg-surface-primary rounded-lg p-6 max-w-md w-full mx-4 shadow-xl">
+            <div className="flex items-start gap-3 mb-4">
+              <AlertTriangle className="w-5 h-5 text-red-500 mt-0.5" />
+              <div className="flex-1">
+                <h3 className="text-lg font-semibold text-text-primary mb-2">
+                  Confirm Delete
+                </h3>
+                <p className="text-text-secondary">
+                  Are you sure you want to delete this {deleteConfirm.type}?
+                  {deleteConfirm.title && (
+                    <span className="block mt-2 font-medium text-text-primary">
+                      "{deleteConfirm.title}"
+                    </span>
+                  )}
+                </p>
+                <p className="text-sm text-text-tertiary mt-2">
+                  This action cannot be undone.
+                </p>
+              </div>
+            </div>
+            <div className="flex gap-3 justify-end">
+              <button
+                onClick={() => setDeleteConfirm(null)}
+                className="px-4 py-2 text-sm font-medium text-text-secondary hover:text-text-primary bg-surface-secondary hover:bg-surface-hover rounded-lg transition-colors"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={confirmDelete}
+                className="px-4 py-2 text-sm font-medium text-white bg-red-500 hover:bg-red-600 rounded-lg transition-colors"
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

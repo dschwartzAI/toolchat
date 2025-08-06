@@ -1,6 +1,5 @@
 import { useMutation, useQueryClient, UseMutationOptions } from '@tanstack/react-query';
-import { QueryKeys } from 'librechat-data-provider';
-import request from '~/data-provider/request';
+import { QueryKeys, request } from 'librechat-data-provider';
 
 // Forum Post Mutations
 
@@ -12,7 +11,7 @@ export const useUpdatePostMutation = (
   return useMutation({
     mutationFn: async ({ postId, updates }: { postId: string; updates: any }) => {
       const response = await request.put(`/api/lms/forum/posts/${postId}`, updates);
-      return response.data;
+      return response;
     },
     onSuccess: (data, variables) => {
       queryClient.invalidateQueries({ queryKey: [QueryKeys.forumPost, variables.postId] });
@@ -29,8 +28,15 @@ export const useDeletePostMutation = (
   
   return useMutation({
     mutationFn: async (postId: string) => {
-      const response = await request.delete(`/api/lms/forum/posts/${postId}`);
-      return response.data;
+      try {
+        console.log('[forumMutations] Deleting post:', postId);
+        const response = await request.delete(`/api/lms/forum/posts/${postId}`);
+        console.log('[forumMutations] Delete response:', response);
+        return response;
+      } catch (error) {
+        console.error('[forumMutations] Delete error:', error);
+        throw error;
+      }
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: [QueryKeys.forumPosts] });
@@ -47,7 +53,7 @@ export const useRestorePostMutation = (
   return useMutation({
     mutationFn: async (postId: string) => {
       const response = await request.post(`/api/lms/forum/posts/${postId}/restore`);
-      return response.data;
+      return response;
     },
     onSuccess: (data, postId) => {
       queryClient.invalidateQueries({ queryKey: [QueryKeys.forumPost, postId] });
@@ -65,7 +71,7 @@ export const usePinPostMutation = (
   return useMutation({
     mutationFn: async (postId: string) => {
       const response = await request.post(`/api/lms/forum/posts/${postId}/pin`);
-      return response.data;
+      return response;
     },
     onSuccess: (data, postId) => {
       queryClient.invalidateQueries({ queryKey: [QueryKeys.forumPost, postId] });
@@ -83,7 +89,7 @@ export const useLockPostMutation = (
   return useMutation({
     mutationFn: async (postId: string) => {
       const response = await request.post(`/api/lms/forum/posts/${postId}/lock`);
-      return response.data;
+      return response;
     },
     onSuccess: (data, postId) => {
       queryClient.invalidateQueries({ queryKey: [QueryKeys.forumPost, postId] });
@@ -101,7 +107,7 @@ export const useBulkDeletePostsMutation = (
   return useMutation({
     mutationFn: async (postIds: string[]) => {
       const response = await request.post('/api/lms/forum/posts/bulk/delete', { postIds });
-      return response.data;
+      return response;
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: [QueryKeys.forumPosts] });
@@ -120,7 +126,7 @@ export const useUpdateReplyMutation = (
   return useMutation({
     mutationFn: async ({ replyId, content }: { replyId: string; content: string }) => {
       const response = await request.put(`/api/lms/forum/replies/${replyId}`, { content });
-      return response.data;
+      return response;
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: [QueryKeys.forumPost] });
@@ -137,7 +143,7 @@ export const useDeleteReplyMutation = (
   return useMutation({
     mutationFn: async (replyId: string) => {
       const response = await request.delete(`/api/lms/forum/replies/${replyId}`);
-      return response.data;
+      return response;
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: [QueryKeys.forumPost] });
@@ -153,7 +159,7 @@ export const useGetModerationStatsQuery = () => {
     queryKey: ['moderationStats'],
     queryFn: async () => {
       const response = await request.get('/api/lms/forum/moderation/stats');
-      return response.data;
+      return response;
     },
   };
 };
@@ -172,13 +178,30 @@ export const useCreateForumPostMutation = (
       categoryId: string;
       tags?: string[];
     }) => {
-      const response = await request.post('/api/lms/forum/posts', data);
-      return response.data;
+      try {
+        console.log('[forumMutations] Creating post with data:', data);
+        const response = await request.post('/api/lms/forum/posts', data);
+        console.log('[forumMutations] Create post response:', response);
+        return response;
+      } catch (error: any) {
+        console.error('[forumMutations] Create post error:', error);
+        console.error('[forumMutations] Error response:', error.response?.data);
+        throw error;
+      }
     },
-    onSuccess: () => {
+    onSuccess: (data) => {
       queryClient.invalidateQueries({ queryKey: [QueryKeys.forumPosts] });
+      // Call the custom onSuccess handler if provided
+      if (options?.onSuccess) {
+        options.onSuccess(data);
+      }
     },
-    ...options,
+    onError: (error) => {
+      // Call the custom onError handler if provided
+      if (options?.onError) {
+        options.onError(error);
+      }
+    }
   });
 };
 
@@ -197,7 +220,7 @@ export const useCreateForumReplyMutation = (
         content,
         parentReplyId,
       });
-      return response.data;
+      return response;
     },
     onSuccess: (data, variables) => {
       queryClient.invalidateQueries({ queryKey: [QueryKeys.forumPost, variables.postId] });

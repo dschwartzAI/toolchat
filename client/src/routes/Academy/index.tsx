@@ -11,9 +11,6 @@ const CourseViewer = lazy(() => import('./CourseViewer'));
 const LessonViewer = lazy(() => import('./LessonViewer'));
 const Forum = lazy(() => import('./Forum'));
 const ForumPost = lazy(() => import('./ForumPost'));
-const AdminDashboard = lazy(() => import('./admin/AdminDashboard'));
-const CourseManager = lazy(() => import('./admin/CourseManager'));
-const CourseEditor = lazy(() => import('./admin/CourseEditor'));
 
 const LoadingFallback = () => (
   <div className="flex items-center justify-center h-full">
@@ -76,44 +73,6 @@ export default function AcademyRoutes() {
             element={
               <Suspense fallback={<LoadingFallback />}>
                 <ForumPost />
-              </Suspense>
-            }
-          />
-        </Route>
-
-        {/* Admin Routes - Protected */}
-        <Route
-          path="admin"
-          element={
-            <ProtectedRoute requireAdmin>
-              <Suspense fallback={<LoadingFallback />}>
-                <AdminDashboard />
-              </Suspense>
-            </ProtectedRoute>
-          }
-        >
-          <Route index element={<Navigate to="courses" replace />} />
-          <Route
-            path="courses"
-            element={
-              <Suspense fallback={<LoadingFallback />}>
-                <CourseManager />
-              </Suspense>
-            }
-          />
-          <Route
-            path="courses/create"
-            element={
-              <Suspense fallback={<LoadingFallback />}>
-                <CourseEditor />
-              </Suspense>
-            }
-          />
-          <Route
-            path="courses/:courseId/edit"
-            element={
-              <Suspense fallback={<LoadingFallback />}>
-                <CourseEditor />
               </Suspense>
             }
           />

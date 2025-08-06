@@ -1,22 +1,82 @@
-import React, { useState } from 'react';
-import { PlayCircle, FileText, Clock, Users, ChevronRight } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { PlayCircle, FileText, Clock, Users, ChevronRight, Plus, Edit, Trash, MoreVertical } from 'lucide-react';
+import { SystemRoles } from 'librechat-data-provider';
 import ModuleViewer from './ModuleViewer';
-import { useGetModulesQuery } from '~/data-provider/Academy';
+import ModuleEditor from './ModuleEditor';
+import { useGetModulesQuery, useDeleteModuleMutation } from '~/data-provider/Academy';
+import { useAuthContext } from '~/hooks';
+import { useToastContext } from '~/Providers';
 import { cn } from '~/utils';
+import { Button, DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '~/components/ui';
 import type { TModule } from '~/data-provider/Academy/types';
 
 const ClassroomTab: React.FC = () => {
   const [selectedModule, setSelectedModule] = useState<TModule | null>(null);
+  const [selectedModuleId, setSelectedModuleId] = useState<string | null>(() => {
+    return localStorage.getItem('academySelectedModuleId');
+  });
+  const [editingModule, setEditingModule] = useState<TModule | null>(null);
+  const [isCreating, setIsCreating] = useState(false);
   
-  const { data: modulesData, isLoading } = useGetModulesQuery();
+  const { user } = useAuthContext();
+  const { showToast } = useToastContext();
+  const { data: modulesData, isLoading, refetch } = useGetModulesQuery();
+  const deleteModule = useDeleteModuleMutation();
+  
   const modules = modulesData?.modules || [];
+  const isAdmin = user?.role === SystemRoles.ADMIN;
+  
+  // Restore selected module from localStorage when modules load
+  useEffect(() => {
+    if (selectedModuleId && modules.length > 0 && !selectedModule) {
+      const module = modules.find(m => m._id === selectedModuleId);
+      if (module) {
+        setSelectedModule(module);
+      }
+    }
+  }, [selectedModuleId, modules, selectedModule]);
+  
+  // Save selected module ID to localStorage
+  useEffect(() => {
+    if (selectedModule) {
+      localStorage.setItem('academySelectedModuleId', selectedModule._id);
+    } else {
+      localStorage.removeItem('academySelectedModuleId');
+    }
+  }, [selectedModule]);
 
   const handleModuleClick = (module: TModule) => {
     setSelectedModule(module);
+    setSelectedModuleId(module._id);
   };
 
   const handleBackToModules = () => {
     setSelectedModule(null);
+    setSelectedModuleId(null);
+  };
+
+  const handleEdit = (e: React.MouseEvent, module: TModule) => {
+    e.stopPropagation();
+    setEditingModule(module);
+  };
+
+  const handleDelete = async (e: React.MouseEvent, module: TModule) => {
+    e.stopPropagation();
+    if (!window.confirm(`Are you sure you want to delete "${module.title}"?`)) return;
+    
+    try {
+      await deleteModule.mutateAsync(module._id);
+      showToast({ message: 'Module deleted successfully', status: 'success' });
+      refetch();
+    } catch (error) {
+      showToast({ message: 'Failed to delete module', status: 'error' });
+    }
+  };
+
+  const handleSave = () => {
+    setEditingModule(null);
+    setIsCreating(false);
+    refetch();
   };
 
   const formatDuration = (seconds?: number) => {
@@ -46,14 +106,41 @@ const ClassroomTab: React.FC = () => {
     );
   }
 
+  if (editingModule || isCreating) {
+    return (
+      <ModuleEditor
+        module={editingModule}
+        onSave={handleSave}
+        onCancel={() => {
+          setEditingModule(null);
+          setIsCreating(false);
+        }}
+      />
+    );
+  }
+
   return (
     <div className="h-full flex flex-col">
       {/* Header */}
       <div className="p-4 border-b border-border-light">
-        <h2 className="text-xl font-semibold text-text-primary">Training Modules</h2>
-        <p className="text-sm text-text-secondary mt-1">
-          Access all of James' training modules to build your sovereign business
-        </p>
+        <div className="flex items-center justify-between">
+          <div>
+            <h2 className="text-xl font-semibold text-text-primary">Training Modules</h2>
+            <p className="text-sm text-text-secondary mt-1">
+              Access all of James' training modules to build your sovereign business
+            </p>
+          </div>
+          {isAdmin && (
+            <Button
+              onClick={() => setIsCreating(true)}
+              className="gap-2"
+              variant="submit"
+            >
+              <Plus className="w-4 h-4" />
+              Add Module
+            </Button>
+          )}
+        </div>
       </div>
 
       {/* Module Grid */}
@@ -67,6 +154,36 @@ const ClassroomTab: React.FC = () => {
             >
               {/* Module Thumbnail */}
               <div className="relative aspect-video bg-surface-tertiary overflow-hidden">
+                {/* Admin controls */}
+                {isAdmin && (
+                  <div className="absolute top-2 right-2 z-10">
+                    <DropdownMenu>
+                      <DropdownMenuTrigger asChild>
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          className="h-8 w-8 bg-black/50 hover:bg-black/70 text-white"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <MoreVertical className="h-4 w-4" />
+                        </Button>
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent align="end">
+                        <DropdownMenuItem onClick={(e) => handleEdit(e as any, module)}>
+                          <Edit className="h-4 w-4 mr-2" />
+                          Edit
+                        </DropdownMenuItem>
+                        <DropdownMenuItem 
+                          onClick={(e) => handleDelete(e as any, module)}
+                          className="text-red-600"
+                        >
+                          <Trash className="h-4 w-4 mr-2" />
+                          Delete
+                        </DropdownMenuItem>
+                      </DropdownMenuContent>
+                    </DropdownMenu>
+                  </div>
+                )}
                 {module.thumbnail ? (
                   <img 
                     src={module.thumbnail} 

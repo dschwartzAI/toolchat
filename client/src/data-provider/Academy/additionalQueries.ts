@@ -1,6 +1,6 @@
 import { useQuery, UseQueryOptions } from '@tanstack/react-query';
-import { QueryKeys } from 'librechat-data-provider';
-import { mockUserEnrollments, mockCourses, mockForumPosts } from './mockData';
+import { QueryKeys, request } from 'librechat-data-provider';
+import { mockUserEnrollments, mockCourses } from './mockData';
 
 export const useGetUserEnrollmentsQuery = (
   userId: string,
@@ -44,8 +44,23 @@ export const useGetForumPostsQuery = ({
   return useQuery<any>({
     queryKey: [QueryKeys.forumPosts, categoryId, search, sortBy, limit],
     queryFn: async () => {
-      // Use mock data for now
-      return Promise.resolve({ pages: [mockForumPosts] });
+      try {
+        const params = new URLSearchParams();
+        if (categoryId) params.append('categoryId', categoryId);
+        if (search) params.append('search', search);
+        if (sortBy) params.append('sortBy', sortBy);
+        params.append('limit', limit.toString());
+        
+        const url = `/api/lms/forum/posts?${params.toString()}`;
+        console.log('[ForumPosts] Making API request to:', url);
+        const response = await request.get(url);
+        console.log('[ForumPosts] API response:', response);
+        return { pages: [response] };
+      } catch (error) {
+        console.error('[ForumPosts] API call failed:', error);
+        // Return empty data on error
+        return { pages: [{ posts: [], totalCount: 0 }] };
+      }
     },
     ...{},
   });
@@ -58,12 +73,13 @@ export const useGetForumPostQuery = (
   return useQuery<any>({
     queryKey: [QueryKeys.forumPost, postId],
     queryFn: async () => {
-      // Use mock data for now
-      const post = mockForumPosts.posts.find(p => p._id === postId);
-      return Promise.resolve({
-        ...post,
-        replies: []
-      });
+      try {
+        const response = await request.get(`/api/lms/forum/posts/${postId}`);
+        return response.data;
+      } catch (error) {
+        console.error('Failed to fetch forum post:', error);
+        return null;
+      }
     },
     enabled: !!postId,
     ...options,

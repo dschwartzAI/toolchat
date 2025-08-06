@@ -16,13 +16,23 @@ const AcademySidebar: React.FC<AcademySidebarProps> = ({ onClose }) => {
   const [activeTab, setActiveTab] = useRecoilState(store.activeTab);
   const [panelWidth, setPanelWidth] = useRecoilState(store.panelWidth);
   
-  // Load saved panel width from localStorage
+  // Load saved panel width and active tab from localStorage
   useEffect(() => {
     const savedWidth = localStorage.getItem('academyPanelWidth');
     if (savedWidth) {
       setPanelWidth(parseInt(savedWidth));
     }
-  }, [setPanelWidth]);
+    
+    const savedTab = localStorage.getItem('academyActiveTab');
+    if (savedTab === 'community' || savedTab === 'classroom') {
+      setActiveTab(savedTab);
+    }
+  }, [setPanelWidth, setActiveTab]);
+  
+  // Save active tab when it changes
+  useEffect(() => {
+    localStorage.setItem('academyActiveTab', activeTab);
+  }, [activeTab]);
 
   // Handle panel resizing
   const handleMouseDown = (e: React.MouseEvent) => {

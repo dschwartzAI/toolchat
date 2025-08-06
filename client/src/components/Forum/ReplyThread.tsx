@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { ThumbsUp, MessageCircle, MoreVertical, Edit, Trash, Flag } from 'lucide-react';
+import { ThumbsUp, MessageCircle, MoreVertical, Edit, Trash, Flag, History } from 'lucide-react';
+import { SystemRoles } from 'librechat-data-provider';
 import { cn } from '~/utils';
-import { Button, DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '~/components/ui';
+import { Button, DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from '~/components/ui';
 import CreateReply from './CreateReply';
 import EditReply from './EditReply';
 import { useLocalize, useAuthContext } from '~/hooks';
@@ -37,13 +38,16 @@ export const ReplyThread: React.FC<ReplyThreadProps> = ({
   
   const [showReplyForm, setShowReplyForm] = useState(false);
   const [showReplies, setShowReplies] = useState(true);
+  const [showEditHistory, setShowEditHistory] = useState(false);
 
   const likeReply = useLikeReplyMutation();
   const deleteReply = useDeleteReplyMutation();
 
   const isAuthor = user?._id === reply.author._id;
+  const isAdmin = user?.role === SystemRoles.ADMIN;
   const hasLiked = reply.likedBy?.includes(user?._id || '');
   const canNest = depth < 3; // Limit nesting depth
+  const canModerate = isAuthor || isAdmin;
 
   const handleLike = () => {
     likeReply.mutate(
@@ -115,7 +119,7 @@ export const ReplyThread: React.FC<ReplyThreadProps> = ({
               )}
             </div>
 
-            {isAuthor && (
+            {canModerate && (
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" size="icon" className="h-8 w-8">
@@ -123,14 +127,42 @@ export const ReplyThread: React.FC<ReplyThreadProps> = ({
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
-                  <DropdownMenuItem onClick={onEdit}>
-                    <Edit className="h-4 w-4 mr-2" />
-                    {localize('com_ui_edit')}
-                  </DropdownMenuItem>
-                  <DropdownMenuItem onClick={handleDelete} className="text-red-600">
-                    <Trash className="h-4 w-4 mr-2" />
-                    {localize('com_ui_delete')}
-                  </DropdownMenuItem>
+                  {isAuthor && (
+                    <>
+                      <DropdownMenuItem onClick={onEdit}>
+                        <Edit className="h-4 w-4 mr-2" />
+                        {localize('com_ui_edit')}
+                      </DropdownMenuItem>
+                      <DropdownMenuItem onClick={handleDelete} className="text-red-600">
+                        <Trash className="h-4 w-4 mr-2" />
+                        {localize('com_ui_delete')}
+                      </DropdownMenuItem>
+                    </>
+                  )}
+                  
+                  {reply.editHistory && reply.editHistory.length > 0 && (
+                    <>
+                      {isAuthor && <DropdownMenuSeparator />}
+                      <DropdownMenuItem onClick={() => setShowEditHistory(true)}>
+                        <History className="h-4 w-4 mr-2" />
+                        {localize('com_academy_view_edit_history')}
+                      </DropdownMenuItem>
+                    </>
+                  )}
+                  
+                  {isAdmin && !isAuthor && (
+                    <>
+                      {reply.editHistory?.length > 0 && <DropdownMenuSeparator />}
+                      <DropdownMenuItem onClick={handleDelete} className="text-red-600">
+                        <Trash className="h-4 w-4 mr-2" />
+                        {localize('com_ui_delete')}
+                      </DropdownMenuItem>
+                      <DropdownMenuItem>
+                        <Flag className="h-4 w-4 mr-2" />
+                        {localize('com_academy_flag_inappropriate')}
+                      </DropdownMenuItem>
+                    </>
+                  )}
                 </DropdownMenuContent>
               </DropdownMenu>
             )}

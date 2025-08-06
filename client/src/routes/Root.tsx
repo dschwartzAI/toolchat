@@ -29,7 +29,10 @@ export default function Root() {
     const savedNavVisible = localStorage.getItem('navVisible');
     return savedNavVisible !== null ? JSON.parse(savedNavVisible) : true;
   });
-  const [academyVisible, setAcademyVisible] = useState(false);
+  const [academyVisible, setAcademyVisible] = useState(() => {
+    const savedAcademyVisible = localStorage.getItem('academyVisible');
+    return savedAcademyVisible !== null ? JSON.parse(savedAcademyVisible) : false;
+  });
 
   const { isAuthenticated, logout } = useAuthContext();
 
@@ -51,6 +54,11 @@ export default function Root() {
   useEffect(() => {
     migrateLocalStorage();
   }, []);
+
+  // Save academy visibility to localStorage when it changes
+  useEffect(() => {
+    localStorage.setItem('academyVisible', JSON.stringify(academyVisible));
+  }, [academyVisible]);
 
   useEffect(() => {
     if (termsData) {

@@ -25,7 +25,7 @@ export const PostCard: React.FC<PostCardProps> = ({ post, className }) => {
   const pinPostMutation = usePinPostMutation();
   const lockPostMutation = useLockPostMutation();
   
-  const isAuthor = user?.id === post.author._id;
+  const isAuthor = user?._id === post.author._id || user?.id === post.author._id;
   const isAdmin = user?.role === SystemRoles.ADMIN;
   const canModerate = isAuthor || isAdmin;
 

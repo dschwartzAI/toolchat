@@ -1,6 +1,19 @@
 import React, { useState } from 'react';
-import { ThumbsUp, MessageSquare, Send, CornerDownRight } from 'lucide-react';
+import { ThumbsUp, MessageSquare, Send, CornerDownRight, X, Trash2, Pin, Edit2 } from 'lucide-react';
 import { cn } from '~/utils';
+import { useRecoilValue } from 'recoil';
+import store from '~/store';
+import { SystemRoles } from 'librechat-data-provider';
+
+// Utility function to get initials from name
+const getInitials = (name: string): string => {
+  return name
+    .split(' ')
+    .map(word => word[0])
+    .join('')
+    .toUpperCase()
+    .slice(0, 2);
+};
 
 interface Comment {
   _id: string;
@@ -22,6 +35,7 @@ interface PostPreviewProps {
     title: string;
     content: string;
     author: {
+      _id?: string;
       name: string;
       avatar?: string;
     };
@@ -32,6 +46,7 @@ interface PostPreviewProps {
     replyCount: number;
     createdAt: string;
     isLiked?: boolean;
+    isPinned?: boolean;
     comments?: Comment[];
   };
   isExpanded: boolean;
@@ -39,6 +54,10 @@ interface PostPreviewProps {
   onLike: () => void;
   onAddComment?: (content: string, parentId?: string) => void;
   onLikeComment?: (commentId: string) => void;
+  onDeletePost?: () => void;
+  onDeleteComment?: (commentId: string) => void;
+  onTogglePin?: () => void;
+  onEditPost?: (title: string, content: string) => void;
 }
 
 const PostPreview: React.FC<PostPreviewProps> = ({ 
@@ -47,12 +66,23 @@ const PostPreview: React.FC<PostPreviewProps> = ({
   onToggleExpand, 
   onLike,
   onAddComment,
-  onLikeComment 
+  onLikeComment,
+  onDeletePost,
+  onDeleteComment,
+  onTogglePin,
+  onEditPost
 }) => {
   const [newComment, setNewComment] = useState('');
   const [replyingTo, setReplyingTo] = useState<string | null>(null);
   const [replyText, setReplyText] = useState('');
   const [replyingToAuthor, setReplyingToAuthor] = useState<string>('');
+  const [isEditing, setIsEditing] = useState(false);
+  const [editTitle, setEditTitle] = useState(post.title);
+  const [editContent, setEditContent] = useState(post.content);
+  
+  const currentUser = useRecoilValue(store.user);
+  const isAdmin = currentUser?.role === SystemRoles.ADMIN;
+  const isPostAuthor = currentUser?.id === post.author._id;
 
   const timeAgo = (date: string) => {
     const seconds = Math.floor((new Date().getTime() - new Date(date).getTime()) / 1000);
@@ -86,6 +116,19 @@ const PostPreview: React.FC<PostPreviewProps> = ({
       setReplyingTo(null);
     }
   };
+  
+  const handleSaveEdit = () => {
+    if (editTitle.trim() && editContent.trim() && onEditPost) {
+      onEditPost(editTitle, editContent);
+      setIsEditing(false);
+    }
+  };
+  
+  const handleCancelEdit = () => {
+    setEditTitle(post.title);
+    setEditContent(post.content);
+    setIsEditing(false);
+  };
 
   const renderComment = (comment: Comment, depth: number = 0, parentAuthor?: string) => {
     const isReplyingToThis = replyingTo === comment._id;
@@ -93,14 +136,20 @@ const PostPreview: React.FC<PostPreviewProps> = ({
     
     return (
       <div key={comment._id} className={cn("group", shouldIndent && "ml-8")}>
-        <div className="bg-surface-primary rounded-lg p-3 mb-2">
+        <div className="bg-surface-primary rounded-lg p-3 mb-2 relative">
           <div className="flex items-start justify-between mb-2">
             <div className="flex items-start gap-2">
-              <img
-                src={comment.author.avatar || '/default-avatar.png'}
-                alt={comment.author.name}
-                className="w-5 h-5 rounded-full mt-0.5"
-              />
+              {comment.author.avatar ? (
+                <img
+                  src={comment.author.avatar}
+                  alt={comment.author.name}
+                  className="w-5 h-5 rounded-full mt-0.5"
+                />
+              ) : (
+                <div className="w-5 h-5 rounded-full mt-0.5 bg-surface-hover flex items-center justify-center text-[10px] font-semibold text-text-secondary">
+                  {getInitials(comment.author.name)}
+                </div>
+              )}
               <div>
                 <div className="text-sm font-medium text-text-primary">
                   {comment.author.name}
@@ -110,6 +159,18 @@ const PostPreview: React.FC<PostPreviewProps> = ({
                 </div>
               </div>
             </div>
+            {/* Delete button for comment */}
+            {isAdmin && onDeleteComment && (
+              <button
+                onClick={() => {
+                  onDeleteComment(comment._id);
+                }}
+                className="p-1 text-text-tertiary hover:text-red-500 hover:bg-surface-secondary rounded transition-colors opacity-0 group-hover:opacity-100"
+                title="Delete comment"
+              >
+                <X className="w-3.5 h-3.5" />
+              </button>
+            )}
           </div>
           <p className="text-sm text-text-secondary mb-2 whitespace-pre-wrap">
             {depth > 1 && parentAuthor && (
@@ -245,16 +306,70 @@ const PostPreview: React.FC<PostPreviewProps> = ({
   return (
     <div className="bg-surface-secondary rounded-lg mb-3 overflow-hidden">
       <div 
-        className="p-4 hover:bg-surface-hover transition-colors cursor-pointer"
+        className="p-4 hover:bg-surface-hover transition-colors cursor-pointer relative"
         onClick={onToggleExpand}
       >
+        {/* Admin/Author buttons */}
+        <div className="absolute top-2 right-2 flex gap-1">
+          {/* Pin button for admins */}
+          {isAdmin && onTogglePin && (
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                onTogglePin();
+              }}
+              className={cn(
+                "p-1.5 rounded-lg transition-colors",
+                post.isPinned 
+                  ? "text-green-500 bg-green-500/10 hover:bg-green-500/20" 
+                  : "text-text-tertiary hover:text-green-500 hover:bg-surface-primary"
+              )}
+              title={post.isPinned ? "Unpin post" : "Pin post"}
+            >
+              <Pin className="w-4 h-4" />
+            </button>
+          )}
+          {/* Edit button for post authors only */}
+          {isPostAuthor && onEditPost && !isEditing && (
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setIsEditing(true);
+              }}
+              className="p-1.5 text-text-tertiary hover:text-blue-500 hover:bg-surface-primary rounded-lg transition-colors"
+              title="Edit post"
+            >
+              <Edit2 className="w-4 h-4" />
+            </button>
+          )}
+          {/* Delete button for admins or authors */}
+          {(isAdmin || isPostAuthor) && onDeletePost && (
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                onDeletePost();
+              }}
+              className="p-1.5 text-text-tertiary hover:text-red-500 hover:bg-surface-primary rounded-lg transition-colors"
+              title="Delete post"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          )}
+        </div>
+        
         {/* Author */}
         <div className="flex items-center gap-2 mb-1">
-          <img
-            src={post.author.avatar || '/default-avatar.png'}
-            alt={post.author.name}
-            className="w-6 h-6 rounded-full"
-          />
+          {post.author.avatar ? (
+            <img
+              src={post.author.avatar}
+              alt={post.author.name}
+              className="w-6 h-6 rounded-full"
+            />
+          ) : (
+            <div className="w-6 h-6 rounded-full bg-surface-hover flex items-center justify-center text-[11px] font-semibold text-text-secondary">
+              {getInitials(post.author.name)}
+            </div>
+          )}
           <div className="text-sm text-text-primary">
             {post.author.name}
           </div>
@@ -262,42 +377,88 @@ const PostPreview: React.FC<PostPreviewProps> = ({
         
         {/* Category and timestamp */}
         <div className="text-xs text-text-tertiary mb-2">
-          {post.category.name} • {timeAgo(post.createdAt)}
+          {post.category?.name || post.category || 'General'} • {timeAgo(post.createdAt)}
         </div>
         
-        {/* Title */}
-        <h3 className="font-bold text-text-primary mb-2">
-          {post.title}
-        </h3>
+        {/* Title - editable if in edit mode */}
+        {isEditing ? (
+          <input
+            type="text"
+            value={editTitle}
+            onChange={(e) => setEditTitle(e.target.value)}
+            onClick={(e) => e.stopPropagation()}
+            className="w-full font-bold text-text-primary mb-2 bg-surface-primary px-2 py-1 rounded border border-border-primary focus:outline-none focus:ring-2 focus:ring-green-500"
+            placeholder="Post title..."
+          />
+        ) : (
+          <h3 className="font-bold text-text-primary mb-2">
+            {post.title}
+          </h3>
+        )}
         
-        {/* Content preview */}
-        <p className={cn(
-          "text-sm text-text-secondary mb-3 whitespace-pre-wrap",
-          !isExpanded && "line-clamp-2"
-        )}>
-          {getContentPreview()}
-        </p>
+        {/* Content - editable if in edit mode */}
+        {isEditing ? (
+          <textarea
+            value={editContent}
+            onChange={(e) => setEditContent(e.target.value)}
+            onClick={(e) => e.stopPropagation()}
+            className="w-full text-sm text-text-secondary mb-3 bg-surface-primary px-2 py-1 rounded border border-border-primary focus:outline-none focus:ring-2 focus:ring-green-500 min-h-[100px] resize-y"
+            placeholder="Post content..."
+          />
+        ) : (
+          <p className={cn(
+            "text-sm text-text-secondary mb-3 whitespace-pre-wrap",
+            !isExpanded && "line-clamp-2"
+          )}>
+            {getContentPreview()}
+          </p>
+        )}
         
         {/* Actions */}
         <div className="flex items-center gap-4">
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              onLike();
-            }}
-            className={cn(
-              "flex items-center gap-1 text-sm transition-colors",
-              post.isLiked ? "text-green-500" : "text-text-tertiary hover:text-text-secondary"
-            )}
-          >
-            <ThumbsUp className="w-4 h-4" />
-            <span>{post.likeCount}</span>
-          </button>
-          
-          <div className="flex items-center gap-1 text-sm text-text-tertiary">
-            <MessageSquare className="w-4 h-4" />
-            <span>{post.replyCount}</span>
-          </div>
+          {isEditing ? (
+            <>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleSaveEdit();
+                }}
+                className="px-3 py-1 bg-green-500 text-white rounded-lg text-sm hover:bg-green-600 transition-colors"
+              >
+                Save
+              </button>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleCancelEdit();
+                }}
+                className="px-3 py-1 bg-surface-primary text-text-secondary rounded-lg text-sm hover:bg-surface-hover transition-colors"
+              >
+                Cancel
+              </button>
+            </>
+          ) : (
+            <>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onLike();
+                }}
+                className={cn(
+                  "flex items-center gap-1 text-sm transition-colors",
+                  post.isLiked ? "text-green-500" : "text-text-tertiary hover:text-text-secondary"
+                )}
+              >
+                <ThumbsUp className="w-4 h-4" />
+                <span>{post.likeCount}</span>
+              </button>
+              
+              <div className="flex items-center gap-1 text-sm text-text-tertiary">
+                <MessageSquare className="w-4 h-4" />
+                <span>{post.replyCount}</span>
+              </div>
+            </>
+          )}
         </div>
       </div>
 

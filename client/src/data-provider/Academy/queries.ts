@@ -25,6 +25,21 @@ export const useGetModulesQuery = (
   });
 };
 
+export const useGetModuleQuery = (
+  moduleId: string,
+  options?: UseQueryOptions<any>
+): ReturnType<typeof useQuery<any>> => {
+  return useQuery<any>({
+    queryKey: ['module', moduleId],
+    queryFn: async () => {
+      const response = await request.get(`/api/lms/modules/${moduleId}`);
+      return response.data;
+    },
+    enabled: !!moduleId,
+    ...options,
+  });
+};
+
 export const useGetCoursesQuery = (
   options?: UseQueryOptions<TGetCoursesResponse>
 ): ReturnType<typeof useQuery<TGetCoursesResponse>> => {
@@ -102,10 +117,29 @@ export const useGetForumCategoriesQuery = (
   return useQuery<any>({
     queryKey: [QueryKeys.forumCategories],
     queryFn: async () => {
-      // Use mock data for now
-      return Promise.resolve(mockForumCategories);
-      // Original: return request.get('/api/lms/forum/categories').then((res) => res.data);
+      const fallbackCategories = [
+        { _id: 'general', name: 'General Discussion', description: 'General topics and discussions' },
+        { _id: 'questions', name: 'Questions', description: 'Ask questions and get help' },
+        { _id: 'resources', name: 'Resources', description: 'Share resources and tools' }
+      ];
+      
+      try {
+        console.log('[ForumCategories] Making API request to /api/lms/forum/categories');
+        const response = await request.get('/api/lms/forum/categories');
+        console.log('[ForumCategories] API response:', response);
+        
+        if (response && Array.isArray(response)) {
+          return response;
+        }
+        
+        console.warn('[ForumCategories] API returned unexpected response format, using fallback');
+        return fallbackCategories;
+      } catch (error) {
+        console.error('[ForumCategories] API call failed:', error);
+        return fallbackCategories;
+      }
     },
+    staleTime: 5 * 60 * 1000, // 5 minutes
     ...options,
   });
 };

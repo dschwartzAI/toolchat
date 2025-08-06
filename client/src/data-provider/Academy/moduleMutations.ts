@@ -1,6 +1,5 @@
 import { useMutation, useQueryClient, UseMutationOptions } from '@tanstack/react-query';
-import { QueryKeys } from 'librechat-data-provider';
-import request from '~/data-provider/request';
+import { QueryKeys, request } from 'librechat-data-provider';
 
 // Module CRUD Mutations
 
@@ -138,28 +137,4 @@ export const useBulkPublishMutation = (
     },
     ...options,
   });
-};
-
-// Module queries
-export const useGetModulesQuery = (includeDeleted = false) => {
-  return {
-    queryKey: ['modules', { includeDeleted }],
-    queryFn: async () => {
-      const response = await request.get('/api/lms/modules', {
-        params: { includeDeleted },
-      });
-      return response.data;
-    },
-  };
-};
-
-export const useGetModuleQuery = (moduleId: string) => {
-  return {
-    queryKey: ['module', moduleId],
-    queryFn: async () => {
-      const response = await request.get(`/api/lms/modules/${moduleId}`);
-      return response.data;
-    },
-    enabled: !!moduleId,
-  };
 };

@@ -9,6 +9,7 @@ router.get('/categories', requireJwtAuth, ForumController.getCategories);
 router.get('/categories/:categoryId/posts', requireJwtAuth, ForumController.getCategoryPosts);
 
 // Post routes
+router.get('/posts', requireJwtAuth, ForumController.getAllPosts);
 router.get('/posts/:postId', requireJwtAuth, ForumController.getPost);
 router.post('/posts', requireJwtAuth, ForumController.createPost);
 router.put('/posts/:postId', requireJwtAuth, ForumController.updatePost);

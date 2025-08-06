@@ -250,10 +250,10 @@ const Nav = memo(
                             onClick={() => setAcademyVisible(!academyVisible)}
                             className={cn(
                               'group flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all duration-200',
-                              'border border-transparent',
+                              'border',
                               academyVisible 
                                 ? 'bg-green-500/15 text-green-600 border-green-500/30' 
-                                : 'bg-surface-secondary/50 hover:bg-surface-secondary hover:border-border-light text-text-secondary hover:text-text-primary'
+                                : 'bg-surface-secondary/50 border-border-medium hover:bg-surface-secondary hover:border-border-light text-text-secondary hover:text-text-primary'
                             )}
                             aria-label={localize('com_academy_title')}
                           >
