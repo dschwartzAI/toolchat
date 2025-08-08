@@ -54,10 +54,10 @@ const ModuleViewer: React.FC<ModuleViewerProps> = ({ module, onBack }) => {
   };
 
   const handleChatWithCourse = () => {
-    // Create a new conversation with DarkJK agent
+    // Create a new conversation with SovereignJK agent
     const initialText = `I'm watching "${module.title}". Help me understand `;
     
-    // First, create a new conversation with the DarkJK agent
+    // First, create a new conversation with the SovereignJK agent
     newConversation({
       template: {
         endpoint: EModelEndpoint.agents,
@@ -153,13 +153,13 @@ const ModuleViewer: React.FC<ModuleViewerProps> = ({ module, onBack }) => {
                     </button>
                   )}
                 </div>
-                {/* Chat with DarkJK Button */}
+                {/* Chat with SovereignJK Button */}
                 <button
                   onClick={handleChatWithCourse}
                   className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-lg hover:from-green-600 hover:to-green-700 transition-all duration-200 font-medium shadow-md hover:shadow-lg"
                 >
                   <MessageCircle className="w-5 h-5" />
-                  <span>Ask DarkJK about this module</span>
+                  <span>Ask SovereignJK about this module</span>
                 </button>
               </div>
             </div>

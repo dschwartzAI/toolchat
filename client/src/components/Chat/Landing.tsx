@@ -210,8 +210,9 @@ export default function Landing({ centerFormOnLanding }: { centerFormOnLanding: 
           </div>
         )}
         {isAgent && 
-         conversation?.agent_id !== 'agent_KVXW88WVte1tcyABlAowy' && // DarkJK
-         conversation?.agent_id !== 'agent_odD3oMA9NgaPXQEcf0Pnq' && ( // SovereignJK
+         conversation?.agent_id !== 'agent_KVXW88WVte1tcyABlAowy' && // SovereignJK (old)
+         conversation?.agent_id !== 'agent_odD3oMA9NgaPXQEcf0Pnq' && // SovereignJK
+         conversation?.agent_id !== 'agent_iQEgiUTn0qgQ9s5c0NWvs' && ( // HighLevel CRM
           <button
             onClick={() => submitMessage({ text: 'begin' })}
             className="animate-fadeIn mt-4 rounded-lg bg-green-600 px-6 py-2 text-white transition-colors hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 dark:bg-green-500 dark:hover:bg-green-600"

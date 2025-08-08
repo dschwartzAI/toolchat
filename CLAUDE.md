@@ -2,6 +2,26 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## ⚠️ CRITICAL: ALWAYS USE RESTART SCRIPT - NEVER MANUAL RESTART
+
+### MANDATORY: When restarting servers, ALWAYS use:
+```bash
+./scripts/restart-servers.sh
+```
+
+### ❌ NEVER use these manual commands:
+- `pkill -f "node api/server"` then `npm run backend:dev` (alone)
+- Any manual restart without the full script
+- Restarting just the backend without the frontend
+
+### Why This Matters:
+- The script properly handles BOTH frontend and backend
+- It waits for proper initialization  
+- It provides the correct URLs (3080 for production, 3090 for dev)
+- **IT PREVENTS "Site can't be reached" ERRORS THAT FRUSTRATE THE USER**
+
+### If you restart servers any other way, you WILL cause connection errors!
+
 ## Repository Overview
 
 This is a heavily customized fork of LibreChat v0.7.9-rc1, transformed into an AI Business Tools Platform. It provides specialized business coaching and consulting tools through native LibreChat agents.
@@ -9,14 +29,77 @@ This is a heavily customized fork of LibreChat v0.7.9-rc1, transformed into an A
 ## Essential Commands
 
 ### Development
+
+#### CRITICAL: Port Architecture
+```
+Port 3080: Backend API (Express) - DO NOT access directly in browser
+Port 3090: Frontend dev server (Vite) - ACCESS THIS IN BROWSER
+Port 5173: Alternative frontend port if 3090 is busy
+
+The frontend (3090) proxies API calls to backend (3080).
+BOTH servers must be running for the app to work!
+```
+
+#### Quick Restart (RECOMMENDED for common issues)
+```bash
+./scripts/restart-servers.sh   # Comprehensive restart (NEW)
+./scripts/restart-dev.sh       # Alternative restart script
+```
+
+#### Manual Start
 ```bash
 # Start development servers (run in separate terminals)
 npm run backend:dev     # Backend with hot reload on port 3080
-npm run frontend:dev    # Frontend on port 5173
+npm run frontend:dev    # Frontend on port 3090 (proxies to backend)
 
 # Alternative with bun
 npm run b:api:dev      # Bun development backend
 ```
+
+#### Common Development Issues & Solutions
+
+**ERR_CONNECTION_REFUSED or 500 Errors on /api/banner, /api/config**
+```bash
+# Problem: Frontend server running but backend is not, or port mismatch
+# Root Cause: Only restarting one server (usually backend) instead of both
+# IMPORTANT: ALWAYS restart BOTH servers together!
+
+# Solution 1: Use restart script (recommended)
+./scripts/restart-servers.sh  # New comprehensive restart script
+
+# Solution 2: Manual restart
+pkill -f "vite" && pkill -f "node api/server/index.js"  # Kill all
+npm run backend:dev    # Terminal 1 - Wait for "Server listening on port 3080"
+npm run frontend:dev   # Terminal 2 - Wait for "ready in X ms"
+
+# Verify both are running:
+curl -s -o /dev/null -w "%{http_code}" http://localhost:3080/  # Should return 200
+curl -s -o /dev/null -w "%{http_code}" http://localhost:3090/  # Should return 200
+```
+
+**Port Already in Use (EADDRINUSE)**
+```bash
+# Kill processes on specific ports
+lsof -ti:3080 | xargs kill -9  # Backend
+lsof -ti:3090 | xargs kill -9  # Frontend
+lsof -ti:5173 | xargs kill -9  # Vite fallback
+
+# Or use the restart script
+./scripts/restart-dev.sh
+```
+
+**Stale Compiled Code / Changes Not Appearing**
+```bash
+# Rebuild API package (critical for MCP changes)
+npm run build:api
+
+# Then restart backend
+npm run backend:dev
+```
+
+**MCP Tool Loading Errors (convertWithResolvedRefs)**
+- The system has a fallback in `/api/server/services/MCP.js`
+- If errors persist: `npm run build:api && npm run backend:dev`
 
 ### Production Build
 ```bash

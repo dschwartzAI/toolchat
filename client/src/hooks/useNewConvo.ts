@@ -125,13 +125,13 @@ const useNewConvo = (index = 0) => {
           }
 
           if (!currentAssistantId && isAssistantEndpoint) {
-            // Try to get DarkJK specifically or fall back to stored/first assistant
-            const darkJK = assistants.find((asst) => 
-              asst.name?.toLowerCase().includes('darkjk') || 
-              asst.name?.toLowerCase().includes('dark jk')
+            // Try to get SovereignJK specifically or fall back to stored/first assistant
+            const sovereignJK = assistants.find((asst) => 
+              asst.name?.toLowerCase().includes('sovereignjk') || 
+              asst.name?.toLowerCase().includes('sovereign jk')
             );
             conversation.assistant_id =
-              darkJK?.id ??
+              sovereignJK?.id ??
               localStorage.getItem(
                 `${LocalStorageKeys.ASST_ID_PREFIX}${index}${defaultEndpoint}`,
               ) ?? assistants[0]?.id;

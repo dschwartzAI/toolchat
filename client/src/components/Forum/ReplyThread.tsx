@@ -67,7 +67,7 @@ export const ReplyThread: React.FC<ReplyThreadProps> = ({
     if (!window.confirm(localize('com_academy_confirm_delete_reply'))) return;
 
     deleteReply.mutate(
-      { replyId: reply._id },
+      reply._id,
       {
         onSuccess: () => {
           showToast({

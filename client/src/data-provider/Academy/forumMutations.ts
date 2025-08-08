@@ -99,6 +99,41 @@ export const useLockPostMutation = (
   });
 };
 
+export const useLikePostMutation = (
+  options?: UseMutationOptions<any, Error, any>
+) => {
+  const queryClient = useQueryClient();
+  
+  return useMutation({
+    mutationFn: async (postId: string) => {
+      const response = await request.post(`/api/lms/forum/posts/${postId}/like`);
+      return response;
+    },
+    onSuccess: (data, postId) => {
+      queryClient.invalidateQueries({ queryKey: [QueryKeys.forumPost, postId] });
+      queryClient.invalidateQueries({ queryKey: [QueryKeys.forumPosts] });
+    },
+    ...options,
+  });
+};
+
+export const useLikeReplyMutation = (
+  options?: UseMutationOptions<any, Error, any>
+) => {
+  const queryClient = useQueryClient();
+  
+  return useMutation({
+    mutationFn: async ({ postId, replyId }: { postId: string; replyId: string }) => {
+      const response = await request.post(`/api/lms/forum/posts/${postId}/replies/${replyId}/like`);
+      return response;
+    },
+    onSuccess: (data, variables) => {
+      queryClient.invalidateQueries({ queryKey: [QueryKeys.forumPost, variables.postId] });
+    },
+    ...options,
+  });
+};
+
 export const useBulkDeletePostsMutation = (
   options?: UseMutationOptions<any, Error, any>
 ) => {
@@ -146,6 +181,8 @@ export const useDeleteReplyMutation = (
       return response;
     },
     onSuccess: () => {
+      // Invalidate both the posts list and individual post queries
+      queryClient.invalidateQueries({ queryKey: [QueryKeys.forumPosts] });
       queryClient.invalidateQueries({ queryKey: [QueryKeys.forumPost] });
     },
     ...options,

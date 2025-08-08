@@ -183,6 +183,7 @@ export default function useChatFunctions({
         endpointType,
         overrideConvoId,
         overrideUserMessageId,
+        spec: conversation?.spec,
       },
       convo,
     ) as TEndpointOption;

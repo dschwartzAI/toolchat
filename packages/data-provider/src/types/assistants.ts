@@ -241,7 +241,7 @@ export type AgentCreateParams = {
   model_parameters: AgentModelParameters;
 } & Pick<
   Agent,
-  'agent_ids' | 'end_after_tools' | 'hide_sequential_outputs' | 'artifacts' | 'recursion_limit'
+  'agent_ids' | 'end_after_tools' | 'hide_sequential_outputs' | 'artifacts' | 'recursion_limit' | 'conversation_starters'
 >;
 
 export type AgentUpdateParams = {
@@ -260,7 +260,7 @@ export type AgentUpdateParams = {
   isCollaborative?: boolean;
 } & Pick<
   Agent,
-  'agent_ids' | 'end_after_tools' | 'hide_sequential_outputs' | 'artifacts' | 'recursion_limit'
+  'agent_ids' | 'end_after_tools' | 'hide_sequential_outputs' | 'artifacts' | 'recursion_limit' | 'conversation_starters'
 >;
 
 export type AgentListParams = {

@@ -43,18 +43,35 @@ export default defineConfig(({ command }) => ({
       includeManifestIcons: false,
       workbox: {
         globPatterns: [
-          '**/*.{js,css,html}',
           'assets/favicon*.png',
           'assets/icon-*.png',
           'assets/apple-touch-icon*.png',
           'assets/maskable-icon.png',
           'manifest.webmanifest',
         ],
-        globIgnores: ['images/**/*', '**/*.map'], // removed 'index.html' from ignores
+        globIgnores: ['images/**/*', '**/*.map', '**/*.js', '**/*.css', '**/*.html'], // Ignore JS, CSS, HTML for now
         maximumFileSizeToCacheInBytes: 4 * 1024 * 1024,
         navigateFallbackDenylist: [/^\/oauth/, /^\/api/],
-        navigateFallback: 'index.html',
-        navigateFallbackAllowlist: [/^(?!\/__).*/],
+        navigateFallback: null, // Disable navigate fallback to prevent caching issues
+        navigateFallbackAllowlist: [],
+        runtimeCaching: [
+          {
+            urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'google-fonts-cache',
+              expiration: {
+                maxEntries: 10,
+                maxAgeSeconds: 60 * 60 * 24 * 365, // 1 year
+              },
+              cacheableResponse: {
+                statuses: [0, 200],
+              },
+            },
+          },
+        ],
+        skipWaiting: true,
+        clientsClaim: true,
       },
       includeAssets: [],
       manifest: {

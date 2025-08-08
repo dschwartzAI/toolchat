@@ -32,6 +32,7 @@ function getTimeStr(clientTimestamp) {
  * @param {string} [options.instructions] - The instructions to include.
  * @param {Object} [options.endpointOption={}] - The endpoint options.
  * @param {string} [options.clientTimestamp] - Client timestamp in ISO format.
+ * @param {string} [options.memoryContext] - User memory context to include.
  *
  * @returns {Object} - The constructed body object for the run request.
  */
@@ -42,6 +43,7 @@ const createRunBody = ({
   instructions,
   endpointOption = {},
   clientTimestamp,
+  memoryContext,
 }) => {
   const body = {
     assistant_id,
@@ -50,10 +52,15 @@ const createRunBody = ({
 
   let systemInstructions = '';
 
+  // Add memory context first if available
+  if (memoryContext) {
+    systemInstructions = `Here is what you remember about the user:\n${memoryContext}\n\n`;
+  }
+
   if (endpointOption.assistant?.append_current_datetime) {
     const dateStr = getDateStr(clientTimestamp);
     const timeStr = getTimeStr(clientTimestamp);
-    systemInstructions = `Current date and time: ${dateStr} ${timeStr}\n`;
+    systemInstructions += `Current date and time: ${dateStr} ${timeStr}\n`;
   }
 
   if (promptPrefix) {

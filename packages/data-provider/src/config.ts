@@ -826,6 +826,7 @@ export const alternateName = {
 };
 
 const sharedOpenAIModels = [
+  'gpt-5',
   'gpt-4o-mini',
   'gpt-4o',
   'gpt-4.5-preview',

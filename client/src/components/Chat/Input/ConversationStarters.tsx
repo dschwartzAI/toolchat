@@ -7,7 +7,7 @@ import { useSubmitMessage } from '~/hooks';
 
 // Agent IDs that should not display conversation starters
 const AGENTS_WITHOUT_STARTERS = [
-  'agent_KVXW88WVte1tcyABlAowy', // DarkJK
+  'agent_KVXW88WVte1tcyABlAowy', // SovereignJK (old ID)
   'agent_odD3oMA9NgaPXQEcf0Pnq'  // SovereignJK
 ];
 
@@ -82,11 +82,11 @@ const ConversationStarters = () => {
           <button
             key={index}
             onClick={() => sendConversationStarter(text)}
-            className="relative flex w-40 cursor-pointer flex-col gap-2 rounded-2xl border border-border-medium px-3 pb-4 pt-3 text-start align-top text-[15px] shadow-[0_0_2px_0_rgba(0,0,0,0.05),0_4px_6px_0_rgba(0,0,0,0.02)] transition-colors duration-300 ease-in-out fade-in hover:bg-surface-tertiary"
+            className="relative flex min-w-[120px] max-w-[280px] cursor-pointer items-center justify-center rounded-xl border border-border-medium bg-surface-primary px-4 py-3 text-center text-sm font-medium text-text-primary shadow-sm transition-all duration-200 hover:bg-surface-secondary hover:shadow-md hover:scale-[1.02] active:scale-[0.98]"
           >
-            <p className="break-word line-clamp-3 overflow-hidden text-balance break-all text-text-secondary">
+            <span className="line-clamp-2 break-words">
               {text}
-            </p>
+            </span>
           </button>
         ))}
     </div>

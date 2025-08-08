@@ -3,9 +3,9 @@ import { Step } from 'react-joyride';
 export const tourSteps: Step[] = [
   {
     target: 'body',
-    content: 'Welcome to SovereignAI. Think of this like James\' brain, available 24/7 for live coaching. The app remembers important info you tell it, so it gets smarter the more you use it.',
+    content: 'Welcome to Solo:OS. Think of this like James\' brain, available 24/7 for live coaching. The app remembers important info you tell it, so it gets smarter the more you use it.',
     placement: 'center',
-    title: 'Welcome to SovereignAI',
+    title: 'Welcome to Solo:OS',
     disableBeacon: true,
   },
   {
@@ -41,8 +41,16 @@ export const tourSteps: Step[] = [
     spotlightClicks: true,
   },
   {
+    target: '[data-tour="academy-button"]',
+    content: 'Access the Academy for community forums, courses, and training materials. Connect with other users and learn advanced strategies.',
+    placement: 'left',
+    title: 'Academy & Community',
+    disableBeacon: true,
+    spotlightClicks: true,
+  },
+  {
     target: 'body',
-    content: 'That\'s it! You\'re ready to start using SovereignAI. Pick a tool from the selector and ask your first question! We recommend starting with the Ideal Client Extractor to get in the minds of your prospects.',
+    content: 'That\'s it! You\'re ready to start using Solo:OS. Pick a tool from the selector and ask your first question! We recommend starting with the Ideal Client Extractor to get in the minds of your prospects.',
     placement: 'center',
     title: 'Ready to Go!',
     disableBeacon: true,

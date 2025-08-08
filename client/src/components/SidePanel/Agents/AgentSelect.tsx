@@ -99,6 +99,15 @@ export default function AgentSelect({
           return;
         }
 
+        if (
+          name === 'conversation_starters' &&
+          Array.isArray(value) &&
+          value.every((item) => typeof item === 'string')
+        ) {
+          formValues[name] = value;
+          return;
+        }
+
         if (!keys.has(name)) {
           return;
         }

@@ -61,11 +61,13 @@ const startServer = async () => {
   app.use(cors());
   app.use(cookieParser());
 
-  if (!isEnabled(DISABLE_COMPRESSION)) {
-    app.use(compression());
-  } else {
-    console.warn('Response compression has been disabled via DISABLE_COMPRESSION.');
-  }
+  // Disable compression to fix ERR_CONTENT_DECODING_FAILED
+  // if (!isEnabled(DISABLE_COMPRESSION)) {
+  //   app.use(compression());
+  // } else {
+  //   console.warn('Response compression has been disabled via DISABLE_COMPRESSION.');
+  // }
+  console.warn('Compression temporarily disabled to fix content decoding issues.');
 
   if (!ALLOW_SOCIAL_LOGIN) {
     console.warn('Social logins are disabled. Set ALLOW_SOCIAL_LOGIN=true to enable them.');
@@ -121,9 +123,13 @@ const startServer = async () => {
   app.use(errorController);
 
   // Serve static assets with aggressive caching (after API routes)
-  app.use(staticCache(app.locals.paths.dist));
-  app.use(staticCache(app.locals.paths.fonts));
-  app.use(staticCache(app.locals.paths.assets));
+  // Temporarily disable gzip scanning to fix ERR_CONTENT_DECODING_FAILED
+  app.use(staticCache(app.locals.paths.dist, { skipGzipScan: true }));
+  app.use(staticCache(app.locals.paths.fonts, { skipGzipScan: true }));
+  app.use(staticCache(app.locals.paths.assets, { skipGzipScan: true }));
+  
+  // Serve CourseModules for Academy feature
+  app.use('/CourseModules', staticCache(path.join(app.locals.paths.publicPath, 'CourseModules')));
 
   app.use((req, res) => {
     res.set({

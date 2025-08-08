@@ -109,10 +109,21 @@ class ForumService {
       // Check if user liked the post
       const userLiked = userId && post.likes.some(id => id.toString() === userId);
 
+      // Ensure reply count is accurate
+      const actualReplyCount = replies.length;
+      if (post.replyCount !== actualReplyCount) {
+        // Update the post with correct count if there's a mismatch
+        await ForumPost.findByIdAndUpdate(postId, {
+          $set: { replyCount: actualReplyCount }
+        });
+        post.replyCount = actualReplyCount;
+      }
+
       return {
         ...post,
         replies,
-        userLiked
+        userLiked,
+        replyCount: actualReplyCount
       };
     } catch (error) {
       logger.error('[ForumService] Error getting post:', error);
@@ -310,12 +321,17 @@ class ForumService {
         throw new Error('Failed to create reply');
       }
 
-      // Update post stats - also bypass validation
+      // Update post stats with accurate count
+      const actualReplyCount = await ForumReply.countDocuments({
+        post: postId,
+        deletedAt: null
+      });
+      
       await ForumPost.updateOne(
         { _id: postId },
         {
-          $inc: { replyCount: 1 },
           $set: {
+            replyCount: actualReplyCount,
             lastReplyAt: new Date(),
             lastReplyBy: authorId
           }

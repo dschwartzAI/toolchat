@@ -526,13 +526,18 @@ const ForumController = {
         return res.status(404).json({ error: 'Reply not found' });
       }
       
+      // Check if already deleted
+      if (reply.deletedAt) {
+        return res.status(400).json({ error: 'Reply already deleted' });
+      }
+      
       if (!isAdmin && reply.author.toString() !== userId) {
         return res.status(403).json({ error: 'Not authorized to delete this reply' });
       }
       
       // Direct update bypassing validation
       const result = await ForumReply.updateOne(
-        { _id: replyId },
+        { _id: replyId, deletedAt: null },
         {
           $set: {
             deletedAt: new Date(),
@@ -545,10 +550,18 @@ const ForumController = {
         throw new Error('Failed to update reply');
       }
       
-      // Update reply count
-      await ForumPost.findByIdAndUpdate(reply.post, {
-        $inc: { replyCount: -1 }
-      });
+      // Update reply count only if the reply was actually deleted
+      if (result.modifiedCount > 0) {
+        // Count actual non-deleted replies to ensure accuracy
+        const actualReplyCount = await ForumReply.countDocuments({
+          post: reply.post,
+          deletedAt: null
+        });
+        
+        await ForumPost.findByIdAndUpdate(reply.post, {
+          $set: { replyCount: actualReplyCount }
+        });
+      }
       
       res.json({ 
         success: true,

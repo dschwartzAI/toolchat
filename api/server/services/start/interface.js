@@ -59,6 +59,10 @@ async function loadDefaultInterface(config, configDefaults, roleName = SystemRol
     [PermissionTypes.BOOKMARKS]: { [Permissions.USE]: loadedInterface.bookmarks },
     [PermissionTypes.MEMORIES]: {
       [Permissions.USE]: loadedInterface.memories,
+      [Permissions.READ]: loadedInterface.memories,
+      [Permissions.CREATE]: loadedInterface.memories,
+      [Permissions.UPDATE]: loadedInterface.memories,
+      [Permissions.DELETE]: loadedInterface.memories,
       [Permissions.OPT_OUT]: isPersonalizationEnabled,
     },
     [PermissionTypes.MULTI_CONVO]: { [Permissions.USE]: loadedInterface.multiConvo },
@@ -73,6 +77,10 @@ async function loadDefaultInterface(config, configDefaults, roleName = SystemRol
     [PermissionTypes.BOOKMARKS]: { [Permissions.USE]: loadedInterface.bookmarks },
     [PermissionTypes.MEMORIES]: {
       [Permissions.USE]: loadedInterface.memories,
+      [Permissions.READ]: loadedInterface.memories,
+      [Permissions.CREATE]: loadedInterface.memories,
+      [Permissions.UPDATE]: loadedInterface.memories,
+      [Permissions.DELETE]: loadedInterface.memories,
       [Permissions.OPT_OUT]: isPersonalizationEnabled,
     },
     [PermissionTypes.MULTI_CONVO]: { [Permissions.USE]: loadedInterface.multiConvo },

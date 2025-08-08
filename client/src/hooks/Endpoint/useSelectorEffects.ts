@@ -57,13 +57,13 @@ export default function useSelectorEffects({
       return;
     }
     if (selectedAssistantId == null && assistants.length > 0) {
-      // Try to find DarkJK specifically
-      const darkJK = assistants.find((asst) => 
-        asst.name?.toLowerCase().includes('darkjk') || 
-        asst.name?.toLowerCase().includes('dark jk')
+      // Try to find SovereignJK specifically
+      const sovereignJK = assistants.find((asst) => 
+        asst.name?.toLowerCase().includes('sovereignjk') || 
+        asst.name?.toLowerCase().includes('sovereign jk')
       );
       
-      let assistant_id = darkJK?.id ?? 
+      let assistant_id = sovereignJK?.id ?? 
         localStorage.getItem(`${LocalStorageKeys.ASST_ID_PREFIX}${index}`) ?? 
         assistants[0]?.id;
       

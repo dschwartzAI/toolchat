@@ -79,7 +79,7 @@ const getDefaultEndpoint = ({
     return fromStorage;
   }
   
-  // Default to assistants if available (DarkJK)
+  // Default to assistants if available (SovereignJK)
   if (endpointsConfig?.['assistants']) {
     return 'assistants' as EModelEndpoint;
   }

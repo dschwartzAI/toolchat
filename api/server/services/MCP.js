@@ -113,10 +113,24 @@ async function createMCPTool({ req, res, toolKey, provider: _provider }) {
   /** @type {LCTool} */
   const { description, parameters } = toolDefinition;
   const isGoogle = _provider === Providers.VERTEXAI || _provider === Providers.GOOGLE;
-  let schema = convertWithResolvedRefs(parameters, {
-    allowEmptyObject: !isGoogle,
-    transformOneOfAnyOf: true,
-  });
+  
+  let schema;
+  try {
+    // Try to use convertWithResolvedRefs if available
+    if (typeof convertWithResolvedRefs === 'function') {
+      schema = convertWithResolvedRefs(parameters, {
+        allowEmptyObject: !isGoogle,
+        transformOneOfAnyOf: true,
+      });
+    } else {
+      // Fallback to using parameters directly
+      schema = z.object(parameters?.properties || {});
+    }
+  } catch (err) {
+    logger.debug(`[MCP] Using fallback schema for ${toolDefinition.name}: ${err.message}`);
+    // Fallback schema
+    schema = z.object({});
+  }
 
   if (!schema) {
     schema = z.object({ input: z.string().optional() });
