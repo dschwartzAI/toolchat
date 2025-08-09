@@ -62,6 +62,13 @@ export enum QueryKeys {
   adminCourses = 'adminCourses',
   academyForumPosts = 'academyForumPosts',
   academyForumPost = 'academyForumPost',
+  /* Calendar */
+  calendarEvents = 'calendarEvents',
+  calendarEvent = 'calendarEvent',
+  upcomingEvents = 'upcomingEvents',
+  calendarEventsRange = 'calendarEventsRange',
+  allCalendarEvents = 'allCalendarEvents',
+  eventTemplates = 'eventTemplates',
 }
 
 export enum MutationKeys {

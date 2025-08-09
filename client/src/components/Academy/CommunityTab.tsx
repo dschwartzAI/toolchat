@@ -219,6 +219,14 @@ const CommunityTab: React.FC = () => {
       } else {
         // Delete comment from server
         await deleteReplyMutation.mutateAsync(deleteConfirm.id);
+        
+        // Remove reply from local state immediately (optimistic update)
+        setForumPosts(posts => posts.map(post => ({
+          ...post,
+          replies: post.replies?.filter(reply => reply._id !== deleteConfirm.id) || [],
+          comments: post.comments?.filter(comment => comment._id !== deleteConfirm.id) || [],
+          replyCount: post.replyCount > 0 ? post.replyCount - 1 : 0
+        })));
       }
     } catch (error: any) {
       console.error('[CommunityTab] Failed to delete:', error);

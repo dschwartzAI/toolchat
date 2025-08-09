@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
-import { Users, BookOpen, X, GripVertical } from 'lucide-react';
+import { Users, BookOpen, Calendar, X, GripVertical } from 'lucide-react';
 import { useRecoilState } from 'recoil';
 import { useLocalize } from '~/hooks';
 import { cn } from '~/utils';
 import store from '~/store';
 import CommunityTab from './CommunityTab';
 import ClassroomTab from './ClassroomTab';
+import CalendarView from './CalendarView';
 
 interface AcademySidebarProps {
   onClose?: () => void;
@@ -24,7 +25,7 @@ const AcademySidebar: React.FC<AcademySidebarProps> = ({ onClose }) => {
     }
     
     const savedTab = localStorage.getItem('academyActiveTab');
-    if (savedTab === 'community' || savedTab === 'classroom') {
+    if (savedTab === 'community' || savedTab === 'classroom' || savedTab === 'calendar') {
       setActiveTab(savedTab);
     }
   }, [setPanelWidth, setActiveTab]);
@@ -82,7 +83,7 @@ const AcademySidebar: React.FC<AcademySidebarProps> = ({ onClose }) => {
           <button
             onClick={() => setActiveTab('community')}
             className={cn(
-              "flex-1 py-2 px-4 text-sm font-medium transition-colors flex items-center justify-center gap-2",
+              "flex-1 py-2 px-3 text-sm font-medium transition-colors flex items-center justify-center gap-1.5",
               activeTab === 'community'
                 ? "text-text-primary border-b-2 border-green-500"
                 : "text-text-secondary hover:text-text-primary"
@@ -94,7 +95,7 @@ const AcademySidebar: React.FC<AcademySidebarProps> = ({ onClose }) => {
           <button
             onClick={() => setActiveTab('classroom')}
             className={cn(
-              "flex-1 py-2 px-4 text-sm font-medium transition-colors flex items-center justify-center gap-2",
+              "flex-1 py-2 px-3 text-sm font-medium transition-colors flex items-center justify-center gap-1.5",
               activeTab === 'classroom'
                 ? "text-text-primary border-b-2 border-green-500"
                 : "text-text-secondary hover:text-text-primary"
@@ -103,14 +104,28 @@ const AcademySidebar: React.FC<AcademySidebarProps> = ({ onClose }) => {
             <BookOpen className="w-4 h-4" />
             {localize('com_academy_classroom') || 'Classroom'}
           </button>
+          <button
+            onClick={() => setActiveTab('calendar')}
+            className={cn(
+              "flex-1 py-2 px-3 text-sm font-medium transition-colors flex items-center justify-center gap-1.5",
+              activeTab === 'calendar'
+                ? "text-text-primary border-b-2 border-green-500"
+                : "text-text-secondary hover:text-text-primary"
+            )}
+          >
+            <Calendar className="w-4 h-4" />
+            Calendar
+          </button>
         </div>
 
         {/* Content */}
         <div className="flex-1 overflow-hidden">
           {activeTab === 'community' ? (
             <CommunityTab />
-          ) : (
+          ) : activeTab === 'classroom' ? (
             <ClassroomTab />
+          ) : (
+            <CalendarView />
           )}
         </div>
       </div>

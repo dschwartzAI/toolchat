@@ -27,6 +27,7 @@ const { getPreset, getPresets, savePreset, deletePresets } = require('./Preset')
 const Module = require('./Module');
 const ForumPost = require('./ForumPost');
 const ForumReply = require('./ForumReply');
+const CalendarEvent = require('./CalendarEvent');
 
 module.exports = {
   ...methods,
@@ -61,4 +62,5 @@ module.exports = {
   Module,
   ForumPost,
   ForumReply,
+  CalendarEvent,
 };

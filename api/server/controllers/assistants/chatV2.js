@@ -29,7 +29,9 @@ const { createRunBody } = require('~/server/services/createRunBody');
 const { getTransactions } = require('~/models/Transaction');
 const { checkBalance } = require('~/models/balanceMethods');
 const { getConvo } = require('~/models/Conversation');
-const { getFormattedMemories } = require('~/models');
+const { getFormattedMemories, setMemory, deleteMemory } = require('~/models');
+const { createMemoryProcessor } = require('@librechat/api');
+const { HumanMessage } = require('@langchain/core/messages');
 const getLogStores = require('~/cache/getLogStores');
 const { countTokens } = require('~/server/utils');
 const { getModelMaxTokens } = require('~/utils');
@@ -474,6 +476,39 @@ const chatV2 = async (req, res) => {
       spec: endpointOption.spec,
       iconURL: endpointOption.iconURL,
     };
+
+    /**
+     * Run memory processing before sending final event so UI can receive "attachment" updates
+     */
+    try {
+      const memoryConfig = req.app.locals?.memory;
+      const user = req.user;
+      if (user.personalization?.memories !== false && memoryConfig && memoryConfig.disabled !== true) {
+        const memoryAgentConfig = memoryConfig.agent || {};
+        const llmConfig = memoryAgentConfig.model && memoryAgentConfig.provider
+          ? { provider: memoryAgentConfig.provider, model: memoryAgentConfig.model, ...(memoryAgentConfig.model_parameters || {}) }
+          : undefined;
+
+        const [_, processMemory] = await createMemoryProcessor({
+          res,
+          userId: user.id,
+          messageId: openai.responseMessage?.messageId || responseMessageId,
+          conversationId,
+          memoryMethods: { setMemory, deleteMemory, getFormattedMemories },
+          config: {
+            validKeys: memoryConfig.validKeys,
+            instructions: memoryAgentConfig.instructions,
+            llmConfig,
+            tokenLimit: memoryConfig.tokenLimit,
+          },
+        });
+
+        const buffer = `# Current Chat:\n\nUser: ${text}\n\nAssistant: ${response.text || ''}`;
+        await processMemory([new HumanMessage(buffer)]);
+      }
+    } catch (err) {
+      logger.error('[/assistants/chat/] Memory processing error', err);
+    }
 
     sendEvent(res, {
       final: true,
