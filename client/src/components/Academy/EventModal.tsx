@@ -5,7 +5,6 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from '~/components/u
 import { useDeleteCalendarEvent } from '~/data-provider/Academy';
 import { useToastContext } from '~/Providers';
 import { cn } from '~/utils';
-import DeleteConfirmDialog from './DeleteConfirmDialog';
 
 interface CalendarEvent {
   _id: string;
@@ -34,11 +33,9 @@ interface EventModalProps {
 const EventModal: React.FC<EventModalProps> = ({ event, isOpen, onClose, isAdmin, onEdit, onDeleted }) => {
   const { showToast } = useToastContext();
   const deleteEventMutation = useDeleteCalendarEvent();
-  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
-  const [deleteSeries, setDeleteSeries] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
   
-  console.log('[EventModal] Component state:', { showDeleteConfirm, isAdmin, eventId: event?._id });
+  console.log('[EventModal] Component state:', { isAdmin, eventId: event?._id });
   
   const startDate = parseISO(event.start_datetime);
   const endDate = new Date(startDate.getTime() + event.duration_minutes * 60000);
@@ -98,13 +95,7 @@ const EventModal: React.FC<EventModalProps> = ({ event, isOpen, onClose, isAdmin
     }
   };
   
-  const handleCancelDelete = useCallback(() => {
-    console.log('[EventModal] Cancel delete clicked');
-    setShowDeleteConfirm(false);
-    setDeleteSeries(false);
-  }, []);
-
-  const handleDelete = useCallback(async () => {
+  const handleDelete = useCallback(async (shouldDeleteSeries: boolean = false) => {
     // Determine the correct ID to use for deletion
     // For recurring occurrences, use parent_event_id; for regular events, use _id
     const deleteId = event.is_occurrence ? event.parent_event_id : event._id;
@@ -116,7 +107,7 @@ const EventModal: React.FC<EventModalProps> = ({ event, isOpen, onClose, isAdmin
       eventId: deleteId, 
       isOccurrence: event.is_occurrence,
       parentEventId: event.parent_event_id,
-      deleteSeries 
+      deleteSeries: shouldDeleteSeries 
     });
     console.log('[EventModal] Delete mutation available:', !!deleteEventMutation);
     
@@ -127,7 +118,6 @@ const EventModal: React.FC<EventModalProps> = ({ event, isOpen, onClose, isAdmin
         message: 'Unable to delete: Event ID is missing',
         status: 'error',
       });
-      setShowDeleteConfirm(false);
       return;
     }
     
@@ -142,12 +132,12 @@ const EventModal: React.FC<EventModalProps> = ({ event, isOpen, onClose, isAdmin
       console.log('[EventModal] Calling delete mutation with ID:', deleteId);
       const result = await deleteEventMutation.mutateAsync({
         id: deleteId,
-        deleteSeries,
+        deleteSeries: shouldDeleteSeries,
         occurrenceDate,
       });
       console.log('[EventModal] Delete successful:', result);
       showToast({
-        message: `Event ${deleteSeries && event.is_recurring ? 'series' : ''} deleted successfully`,
+        message: `Event${shouldDeleteSeries && (event.is_occurrence || event.parent_event_id) ? ' series' : ''} deleted successfully`,
         status: 'success',
       });
       onClose();
@@ -167,9 +157,8 @@ const EventModal: React.FC<EventModalProps> = ({ event, isOpen, onClose, isAdmin
       });
     } finally {
       setIsDeleting(false);
-      setShowDeleteConfirm(false);
     }
-  }, [event._id, deleteSeries, deleteEventMutation, showToast, onClose, onDeleted]);
+  }, [event._id, event.is_occurrence, event.parent_event_id, event.start_datetime, event.is_recurring, deleteEventMutation, showToast, onClose, onDeleted]);
 
   const getMeetingProviderLabel = (provider?: string) => {
     switch (provider) {
@@ -292,34 +281,54 @@ const EventModal: React.FC<EventModalProps> = ({ event, isOpen, onClose, isAdmin
                   Edit Event
                 </button>
                 <button
-                  onClick={() => {
-                    console.log('[EventModal] Delete button clicked, showing confirmation dialog');
-                    setShowDeleteConfirm(true);
+                  onClick={async () => {
+                    console.log('[EventModal] Delete button clicked');
+                    
+                    let shouldDeleteSeries = false;
+                    
+                    if (event.is_occurrence || event.parent_event_id) {
+                      // For recurring events, ask whether to delete all or just this one
+                      const deleteAll = window.confirm(
+                        `This is a recurring event.\n\nClick OK to delete ALL events in this series,\nor Cancel to delete only this occurrence.`
+                      );
+                      
+                      if (deleteAll) {
+                        // Confirm deletion of entire series
+                        const confirmSeries = window.confirm(
+                          `Are you sure you want to delete ALL events in the series "${event.title}"?\n\nThis will delete all occurrences and cannot be undone.`
+                        );
+                        if (!confirmSeries) return;
+                        shouldDeleteSeries = true;
+                      } else {
+                        // Confirm deletion of single occurrence
+                        const confirmSingle = window.confirm(
+                          `Are you sure you want to delete only this occurrence of "${event.title}"?\n\nOther events in the series will remain.`
+                        );
+                        if (!confirmSingle) return;
+                        shouldDeleteSeries = false;
+                      }
+                    } else {
+                      // For non-recurring events, simple confirmation
+                      const confirmed = window.confirm(
+                        `Are you sure you want to delete "${event.title}"?\n\nThis action cannot be undone.`
+                      );
+                      if (!confirmed) return;
+                    }
+                    
+                    console.log('[EventModal] User confirmed deletion, deleteSeries:', shouldDeleteSeries);
+                    await handleDelete(shouldDeleteSeries);
                   }}
-                  className="flex items-center justify-center gap-2 px-4 py-2 bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 rounded-lg hover:bg-red-100 dark:hover:bg-red-900/30 transition-colors"
+                  disabled={isDeleting}
+                  className="flex items-center justify-center gap-2 px-4 py-2 bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 rounded-lg hover:bg-red-100 dark:hover:bg-red-900/30 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <Trash2 className="w-4 h-4" />
-                  Delete
+                  {isDeleting ? 'Deleting...' : 'Delete'}
                 </button>
               </div>
             )}
           </div>
         </DialogContent>
       </Dialog>
-
-      {/* Delete Confirmation Dialog - Render with Portal */}
-      {showDeleteConfirm && (
-        <DeleteConfirmDialog
-          isOpen={showDeleteConfirm}
-          title={event.title}
-          isDeleting={isDeleting}
-          showSeriesOption={event.is_recurring}
-          deleteSeries={deleteSeries}
-          onDeleteSeriesChange={setDeleteSeries}
-          onConfirm={handleDelete}
-          onCancel={handleCancelDelete}
-        />
-      )}
     </>
   );
 };
