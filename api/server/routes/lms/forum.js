@@ -36,4 +36,7 @@ router.post('/posts/:postId/restore', requireJwtAuth, checkAdmin, ForumControlle
 router.post('/posts/bulk/delete', requireJwtAuth, checkAdmin, ForumController.bulkDeletePosts);
 router.get('/moderation/stats', requireJwtAuth, checkAdmin, ForumController.getModerationStats);
 
+// Debug route - temporarily available to all authenticated users
+router.get('/test/replies', requireJwtAuth, ForumController.testReplyDeletion);
+
 module.exports = router;

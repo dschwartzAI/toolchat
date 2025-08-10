@@ -29,17 +29,30 @@ export const useDeletePostMutation = (
   return useMutation({
     mutationFn: async (postId: string) => {
       try {
-        console.log('[forumMutations] Deleting post:', postId);
+        console.log('[forumMutations] DELETE POST START - postId:', postId);
+        console.log('[forumMutations] Making DELETE request to:', `/api/lms/forum/posts/${postId}`);
         const response = await request.delete(`/api/lms/forum/posts/${postId}`);
-        console.log('[forumMutations] Delete response:', response);
+        console.log('[forumMutations] DELETE POST SUCCESS - response:', response);
         return response;
-      } catch (error) {
-        console.error('[forumMutations] Delete error:', error);
+      } catch (error: any) {
+        console.error('[forumMutations] DELETE POST ERROR:', error);
+        console.error('[forumMutations] Error status:', error?.response?.status);
+        console.error('[forumMutations] Error data:', error?.response?.data);
         throw error;
       }
     },
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: [QueryKeys.forumPosts] });
+    onSuccess: (data) => {
+      console.log('[forumMutations] Post delete mutation success, invalidating cache');
+      // Invalidate ALL queries that start with forumPosts (includes ones with params)
+      queryClient.invalidateQueries({ 
+        predicate: (query) => {
+          const queryKey = query.queryKey;
+          return Array.isArray(queryKey) && queryKey[0] === QueryKeys.forumPosts;
+        }
+      });
+    },
+    onError: (error: any) => {
+      console.error('[forumMutations] Post delete mutation error:', error);
     },
     ...options,
   });
@@ -177,13 +190,25 @@ export const useDeleteReplyMutation = (
   
   return useMutation({
     mutationFn: async (replyId: string) => {
-      const response = await request.delete(`/api/lms/forum/replies/${replyId}`);
-      return response;
+      try {
+        console.log('[forumMutations] DELETE REPLY START - replyId:', replyId);
+        console.log('[forumMutations] Making DELETE request to:', `/api/lms/forum/replies/${replyId}`);
+        const response = await request.delete(`/api/lms/forum/replies/${replyId}`);
+        console.log('[forumMutations] DELETE REPLY SUCCESS - response:', response);
+        return response;
+      } catch (error: any) {
+        console.error('[forumMutations] DELETE REPLY ERROR:', error);
+        console.error('[forumMutations] Error status:', error?.response?.status);
+        console.error('[forumMutations] Error data:', error?.response?.data);
+        throw error;
+      }
     },
-    onSuccess: () => {
-      // Invalidate both the posts list and individual post queries
+    onSuccess: (data, replyId) => {
       queryClient.invalidateQueries({ queryKey: [QueryKeys.forumPosts] });
       queryClient.invalidateQueries({ queryKey: [QueryKeys.forumPost] });
+    },
+    onError: (error: any) => {
+      console.error('[forumMutations] Reply delete mutation error:', error);
     },
     ...options,
   });

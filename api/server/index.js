@@ -48,6 +48,11 @@ const startServer = async () => {
 
   await AppService(app);
 
+  // Ensure global namespace exists for optional system context
+  if (!app.locals.global) {
+    app.locals.global = {};
+  }
+
   const indexPath = path.join(app.locals.paths.dist, 'index.html');
   const indexHTML = fs.readFileSync(indexPath, 'utf8');
 
@@ -59,6 +64,23 @@ const startServer = async () => {
   app.use(express.urlencoded({ extended: true, limit: '3mb' }));
   app.use(mongoSanitize());
   app.use(cors());
+  
+  // Add no-cache headers in development to prevent stale data
+  if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV !== 'production') {
+    app.use((req, res, next) => {
+      if (req.path.startsWith('/api/')) {
+        res.set({
+          'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+          'Pragma': 'no-cache',
+          'Expires': '0',
+          'Surrogate-Control': 'no-store'
+        });
+      }
+      next();
+    });
+    logger.info('No-cache headers enabled for development');
+  }
+  
   app.use(cookieParser());
 
   // Disable compression to fix ERR_CONTENT_DECODING_FAILED

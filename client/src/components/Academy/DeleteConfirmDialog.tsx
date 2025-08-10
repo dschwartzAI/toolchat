@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from 'react';
+import React, { useEffect, useCallback, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import { AlertTriangle, X, Trash2 } from 'lucide-react';
 
@@ -42,6 +42,10 @@ const DeleteConfirmDialog: React.FC<DeleteConfirmDialogProps> = ({
 }) => {
   console.log('[DeleteConfirmDialog] Render state:', { isOpen, title, isDeleting });
   
+  // Refs for direct DOM manipulation
+  const deleteButtonRef = useRef<HTMLButtonElement>(null);
+  const cancelButtonRef = useRef<HTMLButtonElement>(null);
+  
   // Detect dark mode
   const [isDarkMode, setIsDarkMode] = React.useState(false);
   
@@ -63,26 +67,78 @@ const DeleteConfirmDialog: React.FC<DeleteConfirmDialogProps> = ({
     return () => observer.disconnect();
   }, []);
   
+  // Add native event listeners to bypass React event issues
+  useEffect(() => {
+    if (!isOpen) return;
+    
+    const handleDeleteClick = () => {
+      console.log('[DeleteConfirmDialog] Native delete click detected!');
+      alert('Delete button clicked! If you see this, the click is working.');
+      if (onConfirm) {
+        console.log('[DeleteConfirmDialog] Calling onConfirm from native handler');
+        onConfirm();
+      }
+    };
+    
+    const handleCancelClick = () => {
+      console.log('[DeleteConfirmDialog] Native cancel click detected!');
+      if (onCancel) {
+        onCancel();
+      }
+    };
+    
+    // Use setTimeout to ensure DOM is ready
+    const timer = setTimeout(() => {
+      if (deleteButtonRef.current) {
+        console.log('[DeleteConfirmDialog] Attaching native delete listener');
+        deleteButtonRef.current.addEventListener('click', handleDeleteClick);
+      }
+      if (cancelButtonRef.current) {
+        console.log('[DeleteConfirmDialog] Attaching native cancel listener');
+        cancelButtonRef.current.addEventListener('click', handleCancelClick);
+      }
+    }, 100);
+    
+    return () => {
+      clearTimeout(timer);
+      if (deleteButtonRef.current) {
+        deleteButtonRef.current.removeEventListener('click', handleDeleteClick);
+      }
+      if (cancelButtonRef.current) {
+        cancelButtonRef.current.removeEventListener('click', handleCancelClick);
+      }
+    };
+  }, [isOpen, onConfirm, onCancel]);
+  
   // Create stable event handlers
-  const handleConfirmClick = useCallback(() => {
-    console.log('[DeleteConfirmDialog] Confirm button clicked!');
+  // Direct handlers without useCallback to ensure proper event binding
+  const handleConfirmClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log('[DeleteConfirmDialog] Confirm button clicked! Event:', e);
+    console.log('[DeleteConfirmDialog] onConfirm defined?', !!onConfirm);
     console.log('[DeleteConfirmDialog] Calling onConfirm callback...');
     if (onConfirm) {
       onConfirm();
     } else {
       console.error('[DeleteConfirmDialog] onConfirm callback is not defined!');
     }
-  }, [onConfirm]);
+  };
   
-  const handleCancelClick = useCallback(() => {
+  const handleCancelClick = (e?: React.MouseEvent) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
     console.log('[DeleteConfirmDialog] Cancel button clicked!');
+    console.log('[DeleteConfirmDialog] onCancel defined?', !!onCancel);
     console.log('[DeleteConfirmDialog] Calling onCancel callback...');
     if (onCancel) {
       onCancel();
     } else {
       console.error('[DeleteConfirmDialog] onCancel callback is not defined!');
     }
-  }, [onCancel]);
+  };
   
   const handleBackdropClick = useCallback((e: React.MouseEvent) => {
     console.log('[DeleteConfirmDialog] Backdrop clicked, target:', e.target, 'currentTarget:', e.currentTarget);
@@ -216,6 +272,7 @@ const DeleteConfirmDialog: React.FC<DeleteConfirmDialogProps> = ({
         {/* Action buttons */}
         <div style={{ display: 'flex', gap: '8px', justifyContent: 'flex-end' }}>
           <button
+            ref={cancelButtonRef}
             type="button"
             onClick={handleCancelClick}
             disabled={isDeleting}
@@ -233,8 +290,15 @@ const DeleteConfirmDialog: React.FC<DeleteConfirmDialogProps> = ({
             Cancel
           </button>
           <button
+            ref={deleteButtonRef}
             type="button"
-            onClick={handleConfirmClick}
+            onClick={(e) => {
+              console.log('[DeleteConfirmDialog] Delete button onClick fired!');
+              handleConfirmClick(e);
+            }}
+            onMouseDown={(e) => {
+              console.log('[DeleteConfirmDialog] Delete button onMouseDown fired!');
+            }}
             disabled={isDeleting}
             style={{
               padding: '8px 16px',
@@ -247,7 +311,8 @@ const DeleteConfirmDialog: React.FC<DeleteConfirmDialogProps> = ({
               display: 'flex',
               alignItems: 'center',
               gap: '8px',
-              pointerEvents: 'auto'
+              position: 'relative',
+              zIndex: 100001
             }}
           >
             {isDeleting ? (

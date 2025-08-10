@@ -99,7 +99,8 @@ const EventModal: React.FC<EventModalProps> = ({ event, isOpen, onClose, isAdmin
     // Determine the correct ID to use for deletion
     // For recurring occurrences, use parent_event_id; for regular events, use _id
     const deleteId = event.is_occurrence ? event.parent_event_id : event._id;
-    const occurrenceDate = event.is_occurrence
+    // Only send occurrenceDate when deleting a single occurrence, not the series
+    const occurrenceDate = event.is_occurrence && !shouldDeleteSeries
       ? new Date(event.start_datetime).toISOString().slice(0, 10)
       : undefined;
     

@@ -361,6 +361,11 @@ class AgentClient extends BaseClient {
       }
     }
 
+    // Append global system context
+    const globalAppend = this.options.req?.app?.locals?.global?.systemAppend;
+    if (globalAppend) {
+      systemContent = [systemContent, globalAppend].filter(Boolean).join('\n');
+    }
     if (systemContent) {
       this.options.agent.instructions = systemContent;
     }
@@ -391,6 +396,11 @@ class AgentClient extends BaseClient {
     }
 
     const withoutKeys = await this.useMemory();
+    if (withoutKeys != null) {
+      logger.debug('[MEMORY] onRetrieve(injected) user=', this.options.req.user?.id, 'chars=', withoutKeys.length);
+    } else {
+      logger.debug('[MEMORY] onRetrieve(injected) user=', this.options.req.user?.id, 'none');
+    }
     if (withoutKeys) {
       systemContent += `${memoryInstructions}\n\n# Existing memory about the user:\n${withoutKeys}`;
     }
@@ -542,7 +552,10 @@ class AgentClient extends BaseClient {
 
       const bufferString = getBufferString(messagesToProcess);
       const bufferMessage = new HumanMessage(`# Current Chat:\n\n${bufferString}`);
-      return await this.processMemory([bufferMessage]);
+      logger.debug('[MEMORY] beforeSave(agents.processor) user=', this.options.req.user?.id);
+      const result = await this.processMemory([bufferMessage]);
+      logger.debug('[MEMORY] afterSave(agents.processor) user=', this.options.req.user?.id);
+      return result;
     } catch (error) {
       logger.error('Memory Agent failed to process memory', error);
     }

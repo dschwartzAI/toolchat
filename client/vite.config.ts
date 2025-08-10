@@ -33,7 +33,8 @@ export default defineConfig(({ command }) => ({
   plugins: [
     react(),
     nodePolyfills(),
-    VitePWA({
+    // Disable PWA completely in development to prevent caching issues
+    ...(command === 'serve' ? [] : [VitePWA({
       injectRegister: 'auto', // 'auto' | 'manual' | 'disabled'
       registerType: 'autoUpdate', // 'prompt' | 'autoUpdate'
       devOptions: {
@@ -110,7 +111,7 @@ export default defineConfig(({ command }) => ({
           },
         ],
       },
-    }),
+    })]),
     sourcemapExclude({ excludeNodeModules: true }),
     compression({
       threshold: 10240,

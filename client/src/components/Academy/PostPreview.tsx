@@ -19,6 +19,7 @@ interface Comment {
   _id: string;
   content: string;
   author: {
+    _id?: string;
     name: string;
     avatar?: string;
   };
@@ -159,16 +160,28 @@ const PostPreview: React.FC<PostPreviewProps> = ({
                 </div>
               </div>
             </div>
-            {/* Delete button for comment */}
-            {isAdmin && onDeleteComment && (
+            {/* Delete button for comment - visible to admin or comment author */}
+            {onDeleteComment && (isAdmin || comment.author?._id === currentUser?.id) && (
               <button
-                onClick={() => {
-                  onDeleteComment(comment._id);
+                onClick={(e) => {
+                  e.stopPropagation();
+                  console.log('[PostPreview] Delete button clicked for comment:', comment._id);
+                  console.log('[PostPreview] Comment details:', { 
+                    id: comment._id, 
+                    author: comment.author,
+                    currentUser: currentUser?.id,
+                    isAdmin 
+                  });
+                  if (comment._id) {
+                    onDeleteComment(comment._id);
+                  } else {
+                    console.error('[PostPreview] Comment has no _id!', comment);
+                  }
                 }}
-                className="p-1 text-text-tertiary hover:text-red-500 hover:bg-surface-secondary rounded transition-colors opacity-0 group-hover:opacity-100"
+                className="p-1.5 text-red-500 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 rounded transition-all duration-200"
                 title="Delete comment"
               >
-                <X className="w-3.5 h-3.5" />
+                <X className="w-4 h-4" />
               </button>
             )}
           </div>

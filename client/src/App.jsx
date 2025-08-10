@@ -11,6 +11,29 @@ import Toast from './components/ui/Toast';
 import { LiveAnnouncer } from '~/a11y';
 import { router } from './routes';
 
+// Unregister all service workers to prevent caching issues in development
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.getRegistrations().then(function(registrations) {
+    for(let registration of registrations) {
+      registration.unregister().then(function(success) {
+        if (success) {
+          console.log('[App] Service worker unregistered successfully');
+        }
+      });
+    }
+  });
+  
+  // Also clear caches if in development
+  if (import.meta.env.DEV && 'caches' in window) {
+    caches.keys().then(function(names) {
+      for (let name of names) {
+        caches.delete(name);
+        console.log('[App] Cache cleared:', name);
+      }
+    });
+  }
+}
+
 const App = () => {
   const { setError } = useApiErrorBoundary();
 

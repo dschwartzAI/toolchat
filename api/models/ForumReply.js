@@ -73,9 +73,17 @@ forumReplySchema.index({ parentReply: 1, deletedAt: 1 });
 forumReplySchema.index({ author: 1, deletedAt: 1 });
 
 // Pre-hook to filter out soft deleted documents
+// IMPORTANT: This applies to find, findOne, findById, etc.
 forumReplySchema.pre(/^find/, function() {
+  // Only filter if not explicitly including deleted items
   if (!this.getOptions().includeDeleted) {
-    this.where({ deletedAt: null });
+    // Filter out documents where deletedAt exists and is not null
+    this.where({ 
+      $or: [
+        { deletedAt: null },
+        { deletedAt: { $exists: false } }
+      ]
+    });
   }
 });
 
@@ -109,6 +117,16 @@ forumReplySchema.methods.addEditHistory = function(userId, oldContent) {
     editedBy: userId,
   });
   this.isEdited = true;
+};
+
+// Static method to find non-deleted replies
+forumReplySchema.statics.findActive = function(conditions = {}) {
+  return this.find({ ...conditions, deletedAt: null });
+};
+
+// Static method to find with deleted
+forumReplySchema.statics.findWithDeleted = function(conditions = {}) {
+  return this.find(conditions).setOptions({ includeDeleted: true });
 };
 
 const ForumReply = mongoose.models.ForumReply || mongoose.model('ForumReply', forumReplySchema);

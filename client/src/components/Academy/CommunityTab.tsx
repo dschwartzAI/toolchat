@@ -9,7 +9,7 @@ import {
   usePinPostMutation,
   useUpdatePostMutation
 } from '~/data-provider/Academy/forumMutations';
-import { Filter, AlertTriangle } from 'lucide-react';
+import { Filter } from 'lucide-react';
 import PostCreator from './PostCreator';
 import PostPreview from './PostPreview';
 import store from '~/store';
@@ -20,7 +20,7 @@ const CommunityTab: React.FC = () => {
   const [expandedPosts, setExpandedPosts] = useRecoilState(store.expandedPosts);
   const [forumPosts, setForumPosts] = useRecoilState(store.forumPosts);
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
-  const [deleteConfirm, setDeleteConfirm] = useState<{ show: boolean; type: 'post' | 'comment'; id: string; title?: string } | null>(null);
+  const [deletedReplyIds, setDeletedReplyIds] = useState<Set<string>>(new Set());
   const currentUser = useRecoilValue(store.user);
   const { showToast } = useToastContext();
   
@@ -62,8 +62,7 @@ const CommunityTab: React.FC = () => {
   
   const deletePostMutation = useDeletePostMutation({
     onSuccess: (data) => {
-      // Remove the post from local state immediately
-      setForumPosts(posts => posts.filter(p => p._id !== data?.postId));
+      // Don't do optimistic updates - let React Query handle the refresh
       showToast({ 
         message: 'Post deleted successfully', 
         status: 'success' 
@@ -82,12 +81,32 @@ const CommunityTab: React.FC = () => {
   
   const deleteReplyMutation = useDeleteReplyMutation({
     onSuccess: (data, replyId) => {
-      // Remove from local state
-      setForumPosts(posts => posts.map(post => ({
-        ...post,
-        comments: post.comments?.filter(c => c._id !== replyId) || [],
-        replyCount: Math.max(0, (post.replyCount || 0) - 1)
-      })));
+      // Track deleted id to suppress reappearance on immediate refetch
+      setDeletedReplyIds(prev => {
+        const next = new Set(prev);
+        if (replyId) next.add(replyId as string);
+        return next;
+      });
+      // Auto-expire suppression after 60s
+      setTimeout(() => {
+        setDeletedReplyIds(prev => {
+          const next = new Set(prev);
+          next.delete(replyId as string);
+          return next;
+        });
+      }, 60000);
+
+      // Optimistically remove the deleted comment from local state
+      setForumPosts(posts => posts.map(post => {
+        const prevLen = post.comments?.length || 0;
+        const filtered = (post.comments || []).filter(c => c._id !== replyId);
+        const newLen = filtered.length;
+        if (newLen !== prevLen) {
+          return { ...post, comments: filtered, replyCount: Math.max((post.replyCount || 0) - 1, 0) };
+        }
+        return post;
+      }));
+
       showToast({ 
         message: 'Comment deleted successfully', 
         status: 'success' 
@@ -173,16 +192,40 @@ const CommunityTab: React.FC = () => {
     }
   });
 
-  // Extract posts from paginated response
+  // Extract posts from paginated response - this is our source of truth
   const posts = postsData?.pages?.[0]?.posts || postsData?.posts || [];
   const categories = Array.isArray(categoriesData) ? categoriesData : [];
 
-  // Initialize forum posts with query data on first load
+  // Sync local state with fresh API data when query data changes
   useEffect(() => {
-    if (posts.length > 0 && forumPosts.length === 0) {
-      setForumPosts(posts);
+    // Update local state when we get new data from the API
+    if (posts && posts.length >= 0) {
+      // Filter out recently deleted replies so they don't flicker back in
+      const filtered = posts.map(p => ({
+        ...p,
+        comments: (p.comments || []).filter((c: any) => !deletedReplyIds.has(c._id))
+      }));
+      setForumPosts(filtered);
     }
-  }, [posts, setForumPosts]);
+  }, [postsData, deletedReplyIds]); // Recompute when suppression set changes
+
+  // Use forumPosts as the render source so optimistic updates are visible
+  // Use posts from API as source of truth (already synced to forumPosts in useEffect)
+  let allPosts = forumPosts;
+
+  // Apply category filter
+  if (selectedCategory !== 'all') {
+    allPosts = allPosts.filter(post => post.category?._id === selectedCategory);
+  }
+
+  // Sort posts with pinned posts first
+  allPosts = [...allPosts].sort((a, b) => {
+    // Pinned posts always come first
+    if (a.isPinned && !b.isPinned) return -1;
+    if (!a.isPinned && b.isPinned) return 1;
+    // Otherwise sort by creation date
+    return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+  });
 
   const handleCreatePost = async (newPost: { title: string; content: string; category: string }) => {
     try {
@@ -200,40 +243,41 @@ const CommunityTab: React.FC = () => {
   
   const handleDeletePost = async (postId: string) => {
     // Find the post to get its title for the confirmation
-    const post = forumPosts.find(p => p._id === postId);
-    setDeleteConfirm({ show: true, type: 'post', id: postId, title: post?.title });
+    const post = posts.find(p => p._id === postId);
+    const confirmed = window.confirm(`Are you sure you want to delete this post?\n\n"${post?.title || 'this post'}"\n\nThis action cannot be undone.`);
+    
+    if (!confirmed) return;
+    
+    console.log('[CommunityTab] User confirmed deletion of post:', postId);
+    
+    try {
+      const result = await deletePostMutation.mutateAsync(postId);
+      console.log('[CommunityTab] Delete post result:', result);
+      // React Query will handle the refresh - no manual state update needed
+    } catch (error: any) {
+      console.error('[CommunityTab] Failed to delete post:', error);
+    }
   };
   
   const handleDeleteComment = async (commentId: string) => {
-    setDeleteConfirm({ show: true, type: 'comment', id: commentId });
-  };
-  
-  const confirmDelete = async () => {
-    if (!deleteConfirm) return;
+    const confirmed = window.confirm('Are you sure you want to delete this comment?\n\nThis action cannot be undone.');
+    
+    if (!confirmed) return;
+    
+    console.log('[CommunityTab] User confirmed deletion of comment:', commentId);
     
     try {
-      if (deleteConfirm.type === 'post') {
-        const result = await deletePostMutation.mutateAsync(deleteConfirm.id);
-        // Remove from local state immediately
-        setForumPosts(posts => posts.filter(p => p._id !== deleteConfirm.id));
-      } else {
-        // Delete comment from server
-        await deleteReplyMutation.mutateAsync(deleteConfirm.id);
-        
-        // Remove reply from local state immediately (optimistic update)
-        setForumPosts(posts => posts.map(post => ({
-          ...post,
-          replies: post.replies?.filter(reply => reply._id !== deleteConfirm.id) || [],
-          comments: post.comments?.filter(comment => comment._id !== deleteConfirm.id) || [],
-          replyCount: post.replyCount > 0 ? post.replyCount - 1 : 0
-        })));
-      }
+      // Delete comment from server
+      await deleteReplyMutation.mutateAsync(commentId);
+      console.log('[CommunityTab] Delete comment successful:', commentId);
+      // The mutation will invalidate the cache and trigger a refetch
+      // No need for optimistic update since we're using fresh API data
     } catch (error: any) {
-      console.error('[CommunityTab] Failed to delete:', error);
-    } finally {
-      setDeleteConfirm(null);
+      console.error('[CommunityTab] Failed to delete comment:', error);
     }
   };
+  
+  // No longer need confirmDelete function since we're using window.confirm directly
 
   const togglePostExpansion = (postId: string) => {
     const newExpanded = new Set(expandedPosts);
@@ -313,23 +357,6 @@ const CommunityTab: React.FC = () => {
     }
   };
 
-  // Use forumPosts as the source of truth since it contains all updates
-  let allPosts = forumPosts.length > 0 ? forumPosts : posts;
-
-  // Apply category filter
-  if (selectedCategory !== 'all') {
-    allPosts = allPosts.filter(post => post.category?._id === selectedCategory);
-  }
-
-  // Sort posts with pinned posts first
-  allPosts = [...allPosts].sort((a, b) => {
-    // Pinned posts always come first
-    if (a.isPinned && !b.isPinned) return -1;
-    if (!a.isPinned && b.isPinned) return 1;
-    // Otherwise sort by creation date
-    return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
-  });
-
   return (
     <div className="h-full flex flex-col">
       <div className="flex-1 overflow-y-auto">
@@ -373,7 +400,7 @@ const CommunityTab: React.FC = () => {
             onCreatePost={handleCreatePost}
           />
 
-          {postsLoading && forumPosts.length === 0 ? (
+          {postsLoading && posts.length === 0 ? (
             <div className="text-center py-8">
               <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-green-500 mx-auto"></div>
             </div>
@@ -406,47 +433,6 @@ const CommunityTab: React.FC = () => {
           )}
         </div>
       </div>
-      
-      {/* Delete Confirmation Dialog */}
-      {deleteConfirm && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
-          <div className="bg-surface-primary rounded-lg p-6 max-w-md w-full mx-4 shadow-xl">
-            <div className="flex items-start gap-3 mb-4">
-              <AlertTriangle className="w-5 h-5 text-red-500 mt-0.5" />
-              <div className="flex-1">
-                <h3 className="text-lg font-semibold text-text-primary mb-2">
-                  Confirm Delete
-                </h3>
-                <p className="text-text-secondary">
-                  Are you sure you want to delete this {deleteConfirm.type}?
-                  {deleteConfirm.title && (
-                    <span className="block mt-2 font-medium text-text-primary">
-                      "{deleteConfirm.title}"
-                    </span>
-                  )}
-                </p>
-                <p className="text-sm text-text-tertiary mt-2">
-                  This action cannot be undone.
-                </p>
-              </div>
-            </div>
-            <div className="flex gap-3 justify-end">
-              <button
-                onClick={() => setDeleteConfirm(null)}
-                className="px-4 py-2 text-sm font-medium text-text-secondary hover:text-text-primary bg-surface-secondary hover:bg-surface-hover rounded-lg transition-colors"
-              >
-                Cancel
-              </button>
-              <button
-                onClick={confirmDelete}
-                className="px-4 py-2 text-sm font-medium text-white bg-red-500 hover:bg-red-600 rounded-lg transition-colors"
-              >
-                Delete
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

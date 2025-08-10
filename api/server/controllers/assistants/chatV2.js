@@ -205,6 +205,7 @@ const chatV2 = async (req, res) => {
         console.log('[Memory] Fetching memories for assistant...');
         try {
           const memories = await getFormattedMemories({ userId: user.id });
+          console.log('[MEMORY] onRetrieve(formatted) user=', user.id, 'totalTokens=', memories?.totalTokens);
           console.log('[Memory] Retrieved memories for assistant:', memories);
           logger.debug(`[Memory] Retrieved memories for assistant:`, memories ? 'Found' : 'None');
           if (memories?.withoutKeys) {
@@ -237,6 +238,7 @@ const chatV2 = async (req, res) => {
       endpointOption,
       clientTimestamp,
       memoryContext,
+      globalAppend: req.app?.locals?.global?.systemAppend || process.env.GLOBAL_SYSTEM_APPEND,
     });
     
     console.log('[chatV2] Body being sent to OpenAI:', JSON.stringify(body, null, 2));
@@ -504,7 +506,42 @@ const chatV2 = async (req, res) => {
         });
 
         const buffer = `# Current Chat:\n\nUser: ${text}\n\nAssistant: ${response.text || ''}`;
+        console.log('[MEMORY] beforeSave(processor) user=', user.id, 'windowSize=', memoryConfig?.messageWindowSize);
         await processMemory([new HumanMessage(buffer)]);
+        
+        // Failsafe: heuristically capture simple pricing statements from the user's latest input
+        try {
+          const pricingMatch = /\$\s*([0-9]{1,3}(?:[\s,]?[0-9]{3})*)(?:\s*(?:per|\/)?\s*(month|mo|year|yr|session|project))?/i.exec(text || '');
+          if (pricingMatch) {
+            const rawAmount = pricingMatch[1]?.replace(/\s|,/g, '') || '';
+            const unit = pricingMatch[2] ? pricingMatch[2].toLowerCase() : '';
+            const normalized = `$${rawAmount}${unit ? `/${unit}` : ''}`;
+            const value = `User's service pricing: ${normalized}`;
+            console.log('[MEMORY][failsafe] Detected pricing, saving services_pricing =', value);
+            const result = await setMemory({ userId: user.id, key: 'services_pricing', value });
+            if (result?.ok) {
+              const attachment = {
+                type: 'memory',
+                messageId: openai.responseMessage?.messageId || responseMessageId,
+                conversationId,
+                memory: {
+                  key: 'services_pricing',
+                  value,
+                  type: 'update',
+                },
+              };
+              if (!res.headersSent) {
+                // Stream is not open yet; let the final sendEvent open it
+                // The memory processor will have emitted its own attachment when the stream opens
+              } else {
+                res.write(`event: attachment\ndata: ${JSON.stringify(attachment)}\n\n`);
+              }
+            }
+          }
+        } catch (err) {
+          console.warn('[MEMORY][failsafe] pricing save error', err);
+        }
+        console.log('[MEMORY] afterSave(processor) user=', user.id);
       }
     } catch (err) {
       logger.error('[/assistants/chat/] Memory processing error', err);

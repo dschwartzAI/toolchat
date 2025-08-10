@@ -33,6 +33,7 @@ function getTimeStr(clientTimestamp) {
  * @param {Object} [options.endpointOption={}] - The endpoint options.
  * @param {string} [options.clientTimestamp] - Client timestamp in ISO format.
  * @param {string} [options.memoryContext] - User memory context to include.
+ * @param {string} [options.globalAppend] - Global system context to append after memory.
  *
  * @returns {Object} - The constructed body object for the run request.
  */
@@ -44,6 +45,7 @@ const createRunBody = ({
   endpointOption = {},
   clientTimestamp,
   memoryContext,
+  globalAppend,
 }) => {
   const body = {
     assistant_id,
@@ -52,9 +54,21 @@ const createRunBody = ({
 
   let systemInstructions = '';
 
-  // Add memory context first if available
+  // Add memory context first if available, with a strong directive to prioritize it
   if (memoryContext) {
-    systemInstructions = `Here is what you remember about the user:\n${memoryContext}\n\n`;
+    systemInstructions = [
+      'CRITICAL: The following is personalized memory about THIS user. Always prioritize this user-specific context over any global knowledge or third-party personas (e.g., "James"). The user is NOT James.',
+      'If there is a conflict between user memory and background knowledge, prefer the user memory.',
+      '',
+      'Here is what you remember about the user:',
+      memoryContext,
+      '',
+    ].join('\n');
+  }
+
+  // Append global system context (e.g., Sovereign principles) next
+  if (globalAppend) {
+    systemInstructions += `${systemInstructions ? '\n' : ''}${globalAppend}\n`;
   }
 
   if (endpointOption.assistant?.append_current_datetime) {

@@ -82,17 +82,27 @@ const ForumController = {
       // Populate replies/comments for each post
       const ForumReply = require('~/models/ForumReply');
       const postsWithReplies = await Promise.all(posts.map(async (post) => {
+        logger.debug(`[ForumController] Fetching replies for post ${post._id}`);
+        
+        // CRITICAL: Explicitly filter out deleted replies
+        // The pre-hook isn't working properly with populated queries
         const replies = await ForumReply.find({ 
-          post: post._id, 
-          deletedAt: null 
+          post: post._id,
+          $or: [
+            { deletedAt: null },
+            { deletedAt: { $exists: false } }
+          ]
         })
-          .populate('author', 'name avatar')
+          .populate('author', '_id name avatar') // Include _id for author
           .sort({ createdAt: 1 })
           .lean();
         
+        logger.debug(`[ForumController] Found ${replies.length} non-deleted replies for post ${post._id}`);
+        
         return {
           ...post,
-          comments: replies // Add replies as comments field expected by frontend
+          comments: replies, // Add replies as comments field expected by frontend
+          replyCount: replies.length,
         };
       }));
       
@@ -512,65 +522,48 @@ const ForumController = {
   async deleteReply(req, res) {
     try {
       const { replyId } = req.params;
-      const userId = req.user.id;
-      
-      const User = require('~/models/User');
+      const userId = req.user?.id || req.user?._id;
+      const isAdmin = req.user?.role === SystemRoles.ADMIN;
+      const mongoose = require('mongoose');
+
+      if (!mongoose.Types.ObjectId.isValid(replyId)) {
+        return res.status(400).json({ error: 'Invalid reply id' });
+      }
+      if (!userId) {
+        return res.status(401).json({ error: 'User not authenticated' });
+      }
+
       const ForumReply = require('~/models/ForumReply');
-      const ForumPost = require('~/models/ForumPost');
-      
-      const userDoc = await User.findById(userId);
-      const isAdmin = userDoc?.role === SystemRoles.ADMIN || req.user.role === SystemRoles.ADMIN;
-      
-      const reply = await ForumReply.findById(replyId);
-      if (!reply) {
-        return res.status(404).json({ error: 'Reply not found' });
+      const existing = await ForumReply.findById(replyId).setOptions({ includeDeleted: true });
+      if (!existing) return res.status(404).json({ error: 'Reply not found' });
+      if (!isAdmin && existing.author.toString() !== String(userId)) {
+        return res.status(403).json({ error: 'Not authorized' });
       }
-      
-      // Check if already deleted
-      if (reply.deletedAt) {
-        return res.status(400).json({ error: 'Reply already deleted' });
+
+      // Hard delete to guarantee persistence
+      const del = await ForumReply.deleteOne({ _id: replyId });
+      if (!del.deletedCount) {
+        return res.status(500).json({ error: 'Failed to delete (no document removed)' });
       }
-      
-      if (!isAdmin && reply.author.toString() !== userId) {
-        return res.status(403).json({ error: 'Not authorized to delete this reply' });
+
+      // Recompute and persist parent post replyCount
+      try {
+        const ForumPost = require('~/models/ForumPost');
+        const newCount = await ForumReply.countDocuments({ post: existing.post });
+        await ForumPost.updateOne({ _id: existing.post }, { $set: { replyCount: newCount } });
+      } catch (e) {
+        console.error('[ForumController] Failed to update replyCount after delete:', e);
       }
-      
-      // Direct update bypassing validation
-      const result = await ForumReply.updateOne(
-        { _id: replyId, deletedAt: null },
-        {
-          $set: {
-            deletedAt: new Date(),
-            deletedBy: userId
-          }
-        }
-      );
-      
-      if (result.modifiedCount === 0) {
-        throw new Error('Failed to update reply');
-      }
-      
-      // Update reply count only if the reply was actually deleted
-      if (result.modifiedCount > 0) {
-        // Count actual non-deleted replies to ensure accuracy
-        const actualReplyCount = await ForumReply.countDocuments({
-          post: reply.post,
-          deletedAt: null
-        });
-        
-        await ForumPost.findByIdAndUpdate(reply.post, {
-          $set: { replyCount: actualReplyCount }
-        });
-      }
-      
-      res.json({ 
-        success: true,
-        message: 'Reply deleted successfully' 
-      });
-      
+
+      return res.json({ success: true, message: 'Reply deleted' });
     } catch (error) {
-      logger.error('[ForumController] Error deleting reply:', error);
-      res.status(500).json({ error: 'Failed to delete reply' });
+      console.error('Delete error details:', {
+        message: error.message,
+        stack: error.stack,
+        replyId: req.params.replyId,
+        userId: req.user?.id || req.user?._id
+      });
+      return res.status(500).json({ error: 'Failed to delete', details: error.message });
     }
   },
 
@@ -607,6 +600,58 @@ const ForumController = {
     } catch (error) {
       logger.error('[ForumController] Error bulk deleting posts:', error);
       res.status(500).json({ error: 'Failed to delete posts' });
+    }
+  },
+
+  /**
+   * Test endpoint to debug reply deletion
+   */
+  async testReplyDeletion(req, res) {
+    try {
+      const ForumReply = require('~/models/ForumReply');
+      
+      logger.info('[ForumController] Running reply deletion test');
+      
+      // Get all replies (including deleted ones)
+      const allReplies = await ForumReply.find({})
+        .setOptions({ includeDeleted: true })
+        .select('_id content deletedAt author post')
+        .limit(20)
+        .lean();
+      
+      // Get non-deleted replies (should exclude deleted ones)
+      const activeReplies = await ForumReply.find({})
+        .select('_id content deletedAt author post')
+        .limit(20)
+        .lean();
+      
+      logger.info('[ForumController] Test results:', {
+        totalReplies: allReplies.length,
+        activeReplies: activeReplies.length,
+        deletedReplies: allReplies.filter(r => r.deletedAt).length
+      });
+      
+      res.json({
+        all: allReplies.map(r => ({
+          id: r._id,
+          content: r.content.substring(0, 50),
+          deletedAt: r.deletedAt,
+          author: r.author
+        })),
+        active: activeReplies.map(r => ({
+          id: r._id,
+          content: r.content.substring(0, 50),
+          deletedAt: r.deletedAt
+        })),
+        stats: {
+          total: allReplies.length,
+          active: activeReplies.length,
+          deleted: allReplies.filter(r => r.deletedAt).length
+        }
+      });
+    } catch (error) {
+      logger.error('[ForumController] Test error:', error);
+      res.status(500).json({ error: error.message });
     }
   },
 
