@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Users, BookOpen, Calendar, X, GripVertical } from 'lucide-react';
+import { Users, BookOpen, Calendar, X, GripVertical, UserPlus } from 'lucide-react';
 import { useRecoilState } from 'recoil';
 import { useLocalize } from '~/hooks';
 import { cn } from '~/utils';
@@ -7,6 +7,7 @@ import store from '~/store';
 import CommunityTab from './CommunityTab';
 import ClassroomTab from './ClassroomTab';
 import CalendarView from './CalendarView';
+import MembersTab from './MembersTab';
 
 interface AcademySidebarProps {
   onClose?: () => void;
@@ -25,7 +26,7 @@ const AcademySidebar: React.FC<AcademySidebarProps> = ({ onClose }) => {
     }
     
     const savedTab = localStorage.getItem('academyActiveTab');
-    if (savedTab === 'community' || savedTab === 'classroom' || savedTab === 'calendar') {
+    if (savedTab === 'community' || savedTab === 'classroom' || savedTab === 'calendar' || savedTab === 'members') {
       setActiveTab(savedTab);
     }
   }, [setPanelWidth, setActiveTab]);
@@ -116,6 +117,18 @@ const AcademySidebar: React.FC<AcademySidebarProps> = ({ onClose }) => {
             <Calendar className="w-4 h-4" />
             Calendar
           </button>
+          <button
+            onClick={() => setActiveTab('members')}
+            className={cn(
+              "flex-1 py-2 px-3 text-sm font-medium transition-colors flex items-center justify-center gap-1.5",
+              activeTab === 'members'
+                ? "text-text-primary border-b-2 border-green-500"
+                : "text-text-secondary hover:text-text-primary"
+            )}
+          >
+            <UserPlus className="w-4 h-4" />
+            Members
+          </button>
         </div>
 
         {/* Content */}
@@ -124,8 +137,10 @@ const AcademySidebar: React.FC<AcademySidebarProps> = ({ onClose }) => {
             <CommunityTab />
           ) : activeTab === 'classroom' ? (
             <ClassroomTab />
-          ) : (
+          ) : activeTab === 'calendar' ? (
             <CalendarView />
+          ) : (
+            <MembersTab />
           )}
         </div>
       </div>

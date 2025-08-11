@@ -9,6 +9,7 @@ const progressRouter = require('./progress');
 const forumRouter = require('./forum');
 const adminRouter = require('./admin');
 const calendarRouter = require('./calendar');
+const membersRouter = require('./members');
 
 // Mount sub-routers
 router.use('/courses', coursesRouter);
@@ -18,6 +19,7 @@ router.use('/progress', progressRouter);
 router.use('/forum', forumRouter);
 router.use('/admin', adminRouter);
 router.use('/calendar', calendarRouter);
+router.use('/members', membersRouter);
 
 // Health check endpoint
 router.get('/health', (req, res) => {

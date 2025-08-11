@@ -174,3 +174,36 @@ export const useVerifyTwoFactorTempMutation = (
     },
   );
 };
+
+export const useUpdateProfileMutation = (
+  options?: t.MutationOptions<t.TUser, Partial<t.TUser>, unknown, unknown>,
+): UseMutationResult<t.TUser, unknown, Partial<t.TUser>, unknown> => {
+  const queryClient = useQueryClient();
+  return useMutation(
+    (payload: Partial<t.TUser>) => {
+      console.log('[useUpdateProfileMutation] Sending profile update:', payload);
+      return dataService.updateProfile(payload);
+    },
+    {
+      ...(options || {}),
+      onSuccess: (data, variables, ...args) => {
+        console.log('[useUpdateProfileMutation] Update successful, received:', data);
+        
+        // Immediately update the cache for instant UI feedback
+        queryClient.setQueryData([QueryKeys.user], data);
+        
+        // Invalidate after a delay to ensure persistence without snapback
+        setTimeout(() => {
+          console.log('[useUpdateProfileMutation] Invalidating user cache for persistence');
+          queryClient.invalidateQueries([QueryKeys.user]);
+        }, 500);
+        
+        options?.onSuccess?.(data, variables, ...args);
+      },
+      onError: (error, variables, context) => {
+        console.error('[useUpdateProfileMutation] Update failed:', error);
+        options?.onError?.(error, variables, context);
+      },
+    },
+  );
+};

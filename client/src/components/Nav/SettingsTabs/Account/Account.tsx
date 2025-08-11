@@ -1,4 +1,5 @@
 import React from 'react';
+import ProfileEditor from './ProfileEditor';
 import DisplayUsernameMessages from './DisplayUsernameMessages';
 import DeleteAccount from './DeleteAccount';
 import Avatar from './Avatar';
@@ -11,6 +12,9 @@ function Account() {
 
   return (
     <div className="flex flex-col gap-3 p-1 text-sm text-text-primary">
+      <div className="pb-3">
+        <ProfileEditor />
+      </div>
       <div className="pb-3">
         <DisplayUsernameMessages />
       </div>
