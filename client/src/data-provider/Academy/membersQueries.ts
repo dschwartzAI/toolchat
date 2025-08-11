@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 export type Member = {
   id: string;
@@ -27,34 +28,10 @@ export const useGetMembers = () => {
   useEffect(() => {
     const fetchMembers = async () => {
       try {
-        // Get the token from localStorage (LibreChat stores it there)
-        const token = localStorage.getItem('token');
+        // Use axios like the rest of LibreChat - it handles cookies automatically
+        const response = await axios.get<MembersResponse>('/api/lms/members');
         
-        if (!token) {
-          throw new Error('Not authenticated');
-        }
-
-        const response = await fetch('/api/lms/members', {
-          method: 'GET',
-          headers: {
-            'Authorization': `Bearer ${token}`,
-            'Content-Type': 'application/json',
-          },
-          credentials: 'include',
-        });
-
-        // Check if response is JSON
-        const contentType = response.headers.get('content-type');
-        if (!contentType || !contentType.includes('application/json')) {
-          throw new Error('Server returned non-JSON response');
-        }
-
-        if (!response.ok) {
-          throw new Error(`Failed to fetch members: ${response.status}`);
-        }
-
-        const data: MembersResponse = await response.json();
-        setMembers(data.members || []);
+        setMembers(response.data.members || []);
         setError(null);
       } catch (err) {
         console.error('Error fetching members:', err);

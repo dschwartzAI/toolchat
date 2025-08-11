@@ -127,7 +127,7 @@ const panelWidthState = atom<number>({
   default: 320, // w-80
 });
 
-const activeTabState = atom<'community' | 'classroom' | 'calendar' | 'members'>({
+const activeTabState = atom<'community' | 'classroom' | 'calendar' | 'members' | 'chats'>({
   key: 'academyActiveTab',
   default: 'community',
 });

@@ -35,6 +35,19 @@ const AcademySidebar: React.FC<AcademySidebarProps> = ({ onClose }) => {
   useEffect(() => {
     localStorage.setItem('academyActiveTab', activeTab);
   }, [activeTab]);
+  
+  // Listen for storage events to switch tabs
+  useEffect(() => {
+    const handleStorageChange = () => {
+      const savedTab = localStorage.getItem('academyActiveTab');
+      if (savedTab === 'community' || savedTab === 'classroom' || savedTab === 'calendar' || savedTab === 'members' || savedTab === 'chats') {
+        setActiveTab(savedTab);
+      }
+    };
+    
+    window.addEventListener('storage', handleStorageChange);
+    return () => window.removeEventListener('storage', handleStorageChange);
+  }, [setActiveTab]);
 
   // Handle panel resizing
   const handleMouseDown = (e: React.MouseEvent) => {

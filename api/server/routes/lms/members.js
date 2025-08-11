@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const { requireJwtAuth } = require('~/server/middleware');
-const User = require('~/models/User');
+const mongoose = require('mongoose');
+const getUserModel = () => mongoose.models.User;
 const { logger } = require('~/config');
 
 /**
@@ -11,6 +12,12 @@ const { logger } = require('~/config');
  */
 router.get('/', requireJwtAuth, async (req, res) => {
   try {
+    const User = getUserModel();
+    if (!User) {
+      logger.error('[Members] User model not initialized');
+      return res.status(500).json({ error: 'Server initialization error' });
+    }
+    
     // Fetch up to 500 users, excluding deleted and only selecting safe fields
     const users = await User.find(
       { 

@@ -28,6 +28,8 @@ const Module = require('./Module');
 const ForumPost = require('./ForumPost');
 const ForumReply = require('./ForumReply');
 const CalendarEvent = require('./CalendarEvent');
+const DirectMessage = require('./DirectMessage');
+const DirectConversation = require('./DirectConversation');
 
 module.exports = {
   ...methods,
@@ -63,4 +65,6 @@ module.exports = {
   ForumPost,
   ForumReply,
   CalendarEvent,
+  DirectMessage,
+  DirectConversation,
 };

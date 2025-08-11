@@ -18,11 +18,12 @@ import { Conversations } from '~/components/Conversations';
 import SearchBar from './SearchBar';
 import NewChat from './NewChat';
 import { Logo } from '~/components/ui';
-import { GraduationCap } from '~/components/svg';
+import { GraduationCap, MessagesSquared } from '~/components/svg';
 import { cn } from '~/utils';
 import store from '~/store';
 const TagNav = lazy(() => import('./Tags/TagNav'));
 const AccountSettings = lazy(() => import('./AccountSettings'));
+const MessagesInbox = lazy(() => import('../Messages/MessagesInbox'));
 
 const NAV_WIDTH_DESKTOP = '260px';
 const NAV_WIDTH_MOBILE = '320px';
@@ -69,6 +70,7 @@ const Nav = memo(
     const [newUser, setNewUser] = useLocalStorage('newUser', true);
     const [showLoading, setShowLoading] = useState(false);
     const [tags, setTags] = useState<string[]>([]);
+    const [messagesOpen, setMessagesOpen] = useState(false);
 
     const hasAccessToBookmarks = useHasAccess({
       permissionType: PermissionTypes.BOOKMARKS,
@@ -245,22 +247,38 @@ const Nav = memo(
                         isSmallScreen={isSmallScreen}
                       />
                       {setAcademyVisible && (
-                        <div className="px-2 mb-1">
-                          <button
-                            onClick={() => setAcademyVisible(!academyVisible)}
-                            className={cn(
-                              'group flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all duration-200',
-                              'border',
-                              academyVisible 
-                                ? 'bg-green-500/15 text-green-600 border-green-500/30' 
-                                : 'bg-surface-secondary/50 border-border-medium hover:bg-surface-secondary hover:border-border-light text-text-secondary hover:text-text-primary'
-                            )}
-                            aria-label={localize('com_academy_title')}
-                          >
-                            <GraduationCap className="h-4 w-4" />
-                            <span>{localize('com_academy_title') || 'Academy'}</span>
-                          </button>
-                        </div>
+                        <>
+                          <div className="px-2 mb-1">
+                            <button
+                              onClick={() => setAcademyVisible(!academyVisible)}
+                              className={cn(
+                                'group flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all duration-200',
+                                'border',
+                                academyVisible 
+                                  ? 'bg-green-500/15 text-green-600 border-green-500/30' 
+                                  : 'bg-surface-secondary/50 border-border-medium hover:bg-surface-secondary hover:border-border-light text-text-secondary hover:text-text-primary'
+                              )}
+                              aria-label={localize('com_academy_title')}
+                            >
+                              <GraduationCap className="h-4 w-4" />
+                              <span>{localize('com_academy_title') || 'Academy'}</span>
+                            </button>
+                          </div>
+                          <div className="px-2 mb-1">
+                            <button
+                              onClick={() => setMessagesOpen(true)}
+                              className={cn(
+                                'group flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all duration-200',
+                                'border',
+                                'bg-surface-secondary/50 border-border-medium hover:bg-surface-secondary hover:border-border-light text-text-secondary hover:text-text-primary'
+                              )}
+                              aria-label="Messages"
+                            >
+                              <MessagesSquared className="h-4 w-4" />
+                              <span>Messages</span>
+                            </button>
+                          </div>
+                        </>
                       )}
                       <Conversations
                         conversations={conversations}
@@ -284,6 +302,9 @@ const Nav = memo(
           </div>
         </div>
         {isSmallScreen && <NavMask navVisible={navVisible} toggleNavVisible={toggleNavVisible} />}
+        <Suspense fallback={null}>
+          <MessagesInbox isOpen={messagesOpen} onClose={() => setMessagesOpen(false)} />
+        </Suspense>
       </>
     );
   },
