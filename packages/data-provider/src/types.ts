@@ -194,6 +194,10 @@ export type TUser = {
   personalization?: {
     memories?: boolean;
   };
+  bio?: string;
+  location?: string;
+  company?: string;
+  jobTitle?: string;
   createdAt: string;
   updatedAt: string;
 };

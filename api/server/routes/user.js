@@ -4,6 +4,7 @@ const {
   getUserController,
   deleteUserController,
   verifyEmailController,
+  updateProfileController,
   updateUserPluginsController,
   resendVerificationController,
   getTermsStatusController,
@@ -15,6 +16,7 @@ const router = express.Router();
 router.get('/', requireJwtAuth, getUserController);
 router.get('/terms', requireJwtAuth, getTermsStatusController);
 router.post('/terms/accept', requireJwtAuth, acceptTermsController);
+router.patch('/profile', requireJwtAuth, updateProfileController);
 router.post('/plugins', requireJwtAuth, updateUserPluginsController);
 router.delete('/delete', requireJwtAuth, canDeleteAccount, deleteUserController);
 router.post('/verify', verifyEmailController);

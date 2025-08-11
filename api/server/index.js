@@ -39,6 +39,21 @@ const startServer = async () => {
   await connectDb();
 
   logger.info('Connected to MongoDB');
+  
+  // Extend User schema with custom fields AFTER DB connection
+  const extendUserSchema = require('./bootstrap/extend-user');
+  extendUserSchema();
+  
+  // Temporary sanity check - log schema paths to verify custom fields
+  const mongoose = require('mongoose');
+  const User = mongoose.models.User;
+  if (User) {
+    const customFields = ['bio', 'location', 'jobTitle', 'company', 'industry', 'tier'];
+    const foundFields = customFields.filter(field => User.schema.paths[field]);
+    logger.info('[User Schema] Custom fields present:', foundFields);
+    logger.info('[User Schema] Total paths:', Object.keys(User.schema.paths).length);
+  }
+  
   indexSync().catch((err) => {
     logger.error('[indexSync] Background sync failed:', err);
   });

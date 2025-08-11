@@ -275,3 +275,82 @@ Production uses Docker with:
 - **Vector Store**: DarkJK uses OpenAI vector store (ID in .env)
 - **Development**: M1 Mac development vs AMD64 production can cause issues
 - **Agents vs Assistants**: Uses native LibreChat agents, not OpenAI assistants
+
+## Critical Knowledge: User Profile Persistence Fix
+
+### The Problem
+User profile fields (bio, location, jobTitle, company) were not persisting despite appearing to save successfully. This created a frustrating loop where data would appear saved but disappear on refresh.
+
+### Root Cause Discovery
+After extensive debugging, we discovered that **Mongoose does not properly persist dynamically added fields** when:
+1. A model is compiled/created by LibreChat at startup
+2. We attempt to extend the schema afterward using `schema.add()`
+3. The fields appear in `schema.paths` but aren't recognized during save operations
+
+### The Solution: Direct MongoDB Updates
+We implemented a dual-save approach in `/api/server/controllers/UserController.js`:
+```javascript
+// 1. First attempt Mongoose save (for standard fields)
+await user.save();
+
+// 2. Then use direct MongoDB update (for custom fields)
+await mongoose.connection.db.collection('users').updateOne(
+  { _id: new mongoose.Types.ObjectId(userId) },
+  { $set: { ...updateData } }
+);
+```
+
+### Key Files Modified
+1. `/api/server/bootstrap/extend-user.js` - Sets schema strict mode to false
+2. `/api/server/controllers/UserController.js` - Implements direct MongoDB updates
+3. `/api/models/User.js` - Smart proxy for lazy model loading
+
+### Verification Approach
+We added comprehensive logging to track data at each stage:
+- Mongoose query results
+- Direct MongoDB query results  
+- Field existence checks
+
+This revealed that Mongoose saves were completing but not persisting the custom fields to MongoDB.
+
+## Meta Systemic Observations
+
+### 1. **LibreChat's Architecture Constraints**
+LibreChat's model creation happens early in the startup sequence, making it difficult to extend schemas properly. The framework assumes models are static and doesn't support dynamic field addition well.
+
+### 2. **Mongoose Limitations**
+Mongoose's schema compilation is a one-way process. Once a model is compiled:
+- `schema.add()` doesn't fully integrate new fields
+- Setting `strict: false` helps but doesn't solve persistence
+- Direct MongoDB operations bypass these limitations entirely
+
+### 3. **Debugging Strategy That Worked**
+1. **Dual verification**: Always check both Mongoose AND direct MongoDB queries
+2. **Incremental testing**: Test each layer separately (frontend → API → Mongoose → MongoDB)
+3. **Comprehensive logging**: Log at every stage to identify where data is lost
+4. **Direct database operations**: When abstractions fail, go directly to the database
+
+### 4. **Timing Issues in Node.js**
+The server startup sequence matters immensely:
+- Routes are required before database connection
+- Models must exist before routes use them
+- Our proxy pattern (`/api/models/User.js`) handles this elegantly
+
+### 5. **The Power of Workarounds**
+Sometimes the "correct" solution (properly extending Mongoose schemas) isn't feasible. A pragmatic workaround (direct MongoDB updates) that works reliably is better than an elegant solution that doesn't work.
+
+### 6. **Frontend-Backend Decoupling**
+The frontend was working perfectly - it sent the right data and handled responses correctly. The issue was entirely in the backend persistence layer. This clean separation made debugging easier.
+
+### 7. **Cache Invalidation Complexity**
+React Query's cache invalidation can mask backend issues. We had to carefully balance:
+- Immediate UI updates (optimistic updates)
+- Cache invalidation timing (500ms delay)
+- Actual data persistence verification
+
+### Key Lessons
+1. **Always verify at the lowest level** - Direct database queries reveal the truth
+2. **Don't trust ORM abstractions completely** - Mongoose can lie about successful saves
+3. **Timing matters** - Model creation, schema extension, and route loading must happen in the right order
+4. **Pragmatism over purity** - A working workaround beats a broken "proper" solution
+5. **Log everything during debugging** - Comprehensive logging revealed the exact failure point
