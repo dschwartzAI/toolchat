@@ -5,7 +5,6 @@ import { useNavigate, useOutletContext, useLocation, Link } from 'react-router-d
 import { useRegisterUserMutation } from 'librechat-data-provider/react-query';
 import type { TRegisterUser, TError } from 'librechat-data-provider';
 import { useLocalize, TranslationKeys, ThemeContext } from '~/hooks';
-import { useAuthContext } from '~/hooks/AuthContext';
 import type { TLoginLayoutContext } from '~/common';
 import { Spinner, Button } from '~/components';
 import { ErrorMessage } from './ErrorMessage';
@@ -14,7 +13,6 @@ const Registration: React.FC = () => {
   const navigate = useNavigate();
   const localize = useLocalize();
   const { theme } = useContext(ThemeContext);
-  const { login } = useAuthContext();
   const { startupConfig, startupConfigError, isFetching } = useOutletContext<TLoginLayoutContext>();
 
   const {
@@ -49,10 +47,8 @@ const Registration: React.FC = () => {
       if (data?.token && data?.user) {
         // Store token in localStorage for axios interceptor
         localStorage.setItem('token', data.token);
-        // Auto-login the user
-        login(data.user, data.token);
-        // Navigate to chat immediately
-        navigate('/c/new', { replace: true });
+        // Reload the page to ensure proper auth initialization
+        window.location.href = '/c/new';
       } else {
         // Email verification required - show countdown
         setCountdown(3);

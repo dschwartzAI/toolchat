@@ -49,6 +49,8 @@
   
   "com.ui.prompts": "Instructions",
   
+  "com_nav_onboarding_assistant": "Onboarding Assistant",
+  
   "com_endpoint_search_models": "Search tools...",
   "com.ui.prompt": "Instruction",
   "com.ui.systemPrompt": "Business Context",

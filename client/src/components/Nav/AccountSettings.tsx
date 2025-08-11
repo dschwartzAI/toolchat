@@ -1,7 +1,8 @@
-import { useState, memo } from 'react';
+import { useState, memo, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import * as Select from '@ariakit/react/select';
-import { LogOut, Bookmark } from 'lucide-react';
+import { LogOut, Bookmark, Sparkles } from 'lucide-react';
 import { ChevronDownIcon } from '@radix-ui/react-icons';
 import { LinkIcon, GearIcon, DropdownMenuSeparator } from '~/components';
 import { useGetStartupConfig, useGetUserBalance } from '~/data-provider';
@@ -9,12 +10,13 @@ import { TagsView } from '~/components/Tags';
 import { useAuthContext } from '~/hooks/AuthContext';
 import useAvatar from '~/hooks/Messages/useAvatar';
 import { UserIcon } from '~/components/svg';
-import { useLocalize } from '~/hooks';
+import { useLocalize, useNewConvo } from '~/hooks';
 import Settings from './Settings';
 import store from '~/store';
 
 function AccountSettings() {
   const localize = useLocalize();
+  const navigate = useNavigate();
   const { user, isAuthenticated, logout } = useAuthContext();
   const { data: startupConfig } = useGetStartupConfig();
   const balanceQuery = useGetUserBalance({
@@ -23,9 +25,49 @@ function AccountSettings() {
   const [showSettings, setShowSettings] = useState(false);
   const [showBookmarks, setShowBookmarks] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const { newConversation } = useNewConvo();
 
   const avatarSrc = useAvatar(user);
   const avatarSeed = user?.avatar || user?.name || user?.username || '';
+
+  const handleStartOnboarding = useCallback(() => {
+    // Close the dropdown
+    setIsOpen(false);
+    
+    // Start a new conversation with SovereignJK (default assistant)
+    // First create the conversation with the default spec
+    newConversation({
+      preset: {
+        endpoint: 'assistants',
+        assistant_id: 'asst_DNG0tQhg9fMNwz0pAmZyMOpB',
+        model: 'gpt-4o',
+        spec: 'SovereignJK',
+      },
+      template: {
+        endpoint: 'assistants',
+        assistant_id: 'asst_DNG0tQhg9fMNwz0pAmZyMOpB',
+        model: 'gpt-4o',
+        spec: 'SovereignJK',
+      },
+      keepLatestMessage: false,
+      buildDefault: false,
+      disableFocus: false,
+    });
+    
+    // Navigate with initial onboarding text after a brief delay
+    setTimeout(() => {
+      const currentPath = window.location.pathname;
+      if (currentPath.includes('/c/')) {
+        navigate(currentPath, {
+          replace: true,
+          state: { 
+            focusChat: true,
+            initialText: "I'm new here and would like to go through the onboarding process to set up my business profile and learn how to use this platform effectively."
+          }
+        });
+      }
+    }, 200);
+  }, [newConversation, navigate]);
 
   return (
     <Select.SelectProvider>
@@ -106,11 +148,11 @@ function AccountSettings() {
         </Select.SelectItem>
         <Select.SelectItem
           value=""
-          onClick={() => window.open('https://www.skool.com/the-syndicate', '_blank')}
+          onClick={handleStartOnboarding}
           className="select-item text-sm"
         >
-          <LinkIcon aria-hidden="true" />
-          {localize('com_nav_help_faq')}
+          <Sparkles className="icon-md" aria-hidden="true" />
+          {localize('com_nav_onboarding_assistant') || 'Onboarding Assistant'}
         </Select.SelectItem>
         <Select.SelectItem
           value=""

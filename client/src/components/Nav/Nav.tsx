@@ -266,15 +266,18 @@ const Nav = memo(
                           </div>
                           <div className="px-2 mb-1">
                             <button
-                              onClick={() => setMessagesOpen(true)}
+                              onClick={() => setMessagesOpen(!messagesOpen)}
                               className={cn(
                                 'group flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all duration-200',
                                 'border',
-                                'bg-surface-secondary/50 border-border-medium hover:bg-surface-secondary hover:border-border-light text-text-secondary hover:text-text-primary'
+                                messagesOpen
+                                  ? 'bg-green-500/10 border-green-500/30 text-green-600 dark:text-green-400'
+                                  : 'bg-surface-secondary/50 border-border-medium hover:bg-surface-secondary hover:border-border-light text-text-secondary hover:text-text-primary'
                               )}
                               aria-label="Messages"
+                              aria-pressed={messagesOpen}
                             >
-                              <MessagesSquared className="h-4 w-4" />
+                              <MessagesSquared className={cn('h-4 w-4', messagesOpen && 'text-green-600 dark:text-green-400')} />
                               <span>Messages</span>
                             </button>
                           </div>

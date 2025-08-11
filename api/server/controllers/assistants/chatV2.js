@@ -194,6 +194,7 @@ const chatV2 = async (req, res) => {
 
     // Fetch user memories if enabled
     let memoryContext;
+    let onboardingGate = '';
     try {
       const user = req.user;
       const memoryConfig = req.app.locals?.memory;
@@ -214,6 +215,8 @@ const chatV2 = async (req, res) => {
             console.log('[Memory] Memory context preview:', memoryContext.substring(0, 200) + '...');
             logger.debug(`[Memory] Memory context length: ${memoryContext.length} characters`);
           }
+          const hasBusinessProfile = (memories?.totalTokens || 0) >= 20;
+          onboardingGate = `OnboardingGate: has_business_profile=${hasBusinessProfile}. If true, skip onboarding prompts and proceed with normal assistance.`;
         } catch (error) {
           console.error('[Memory] Error calling getFormattedMemories:', error);
           logger.error('[Memory] Error calling getFormattedMemories:', error);
@@ -230,10 +233,11 @@ const chatV2 = async (req, res) => {
     console.log(`[chatV2] Assistant ID: ${assistant_id}`);
     
     /** @type {CreateRunBody | undefined} */
+    const effectivePromptPrefix = [promptPrefix, onboardingGate].filter(Boolean).join('\n');
     const body = createRunBody({
       assistant_id,
       model,
-      promptPrefix,
+      promptPrefix: effectivePromptPrefix,
       instructions,
       endpointOption,
       clientTimestamp,
@@ -486,62 +490,49 @@ const chatV2 = async (req, res) => {
       const memoryConfig = req.app.locals?.memory;
       const user = req.user;
       if (user.personalization?.memories !== false && memoryConfig && memoryConfig.disabled !== true) {
-        const memoryAgentConfig = memoryConfig.agent || {};
-        const llmConfig = memoryAgentConfig.model && memoryAgentConfig.provider
-          ? { provider: memoryAgentConfig.provider, model: memoryAgentConfig.model, ...(memoryAgentConfig.model_parameters || {}) }
-          : undefined;
+        // Minimal gating: run freely for new/near-empty memory, or when input likely contains a business fact
+        const memSummary = await getFormattedMemories({ userId: user.id });
+        const forceMemory = (memSummary?.totalTokens || 0) < 50;
+        const maybeFact = /\b(we|our|my|i|company|business|industry|client|ideal client|avatar|pricing|charge|service|offer|goal|challenge|methodology|approach|stage)\b/i.test(text || '');
+        const isEarly = (previousMessages?.length || 0) <= 2;
 
-        const [_, processMemory] = await createMemoryProcessor({
-          res,
-          userId: user.id,
-          messageId: openai.responseMessage?.messageId || responseMessageId,
-          conversationId,
-          memoryMethods: { setMemory, deleteMemory, getFormattedMemories },
-          config: {
-            validKeys: memoryConfig.validKeys,
-            instructions: memoryAgentConfig.instructions,
-            llmConfig,
-            tokenLimit: memoryConfig.tokenLimit,
-          },
-        });
+        if (forceMemory || maybeFact || isEarly) {
+          const memoryAgentConfig = memoryConfig.agent || {};
+          const llmConfig =
+            memoryAgentConfig.model && memoryAgentConfig.provider
+              ? { provider: memoryAgentConfig.provider, model: memoryAgentConfig.model, ...(memoryAgentConfig.model_parameters || {}) }
+              : undefined;
 
-        const buffer = `# Current Chat:\n\nUser: ${text}\n\nAssistant: ${response.text || ''}`;
-        console.log('[MEMORY] beforeSave(processor) user=', user.id, 'windowSize=', memoryConfig?.messageWindowSize);
-        await processMemory([new HumanMessage(buffer)]);
-        
-        // Failsafe: heuristically capture simple pricing statements from the user's latest input
-        try {
-          const pricingMatch = /\$\s*([0-9]{1,3}(?:[\s,]?[0-9]{3})*)(?:\s*(?:per|\/)?\s*(month|mo|year|yr|session|project))?/i.exec(text || '');
-          if (pricingMatch) {
-            const rawAmount = pricingMatch[1]?.replace(/\s|,/g, '') || '';
-            const unit = pricingMatch[2] ? pricingMatch[2].toLowerCase() : '';
-            const normalized = `$${rawAmount}${unit ? `/${unit}` : ''}`;
-            const value = `User's service pricing: ${normalized}`;
-            console.log('[MEMORY][failsafe] Detected pricing, saving services_pricing =', value);
-            const result = await setMemory({ userId: user.id, key: 'services_pricing', value });
-            if (result?.ok) {
-              const attachment = {
-                type: 'memory',
-                messageId: openai.responseMessage?.messageId || responseMessageId,
-                conversationId,
-                memory: {
-                  key: 'services_pricing',
-                  value,
-                  type: 'update',
-                },
-              };
-              if (!res.headersSent) {
-                // Stream is not open yet; let the final sendEvent open it
-                // The memory processor will have emitted its own attachment when the stream opens
-              } else {
-                res.write(`event: attachment\ndata: ${JSON.stringify(attachment)}\n\n`);
+          const [_, processMemory] = await createMemoryProcessor({
+            res,
+            userId: user.id,
+            messageId: openai.responseMessage?.messageId || responseMessageId,
+            conversationId,
+            memoryMethods: { setMemory, deleteMemory, getFormattedMemories },
+            config: {
+              validKeys: memoryConfig.validKeys,
+              instructions: memoryAgentConfig.instructions,
+              llmConfig,
+              tokenLimit: memoryConfig.tokenLimit,
+            },
+          });
+
+          const buffer = `# Current Chat:\n\nUser: ${text}\n\nAssistant: ${response.text || ''}`;
+          console.log('[MEMORY] beforeSave(processor) user=', user.id, 'windowSize=', memoryConfig?.messageWindowSize);
+          const attachments = await processMemory([new HumanMessage(buffer)]);
+          if (Array.isArray(attachments) && attachments.length) {
+            for (const attachment of attachments) {
+              if (attachment) {
+                try {
+                  res.write(`event: attachment\ndata: ${JSON.stringify(attachment)}\n\n`);
+                } catch {}
               }
             }
           }
-        } catch (err) {
-          console.warn('[MEMORY][failsafe] pricing save error', err);
+          console.log('[MEMORY] afterSave(processor) user=', user.id);
+        } else {
+          console.log('[MEMORY] gated: skip this turn user=', user.id);
         }
-        console.log('[MEMORY] afterSave(processor) user=', user.id);
       }
     } catch (err) {
       logger.error('[/assistants/chat/] Memory processing error', err);

@@ -550,6 +550,22 @@ class AgentClient extends BaseClient {
         }
       }
 
+      // Minimal gating: run freely for new/near-empty memory, or when input likely contains a business fact
+      const userId = this.options.req.user?.id + '';
+      const { getFormattedMemories } = require('~/models');
+      const memSummary = await getFormattedMemories({ userId });
+      const forceMemory = (memSummary?.totalTokens || 0) < 50;
+      const lastUser = [...messagesToProcess].reverse().find((m) => m?.role === 'user');
+      const lastText = typeof lastUser?.content === 'string' ? lastUser.content : getBufferString([lastUser].filter(Boolean));
+      const maybeFact = /\b(we|our|my|i|company|business|industry|client|ideal client|avatar|pricing|charge|service|offer|goal|challenge|methodology|approach|stage)\b/i.test(
+        lastText || '',
+      );
+
+      if (!forceMemory && !maybeFact) {
+        this.options.req?.app?.locals?.logger?.debug?.('[MEMORY] gated: skip this turn user=', userId);
+        return;
+      }
+
       const bufferString = getBufferString(messagesToProcess);
       const bufferMessage = new HumanMessage(`# Current Chat:\n\n${bufferString}`);
       logger.debug('[MEMORY] beforeSave(agents.processor) user=', this.options.req.user?.id);

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { X, Send, MoreHorizontal, Maximize2, Paperclip, Smile } from 'lucide-react';
+import { X, Send, MoreHorizontal, Maximize2, Smile } from 'lucide-react';
 import { formatDistanceToNow } from 'date-fns';
 import axios from 'axios';
 import type { Conversation } from './ChatsTab';
@@ -336,13 +336,6 @@ const ConversationModal: React.FC<ConversationModalProps> = ({
           {/* Message input */}
           <div className="border-t border-gray-200 dark:border-gray-700 p-3">
             <div className="flex items-end gap-2">
-              <button
-                className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
-                aria-label="Attach file"
-                disabled
-              >
-                <Paperclip className="h-5 w-5 text-gray-400" />
-              </button>
               <textarea
                 ref={textareaRef}
                 value={newMessage}
