@@ -26,7 +26,8 @@ router.get('/', requireJwtAuth, async (req, res) => {
         bio: 1,
         role: 1,
         company: 1,
-        location: 1
+        location: 1,
+        jobTitle: 1
       }
     )
     .limit(500)
@@ -39,10 +40,28 @@ router.get('/', requireJwtAuth, async (req, res) => {
       name: user.name || 'Anonymous User',
       username: user.username || null,
       avatarUrl: user.avatar || '',
-      // Use bio field if available, otherwise combine role and company
-      bio: user.bio || [user.role, user.company].filter(Boolean).join(' at ') || null,
-      location: user.location || null
+      bio: user.bio || null,
+      location: user.location || null,
+      jobTitle: user.jobTitle || null,
+      company: user.company || null,
+      role: user.role || 'user'
     }));
+
+    // Sort members to show admins first (roles are uppercase in DB)
+    members.sort((a, b) => {
+      const roleA = (a.role || '').toUpperCase();
+      const roleB = (b.role || '').toUpperCase();
+      
+      // Admins come first
+      if (roleA === 'ADMIN' && roleB !== 'ADMIN') return -1;
+      if (roleA !== 'ADMIN' && roleB === 'ADMIN') return 1;
+      // Otherwise maintain original order (by creation date)
+      return 0;
+    });
+
+    // Log admin count for debugging
+    const adminCount = members.filter(m => (m.role || '').toUpperCase() === 'ADMIN').length;
+    logger.info(`[Members] Returning ${members.length} members (${adminCount} admins)`);
 
     res.json({ members });
   } catch (error) {

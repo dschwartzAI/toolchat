@@ -7,6 +7,9 @@ export type Member = {
   avatarUrl: string;
   bio?: string;
   location?: string;
+  jobTitle?: string;
+  company?: string;
+  role?: string;
 };
 
 export type MembersResponse = {

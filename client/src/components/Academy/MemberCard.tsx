@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, MessageCircle } from 'lucide-react';
+import { MapPin, MessageCircle, Shield } from 'lucide-react';
 import type { Member } from '~/data-provider/Academy/membersQueries';
 
 interface MemberCardProps {
@@ -28,10 +28,17 @@ const MemberCard: React.FC<MemberCardProps> = ({ member, onChat }) => {
             <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 leading-tight">
               {member.name}
             </h3>
-            {member.jobTitle && (
-              <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">
-                {member.jobTitle}
-              </p>
+            {(member.role || '').toUpperCase() === 'ADMIN' ? (
+              <div className="flex items-center gap-1 mt-1">
+                <Shield className="h-3.5 w-3.5 text-purple-600 dark:text-purple-400" />
+                <span className="text-sm font-medium text-purple-700 dark:text-purple-300">Admin</span>
+              </div>
+            ) : (
+              member.jobTitle && (
+                <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">
+                  {member.jobTitle}
+                </p>
+              )
             )}
           </div>
         </div>

@@ -14,23 +14,36 @@ const MembersTab: React.FC = () => {
   // Debounce search query by 300ms
   const debouncedSearchQuery = useDebounce(searchQuery, 300);
 
-  // Filter members based on search query
+  // Filter and sort members based on search query and role
   const filteredMembers = useMemo(() => {
-    if (!debouncedSearchQuery.trim()) {
-      return members;
-    }
-
-    const query = debouncedSearchQuery.toLowerCase().trim();
+    let filtered = members;
     
-    return members.filter(member => {
-      const searchableFields = [
-        member.name,
-        member.username,
-        member.bio,
-        member.location
-      ].filter(Boolean).map(field => field!.toLowerCase());
+    // Apply search filter if query exists
+    if (debouncedSearchQuery.trim()) {
+      const query = debouncedSearchQuery.toLowerCase().trim();
+      
+      filtered = members.filter(member => {
+        const searchableFields = [
+          member.name,
+          member.username,
+          member.bio,
+          member.location
+        ].filter(Boolean).map(field => field!.toLowerCase());
 
-      return searchableFields.some(field => field.includes(query));
+        return searchableFields.some(field => field.includes(query));
+      });
+    }
+    
+    // Sort to show admins first (handle uppercase roles from DB)
+    return filtered.sort((a, b) => {
+      const roleA = (a.role || '').toUpperCase();
+      const roleB = (b.role || '').toUpperCase();
+      
+      // Admins come first
+      if (roleA === 'ADMIN' && roleB !== 'ADMIN') return -1;
+      if (roleA !== 'ADMIN' && roleB === 'ADMIN') return 1;
+      // Otherwise maintain original order
+      return 0;
     });
   }, [members, debouncedSearchQuery]);
 
