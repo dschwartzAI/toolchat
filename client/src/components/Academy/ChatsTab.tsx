@@ -113,9 +113,33 @@ const ChatsTab: React.FC = () => {
     fetchConversations();
   };
   
-  const handleNewMessage = () => {
-    // Refresh conversations to show new message
-    fetchConversations();
+  const handleNewMessage = (newMessageContent?: string) => {
+    // Update the conversation locally with the new message
+    if (selectedConversation && newMessageContent) {
+      const updatedConversation = {
+        ...selectedConversation,
+        lastMessage: {
+          content: newMessageContent,
+          timestamp: new Date().toISOString(),
+          isOwnMessage: true
+        },
+        updatedAt: new Date().toISOString()
+      };
+      
+      // Update the selected conversation to prevent modal refresh
+      setSelectedConversation(updatedConversation);
+      
+      // Update the conversations list
+      setConversations(prevConvs => 
+        prevConvs.map(conv => {
+          if (conv.id === selectedConversation.id) {
+            return updatedConversation;
+          }
+          return conv;
+        })
+      );
+    }
+    // Don't fetch conversations here - it causes a modal refresh
   };
   
   // Loading state with skeletons

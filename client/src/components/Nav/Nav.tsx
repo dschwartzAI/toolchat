@@ -13,6 +13,7 @@ import {
   useAgentsMap,
   useAssistantsMap,
 } from '~/hooks';
+import { useUnreadMessages } from '~/hooks/useUnreadMessages';
 import { useConversationsInfiniteQuery } from '~/data-provider';
 import { Conversations } from '~/components/Conversations';
 import SearchBar from './SearchBar';
@@ -71,6 +72,9 @@ const Nav = memo(
     const [showLoading, setShowLoading] = useState(false);
     const [tags, setTags] = useState<string[]>([]);
     const [messagesOpen, setMessagesOpen] = useState(false);
+
+    // Fetch unread messages count
+    const { unreadCount } = useUnreadMessages(isAuthenticated);
 
     const hasAccessToBookmarks = useHasAccess({
       permissionType: PermissionTypes.BOOKMARKS,
@@ -268,17 +272,26 @@ const Nav = memo(
                             <button
                               onClick={() => setMessagesOpen(!messagesOpen)}
                               className={cn(
-                                'group flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all duration-200',
+                                'group relative flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all duration-200',
                                 'border',
                                 messagesOpen
                                   ? 'bg-green-500/10 border-green-500/30 text-green-600 dark:text-green-400'
                                   : 'bg-surface-secondary/50 border-border-medium hover:bg-surface-secondary hover:border-border-light text-text-secondary hover:text-text-primary'
                               )}
-                              aria-label="Messages"
+                              aria-label={`Messages${unreadCount > 0 ? ` (${unreadCount} unread)` : ''}`}
                               aria-pressed={messagesOpen}
                             >
                               <MessagesSquared className={cn('h-4 w-4', messagesOpen && 'text-green-600 dark:text-green-400')} />
                               <span>Messages</span>
+                              {/* Unread indicator */}
+                              {unreadCount > 0 && (
+                                <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center">
+                                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75"></span>
+                                  <span className="relative inline-flex h-5 min-w-[20px] items-center justify-center rounded-full bg-red-500 px-1 text-[10px] font-bold text-white">
+                                    {unreadCount > 99 ? '99+' : unreadCount}
+                                  </span>
+                                </span>
+                              )}
                             </button>
                           </div>
                         </>

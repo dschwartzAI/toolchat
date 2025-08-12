@@ -341,15 +341,15 @@ modelSpecs:
     - name: "Daily Content Machine"
       label: "Daily Content Machine"
       description: "Create engaging content for your audience daily"
-      iconURL: "/images/daily-content-machine.png"
+      iconURL: "/images/contenticon.png"
       endpoint: "agents"
-      model: "gpt-4o"
+      model: "claude-opus-4-20250514"
       modelLabel: "Daily Content Machine"
-      specIconURL: "/images/daily-content-machine.png"
+      specIconURL: "/images/contenticon.png"
       showInMenu: true
       preset:
         endpoint: "agents"
-        model: "gpt-4o"
+        model: "claude-opus-4-20250514"
         agent_id: "agent_h4vJT7TaVIxxfQDwP11Os"
     
     # Example: Assistant as ModelSpec

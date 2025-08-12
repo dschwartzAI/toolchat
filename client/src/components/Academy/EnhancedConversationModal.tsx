@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { X, Send, MoreHorizontal, Maximize2, Smile } from 'lucide-react';
+import { X, Send, Smile } from 'lucide-react';
 import { formatDistanceToNow } from 'date-fns';
 import axios from 'axios';
 import type { Conversation } from './ChatsTab';
@@ -23,7 +23,7 @@ interface ConversationModalProps {
   isOpen: boolean;
   onClose: () => void;
   conversation: Conversation;
-  onNewMessage?: () => void;
+  onNewMessage?: (messageContent?: string) => void;
 }
 
 const ConversationModal: React.FC<ConversationModalProps> = ({ 
@@ -116,24 +116,54 @@ const ConversationModal: React.FC<ConversationModalProps> = ({
   const handleSendMessage = async () => {
     if (!newMessage.trim() || sending || !conversationId) return;
     
+    const messageContent = newMessage.trim();
+    
     try {
       setSending(true);
       
-      const response = await axios.post(`/api/lms/messages/conversations/${conversationId}/messages`, {
-        content: newMessage.trim()
-      });
+      // Optimistically add the message to the UI
+      const optimisticMessage: Message = {
+        id: `temp-${Date.now()}`,
+        content: messageContent,
+        sender: {
+          id: 'current-user',
+          name: 'You',
+          username: '',
+          avatar: ''
+        },
+        isOwnMessage: true,
+        isRead: true,
+        createdAt: new Date().toISOString()
+      };
       
-      setMessages(prev => [...prev, response.data.message]);
+      setMessages(prev => [...prev, optimisticMessage]);
       setNewMessage('');
       scrollToBottom();
-      onNewMessage?.();
       
       // Reset textarea height
       if (textareaRef.current) {
         textareaRef.current.style.height = 'auto';
       }
+      
+      // Send the actual message
+      const response = await axios.post(`/api/lms/messages/conversations/${conversationId}/messages`, {
+        content: messageContent
+      });
+      
+      // Replace optimistic message with real one
+      setMessages(prev => prev.map(msg => 
+        msg.id === optimisticMessage.id ? response.data.message : msg
+      ));
+      
+      // Update parent component with new message content
+      onNewMessage?.(messageContent);
+      
     } catch (error) {
       console.error('Error sending message:', error);
+      // Remove optimistic message on error
+      setMessages(prev => prev.filter(msg => !msg.id.startsWith('temp-')));
+      // Re-add the message to the input
+      setNewMessage(messageContent);
     } finally {
       setSending(false);
     }
@@ -229,19 +259,7 @@ const ConversationModal: React.FC<ConversationModalProps> = ({
                 </p>
               </div>
             </div>
-            <div className="flex items-center gap-2">
-              <button
-                className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
-                aria-label="Expand"
-              >
-                <Maximize2 className="h-4 w-4 text-gray-500 dark:text-gray-400" />
-              </button>
-              <button
-                className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
-                aria-label="More options"
-              >
-                <MoreHorizontal className="h-4 w-4 text-gray-500 dark:text-gray-400" />
-              </button>
+            <div className="flex items-center">
               <button
                 onClick={onClose}
                 className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
