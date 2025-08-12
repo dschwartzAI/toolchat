@@ -1,0 +1,376 @@
+version: 1.2.9
+cache: false  # Temporarily disabled to update footer
+# appTitle: "SoloOS"  # Not supported in v0.7.9
+
+# UI Customization
+interface:
+  # Default to SovereignJK assistant
+  defaultEndpoint: "assistants"
+  defaultAssistant: "asst_DNG0tQhg9fMNwz0pAmZyMOpB"
+  
+  # Skip welcome page entirely
+  showWelcome: false       # Never show welcome page
+  endpointsMenu: true      # Show endpoint menu to allow switching between modelSpecs
+  modelSelect: false       # Disable to avoid conflicts with modelSpecs.enforce
+  parameters: false        # Hide parameters for clean UI
+  presets: false          # Hide preset management
+  agents: true            # Enable agents UI (modelSpecs.enforce will hide raw endpoint)
+  agentBuilder: true      # Enable agent builder for admins
+  assistants: false       # Hide raw assistants endpoint from UI (modelSpecs will still work)
+  assistantBuilder: false # Hide assistant builder for regular users
+  sidePanel: true         # Show side panel
+  speechToText: true      # Keep voice input
+  textToSpeech: false     # Disable TTS for now
+  bookmarks: true         # Enable bookmarks/tags feature
+  customFooter: "James Kemp 2025 © | [LibreChat](https://librechat.ai) - Powered by Solo:OS™"
+
+# Enable registration for initial setup
+registration:
+  enabled: true          # Allow registration
+  # allowedDomains: []   # Commented out to allow all domains
+
+# Business tool agents configuration
+# Only assistants and model specs (agents) are shown
+endpoints:
+  openAI:
+    disabled: true         # Hide OpenAI chat endpoint
+    disableBuilder: true
+  assistants:
+    disabled: false        # Keep enabled for modelSpecs that use assistants
+    disableBuilder: false  # Allow assistant management
+    pollIntervalMs: 500   # Faster polling for assistant responses
+    timeoutMs: 180000     # 3 minute timeout for long operations
+    # Optional: specify available models for assistants
+    # models: ["gpt-4o", "gpt-4o-mini", "gpt-4-turbo"]
+  anthropic:
+    disabled: true         # Hide Anthropic endpoint
+    disableBuilder: true
+  gptPlugins:
+    disabled: true         # Hide deprecated plugins
+    disableBuilder: true
+  google:
+    disabled: true         # Hide Google endpoint
+    disableBuilder: true
+  custom:
+    - name: "xai"
+      disabled: true  # Hide from endpoint selector
+      apiKey: "${XAI_API_KEY}"
+      baseURL: "https://api.x.ai/v1"
+      models:
+        default: ["grok-beta", "grok-2", "grok-4", "grok-2-1212", "grok-2-vision-1212"]
+        fetch: true
+      titleConvo: true
+      titleMethod: "completion"
+      titleModel: "grok-beta"
+      summarize: false
+      summaryModel: "grok-beta"
+      forcePrompt: false
+      modelDisplayLabel: "Grok"
+  agents:
+    disabled: false         # Keep enabled for modelSpecs to work
+    disableBuilder: false   # Enable agent builder for admins
+    modelDisplayLabel: "AI Business Tools"
+    recursionLimit: 100
+    maxRecursionLimit: 200
+    # Enable all capabilities for business tools
+    capabilities:
+      - "file_search"     # Re-enabled for agents that need it
+      - "artifacts"       # For document generation
+      - "tools"          # For custom tools
+      - "actions"        # For API integrations
+      - "web_search"     # For current information
+
+# File handling configuration
+fileConfig:
+  endpoints:
+    agents:
+      fileLimit: 10
+      fileSizeLimit: 20  # 20MB
+      supportedMimeTypes:
+        - "text/plain"
+        - "text/markdown"
+        - "application/pdf"
+        - "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+        - "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        - "text/csv"
+        - "image/png"
+        - "image/jpeg"
+        - "image/gif"
+        - "image/webp"
+        - "image/svg+xml"
+
+# Web Search Configuration
+webSearch:
+  # Search Provider Configuration
+  serperApiKey: "${SERPER_API_KEY}"
+  searchProvider: "serper" # Options: "serper", "searxng"
+ 
+  # Scraper Configuration
+  firecrawlApiKey: "${FIRECRAWL_API_KEY}"
+  firecrawlApiUrl: "${FIRECRAWL_API_URL}"
+  scraperType: "firecrawl" # Options: "firecrawl", "serper"
+ 
+  # Reranker Configuration
+  jinaApiKey: "${JINA_API_KEY}"
+  cohereApiKey: "${COHERE_API_KEY}"
+  rerankerType: "jina" # Options: "jina", "cohere"
+ 
+  # General Settings
+  scraperTimeout: 7500 # Timeout in milliseconds for scraper requests (default: 7500)
+  safeSearch: 1 # Options: 0 (OFF), 1 (MODERATE - default), 2 (STRICT)
+
+# Rate limiting
+rateLimits:
+  fileUploads:
+    ipMax: 50
+    ipWindowInMinutes: 60
+    userMax: 30
+    userWindowInMinutes: 60
+  conversationsImport:
+    ipMax: 100
+    ipWindowInMinutes: 60
+    userMax: 50
+    userWindowInMinutes: 60
+
+
+# MCP (Model Context Protocol) Servers
+mcpServers:
+  # Playwright for browser automation
+  # playwright:
+  #   type: stdio
+  #   command: npx
+  #   args:
+  #     - "@playwright/mcp@latest"
+  #   timeout: 300000  # 5 minutes for browser operations
+  #   chatMenu: true
+  #   description: "Browser automation - navigate, click, fill forms, take screenshots"
+    
+  # Perplexity for AI research
+  perplexity:
+    type: stdio
+    command: npx
+    args:
+      - "perplexity-mcp"
+    env:
+      PERPLEXITY_API_KEY: "${PERPLEXITY_API_KEY}"
+    timeout: 120000  # 2 minutes for searches
+    startup: true  # Initialize on server startup
+    chatMenu: true
+    description: "AI-powered web research and deep analysis"
+  
+  # DarkJK Knowledge Base
+  # darkjk_knowledge:
+  #   type: stdio
+  #   command: npx
+  #   args:
+  #     - "darkjk-mcp"
+  #   env:
+  #     OPENAI_API_KEY: "${OPENAI_API_KEY}"
+  #   timeout: 120000  # 2 minutes for knowledge searches
+  #   chatMenu: true
+  #   description: "James Kemp's business knowledge base - methodologies and strategies"
+
+  # GoHighLevel CRM Integration
+  gohighlevel:
+    type: stdio
+    command: node
+    args:
+      - "./packages/gohighlevel-mcp-direct.js"
+    env:
+      GHL_API_KEY: "pit-b89e253c-2f70-4854-8069-5c4041bd3d50"
+      GHL_LOCATION_ID: "4BO06AvPiDJEeqf2WhmU"
+    timeout: 30000  # 30 seconds for CRM operations
+    startup: true  # Initialize on server startup
+    chatMenu: true
+    description: "GoHighLevel CRM - Complete business management with 250+ tools"
+    serverInstructions: |
+      You have access to GoHighLevel CRM tools. When users ask about CRM data, contacts, calendar, pipelines, or any CRM-related tasks, actively use these tools:
+      
+      - For contact queries: Use contacts_get-contacts, contacts_get-contact, contacts_create-contact
+      - For calendar: Use calendars_get-calendar-events, calendars_get-appointment-notes
+      - For conversations: Use conversations_search-conversation, conversations_send-a-new-message
+      - For pipelines: Use opportunities_get-pipelines, opportunities_search-opportunity
+      - For tasks: Use contacts_get-all-tasks
+      
+      Always use these tools proactively to fetch real data rather than just describing what you could do.
+
+# Memory configuration for business context
+memory:
+  # Enable memory feature
+  disabled: false
+  
+  # Business-specific memory keys
+  validKeys:
+    - "business_info"      # Company details, industry, size
+    - "services_pricing"   # What they offer and pricing
+    - "methodology"        # Unique approach or framework
+    - "goals_challenges"   # Current objectives and pain points
+    - "preferences"        # Communication style, tool preferences
+    - "history"           # Past interactions and decisions
+    - "ideal_client_avatar" # Canonical key for structured ICP profile
+    - "content_voice"      # Content style, tone, and voice preferences
+  
+  # Token limit for memory storage
+  tokenLimit: 20000
+  
+  # Allow users to toggle memory
+  personalize: true
+  
+  # Number of recent messages to analyze
+  messageWindowSize: 5
+  
+  # Memory processing agent
+  agent:
+    provider: "openAI"
+    model: "gpt-4o-mini"
+    instructions: |
+      You can call a Memory tool to create or update user memories.
+      - Only store information explicitly stated by the user.
+      -  Store information only in the specified validKeys categories.
+      Focus on explicitly stated preferences and important facts.
+      - When new information is given or an existing fact is corrected, call Memory with { key, value }.
+      - Do not delete memories. Do not expose internal memory structure.
+      - Keep values concise and canonical. Do not output explanations—use tool calls only.
+      - Never store secrets or credentials.
+    model_parameters:
+      temperature: 0.1
+      max_tokens: 2000
+
+# Model Specifications for Business Tools
+modelSpecs:
+  enforce: true  # Only show modelSpecs in the selector (hides other endpoints)
+  prioritize: true  # Show these first in selector
+  showIconInMenu: true  # Show icons in dropdown
+  showIconInHeader: true  # Show icons in conversation
+  showInEndpointMenu: true  # Show modelSpecs in endpoint selector
+  list:
+    # SovereignJK - Premium tool (Assistant version) - DEFAULT
+    - name: "SovereignJK"
+      label: "SovereignJK"
+      description: "How can I help?"
+      iconURL: "/images/sovereign-jk.jpeg"
+      endpoint: "assistants"
+      model: "gpt-4o"
+      modelLabel: "SovereignJK"
+      specIconURL: "/images/sovereign-jk.jpeg"
+      showInMenu: true
+      default: true  # Make this the default modelSpec
+      preset:
+        endpoint: "assistants"
+        model: "gpt-4o"
+        assistant_id: "asst_DNG0tQhg9fMNwz0pAmZyMOpB"
+        
+    # Ideal Client Extractor - Premium tool
+    - name: "Ideal Client Extractor"
+      label: "Ideal Client Extractor"
+      description: "Detailed psychological breakdown of your ideal client. Be as detailed as possible for the best copywriting throughout SovereignAI."
+      iconURL: "/images/icp-icon.png"
+      endpoint: "agents"
+      model: "claude-opus-4-20250514"
+      modelLabel: "Ideal Client Extractor"
+      specIconURL: "/images/icp-icon.png"
+      showInMenu: true
+      preset:
+        endpoint: "agents"
+        model: "claude-opus-4-20250514"
+        agent_id: "agent_DQbu_zXcPMFZCDqq-j3dX"
+
+    # Hybrid Offer Printer - Premium tool
+    - name: "Hybrid Offer Printer"
+      label: "Hybrid Offer Printer"
+      description: "I'll help you generate Hybrid Offers that convert. Just follow my lead."
+      iconURL: "/images/hybrid-icon-blue.png"
+      endpoint: "agents"
+      model: "claude-sonnet-4-20250514"
+      modelLabel: "Hybrid Offer Printer"
+      specIconURL: "/images/hybrid-icon-blue.png"
+      showInMenu: true
+      preset:
+        endpoint: "agents"
+        model: "claude-sonnet-4-20250514"
+        agent_id: "agent_jkxFi4j4VZLDT8voWoXxm"
+      
+    # Daily Client Machine - Premium tool
+    - name: "Daily Client Machine"
+      label: "Daily Client Machine"
+      description: "Build or optimize high-converting client acquisition funnels"
+      iconURL: "/images/dcm-icon-green.png"
+      endpoint: "agents"
+      model: "claude-sonnet-4-20250514"
+      modelLabel: "Daily Client Machine"
+      specIconURL: "/images/dcm-icon-green.png"
+      showInMenu: true
+      preset:
+        endpoint: "agents"
+        model: "claude-sonnet-4-20250514"
+        agent_id: "agent_cCc7tBkYYjE3j4NS0QjST"
+      
+    # Workshop Copy-Paster - Free tool
+    - name: "Workshop Copy-Paster"
+      label: "Workshop Copy-Paster"
+      description: "Build your workshop landing page copy"
+      iconURL: "/images/workshop-copy-paster.png"
+      endpoint: "agents"
+      model: "claude-sonnet-4-20250514"
+      modelLabel: "Workshop Copy-Paster"
+      specIconURL: "/images/workshop-copy-paster.png"
+      showInMenu: true
+      preset:
+        endpoint: "agents"
+        model: "claude-sonnet-4-20250514"
+        agent_id: "agent_QCDKPRFv8sY6LC_IWuqrh"
+    
+    # HighLevel Agent - GoHighLevel CRM Integration
+    - name: "HighLevel Agent"
+      label: "HighLevel CRM"
+      description: "AI assistant with full GoHighLevel CRM access - manage contacts, pipelines, appointments, and campaigns"
+      iconURL: "/images/gohighlevel-icon.svg"
+      endpoint: "agents"
+      model: "gpt-4o"
+      modelLabel: "HighLevel CRM Assistant"
+      specIconURL: "/images/gohighlevel-icon.svg"
+      showInMenu: true
+      preset:
+        endpoint: "agents"
+        model: "gpt-4o"
+        agent_id: "agent_iQEgiUTn0qgQ9s5c0NWvs"
+        instructions: "You are a GoHighLevel CRM assistant with access to 21+ tools for managing contacts, pipelines, appointments, conversations, and campaigns. Use the available tools to help users with their CRM tasks."
+        tools: ["mcp:gohighlevel"]
+    
+    # Daily Content Machine - Content creation tool
+    - name: "Daily Content Machine"
+      label: "Daily Content Machine"
+      description: "Create engaging content for your audience daily"
+      iconURL: "/images/daily-content-machine.png"
+      endpoint: "agents"
+      model: "gpt-4o"
+      modelLabel: "Daily Content Machine"
+      specIconURL: "/images/daily-content-machine.png"
+      showInMenu: true
+      preset:
+        endpoint: "agents"
+        model: "gpt-4o"
+        agent_id: "agent_h4vJT7TaVIxxfQDwP11Os"
+    
+    # Example: Assistant as ModelSpec
+    # Replace asst_EXAMPLE_ID with your actual assistant ID
+    # - name: "Coach Assistant"
+    #   label: "Coach Assistant"
+    #   description: "AI coaching assistant powered by OpenAI"
+    #   iconURL: "/images/coach-icon.png"
+    #   endpoint: "assistants"
+    #   model: "gpt-4o"
+    #   modelLabel: "Coach Assistant"
+    #   specIconURL: "/images/coach-icon.png"
+    #   showInMenu: true
+    #   preset:
+    #     endpoint: "assistants"
+    #     model: "gpt-4o"
+    #     assistant_id: "asst_EXAMPLE_ID"
+
+# Actions configuration for agents
+actions:
+  # Allow xAI domain for image generation
+  allowedDomains:
+    - "api.x.ai"
+    - "api.openai.com"  # Keep OpenAI as fallback
