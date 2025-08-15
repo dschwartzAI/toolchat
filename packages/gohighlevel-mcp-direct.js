@@ -8,10 +8,10 @@
 const readline = require('readline');
 const fetch = require('node-fetch');
 
-// GoHighLevel configuration
+// GoHighLevel configuration with fallback support
 const GHL_MCP_URL = 'https://services.leadconnectorhq.com/mcp/';
-const API_KEY = process.env.GHL_API_KEY || 'pit-b89e253c-2f70-4854-8069-5c4041bd3d50';
-const LOCATION_ID = process.env.GHL_LOCATION_ID || '4BO06AvPiDJEeqf2WhmU';
+const API_KEY = process.env.GHL_API_KEY || process.env.GHL_FALLBACK_KEY || 'pit-b89e253c-2f70-4854-8069-5c4041bd3d50';
+const LOCATION_ID = process.env.GHL_LOCATION_ID || process.env.GHL_FALLBACK_LOCATION || '4BO06AvPiDJEeqf2WhmU';
 
 // Cache for available tools
 let cachedTools = [];

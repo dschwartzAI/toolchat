@@ -26,7 +26,6 @@ const edit = require('./edit');
 const keys = require('./keys');
 const user = require('./user');
 const mcp = require('./mcp');
-const integrations = require('./integrations');
 const feedback = require('./feedback-simple');
 const lms = require('./lms');
 
@@ -59,7 +58,6 @@ module.exports = {
   categories,
   staticRoute,
   mcp,
-  integrations,
   feedback,
   lms,
 };

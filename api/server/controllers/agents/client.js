@@ -866,13 +866,14 @@ class AgentClient extends BaseClient {
         }
 
         try {
-          if (await hasCustomUserVars()) {
-            config.configurable.userMCPAuthMap = await getMCPAuthMap({
-              tools: agent.tools,
-              userId: this.options.req.user.id,
-              findPluginAuthsByKeys,
-            });
-          }
+          // Always attempt to load MCP auth for tools that might need it
+          // The getMCPAuthMap function handles empty cases gracefully
+          config.configurable.userMCPAuthMap = await getMCPAuthMap({
+            tools: agent.tools,
+            userId: this.options.req.user.id,
+            findPluginAuthsByKeys,
+          });
+          
         } catch (err) {
           logger.error(
             `[api/server/controllers/agents/client.js #chatCompletion] Error getting custom user vars for agent ${agent.id}`,

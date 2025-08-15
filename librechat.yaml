@@ -177,12 +177,12 @@ mcpServers:
     args:
       - "./packages/gohighlevel-mcp-direct.js"
     env:
-      GHL_API_KEY: "pit-b89e253c-2f70-4854-8069-5c4041bd3d50"
-      GHL_LOCATION_ID: "4BO06AvPiDJEeqf2WhmU"
+      GHL_API_KEY: "${GHL_API_KEY}"
+      GHL_LOCATION_ID: "${GHL_LOCATION_ID}"
     timeout: 30000  # 30 seconds for CRM operations
-    startup: true  # Initialize on server startup
+    startup: true
     chatMenu: true
-    description: "GoHighLevel CRM - Complete business management with 250+ tools"
+    description: "GoHighLevel CRM integration"
     serverInstructions: |
       You have access to GoHighLevel CRM tools. When users ask about CRM data, contacts, calendar, pipelines, or any CRM-related tasks, actively use these tools:
       
@@ -341,11 +341,11 @@ modelSpecs:
     - name: "Daily Content Machine"
       label: "Daily Content Machine"
       description: "Create engaging content for your audience daily"
-      iconURL: "/images/contenticon.png"
+      iconURL: "/images/contenticon2.png"
       endpoint: "agents"
       model: "claude-opus-4-20250514"
       modelLabel: "Daily Content Machine"
-      specIconURL: "/images/contenticon.png"
+      specIconURL: "/images/contenticon2.png"
       showInMenu: true
       preset:
         endpoint: "agents"

@@ -1,6 +1,4 @@
 import React from 'react';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '~/components/ui/Tabs';
-import GoHighLevelIntegration from './GoHighLevelIntegration';
 
 export default function Integrations() {
   return (
@@ -12,29 +10,9 @@ export default function Integrations() {
         </p>
       </div>
       
-      <Tabs defaultValue="crm" className="w-full">
-        <TabsList className="mb-4">
-          <TabsTrigger value="crm">CRM</TabsTrigger>
-          <TabsTrigger value="communication" disabled>Communication</TabsTrigger>
-          <TabsTrigger value="productivity" disabled>Productivity</TabsTrigger>
-        </TabsList>
-        
-        <TabsContent value="crm" className="space-y-4">
-          <GoHighLevelIntegration />
-        </TabsContent>
-        
-        <TabsContent value="communication" className="space-y-4">
-          <div className="text-center text-muted-foreground py-8">
-            <p>Coming soon: Slack, Discord, and more</p>
-          </div>
-        </TabsContent>
-        
-        <TabsContent value="productivity" className="space-y-4">
-          <div className="text-center text-muted-foreground py-8">
-            <p>Coming soon: Google Workspace, Notion, and more</p>
-          </div>
-        </TabsContent>
-      </Tabs>
+      <div className="text-center text-muted-foreground py-8">
+        <p>No integrations configured.</p>
+      </div>
     </div>
   );
 }
