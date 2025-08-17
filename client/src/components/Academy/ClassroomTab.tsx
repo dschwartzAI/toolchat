@@ -203,7 +203,7 @@ const ClassroomTab: React.FC = () => {
                     "absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-center justify-center",
                     module.thumbnail ? "hidden" : "flex"
                   )}
-                  style={{ display: module.thumbnail ? 'none' : 'flex' }}
+                  style={{ display: module.thumbnail ? 'block' : 'none' }}
                 >
                   <PlayCircle className="w-12 h-12 text-white/80" />
                 </div>
