@@ -39,6 +39,9 @@ const EventModal: React.FC<EventModalProps> = ({ event, isOpen, onClose, isAdmin
   
   const startDate = parseISO(event.start_datetime);
   const endDate = new Date(startDate.getTime() + event.duration_minutes * 60000);
+  
+  // Get user's timezone
+  const userTimezone = event.timezone || Intl.DateTimeFormat().resolvedOptions().timeZone;
 
   // Event type styling
   const getEventTypeStyle = (type: string) => {
@@ -219,11 +222,9 @@ const EventModal: React.FC<EventModalProps> = ({ event, isOpen, onClose, isAdmin
                 <Clock className="w-5 h-5 text-gray-400 dark:text-gray-500" />
                 <span>
                   {format(startDate, 'h:mm a')} - {format(endDate, 'h:mm a')}
-                  {event.timezone && (
-                    <span className="text-gray-500 dark:text-gray-400 ml-1">
-                      ({event.timezone})
-                    </span>
-                  )}
+                  <span className="text-gray-500 dark:text-gray-400 ml-1">
+                    ({userTimezone})
+                  </span>
                 </span>
               </div>
             </div>

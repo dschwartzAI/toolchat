@@ -83,11 +83,20 @@ const AdminEventModal: React.FC<AdminEventModalProps> = ({
   useEffect(() => {
     if (event) {
       // Editing existing event
+      // Convert UTC time to local time for the datetime-local input
+      const eventDate = new Date(event.start_datetime);
+      const year = eventDate.getFullYear();
+      const month = String(eventDate.getMonth() + 1).padStart(2, '0');
+      const day = String(eventDate.getDate()).padStart(2, '0');
+      const hours = String(eventDate.getHours()).padStart(2, '0');
+      const minutes = String(eventDate.getMinutes()).padStart(2, '0');
+      const localDateTimeStr = `${year}-${month}-${day}T${hours}:${minutes}`;
+      
       setFormData({
         title: event.title,
         description: event.description || '',
         event_type: event.event_type,
-        start_datetime: event.start_datetime.slice(0, 16), // Format for datetime-local input
+        start_datetime: localDateTimeStr, // Use local time for datetime-local input
         duration_minutes: event.duration_minutes,
         meeting_link: event.meeting_link || '',
         meeting_provider: event.meeting_provider || 'zoom',
@@ -130,11 +139,19 @@ const AdminEventModal: React.FC<AdminEventModalProps> = ({
     setIsLoading(true);
 
     try {
+      // Convert local datetime to ISO string (includes timezone offset)
+      const localDate = new Date(formData.start_datetime);
+      const dataToSubmit = {
+        ...formData,
+        start_datetime: localDate.toISOString(),
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone, // Get user's timezone
+      };
+
       if (event) {
         // Update existing event
         await updateEvent.mutateAsync({
           id: event._id,
-          data: formData,
+          data: dataToSubmit,
           updateSeries,
         });
         showToast({
@@ -147,11 +164,11 @@ const AdminEventModal: React.FC<AdminEventModalProps> = ({
           // Create from template
           await createEvent.mutateAsync({
             template: selectedTemplate,
-            ...formData,
+            ...dataToSubmit,
           });
         } else {
           // Create regular event
-          await createEvent.mutateAsync(formData);
+          await createEvent.mutateAsync(dataToSubmit);
         }
         showToast({
           message: 'Event created successfully',
@@ -327,6 +344,9 @@ const AdminEventModal: React.FC<AdminEventModalProps> = ({
             <div>
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 Start Date & Time *
+                <span className="text-xs font-normal text-gray-500 dark:text-gray-400 ml-1">
+                  ({Intl.DateTimeFormat().resolvedOptions().timeZone})
+                </span>
               </label>
               <input
                 type="datetime-local"

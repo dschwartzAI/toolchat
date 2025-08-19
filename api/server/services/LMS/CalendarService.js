@@ -182,13 +182,50 @@ class CalendarService {
 
   /**
    * Update an event
-   * @param {String} eventId - Event ID
+   * @param {String} eventId - Event ID (can be composite format: parentId_date for occurrences)
    * @param {Object} updates - Updates to apply
    * @param {Boolean} updateSeries - Update entire series for recurring events
    * @returns {Object} Updated event(s)
    */
   static async updateEvent(eventId, updates, updateSeries = false) {
-    const event = await CalendarEvent.findById(eventId);
+    let event;
+    
+    // Check if this is a composite ID for a recurring occurrence (format: parentId_date)
+    if (eventId.includes('_')) {
+      const [parentId, dateStr] = eventId.split('_');
+      // For occurrences, we need to find the parent event
+      event = await CalendarEvent.findById(parentId);
+      
+      if (!event) {
+        throw new Error('Parent event not found for occurrence');
+      }
+      
+      // If not updating series, we need to create a separate event for this occurrence
+      if (!updateSeries) {
+        // Create a new non-recurring event for this specific date
+        const occurrenceDate = new Date(dateStr);
+        const newEvent = new CalendarEvent({
+          ...event.toObject(),
+          _id: undefined,
+          parent_event_id: event._id,
+          is_recurring: false,
+          is_occurrence: true,
+          start_datetime: occurrenceDate,
+          ...updates
+        });
+        await newEvent.save();
+        
+        // Add this date to parent's cancelled_dates to prevent regeneration
+        if (!event.cancelled_dates.includes(dateStr)) {
+          event.cancelled_dates.push(dateStr);
+          await event.save();
+        }
+        
+        return { updated: 'occurrence', event: newEvent };
+      }
+    } else {
+      event = await CalendarEvent.findById(eventId);
+    }
     
     if (!event) {
       throw new Error('Event not found');
